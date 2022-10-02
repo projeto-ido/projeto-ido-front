@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio HOME</title>
+    <link rel="stylesheet" href="style-plat.css">
+    </link>
+</head>
+
+<body>
+    <div class="menu-lateral">
+        <div class="sessao-lateral">
+            <div class="sessao-logo">
+                <img class="logo" src="Logo (1).png" alt="logo IDO">
+            </div>
+
+        </div>
+        <div class="sessao-lateral" style="background-color: #FFFAFA; ">
+            <div>
+                <img class="icon-home" src="icon-home.png" alt="icone Home">
+                <p style="margin: 0px; color: #5D84C2;">Home</p>
+            </div>
+        </div>
+        <div class="sessao-lateral">
+            <div>
+                <img class="icon-grafico" src="icon-grafico.png" alt="icone Home">
+                <p style="margin: 0px; color: #FFFAFA;">Análise</p>
+            </div>
+        </div>
+        <div class="sessao-lateral">
+            <div>
+                <div>
+                    <img class="icon-etiqueta" src="icon-etiqueta.png" alt="icone Home">
+                    <p style="margin: 0px; color: #FFFAFA;">Etiquetas</p>
+                </div>
+            </div>
+        </div>
+        <div class="sessao-lateral">
+            <div>
+                <img class="icon-conheca" src="icon-conheca.png" alt="icone Home">
+                <p style="margin: 0px; color: #FFFAFA;">Conheça</p>
+            </div>
+        </div>
+        <div class="sessao-lateral">
+            <div>
+                <img class="icon-config" src="icon-config.png" alt="icone Home">
+                <p style="margin: 0px; color: #FFFAFA;">Configs</p>
+            </div>
+        </div>
+        <div class="sessao-sair">
+            <div>
+                <img class="icon-sair" src="icon-sair.png" alt="icone Home">
+                <p style="margin: 0px; color: #FFFAFA; padding-left: .2vw;">Sair</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="funcional">
+        <header>
+            <p class="nome-logado">Julia Veloso Santos</p>
+            <img class="foto-perfil" src="icon-perfil.png" alt="foto do perfil do usuário">
+        </header>
+
+        <div class="pesquisar-container">
+            <div class="elemento-pesquisar">
+                <input class="input-pesquisar" type="text" placeholder="Pesquisar">
+                <img class="icon-lupa" src="icon-lupa.png" alt="barra de pesquisa">
+            </div>
+        </div>
+
+        <div class="acoes-atividades">
+            <div class="container-options-filtros">
+                <img class="icon-filtro" src="icon-filtro.png" alt="imagem de filtro de pesquisa">
+                <select class="select-filtros" name="" id="">
+                    <option style="color: #E7E7E7;" value="">Filtros</option>
+                    <option value="">Prioridade</option>
+                    <option value="">Etiqueta</option>
+                    <option value="">Data</option>
+                </select>
+            </div>
+
+            <div class="opcoes-visualizacao">
+                <div style="display: table; ">
+
+
+                    <div onclick="verMatriz()" id="matriz" class="matriz">
+                        Matriz
+                    </div>
+                    <div id="grupo" onclick="agrupar()" class="grupo">
+                        Grupo
+                    </div>
+                    <div id="lista" onclick="listar()" class="lista">
+                        Lista
+                    </div>
+                    <div id="calendario" onclick="verCalendario()" class="calendario">
+                        Calendário
+                    </div>
+                </div>
+            </div>
+
+            <div class="botao-adicionar-tarefa">
+                <img class="icon-soma" src="icon-soma.png" alt="">
+                <div style="display: table;">
+                    <div class="texto-criacao-atividade">Criar Atividade</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="tarefas-geral-matriz" class="tarefas-geral-matriz">
+
+
+            <div class="tarefas-superior">
+
+                <div class="faca-agora">
+                    <h4 class="titulo-prioridade">Fazer agora</h4>
+                    <div class="tarefa-combo">
+                        <span class="tarefa">Nome da tarefa</span>
+                        <div class="container-etiquetas-matriz">
+                            <div class="etiqueta">Etiqueta</div>
+                            <div class="etiqueta" style="background-color: #51BDAB">Etiqueta</div>
+                        </div>
+                    </div>
+                    <div class="tarefa-combo">
+                        <span class="tarefa">Nome da tarefa</span>
+                        <div class="container-etiquetas-matriz">
+                            <div class="etiqueta">Etiqueta</div>
+                            
+                        </div>
+                    </div>
+                    <div class="tarefa-combo">
+                        <span class="tarefa">Nome da tarefa</span>
+                        <div class="container-etiquetas-matriz">
+                            <div class="etiqueta">Etiqueta</div>
+                            <div class="etiqueta" style="background-color: #51BDAB">Etiqueta</div>
+                        </div>
+                    </div>
+                    <div class="tarefa-combo">
+                        <span class="tarefa">Nome da tarefa</span>
+                        <div class="container-etiquetas-matriz">
+                            <div class="etiqueta">Etiqueta</div>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="agendar">
+                    <h4 class="titulo-prioridade">Agendar</h4>
+                    <div class="tarefa-combo">
+                        <span class="tarefa">Nome da tarefa</span>
+                        <div class="container-etiquetas-matriz">
+                            <div class="etiqueta">Etiqueta</div>
+                            
+                        </div>
+                    </div>
+                    <div class="tarefa-combo">
+                        <span class="tarefa">Nome da tarefa</span>
+                        <div class="container-etiquetas-matriz">
+                            <div class="etiqueta">Etiqueta</div>
+                            
+                        </div>
+                    </div>
+                    <div class="tarefa-combo">
+                        <span class="tarefa">Nome da tarefa</span>
+                        <div class="container-etiquetas-matriz">
+                            <div class="etiqueta">Etiqueta</div>
+                            
+                        </div>
+                    </div>
+                    <div class="tarefa-combo">
+                        <span class="tarefa">Nome da tarefa</span>
+                        <div class="container-etiquetas-matriz">
+                            <div class="etiqueta">Etiqueta</div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="tarefas-inferior">
+
+                <div class="delegar">
+                    <h4 class="titulo-prioridade">Delegar</h4>
+                    <div class="tarefa-combo">
+                        <span class="tarefa">Nome da tarefa</span>
+                        <div class="etiqueta">Etiqueta</div>
+                    </div>
+                    <div class="tarefa-combo">
+                        <span class="tarefa">Nome da tarefa</span>
+                        <div class="etiqueta">Etiqueta</div>
+                    </div>
+                    <div class="tarefa-combo">
+                        <span class="tarefa">Nome da tarefa</span>
+                        <div class="etiqueta">Etiqueta</div>
+                    </div>
+                    <div class="tarefa-combo">
+                        <span class="tarefa">Nome da tarefa</span>
+                        <div class="etiqueta">Etiqueta</div>
+                    </div>
+                </div>
+                <div class="nao-priorizar">
+                    <h4 class="titulo-prioridade">Não Priorizar</h4>
+                    <div class="tarefa-combo">
+                        <span class="tarefa">Nome da tarefa</span>
+                        <div class="etiqueta">Etiqueta</div>
+                    </div>
+                    <div class="tarefa-combo">
+                        <span class="tarefa">Nome da tarefa</span>
+                        <div class="etiqueta">Etiqueta</div>
+                    </div>
+                    <div class="tarefa-combo">
+                        <span class="tarefa">Nome da tarefa</span>
+                        <div class="etiqueta">Etiqueta</div>
+                    </div>
+                    <div class="tarefa-combo">
+                        <span class="tarefa">Nome da tarefa</span>
+                        <div class="etiqueta">Etiqueta</div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+        <div id="tarefas-geral-grupo" class="tarefas-geral-grupo">
+
+            <div onclick="booleanFazerAgora()" class="container-tipo-tarefa-topo">
+                <div class="container-tipo-tarefa-espaco">
+                    <span class="titulo-prioridade-grupo">Fazer Agora</span>
+                    <span id="iconFechadoFazerAgora" class="icon-fechado-fazer-agora">&#9668</span>
+                    <span id="iconAbertoFazerAgora" class="icon-aberto-fazer-agora">&#9660</span>
+                </div>
+
+            </div>
+            <div>
+
+            </div>
+            <div id="grupoFazerAgora" class="grupo-fazer-agora">
+                <div class="tarefa-combo">
+                    <span class="tarefa">Nome da tarefa</span>
+                    <div class="container-etiquetas-matriz">
+                        <div class="etiqueta">Etiqueta</div>
+                        <div class="etiqueta" style="background-color: #51BDAB">Etiqueta</div>
+                    </div>
+                </div>
+                <div class="tarefa-combo">
+                    <span class="tarefa">Nome da tarefa</span>
+                    <div class="container-etiquetas-matriz">
+                        <div class="etiqueta">Etiqueta</div>
+                        
+                    </div>
+                </div>
+                <div class="tarefa-combo">
+                    <span class="tarefa">Nome da tarefa</span>
+                    <div class="container-etiquetas-matriz">
+                        <div class="etiqueta">Etiqueta</div>
+                        <div class="etiqueta" style="background-color: #51BDAB">Etiqueta</div>
+                    </div>
+                </div>
+                <div class="tarefa-combo">
+                    <span class="tarefa">Nome da tarefa</span>
+                    <div class="container-etiquetas-matriz">
+                        <div class="etiqueta">Etiqueta</div>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div  onclick="booleanAgendar()" class="container-tipo-tarefa">
+                <div class="container-tipo-tarefa-espaco">
+                    <span class="titulo-prioridade-grupo">Agendar</span>
+                    <span id="iconFechadoAgendar" class="icon-fechado-agendar">&#9668</span>
+                    <span id="iconAbertoAgendar" class="icon-aberto-agendar">&#9660</span>
+                </div>
+
+
+            </div>
+            <div id="grupoAgendar" class="grupo-agendar">
+                <div class="tarefa-combo">
+                    <span class="tarefa">Nome da tarefa</span>
+                    <div class="container-etiquetas-matriz">
+                        <div class="etiqueta">Etiqueta</div>
+                        
+                    </div>
+                </div>
+                <div class="tarefa-combo">
+                    <span class="tarefa">Nome da tarefa</span>
+                    <div class="container-etiquetas-matriz">
+                        <div class="etiqueta">Etiqueta</div>
+                        
+                    </div>
+                </div>
+                <div class="tarefa-combo">
+                    <span class="tarefa">Nome da tarefa</span>
+                    <div class="container-etiquetas-matriz">
+                        <div class="etiqueta">Etiqueta</div>
+                        
+                    </div>
+                </div>
+                <div class="tarefa-combo">
+                    <span class="tarefa">Nome da tarefa</span>
+                    <div class="container-etiquetas-matriz">
+                        <div class="etiqueta">Etiqueta</div>
+                        
+                    </div>
+                </div>
+
+            </div>
+
+            <div onclick="booleanDelegar()" class="container-tipo-tarefa">
+                <div class="container-tipo-tarefa-espaco">
+                    <span class="titulo-prioridade-grupo">Delegar</span>
+                    <span id="iconFechadoDelegar" class="icon-fechado-delegar">&#9668</span>
+                    <span id="iconAbertoDelegar" class="icon-aberto-delegar">&#9660</span>
+                </div>
+
+            </div>
+            <div id="grupoDelegar" class="grupo-delegar">
+                <div class="tarefa-combo">
+                    <span class="tarefa">Nome da tarefa</span>
+                    <div class="container-etiquetas-matriz">
+                        <div class="etiqueta">Etiqueta</div>
+                        
+                    </div>
+                </div>
+                <div class="tarefa-combo">
+                    <span class="tarefa">Nome da tarefa</span>
+                    <div class="container-etiquetas-matriz">
+                        <div class="etiqueta">Etiqueta</div>
+                        
+                    </div>
+                </div>
+                <div class="tarefa-combo">
+                    <span class="tarefa">Nome da tarefa</span>
+                    <div class="container-etiquetas-matriz">
+                        <div class="etiqueta">Etiqueta</div>
+                        
+                    </div>
+                </div>
+                <div class="tarefa-combo">
+                    <span class="tarefa">Nome da tarefa</span>
+                    <div class="container-etiquetas-matriz">
+                        <div class="etiqueta">Etiqueta</div>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div onclick="booleanNaoPriorizar()" class="container-tipo-tarefa">
+                <div class="container-tipo-tarefa-espaco">
+                    <span class="titulo-prioridade-grupo">Não priorizar</span>
+                    <span id="iconFechadoNaoPriorizar" class="icon-fechado-nao-priorizar">&#9668</span>
+                    <span id="iconAbertoNaoPriorizar" class="icon-aberto-nao-priorizar">&#9660</span>
+                </div>
+
+            </div>
+            <div id="grupoNaoPriorizar" class="grupo-nao-priorizar">
+                <div class="tarefa-combo">
+                    <span class="tarefa">Nome da tarefa</span>
+                    <div class="container-etiquetas-matriz">
+                        <div class="etiqueta">Etiqueta</div>                        
+                    </div>
+                </div>
+                <div class="tarefa-combo">
+                    <span class="tarefa">Nome da tarefa</span>
+                    <div class="container-etiquetas-matriz">
+                        <div class="etiqueta">Etiqueta</div>
+                        
+                    </div>
+                </div>
+                <div class="tarefa-combo">
+                    <span class="tarefa">Nome da tarefa</span>
+                    <div class="container-etiquetas-matriz">
+                        <div class="etiqueta">Etiqueta</div>
+                        
+                    </div>
+                </div>
+                <div class="tarefa-combo">
+                    <span class="tarefa">Nome da tarefa</span>
+                    <div class="container-etiquetas-matriz">
+                        <div class="etiqueta">Etiqueta</div>
+                        
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div id="tarefas-geral-lista" class="tarefas-geral-lista">
+            <div class="container-tipo-tarefa-topo">
+                <div class="container-tipo-tarefa-espaco">
+                    <span class="titulo-prioridade-grupo">Lista de Tarefas</span>
+                </div>
+            </div>
+            <div id="grupoFazerAgoraLista" class="grupo-fazer-agora-lista">
+                <div class="tarefa-combo-lista">
+                    <span class="tarefa">Nome da tarefa</span>
+                    <div class="container-etiquetas">
+                        <div class="etiqueta-lista">Etiqueta</div>
+                        <div class="etiqueta-lista" style="background-color: #51BDAB">Etiqueta</div>
+                    </div>
+                    
+                </div>
+                <div class="tarefa-combo-lista">
+                    <span class="tarefa">Nome da tarefa</span>
+                    <div class="container-etiquetas">
+                        <div class="etiqueta-lista">Etiqueta</div>
+                    </div>
+                    
+                </div>
+                <div class="tarefa-combo-lista">
+                    <span class="tarefa">Nome da tarefa</span>
+                    <div class="container-etiquetas">
+                        <div class="etiqueta-lista">Etiqueta</div>
+                        <div class="etiqueta-lista" style="background-color: #51BDAB">Etiqueta</div>
+                    </div>
+                    
+                </div>
+                <div class="tarefa-combo-lista">
+                    <span class="tarefa">Nome da tarefa</span>
+                    <div class="container-etiquetas">
+                        <div class="etiqueta-lista">Etiqueta</div>
+                    </div>
+                    
+                </div>
+                <div class="tarefa-combo-lista">
+                    <span class="tarefa">Nome da tarefa</span>
+                    <div class="container-etiquetas">
+                        <div class="etiqueta-lista">Etiqueta</div>
+                    </div>
+                    
+                </div>
+                <div class="tarefa-combo-lista">
+                    <span class="tarefa">Nome da tarefa</span>
+                    <div class="container-etiquetas">
+                        <div class="etiqueta-lista">Etiqueta</div>
+                    </div>
+                    
+                </div>
+                <div class="tarefa-combo-lista">
+                    <span class="tarefa">Nome da tarefa</span>
+                    <div class="container-etiquetas">
+                        <div class="etiqueta-lista">Etiqueta</div>
+                    </div>
+                    
+                </div>
+                <div class="tarefa-combo-lista">
+                    <span class="tarefa">Nome da tarefa</span>
+                    <div class="container-etiquetas">
+                        <div class="etiqueta-lista">Etiqueta</div>
+                    </div>
+                    
+                </div>
+                <div class="tarefa-combo-lista">
+                    <span class="tarefa">Nome da tarefa</span>
+                    <div class="container-etiquetas">
+                        <div class="etiqueta-lista">Etiqueta</div>
+                    </div>
+                    
+                </div>
+                
+                <div class="respiro-lista">
+
+                </div>
+    
+            </div>
+            
+
+
+
+        </div>
+
+
+
+
+    </div>
+
+</body>
+
+<script>
+    var isFazerAgoraAberto = false;
+    var isAgendarAberto = false;
+    var isDelegarAberto = false;
+    var isNaoPriorizarAberto = false;
+
+    function agrupar() {
+        document.getElementById("tarefas-geral-matriz").style.display = 'none';
+        document.getElementById("tarefas-geral-lista").style.display = 'none';
+        document.getElementById("tarefas-geral-grupo").style.display = 'block';
+
+        modificarNaoClicados();
+
+        document.getElementById("grupo").style.backgroundColor = '#D9D9D9';
+        document.getElementById("grupo").style.color = '#5D84C2';
+        document.getElementById("grupo").style.fontWeight = 'bolder';
+
+        document.getElementById("grupoFazerAgora").style.display = 'block';
+        document.getElementById("iconAbertoFazerAgora").style.display = 'block';
+        document.getElementById("iconFechadoFazerAgora").style.display = 'none';
+
+
+    }
+
+    function listar() {
+        document.getElementById("tarefas-geral-matriz").style.display = 'none';
+        document.getElementById("tarefas-geral-grupo").style.display = 'none';
+        document.getElementById("tarefas-geral-lista").style.display = 'block';
+
+        modificarNaoClicados();
+
+        document.getElementById("lista").style.backgroundColor = '#D9D9D9';
+        document.getElementById("lista").style.color = '#5D84C2';
+        document.getElementById("lista").style.fontWeight = 'bolder';
+
+    }
+
+    function verCalendario() {
+        document.getElementById("tarefas-geral-matriz").style.display = 'none';
+        document.getElementById("tarefas-geral-lista").style.display = 'none';
+        document.getElementById("tarefas-geral-grupo").style.display = 'block';
+
+        modificarNaoClicados();
+
+        document.getElementById("calendario").style.backgroundColor = '#D9D9D9';
+        document.getElementById("calendario").style.color = '#5D84C2';
+        document.getElementById("calendario").style.fontWeight = 'bolder';
+
+
+    }
+
+    function verMatriz() {        
+        document.getElementById("tarefas-geral-lista").style.display = 'none';
+        document.getElementById("tarefas-geral-grupo").style.display = 'none';
+        document.getElementById("tarefas-geral-matriz").style.display = 'block';
+
+        modificarNaoClicados();
+
+        document.getElementById("matriz").style.backgroundColor = '#D9D9D9';
+        document.getElementById("matriz").style.color = '#5D84C2';
+        document.getElementById("matriz").style.fontWeight = 'bolder';
+
+
+    }
+
+    function modificarNaoClicados() {
+        document.getElementById("calendario").style.color = '#7E7D7D';
+        document.getElementById("calendario").style.fontWeight = 'lighter';
+        document.getElementById("calendario").style.backgroundColor = '#E7E7E7';
+
+        document.getElementById("grupo").style.color = '#7E7D7D';
+        document.getElementById("grupo").style.fontWeight = 'lighter';
+        document.getElementById("grupo").style.backgroundColor = '#E7E7E7';
+
+        document.getElementById("lista").style.color = '#7E7D7D';
+        document.getElementById("lista").style.fontWeight = 'lighter';
+        document.getElementById("lista").style.backgroundColor = '#E7E7E7';
+
+        document.getElementById("matriz").style.color = '#7E7D7D';
+        document.getElementById("matriz").style.fontWeight = 'lighter';
+        document.getElementById("matriz").style.backgroundColor = '#E7E7E7';
+    }
+
+    function booleanFazerAgora() {
+
+        if (isFazerAgoraAberto) {
+            isFazerAgoraAberto = false;
+            document.getElementById("grupoFazerAgora").style.display = 'none';
+            document.getElementById("iconAbertoFazerAgora").style.display = 'none';
+            document.getElementById("iconFechadoFazerAgora").style.display = 'block';
+        } else {
+            isFazerAgoraAberto = true;
+            document.getElementById("grupoFazerAgora").style.display = 'block';
+            document.getElementById("iconAbertoFazerAgora").style.display = 'block';
+            document.getElementById("iconFechadoFazerAgora").style.display = 'none';
+        }
+    }
+
+    function booleanAgendar(){
+        if (isAgendarAberto) {
+            isAgendarAberto = false;
+            document.getElementById("grupoAgendar").style.display = 'none';
+            document.getElementById("iconAbertoAgendar").style.display = 'none';
+            document.getElementById("iconFechadoAgendar").style.display = 'block';
+        } else {
+            isAgendarAberto = true;
+            document.getElementById("grupoAgendar").style.display = 'block';
+            document.getElementById("iconAbertoAgendar").style.display = 'block';
+            document.getElementById("iconFechadoAgendar").style.display = 'none';
+        }
+    }
+
+    function booleanDelegar(){
+        if (isDelegarAberto) {
+            isDelegarAberto = false;
+            document.getElementById("grupoDelegar").style.display = 'none';
+            document.getElementById("iconAbertoDelegar").style.display = 'none';
+            document.getElementById("iconFechadoDelegar").style.display = 'block';
+        } else {
+            isDelegarAberto = true;
+            document.getElementById("grupoDelegar").style.display = 'block';
+            document.getElementById("iconAbertoDelegar").style.display = 'block';
+            document.getElementById("iconFechadoDelegar").style.display = 'none';
+        }
+    }
+
+    function booleanNaoPriorizar(){
+        if (isNaoPriorizarAberto) {
+            isNaoPriorizarAberto = false;
+            document.getElementById("grupoNaoPriorizar").style.display = 'none';
+            document.getElementById("iconAbertoNaoPriorizar").style.display = 'none';
+            document.getElementById("iconFechadoNaoPriorizar").style.display = 'block';
+        } else {
+            isNaoPriorizarAberto = true;
+            document.getElementById("grupoNaoPriorizar").style.display = 'block';
+            document.getElementById("iconAbertoNaoPriorizar").style.display = 'block';
+            document.getElementById("iconFechadoNaoPriorizar").style.display = 'none';
+        }
+    }
+</script>
+
+</html>
