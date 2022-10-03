@@ -1,0 +1,164 @@
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 62.5%;
+    display: flex;
+}
+
+/* HEADER */
+.header {
+    position: fixed;
+    width: 100vw;
+    height: 15%;
+    border-bottom: 0.4vh #5D84C2 solid;
+}
+
+.main-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+}
+
+/* TOOLBAR */
+.main-container .toolbar {
+    width: 30%;
+    height: 100vh;
+    background-color: #1F1E1E;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-container .toolbar .container {
+    height: 95%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.main-container .toolbar .container div {
+    width: 100%;
+    height: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-container .toolbar .container .foto-perfil {
+    position: relative;
+    background-color: white;
+    float: left;
+    width: 65%;
+    height: 100%;
+    border-radius: 50%;
+    z-index: 1;
+    display: flex;
+    justify-content: end;
+}
+
+.main-container .toolbar .container .foto-perfil div {
+    width: 35%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    z-index: 1;
+    color: white;
+    font-size: 2em;
+}
+
+.main-container .toolbar .container .foto-perfil div .nivel {
+    width: 100%;
+    height: 35%;
+    background-color: #FFCA6D;
+    border-radius: 50%;
+    border: 0.5vh #1F1E1E solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    font-weight: 900;
+}
+
+.main-container .toolbar .container .opcoes {
+    width: 65%;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    color: white;
+}
+
+.main-container .toolbar .container .opcoes #nome_usuario {
+    font-weight: 900;
+    font-size: 2em;
+}
+
+.main-container .toolbar .container .opcoes #usuario {
+    font-size: 1.3em;
+}
+
+.main-container .toolbar .container .opcoes button {
+    width: 100%;
+    height: 22%;
+    border: none;
+    background-color: #5D84C2;
+    border-radius: 1em;
+    color: white;
+}
+
+.main-container .toolbar .container .opcoes button:hover {
+    cursor: pointer;
+    transition-duration: 0.3s;
+    background-color: #FFCA6D;
+}
+
+.main-container .toolbar .container .status {
+    width: 80%;
+    background-color: #E7E7E7;
+    border-top: 0.5em #7463C7 solid;
+    border-bottom-right-radius: 1em;
+    border-bottom-left-radius: 1em;
+}
+
+.main-container .toolbar .container .status .status-container {
+    width: 80%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+.main-container .toolbar .container .status h1 {
+    color: #7463C7;
+    font-size: 1.5em;
+}
+
+.main-container .toolbar .container .status span {
+    font-size: 1.5em;
+}
+
+/* CONTEUDO */
+.main-container .conteudo {
+    width: 70%;
+    height: 100vh;
+    background-image: url("../assets/fundo-perfil.png");
+    display: flex;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+    opacity: 0.1;
+}
+
+.main-container .conteudo .container {
+    height: 100%;
+    width: 90%;
+}
+
