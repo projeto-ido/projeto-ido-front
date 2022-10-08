@@ -14,7 +14,7 @@ body {
 }
 
 /* HEADER */
-.main-container .header {
+.main-container .box-header {
     position: fixed;
     display: flex;
     justify-content: flex-end;
@@ -23,14 +23,24 @@ body {
     border-bottom: 0.4vh #5D84C2 solid;
 }
 
-.main-container .header .btn-box {
-    height: 100%;
+.main-container .box-header .btn-box {
+    position: fixed;
+    height: 15%;
     width: 70%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
 }
 
-.main-container .header .btn-box div {
+.main-container .box-header .btn-box .container {
+    height: 100%;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-container .box-header .btn-box .container div {
     width: 33%;
     height: 100%;
     display: flex;
@@ -39,7 +49,7 @@ body {
     flex-direction: column;
 }
 
-.main-container .header .btn-box div .text {
+.main-container .box-header .btn-box .container div .text {
     width: 100%;
     height: 70%;
     display: flex;
@@ -47,7 +57,7 @@ body {
     align-items: center;
 }
 
-.main-container .header .btn-box div .div-selection {
+.main-container .box-header .btn-box .container div .div-selection {
     width: 100%;
     height: 30%;
     display: flex;
@@ -55,19 +65,25 @@ body {
     align-items: center;
 }
 
-.main-container .header .btn-box div .div-selection .selection {
+.main-container .box-header .btn-box .container div .div-selection .selection {
     width: 60%;
     height: 30%;
     border-radius: 1vw 1vw 0 0;
     background-color: #5D84C2;
 }
 
-.main-container .header .btn-box span {
-    font-size: 1.5vw;
+.main-container .box-header .btn-box .container span {
+    font-size: 1.3vw;
     font-weight: 700;
 }
 
-/* TOOLBAR */
+.main-container .box-header .btn-box .container span:hover {
+    cursor: pointer;
+    transition-duration: 0.3s;
+    color: #5D84C2;
+}
+
+/* SIDEBAR */
 .main-container .toolbar {
     width: 30%;
     height: 100vh;
@@ -184,7 +200,8 @@ body {
 
 .main-container .toolbar .container .status h1 {
     color: #7463C7;
-    font-size: 1vw;
+    font-size: 1.2vw;
+    margin: 0;
 }
 
 .main-container .toolbar .container .status span {
@@ -195,17 +212,193 @@ body {
 .main-container .conteudo {
     width: 70%;
     height: 100vh;
-    background-image: url("../images/fundo-perfil.png");
     display: flex;
-    justify-content: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: right;
-    opacity: 0.1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 .main-container .conteudo .container {
-    height: 100%;
-    width: 90%;
+    height: 85%;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+.main-container .conteudo .container .box-container {
+    height: 90%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* ESTRUTURA = OVERVIEW - CONQUISTAS */
+.main-container .conteudo .container .box-container .div-up {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-container .conteudo .container .box-container .div-down {
+    width: 100%;
+    height: 55%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ESTRUTURA GRAFICOS */
+.main-container .conteudo .container .box-container .div-up-grafico {
+    width: 100%;
+    height: 55%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-container .conteudo .container .box-container .div-down-grafico {
+    width: 100%;
+    height: 40%;
+    background-color: #5D84C2;
+}
+
+/* OVERVIEW */
+.div-up .overview-container-up {
+    width: 100%;
+    height: 100%;
+    background-color: #E7E7E7;
+    border-top: 0.5vw #7463C7 solid;
+    border-bottom-right-radius: 1vw;
+    border-bottom-left-radius: 1vw;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.div-up .overview-container-up .overview-descricao {
+    height: 80%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.div-up .overview-container-up .titulo-descricao {
+    height: 30%;
+    width: 100%;
+    border-bottom: 0.2vh black solid;
+    color: black;
+    display: flex;
+    align-items: center;
+    font-size: 0.5vw;
+}
+
+.div-up .overview-container-up .texto-descricao {
+    height: 60%;
+    width: 100%;
+    color: black;
+    display: flex;
+    align-items: center;
+    font-size: 1vw;
+}
+
+.div-up .overview-container-up .overview-imagem {
+    height: 80%;
+    width: 40%;
+    border-radius: 1.5vw;
+    background-color: #1F1E1E;
+}
+
+/* .div-down .overview-container-down {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    display: flex;
+    justify-content: space-between;
+} */
+
+/* .div-down .overview-container-down div {
+    width: 48%;
+    height: 100%;
+    background-color: #E7E7E7;
+    border-top: 0.5vw #7463C7 solid;
+    border-bottom-right-radius: 1vw;
+    border-bottom-left-radius: 1vw;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+} */
+
+/* CONQUISTAS */
+.div-up .conquista-container-up {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.div-up .conquista-container-up .conquista-badges {
+    height: 100%;
+    width: 48%;
+    background-color: #E7E7E7;
+    border-top: 0.5vw #7463C7 solid;
+    border-bottom-right-radius: 1vw;
+    border-bottom-left-radius: 1vw;
+}
+
+.div-up .conquista-container-up .conquista-grafico {
+    height: 100%;
+    width: 48%;
+}
+
+.div-down .conquista-container-down {
+    height: 100%;
+    width: 100%;
+    background-color: #E7E7E7;
+    border-top: 0.5vw #7463C7 solid;
+    border-bottom-right-radius: 1vw;
+    border-bottom-left-radius: 1vw;
+}
+
+/* GRAFICOS */
+/* .div-up-grafico .grafico-container-up {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+} */
+
+/* .div-up-grafico .grafico-container-up div {
+    height: 100%;
+    width: 48%;
+    background-color: #E7E7E7;
+    border-top: 0.5vw #7463C7 solid;
+    border-bottom-right-radius: 1vw;
+    border-bottom-left-radius: 1vw;
+} */
+
+.div-down-grafico .grafico-container-down {
+    height: 100%;
+    width: 100%;
+    background-color: #E7E7E7;
+    border-top: 0.5vw #7463C7 solid;
+    border-bottom-right-radius: 1vw;
+    border-bottom-left-radius: 1vw;
+}
+
+/* ITEM SQUARE */
+.item-square {
+    height: 100%;
+    width: 48%;
+    background-color: #E7E7E7;
+    border-top: 0.5vw #7463C7 solid;
+    border-bottom-right-radius: 1vw;
+    border-bottom-left-radius: 1vw;
+}

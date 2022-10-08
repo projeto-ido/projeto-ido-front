@@ -1,31 +1,35 @@
 import React from 'react';
 
 function Header() {
+    // function Selecionar() {
+        <div className="selection"></div>
+    // } 
+        
     return(
         <>
-            <div class="header">
-                <div class="btn-box">
-                    <div>
-                        <div class="text">
-                            <span>Overview</span>
+            <div className="box-header">
+                <div className="btn-box">
+                    <div className="container">
+                        <div>
+                            <div className="text">
+                                <span>Overview</span>
+                            </div>
+                            <div className="div-selection"></div>
                         </div>
-                        <div class="div-selection">
-                            <div class="selection"></div>
-                        </div>
-                    </div>
 
-                    <div>
-                    <div class="text">
+                        <div>
+                        <div className="text">
                             <span>Conquistas</span>
                         </div>
-                        <div class="div-selection"></div>
-                    </div>
+                            <div className="div-selection"></div>
+                        </div>
 
-                    <div>
-                    <div class="text">
+                        <div>
+                        <div className="text">
                             <span>Gráficos</span>
                         </div>
-                        <div class="div-selection"></div>
+                            <div className="div-selection"></div>
+                        </div>
                     </div>
                 </div>
             </div>

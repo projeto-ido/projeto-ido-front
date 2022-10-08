@@ -3,27 +3,27 @@ import React from 'react';
 function Sidebar() {
     return(
         <>
-            <div class="toolbar">
-                <div class="container">
+            <div className="toolbar">
+                <div className="container">
                     <div>
-                        <div class="foto-perfil">
+                        <div className="foto-perfil">
                             <div>
-                                <div class="nivel">
-                                    <span id="nm-nivel">12</span>
+                                <div className="nivel">
+                                    <span id="nm-nivel"></span>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="opcoes">
-                        <span id="nome_usuario">Julia Veloso</span>
-                        <span id="usuario">@juvelososantos</span>
+                    <div className="opcoes">
+                        <span id="nome_usuario">Nome</span>
+                        <span id="usuario">@username</span>
                         <button>Editar Perfil</button>
                         <button>Sair</button>
                     </div>
 
-                    <div class="status">
-                        <div class="status-container">
+                    <div className="status">
+                        <div className="status-container">
                             <h1>Status Gerais</h1>
                             <span>Total de tarefas:</span>
                             <span>Tarefas pendentes:</span>
