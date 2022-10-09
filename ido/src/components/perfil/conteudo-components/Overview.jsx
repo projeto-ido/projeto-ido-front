@@ -1,5 +1,6 @@
 import React from 'react';
 import ItemSquare from './ItemSquare';
+import api from '../../../api';
 
 function Overview(props) {
     return(
