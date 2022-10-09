@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
+:root{
+    font-size: 62.5%;
+    font-family: 'Roboto', sans-serif;
+}
+
+@font-face {
+    font-family: 'Aqum';
+    src: url('../css/fonts/Aqum.otf') format('opentype'),
+    url('../css/fonts/Aqum.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+main{
+    height: 100vh;
+}
+
+main .main__container{
+    height: 100%;
+    display: flex;
+}
+
+.main__container{
+    height: 100%;
+}
+
+.main__container .formulario{
+    width: 37.5vw;
+    height: 100%;
+    background-color: #1F1E1E;
+}
+
+.main__container .formulario .container{
+    width: 75%;
+    margin: auto;
+    margin-top: 8.6vh;
+    height: 91%;
+    display: flex;
+    flex-direction: column;
+}
+
+.voltar{
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    height: 4vh;
+}
+
+.voltar img{
+    height: 100%;
+}
+
+.main__container .formulario .container .titulo{
+    height: 18.1vh;
+}
+
+.main__container .formulario .container h1{
+    font-size: 6.6rem;
+    font-family: "Aqum", sans-serif;
+    font-weight: 700;
+    color: #FFFF;
+}
+
+
+.footer{
+    display: flex;
+    height: 26vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.formulario .container .botao{
+    height: 6.92vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.formulario .container .botao .botao__container__cadastro{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+    width: 15.52vw;
+    background-color: #FFCA6D;
+    border-radius: 10rem;
+    cursor: pointer;
+}
+
+.formulario .container .botao .botao__container__login{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+    width: 15.52vw;
+    box-sizing: border-box;
+    border: #FFCA6D solid .2rem;
+    background: transparent;
+    border-radius: 10rem;
+    cursor: pointer;
+    color: #FFCA6D;
+    transition: .5s;
+}
+
+.formulario .container .botao .botao__container__login:hover{
+    background-color: #FFCA6D;
+    color: #1F1E1E;
+}
+
+.formulario .container .botao .botao__container p{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.img__icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40%;
+}
+
+.img__icon img{
+    width: 100%;
+}
+
+.main__container .img__calendario{
+    background: url("../images/background.png");
+    background-size: cover;
+    width: 62.5vw;
+    height: 100%;
+    background-color: #fffafa;
+}
+
+.main__container .img__calendario .calendario__container{
+    height: 100%;
+}
+
+.main__container .img__calendario .calendario__container .balao{
+    height: 30%;
+    display: flex;
+    align-items: center;
+}
+
+.calendario__container .balao img{
+    height: 60%;
+    margin-left: 15%;
+}
+
+.main__container .img__calendario .calendario__container .calendario{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40%;
+}
+
+.calendario__container .calendario img{
+    height: 100%;
+}
+
+.main__container .img__calendario .calendario__container .balao__invertido{
+    height: 30%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.calendario__container .balao__invertido img{
+    height: 60%;
+    margin-right: 16%;
+}
+
+@media screen and (max-width: 1600px) {
+    .main__container .formulario .container h1{
+        font-size: 3.5vw;
+    }
+
+    .main__container .formulario .container .campo{
+        height: 22.3%;
+    }
+
+    .label label{
+        font-size: 1.2vw;
+    }
+
+    input{
+        font-size: 1.4vw;
+    }
+
+}

@@ -1,19 +1,21 @@
 import React from 'react';
-import './style.css';
 
-export const Button = () => {
+import logo from '../../assets/images/logo.png'
+
+export const Button = ({ text, className }) => {
     return (
         <>
-            <div class="botao">
-                <div class="botao__container">
-                    <p>Logar</p>
+            <div className="footer">
+                <div className="botao">
+                    <div className={"botao__container " + className}>
+                        <p>{text}</p>
+                    </div>
+                </div>
+
+                <div className="img__icon">
+                    <img src={logo} alt="" />
                 </div>
             </div>
-
-            <div class="img__icon">
-                <img src="./assets/logo.png" alt="" />
-            </div>
-
         </>
     );
 }

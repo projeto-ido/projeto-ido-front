@@ -1,5 +1,5 @@
 .main__container .formulario .container .campos{
-    height: 52.9%;
+    height: 46vh;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -7,10 +7,10 @@
 }
 
 .main__container .formulario .container .campo{
-    height: 22.3%;
+    height: 18.3%;
     width: 100%;
     box-sizing: border-box;
-    border: #fff solid .2rem;
+    border: #fff solid 0.2rem;
     border-radius: 2rem;
 }
 

@@ -1,10 +1,24 @@
 import React from 'react';
-import './style.css';
+
+import '../SingUp/style.css';
 
 export const SignUp = () => {
   return (
     <>
       <div className="campos">
+
+      <div className="campo username">
+          <div className="form__container">
+
+            <div className="label">
+              <label for="">Username</label>
+            </div>
+
+            <div className="input">
+              <input placeholder="Username..." type="text" />
+            </div>
+          </div>
+        </div>
 
         <div className="campo email">
           <div className="form__container">
