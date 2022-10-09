@@ -16,7 +16,7 @@
 
 
 
-.main__container .formulario .container .campo{
+.main__container .formulario .container .campo__signin{
     height: 26.3%;
     width: 100%;
     box-sizing: border-box;
@@ -25,14 +25,14 @@
 }
 
 
-.main__container .formulario .container .campo .form__container{
+.main__container .formulario .container .campo__signin .form__container{
     width: 90%;
     margin: auto;
     height: 88%;
     padding: 2% 0 0 0;
 }
 
-.campo .form__container .label{
+.campo__signin .form__container .label{
     height: 46%;
     display: flex;
     align-items: center;
@@ -44,7 +44,7 @@
     font-weight: 600;
 }
 
-.campo .form__container .input{
+.campo__signin .form__container .input{
     display: flex;
     align-items: center;
     height: 50%;

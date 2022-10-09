@@ -1,13 +1,13 @@
 import React from 'react';
 
-import '../SingUp/style.css';
+import './style.css';
 
 export const SignUp = () => {
   return (
     <>
       <div className="campos">
 
-      <div className="campo username">
+      <div className="campo__signup username">
           <div className="form__container">
 
             <div className="label">
@@ -20,7 +20,7 @@ export const SignUp = () => {
           </div>
         </div>
 
-        <div className="campo email">
+        <div className="campo__signup email">
           <div className="form__container">
 
             <div className="label">
@@ -33,7 +33,7 @@ export const SignUp = () => {
           </div>
         </div>
 
-        <div className="campo senha">
+        <div className="campo__signup senha">
           <div className="form__container">
 
             <div className="label">
@@ -46,7 +46,7 @@ export const SignUp = () => {
           </div>
         </div>
 
-        <div className="campo confirmacao__senha">
+        <div className="campo__signup confirmacao__senha">
           <div className="form__container">
 
             <div className="label">

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../SingIn/style.css'
+import './style.css'
 
 export const SignIn = () => {
     return (
@@ -7,7 +7,7 @@ export const SignIn = () => {
             <div class="campos">
 
                 <div className="campos__container">
-                    <div class="campo email">
+                    <div class="campo__signin email">
                         <div class="form__container">
 
                             <div class="label">
@@ -20,7 +20,7 @@ export const SignIn = () => {
                         </div>
                     </div>
 
-                    <div class="campo senha">
+                    <div class="campo__signin senha">
                         <div class="form__container">
 
                             <div class="label">

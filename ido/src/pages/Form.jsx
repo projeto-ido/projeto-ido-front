@@ -27,7 +27,7 @@ export const Form = () => {
                         <ComeBack />
                         <Title text="Bem Vindo de Volta!"/>
 
-                        <SignUp />
+                        <SignIn />
 
                         <Button text="Cadastre-se" className="botao__container__cadastro"/>
                     </div>

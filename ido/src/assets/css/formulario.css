@@ -179,7 +179,11 @@ main .main__container{
         font-size: 3.5vw;
     }
 
-    .main__container .formulario .container .campo{
+    .main__container .formulario .container .campo__signin{
+        height: 22.3%;
+    }
+
+    .main__container .formulario .container .campo__signup{
         height: 22.3%;
     }
 
