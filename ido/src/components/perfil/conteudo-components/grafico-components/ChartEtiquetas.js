@@ -1,7 +1,7 @@
 import React from 'react';
 import ApexChart from 'react-apexcharts';
 
-function ChartEtiqueta() {
+function ChartEtiqueta(props) {
     const options = {
         dataLabels: {
             enabled: false
@@ -24,17 +24,17 @@ function ChartEtiqueta() {
                         name: {
                             show: true,
                             fontSize: "1vw",
-                            fontFamily: "Roboto"
+                            fontFamily: 'Roboto, Helvetica, Arial'
                         },
                         value: {
                             show: true,
                             fontSize: "1.5vw",
-                            fontFamily: "Roboto"
+                            fontFamily: 'Roboto, Helvetica, Arial'
                         },
                         total: {
                             show: true,
                             fontSize: "1.5vw",
-                            fontFamily: "Roboto",
+                            fontFamily: 'Roboto, Helvetica, Arial',
                             fontWeight: "bold"
                         }
                     }

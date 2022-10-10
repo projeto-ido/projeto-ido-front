@@ -2,7 +2,7 @@ import React from 'react';
 import ChartEtiqueta from './ChartEtiquetas';
 import ApexChart from 'react-apexcharts';
 
-function ItemSquareEtiqueta() {
+function ItemSquareEtiqueta(props) {
     const options = {
         dataLabels: {
             enabled: false
@@ -25,17 +25,17 @@ function ItemSquareEtiqueta() {
                         name: {
                             show: true,
                             fontSize: "1vw",
-                            fontFamily: "Roboto"
+                            fontFamily: 'Roboto, Helvetica, Arial'
                         },
                         value: {
                             show: true,
                             fontSize: "1.5vw",
-                            fontFamily: "Roboto"
+                            fontFamily: 'Roboto, Helvetica, Arial'
                         },
                         total: {
                             show: true,
                             fontSize: "1.5vw",
-                            fontFamily: "Roboto",
+                            fontFamily: 'Roboto, Helvetica, Arial',
                             fontWeight: "bold"
                         }
                     }
@@ -48,10 +48,10 @@ function ItemSquareEtiqueta() {
             width:0
         },
 
-        labels: ['Apple', 'Mango', 'Orange', 'Watermelon', 'Limon']
+        labels: props.etiquetas
     }
 
-    const quantidade = [44, 55, 41, 17, 15]
+    const quantidade = props.quantidade
 
     return(
         <>
