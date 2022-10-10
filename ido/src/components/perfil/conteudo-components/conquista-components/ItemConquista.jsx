@@ -17,7 +17,7 @@ function ItemConquista(props) {
 
                     <div className="conquista-imagem">
                         <div className="div-imagem">
-                            <img className="imagem-circle" alt={props.titulo} src={props.imagem} />
+                            <img alt={props.titulo} src={props.imagem} />
                         </div>
                     </div>
                 </div>

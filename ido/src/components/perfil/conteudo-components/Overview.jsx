@@ -1,37 +1,42 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ItemSquare from './ItemSquare';
+import ItemRectangleBio from './overview-components/ItemRectangleBio';
 import api from '../../../api';
 
 function Overview(props) {
+    const [listaInfoUser, setListaInfoUser] = useState([]);
+
+    useEffect(() => {
+        api.get().then(res => {
+          console.log("dados:", res.data);
+          console.log("status code:", res.status);
+          setListaInfoUser(res.data);
+        }).catch(erro => {
+          console.log(erro);
+        })
+    }, [])
+
     return(
         <>
             <div className="div-up">
-                <div className="overview-container-up">
-                    <div className="overview-descricao">
-                        <div className="titulo-descricao">
-                            <h1>Julia Veloso Santos, 21 anos</h1>
-                        </div>
 
-                        <div className="texto-descricao">
-                            <span>“Sou uma universitária e estagiária de medicina, 
-                                   ficando grande parte do tempo fora de casa e não 
-                                   consigo me organizar e gerenciar meu tempo devido 
-                                   a minha rotina puxada.”​</span>
-                        </div>
-                    </div>
-
-                    <div className="overview-imagem"></div>
-                </div>
+                {
+                    listaInfoUser.map(infoAtual => (
+                        <React.Fragment key={infoAtual.id}>
+                            <ItemRectangleBio 
+                                titulo={infoAtual.titulo}
+                                texto={infoAtual.texto}
+                                imagem={infoAtual.imagem}
+                            />
+                        </React.Fragment>
+                    ))
+                }
+                
             </div>
             
             <div className="div-down">
                 <ItemSquare />
                 <ItemSquare />
-
-                {/* <div className="overview-container-down">
-                    <div></div>
-                    <div></div>
-                </div> */}
             </div>
         </>
     )

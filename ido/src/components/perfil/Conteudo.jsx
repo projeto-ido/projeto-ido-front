@@ -9,7 +9,7 @@ function Conteudo() {
             <div className="conteudo">
                 <div className="container">
                     <div className="box-container">
-                        <Conquista />
+                        <Grafico />
                     </div>
                 </div>
             </div>
