@@ -171,9 +171,8 @@ header {
 }
 
 .container-options-filtros {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+    margin-top: 4.2vh;
+    margin-left: 5.1vw;
     display: flex;
     background-color: #E7E7E7;
     width: 18vw;
@@ -187,15 +186,13 @@ header {
 }
 
 .opcoes-visualizacao {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+    margin-top: 4vh;
+    margin-left: 3.4vw;
     display: flex;
     background-color: #E7E7E7;
     width: 38vw;
     height: 6.5vh;
     border-radius: 10px;
-    left: 8.5vw;
     border: .2vh solid #AFAFAF;
     cursor: pointer;
     min-height: 20px;
@@ -205,9 +202,8 @@ header {
 }
 
 .botao-adicionar-tarefa {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+    margin-top: 4.2vh;
+    margin-left: 3.3vw;
     display: flex;
     background-color: #FFCA6D;
     width: 18vw;
@@ -228,6 +224,7 @@ header {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
+
 }
 
 .select-filtros {
@@ -240,7 +237,6 @@ header {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
-
     color: #7E7D7D;
     cursor: pointer;
     font-size: 1.2vw;
@@ -257,7 +253,6 @@ header {
     display: table-cell;
     vertical-align: middle;
     padding-left: 12%;
-    background-color: #D9D9D9;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
 }
@@ -318,11 +313,11 @@ header {
     justify-content: space-between;
 }
 
-.container-etiquetas-matriz{
+.container-etiquetas-matriz {
     display: flex;
     width: 40%;
-    
-   }
+
+}
 
 
 .faca-agora {
@@ -393,7 +388,7 @@ header {
     padding-top: 2vh;
     width: 50%;
     padding-left: 2vw;
-    
+
 }
 
 .etiqueta {
@@ -402,7 +397,7 @@ header {
     line-height: normal;
     background-color: #7463C7;
     border-radius: 5px;
-    text-align: center;    
+    text-align: center;
     margin-top: 2vh;
     color: #fffafab3;
     font-weight: 200;
@@ -488,7 +483,7 @@ header {
     cursor: pointer;
 }
 
-.container-tipo-tarefa-topo{
+.container-tipo-tarefa-topo {
     background-color: #E7E7E7;
     width: 100%;
     border-right: .3vh solid #E7E7E7;
@@ -508,7 +503,7 @@ header {
     width: 90%;
     display: flex;
     justify-content: space-between;
-    
+
 }
 
 
@@ -516,43 +511,43 @@ header {
     display: flex;
 }
 
-.icon-fechado-fazer-agora{    
+.icon-fechado-fazer-agora {
     color: #7E7D7D;
 }
 
-.icon-aberto-fazer-agora{
+.icon-aberto-fazer-agora {
     display: none;
     color: #7E7D7D;
 }
 
-.icon-aberto-agendar{
+.icon-aberto-agendar {
     display: none;
     color: #7E7D7D;
 }
 
-.icon-fechado-agendar{    
+.icon-fechado-agendar {
     color: #7E7D7D;
 }
 
-.icon-aberto-delegar{
+.icon-aberto-delegar {
     display: none;
     color: #7E7D7D;
 }
 
-.icon-fechado-delegar{    
+.icon-fechado-delegar {
     color: #7E7D7D;
 }
 
-.icon-aberto-nao-priorizar{
+.icon-aberto-nao-priorizar {
     display: none;
     color: #7E7D7D;
 }
 
-.icon-fechado-nao-priorizar{    
+.icon-fechado-nao-priorizar {
     color: #7E7D7D;
 }
 
-.titulo-prioridade-grupo{
+.titulo-prioridade-grupo {
     font-weight: 700;
     color: #7463C7;
 
@@ -579,7 +574,7 @@ header {
 
 }
 
-.respiro{
+.respiro {
     height: 10vh;
 }
 
@@ -591,16 +586,14 @@ header {
     border-bottom: .3vh solid #E7E7E7;
 }
 
-.container-etiquetas{
- display: flex;
- width: 100%;
- min-width: 300px;   
+.container-etiquetas {
+    display: flex;
+    width: 100%;
+    min-width: 300px;
 }
 
 .etiqueta-lista {
-    position: relative;
-    top: 15%;
-    transform: translateY(-50%);
+    margin-bottom: 1.5vh;
     width: 100px;
     height: min-content;
     line-height: normal;
@@ -612,6 +605,288 @@ header {
     color: #fffafab3;
     font-weight: 200;
 
+}
+
+/*Modal criação de tarefa*/
+
+.modal-criar-tarefa {
+    visibility: hidden;
+    opacity: 0;
+    top: 10vh;
+    right: 0;
+    bottom: 0;
+    left: 30vw;
+    align-items: center;
+    justify-content: center;
+    width: 50vw;
+    height: 70vh;
+    position: fixed;
+    background: #FFFFFF;
+    border-top: 8px solid #7463C7;
+    border-radius: 0px 0px 25px 25px;
+    min-height: 200px;
+}
+
+.fundo-escuro {
+    position: fixed;
+    width: 99vw;
+    height: 100%;
+    left: 0;
+    top: 0px;
+    display: none;
+    background: rgba(0, 0, 0, 0.84);
+}
+
+.titulo-modal-tarefa {
+    width: 100%;
+    height: 5vh;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    color: #7463C7;
+    font-weight: 700;
+   font-size: 2.5vh;
+}
+
+.topo-modal-tarefa {
+    padding-left: 47vw;
+    width: 100%;
+    line-height: normal;
+    min-height: 10px;
+}
+
+.botao-sair-tarefa {
+    margin-top: 4px;
+    width: 2vw;
+    font-size: 2.5vh;
+    background: #D3D3D3;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+
+}
+
+.titulo-tarefa-modal{
+    padding-top: 0;
+    margin-top: 0;
+    padding-left: 3.3vw;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    color: #1F1E1E;
+    height: 3.5vh;
+    font-size: 2vh;
+}
+
+.input-titulo-tarefa{
+    width: 86%;
+    height: 4vh;
+    margin-left: 6.6%;
+    background: #E7E7E7;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
+.classificacao{
+    width: 100%;
+    display: flex;
+    min-height: 30px;
+}
+
+.importancia{
+    width: 33.3%;
+    height: 9vh;
+}
+
+.select-importancia{
+    margin-left: 3.5vw;
+    border: none;
+    background-color: #E7E7E7;
+    width: 60%;
+    height: 4.5vh;
+    box-shadow: 0 0 0 0;
+    outline: 0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    color: #7E7D7D;
+    cursor: pointer;
+    font-size: 1.2vw;
+    
+}
+
+.urgencia{
+    width: 33.3%;
+    height: 9vh;
+}
+
+.prioridade{
+    width: 33.3%;
+    height: 9vh;
+}
+
+.resultado-prioridade{
+    margin-left: 3.5vw;
+    border: none;
+    background-color: #e7e7e7;
+    width: 60%;
+    margin-top: 1.4vh;
+    border-radius: 5px;
+    text-align: center;
+    height: 4.5vh;    
+    
+}
+
+.texto-prioridade{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #7463C7;
+    font-weight: 700;
+    font-size: 2vh;
+}
+
+.titulo-importancia{
+    padding-top: 0;
+    margin-top: 0;
+    padding-left: 3.4vw;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    color: #1F1E1E;
+    height: 3.5vh;
+    font-size: 2vh;
+}
+
+.datas-modal{
+    width: 100%;
+    display: flex;
+}
+
+.data-inicio{
+    width: 50%;
+    height: 9vh;
+}
+
+.data-final{
+    width: 50%;
+    height: 9vh;
+}
+
+.input-data-inicio{
+    width: 73%;
+    height: 4vh;
+    margin-left: 14%;
+    background: #E7E7E7;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 0 0;
+    outline: 0;
+    font-size: 2.5vh;
+}
+
+.input-data-final{
+    width: 73%;
+    height: 4vh;
+    margin-left: 14%;
+    background: #E7E7E7;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 0 0;
+    outline: 0;
+    font-size: 2.5vh;
+}
+
+.complemento-tarefa-modal{
+    width: 100%;
+    display: flex;
+}
+
+.subtarefa-tarefa-modal{
+    width: 50%;
+    height: 9vh;
+}
+
+.input-subtarefa{
+    width: 75%;
+    height: 4vh;
+    margin-left: 14%;
+    background: #E7E7E7;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
+.select-etiquetas{
+    margin-left: 3.5vw;
+    border: none;
+    background-color: #E7E7E7;
+    width: 74%;
+    height: 4.5vh;
+    box-shadow: 0 0 0 0;
+    outline: 0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    color: #7E7D7D;
+    cursor: pointer;
+    font-size: 1.2vw;
+    
+}
+
+.container-descricao{
+    width: 100%;
+    height: 13vh;
+}
+
+.input-descricao{
+    margin-top: 1.3vh;
+    width: 86%;
+    height: 7vh;
+    margin-left: 6.6%;
+    background: #E7E7E7;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+
+.footer-modal{
+    width: 100%;
+    height: 7vh;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.botao-salvar-tarefa{
+    width: 30%;
+    background-color: #5D84C2;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2vh;
+    border-radius: 20px;
+    text-align: center;
+    height: 4vh;
+}
+.texto-salvar-tarefa{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 @media (max-width: 600px) {
@@ -668,7 +943,7 @@ header {
         height: 35vh;
         max-height: 160px;
         margin-top: 5vh;
-        
+
     }
 
     .agendar {
