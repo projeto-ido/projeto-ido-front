@@ -10,9 +10,9 @@
     </link>
 </head>
 
-<div onclick="sairCriacaoTarefas()" id="fundoEscuro" class="fundo-escuro"></div>
-
 <body>
+    <div onclick="sairCriacaoTarefas()" id="fundoEscuro" class="fundo-escuro"></div>
+
     <div onclick="sairCriacaoTarefas()" class="menu-lateral">
         <div class="sessao-lateral">
             <div class="sessao-logo">
@@ -63,31 +63,40 @@
     <div id="modalCriarTarefa" class="modal-criar-tarefa">
         <div class="topo-modal-tarefa">
             <div onclick="sairCriacaoTarefas()" class="botao-sair-tarefa">
-            <div>X</div></div>
+                <div>X</div>
+            </div>
         </div>
         <div class="titulo-modal-tarefa">
             CRIAÇÃO DE TAREFA
         </div>
         <h3 class="titulo-tarefa-modal">Titulo da tarefa</h3>
-        <input class="input-titulo-tarefa" type="text">
+        <input maxlength="40" class="input-titulo-tarefa" type="text">
         <div class="classificacao">
             <div class="importancia">
                 <h3 class="titulo-importancia">Importância</h3>
+
                 <select class="select-importancia" name="" id="">
+
                     <option value="">4 (min)</option>
                     <option value="">3</option>
                     <option value="">2</option>
                     <option value="">1 (Max)</option>
+
                 </select>
+
             </div>
             <div class="urgencia">
                 <h3 class="titulo-importancia">Urgência</h3>
+
                 <select class="select-importancia" name="" id="">
+
                     <option value="">4 (min)</option>
                     <option value="">3</option>
                     <option value="">2</option>
                     <option value="">1 (Max)</option>
+
                 </select>
+
 
             </div>
             <div class="prioridade">
@@ -103,27 +112,61 @@
         <div class="datas-modal">
             <div class="data-inicio">
                 <h3 class="titulo-importancia">Data de Início</h3>
-                <input type="date" class="input-data-inicio" type="text">
+                <input type="datetime-local" class="input-data-inicio" type="text">
             </div>
             <div class="data-final">
                 <h3 class="titulo-importancia">Data Final</h3>
-                <input type="date" class="input-data-final" type="text">
+                <input type="datetime-local" class="input-data-final" type="text">
             </div>
         </div>
         <div class="container-descricao">
             <h3 class="titulo-importancia">Descrição</h3>
-            <textarea class="input-descricao" type="text"></textarea>
+            <textarea maxlength="200" spellcheck="false" class="input-descricao" type="text"></textarea>
         </div>
 
         <div class="complemento-tarefa-modal">
             <div class="subtarefa-tarefa-modal">
                 <h3 class="titulo-importancia">Subtarefa</h3>
-                <input class="input-subtarefa" type="text">
+                <div class="container-criacao-subtarefa">
+                    <input maxlength="20" id="primeiraSubtarefa" class="input-subtarefa" type="text">
+                    <div class="botao-criar-subtarefa">
+                        <div onclick="botaCriarSubtarefa()" class="texto-acao-subtarefa">
+                            +
+                        </div>
+                    </div>
+                </div>
+                <div id="containerSubtarefa2" class="container-criacao-subtarefa2">
+                    <input maxlength="20" id="input-subtarefa2" class="input-subtarefa" type="text">
+                    <div class="botao-apagar-subtarefa">
+                        <div onclick="apagarsubtarefa2()" class="texto-acao-subtarefa-lixo">
+                            <img class="icon-lixeira" src="../src/assets/imagens/icon-lixeira.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div id="containerSubtarefa3" class="container-criacao-subtarefa3">
+                    <input maxlength="20" id="input-subtarefa3" class="input-subtarefa" type="text">
+                    <div class="botao-apagar-subtarefa">
+                        <div onclick="apagarsubtarefa3()" class="texto-acao-subtarefa-lixo">
+                            <img class="icon-lixeira" src="../src/assets/imagens/icon-lixeira.png" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div id="containerSubtarefa4" class="container-criacao-subtarefa4">
+                    <input maxlength="20" id="input-subtarefa4" class="input-subtarefa" type="text">
+                    <div class="botao-apagar-subtarefa">
+                        <div onclick="apagarsubtarefa4()" class="texto-acao-subtarefa-lixo">
+                            <img class="icon-lixeira" src="../src/assets/imagens/icon-lixeira.png" alt="">
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
             <div class="subtarefa-tarefa-modal">
-                <h3 class="titulo-importancia">Etiquetas</h3>
+                <h3 class="titulo-importancia">Etiqueta</h3>
                 <select class="select-etiquetas" name="" id="">
                     <option value=""></option>
+                    <option value="">Casa</option>
                     <option value="">Facul</option>
                     <option value="">Lazer</option>
                     <option value="">Estágio</option>
@@ -131,7 +174,7 @@
             </div>
         </div>
 
-        <div class="footer-modal">
+        <div id="footerModal" class="footer-modal">
             <div class="botao-salvar-tarefa">
                 <div class="texto-salvar-tarefa">
                     Salvar Tarefa
@@ -574,8 +617,8 @@
     var isAgrupar = false;
     var isVerCalendario = false;
     var isListar = false;
-
-    criarTarefa();
+    var adicionarSubtarefa = 0;
+    
 
     function agrupar() {
         isAgrupar = true;
@@ -789,16 +832,9 @@
         if (isCriarTarefa) {
             sairCriacaoTarefas();
         } else {
-
-
-
             document.getElementById("fundoEscuro").style.display = "block";
             document.getElementById("modalCriarTarefa").style.visibility = "visible";
             document.getElementById("modalCriarTarefa").style.opacity = "1";
-
-
-            document.getElementById("containerOptionsFiltros").style.backgroundColor = "rgb(0, 0, 0, 0.1)";
-            document.getElementById("selectFiltros").style.backgroundColor = "rgb(0, 0, 0, 0.01)";
             document.getElementById("iconFiltro").style.opacity = "0.1";
 
             document.getElementById("iconLupa").style.opacity = "0.1";
@@ -860,6 +896,220 @@
 
     function containerOptionFiltro() {
         sairCriacaoTarefas();
+    }
+
+    function botaCriarSubtarefa() {
+
+        if (document.getElementById('primeiraSubtarefa').value == "") {
+            alert("É preciso incluir uma subtarefa para adicionar outras.")
+        } else if (adicionarSubtarefa == 3) {
+            alert("Você atingiu o limite de subtarefas, se necessário crie novas tarefas.")
+        } else {
+            if (adicionarSubtarefa == 0) {
+                document.getElementById("containerSubtarefa2").style.display = "flex";
+                document.getElementById("modalCriarTarefa").style.height = "76vh";
+                document.getElementById("footerModal").style.height = "12.5vh";
+                adicionarSubtarefa++;
+            } else if (adicionarSubtarefa == 1) {
+                if ((document.getElementById('input-subtarefa2').value == "" && document.getElementById("containerSubtarefa2").style.display == "flex")
+                    || (document.getElementById('input-subtarefa3').value == "" && document.getElementById("containerSubtarefa3").style.display == "flex")
+                    || (document.getElementById('input-subtarefa4').value == "" && document.getElementById("containerSubtarefa4").style.display == "flex")) {
+                    alert("É preciso incluir mais uma subtarefa para adicionar outras.")
+                } else {
+                    document.getElementById("modalCriarTarefa").style.height = "82vh";
+                    document.getElementById("footerModal").style.height = "18vh";
+
+                    if (document.getElementById('input-subtarefa2').value == "" && (document.getElementById("containerSubtarefa2").style.display == "" || document.getElementById("containerSubtarefa2").style.display == "none")) {
+                        document.getElementById("containerSubtarefa2").style.display = "flex";
+                    } else if (document.getElementById('input-subtarefa3').value == "" && (document.getElementById("containerSubtarefa3").style.display == "" || document.getElementById("containerSubtarefa3").style.display == "none")) {
+                        document.getElementById("containerSubtarefa3").style.display = "flex";
+                    } else if (document.getElementById('input-subtarefa4').value == "" && (document.getElementById("containerSubtarefa4").style.display == "") || document.getElementById("containerSubtarefa4").style.display == "none") {
+                        document.getElementById("containerSubtarefa4").style.display = "flex";
+                    }
+
+                    adicionarSubtarefa++;
+                }
+
+            } else if (adicionarSubtarefa == 2) {
+                if ((document.getElementById('input-subtarefa2').value == "" && document.getElementById("containerSubtarefa2").style.display == "flex")
+                    || (document.getElementById('input-subtarefa3').value == "" && document.getElementById("containerSubtarefa3").style.display == "flex")
+                    || (document.getElementById('input-subtarefa4').value == "" && document.getElementById("containerSubtarefa4").style.display == "flex")) {
+                    alert("É preciso incluir mais uma subtarefa para adicionar outras.")
+                } else {
+                    document.getElementById("modalCriarTarefa").style.height = "88vh";
+                    document.getElementById("footerModal").style.height = "24vh";
+
+                    if (document.getElementById('input-subtarefa2').value == "" && (document.getElementById("containerSubtarefa2").style.display == "" || document.getElementById("containerSubtarefa2").style.display == "none")) {
+                        document.getElementById("containerSubtarefa2").style.display = "flex";
+                    } else if (document.getElementById('input-subtarefa3').value == "" && (document.getElementById("containerSubtarefa3").style.display == "" || document.getElementById("containerSubtarefa3").style.display == "none")) {
+                        document.getElementById("containerSubtarefa3").style.display = "flex";
+                    } else if (document.getElementById('input-subtarefa4').value == "" && (document.getElementById("containerSubtarefa4").style.display == "") || document.getElementById("containerSubtarefa4").style.display == "none") {
+                        document.getElementById("containerSubtarefa4").style.display = "flex";
+                    }
+                    modalCriarTarefa
+                    adicionarSubtarefa++;
+                }
+            }
+        }
+
+
+    }
+
+    function apagarsubtarefa2() {
+        if (document.getElementById('input-subtarefa3').value == "" && document.getElementById('containerSubtarefa2').style.display == "flex") {
+            document.getElementById("containerSubtarefa3").style.display = "none";
+            if (adicionarSubtarefa == 1) {
+                document.getElementById("modalCriarTarefa").style.height = "70vh";
+                document.getElementById("footerModal").style.height = "7vh";
+                adicionarSubtarefa--;
+            } else if (adicionarSubtarefa == 2) {
+                document.getElementById("modalCriarTarefa").style.height = "76vh";
+                document.getElementById("footerModal").style.height = "12.5vh";
+                adicionarSubtarefa--;
+            } else if (adicionarSubtarefa == 3) {
+                document.getElementById("modalCriarTarefa").style.height = "82vh";
+                document.getElementById("footerModal").style.height = "18vh";
+                adicionarSubtarefa--;
+            }
+        }
+
+        if (document.getElementById('input-subtarefa4').value == "" && document.getElementById('containerSubtarefa4').style.display == "flex") {
+            document.getElementById("containerSubtarefa4").style.display = "none";
+            if (adicionarSubtarefa == 1) {
+                document.getElementById("modalCriarTarefa").style.height = "70vh";
+                document.getElementById("footerModal").style.height = "7vh";
+                adicionarSubtarefa--;
+            } else if (adicionarSubtarefa == 2) {
+                document.getElementById("modalCriarTarefa").style.height = "76vh";
+                document.getElementById("footerModal").style.height = "12.5vh";
+                adicionarSubtarefa--;
+            } else if (adicionarSubtarefa == 3) {
+                document.getElementById("modalCriarTarefa").style.height = "82vh";
+                document.getElementById("footerModal").style.height = "18vh";
+                adicionarSubtarefa--;
+            }
+        }
+
+        document.getElementById('input-subtarefa2').value = "";
+        document.getElementById("containerSubtarefa2").style.display = "none";
+
+        if (adicionarSubtarefa == 1) {
+            document.getElementById("modalCriarTarefa").style.height = "70vh";
+            document.getElementById("footerModal").style.height = "7vh";
+            adicionarSubtarefa--;
+        } else if (adicionarSubtarefa == 2) {
+            document.getElementById("modalCriarTarefa").style.height = "76vh";
+            document.getElementById("footerModal").style.height = "12.5vh";
+            adicionarSubtarefa--;
+        } else if (adicionarSubtarefa == 3) {
+            document.getElementById("modalCriarTarefa").style.height = "82vh";
+            document.getElementById("footerModal").style.height = "18vh";
+            adicionarSubtarefa--;
+        }
+    }
+
+    function apagarsubtarefa3() {
+        if (document.getElementById('input-subtarefa2').value == "" && document.getElementById('containerSubtarefa2').style.display == "flex") {
+            document.getElementById("containerSubtarefa2").style.display = "none";
+            if (adicionarSubtarefa == 1) {
+                document.getElementById("modalCriarTarefa").style.height = "70vh";
+                document.getElementById("footerModal").style.height = "7vh";
+                adicionarSubtarefa--;
+            } else if (adicionarSubtarefa == 2) {
+                document.getElementById("modalCriarTarefa").style.height = "76vh";
+                document.getElementById("footerModal").style.height = "12.5vh";
+                adicionarSubtarefa--;
+            } else if (adicionarSubtarefa == 3) {
+                document.getElementById("modalCriarTarefa").style.height = "82vh";
+                document.getElementById("footerModal").style.height = "18vh";
+                adicionarSubtarefa--;
+            }
+        }
+        if (document.getElementById('input-subtarefa4').value == "" && document.getElementById('containerSubtarefa4').style.display == "flex") {
+            document.getElementById("containerSubtarefa4").style.display = "none";
+            if (adicionarSubtarefa == 1) {
+                document.getElementById("modalCriarTarefa").style.height = "70vh";
+                document.getElementById("footerModal").style.height = "7vh";
+                adicionarSubtarefa--;
+            } else if (adicionarSubtarefa == 2) {
+                document.getElementById("modalCriarTarefa").style.height = "76vh";
+                document.getElementById("footerModal").style.height = "12.5vh";
+                adicionarSubtarefa--;
+            } else if (adicionarSubtarefa == 3) {
+                document.getElementById("modalCriarTarefa").style.height = "82vh";
+                document.getElementById("footerModal").style.height = "18vh";
+                adicionarSubtarefa--;
+            }
+        }
+
+        document.getElementById('input-subtarefa3').value = "";
+        document.getElementById("containerSubtarefa3").style.display = "none";
+
+        if (adicionarSubtarefa == 1) {
+            document.getElementById("modalCriarTarefa").style.height = "70vh";
+            document.getElementById("footerModal").style.height = "7vh";
+            adicionarSubtarefa--;
+        } else if (adicionarSubtarefa == 2) {
+            document.getElementById("modalCriarTarefa").style.height = "76vh";
+            document.getElementById("footerModal").style.height = "12.5vh";
+            adicionarSubtarefa--;
+        } else if (adicionarSubtarefa == 3) {
+            document.getElementById("modalCriarTarefa").style.height = "82vh";
+            document.getElementById("footerModal").style.height = "18vh";
+            adicionarSubtarefa--;
+        }
+    }
+
+    function apagarsubtarefa4() {
+        if (document.getElementById('input-subtarefa2').value == "" && document.getElementById('containerSubtarefa2').style.display == "flex") {
+            document.getElementById("containerSubtarefa2").style.display = "none";
+            if (adicionarSubtarefa == 1) {
+                document.getElementById("modalCriarTarefa").style.height = "70vh";
+                document.getElementById("footerModal").style.height = "7vh";
+                adicionarSubtarefa--;
+            } else if (adicionarSubtarefa == 2) {
+                document.getElementById("modalCriarTarefa").style.height = "76vh";
+                document.getElementById("footerModal").style.height = "12.5vh";
+                adicionarSubtarefa--;
+            } else if (adicionarSubtarefa == 3) {
+                document.getElementById("modalCriarTarefa").style.height = "82vh";
+                document.getElementById("footerModal").style.height = "18vh";
+                adicionarSubtarefa--;
+            }
+        }
+        if (document.getElementById('input-subtarefa3').value == "" && document.getElementById('containerSubtarefa3').style.display == "flex") {
+            document.getElementById("containerSubtarefa3").style.display = "none";
+            if (adicionarSubtarefa == 1) {
+                document.getElementById("modalCriarTarefa").style.height = "70vh";
+                document.getElementById("footerModal").style.height = "7vh";
+                adicionarSubtarefa--;
+            } else if (adicionarSubtarefa == 2) {
+                document.getElementById("modalCriarTarefa").style.height = "76vh";
+                document.getElementById("footerModal").style.height = "12.5vh";
+                adicionarSubtarefa--;
+            } else if (adicionarSubtarefa == 3) {
+                document.getElementById("modalCriarTarefa").style.height = "82vh";
+                document.getElementById("footerModal").style.height = "18vh";
+                adicionarSubtarefa--;
+            }
+        }
+
+        document.getElementById('input-subtarefa4').value = "";
+        document.getElementById("containerSubtarefa4").style.display = "none";
+
+        if (adicionarSubtarefa == 1) {
+            document.getElementById("modalCriarTarefa").style.height = "70vh";
+            document.getElementById("footerModal").style.height = "7vh";
+            adicionarSubtarefa--;
+        } else if (adicionarSubtarefa == 2) {
+            document.getElementById("modalCriarTarefa").style.height = "76vh";
+            document.getElementById("footerModal").style.height = "12.5vh";
+            adicionarSubtarefa--;
+        } else if (adicionarSubtarefa == 3) {
+            document.getElementById("modalCriarTarefa").style.height = "82vh";
+            document.getElementById("footerModal").style.height = "18vh";
+            adicionarSubtarefa--;
+        }
     }
 </script>
 

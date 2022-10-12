@@ -5,7 +5,7 @@ body {
     font: inherit;
     font-family: 'Roboto', sans-serif;
     font-style: normal;
-    font-size: 1.2vw;
+    font-size: 1vw;
     line-height: 7vh;
     background-color: #FFFAFA;
     display: flex;
@@ -31,7 +31,7 @@ body {
     display: flex;
     justify-content: center;
     cursor: pointer;
-
+    
 }
 
 .logo {
@@ -46,38 +46,38 @@ body {
 
 .icon-home {
     padding-left: .3vw;
-    width: 2.5vw;
-    height: 5vh;
-    padding-top: 2.5vh;
+    width: 2vw;
+    height: 4vh;
+    padding-top: 3.5vh;
 
 }
 
 .icon-grafico {
     padding-left: .7vw;
-    width: 2.5vw;
-    height: 5vh;
-    padding-top: 2.5vh;
+    width: 2vw;
+    height: 4vh;
+    padding-top: 3.5vh;
 }
 
 .icon-etiqueta {
     padding-left: 1.2vw;
-    width: 2.3vw;
-    height: 4.8vh;
-    padding-top: 2.5vh;
+    width: 1.8vw;
+    height: 3.8vh;
+    padding-top: 3.5vh;
 }
 
 .icon-conheca {
     padding-left: 1.2vw;
-    width: 2.3vw;
-    height: 4.8vh;
-    padding-top: 2.5vh;
+    width: 2vw;
+    height: 3.8vh;
+    padding-top: 3.5vh;
 }
 
 .icon-config {
     padding-left: 1.8vh;
-    width: 2.3vw;
-    height: 4.8vh;
-    padding-top: 2.5vh;
+    width: 2vw;
+    height: 3.8vh;
+    padding-top: 3.5vh;
 }
 
 .sessao-sair {
@@ -89,9 +89,9 @@ body {
 }
 
 .icon-sair {
-    width: 2.3vw;
-    height: 4.8vh;
-    padding-top: 2.5vh;
+    width: 1.8vw;
+    height: 3.8vh;
+    padding-top: 3.5vh;
 }
 
 .funcional {
@@ -612,7 +612,7 @@ header {
 .modal-criar-tarefa {
     visibility: hidden;
     opacity: 0;
-    top: 10vh;
+    top: 8vh;
     right: 0;
     bottom: 0;
     left: 30vw;
@@ -689,6 +689,8 @@ header {
     cursor: pointer;
     box-shadow: 0 0 0 0;
     outline: 0;
+    color: #7E7D7D;
+    font-size: 1vw;
 }
 
 .classificacao{
@@ -716,7 +718,8 @@ header {
     border-bottom-left-radius: 5px;
     color: #7E7D7D;
     cursor: pointer;
-    font-size: 1.2vw;
+    font-size: 1vw;
+    padding-left: 5%;
     
 }
 
@@ -770,37 +773,45 @@ header {
 .data-inicio{
     width: 50%;
     height: 9vh;
+    font-size: .8vw;
 }
 
 .data-final{
     width: 50%;
     height: 9vh;
+    font-size: .8vw;
 }
 
+
 .input-data-inicio{
-    width: 73%;
+    width: 70%;
     height: 4vh;
     margin-left: 14%;
+    padding-left: 5%;
     background: #E7E7E7;
     border-radius: 5px;
     border: none;
     cursor: pointer;
     box-shadow: 0 0 0 0;
     outline: 0;
-    font-size: 2.5vh;
+    font-size: 1.1vw;
+    color: #7E7D7D;
+   
 }
 
 .input-data-final{
-    width: 73%;
+    width: 70%;
     height: 4vh;
     margin-left: 14%;
+    padding-left: 5%;
     background: #E7E7E7;
     border-radius: 5px;
     border: none;
     cursor: pointer;
     box-shadow: 0 0 0 0;
     outline: 0;
-    font-size: 2.5vh;
+    font-size: 1.1vw;
+    color: #7E7D7D;
 }
 
 .complemento-tarefa-modal{
@@ -810,20 +821,10 @@ header {
 
 .subtarefa-tarefa-modal{
     width: 50%;
-    height: 9vh;
+    height: 9.5vh;
 }
 
-.input-subtarefa{
-    width: 75%;
-    height: 4vh;
-    margin-left: 14%;
-    background: #E7E7E7;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 0 0 0;
-    outline: 0;
-}
+
 
 .select-etiquetas{
     margin-left: 3.5vw;
@@ -859,6 +860,9 @@ header {
     cursor: pointer;
     box-shadow: 0 0 0 0;
     outline: 0;
+    color: #7E7D7D;
+    font-size: 1vw;
+    
 }
 
 .footer-modal{
@@ -874,7 +878,7 @@ header {
 
 .botao-salvar-tarefa{
     width: 30%;
-    background-color: #5D84C2;
+    background-color: #FFCA6D;
     position: relative;
     top: 50%;
     transform: translateY(-50%);
@@ -887,6 +891,95 @@ header {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
+}
+
+.input-subtarefa{
+    width: 75%;
+    height: 4vh;
+    margin-left: 13.5%;
+    background: #E7E7E7;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 0 0;
+    outline: 0;
+    color: #7E7D7D;
+    font-size: 1vw;
+}
+
+.container-criacao-subtarefa{
+    width: 100%;
+    display: flex;
+    margin-top: 1vh;
+}
+
+.container-criacao-subtarefa2{
+    width: 100%;
+    display: none;
+    margin-top: 1vh;
+}
+
+.container-criacao-subtarefa3{
+    width: 100%;
+    display: none;
+    margin-top: 1vh;
+}
+.container-criacao-subtarefa4{
+    width: 100%;
+    display: none;
+    margin-top: 1vh;
+}
+
+.botao-criar-subtarefa{
+    margin-top: .5vh;
+    margin-left: .5vw;
+    width: 1.5vw;
+    height: 3vh;
+    font-size: 2.5vh;
+    background-color: #7E7D7D;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    
+}
+
+.botao-apagar-subtarefa{
+    margin-top: .5vh;
+    margin-left: .5vw;
+    width: 1.5vw;
+    height: 3vh;
+    font-size: 2.5vh;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.texto-acao-subtarefa{
+    display: flex;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    justify-content: center;
+    
+}
+
+.texto-acao-subtarefa-lixo{
+    display: flex;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    justify-content: center;
+    margin-top: 1vh;
+}
+
+.icon-lixeira{
+    width: 1vw;
+    height: 2vh;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    
 }
 
 @media (max-width: 600px) {
@@ -1028,6 +1121,33 @@ header {
         padding-top: 2.5vh;
     }
 
+    .select-importancia{
+        font-size: 1.5vw;
+    }
+
+    .input-data-final{
+        font-size: 1.5vw;
+    }
+
+    .input-data-inicio{
+        font-size: 1.5vw;
+    }
+
+    .select-etiquetas{
+        font-size: 1.5vw;
+    }
+
+    .input-descricao{
+        font-size: 1.5vw;
+    }
+
+    .input-titulo-tarefa{
+        font-size: 1.5vw;
+    }
+
+    .input-subtarefa{
+        font-size: 1.5vw;
+    }
 
 
 }
