@@ -1,5 +1,4 @@
 import React from 'react';
-import ChartEtiqueta from './ChartEtiquetas';
 import ApexChart from 'react-apexcharts';
 
 function ItemSquareEtiqueta(props) {

@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import ItemSquare from './ItemSquare';
-import ItemRectangle from './ItemRectangle';
-import api from '../../../api';
+import apiEtiqueta from '../../../api/apiEtiqueta';
 import ItemSquareEtiqueta from './grafico-components/ItemSquareEtiqueta';
+import ItemRectangleTimeline from './grafico-components/ItemRectangleTimeline';
 
 function Grafico() {
     const [listaEtiqueta, setListaEtiqueta] = useState([]);
 
     useEffect(() => {
-        api.get().then(res => {
-          console.log("dados:", res.data);
-          console.log("status code:", res.status);
+        apiEtiqueta.get().then(res => {
           setListaEtiqueta(res.data);
         }).catch(erro => {
           console.log(erro);
@@ -24,7 +22,6 @@ function Grafico() {
         nomeEtiqueta.push(listaEtiqueta.map(etiquetaAtual => (
             etiquetaAtual.titulo
         )))
-        console.log(nomeEtiqueta)
 
         qtdEtiqueta.push(listaEtiqueta.map(etiquetaAtual => (
             etiquetaAtual.quantidade
@@ -43,7 +40,11 @@ function Grafico() {
             </div>
 
             <div className="div-down-grafico">
-                <ItemRectangle />
+                <div className="item-rectangle">
+                    <div className="grafico-timeline">
+                        <ItemRectangleTimeline />
+                    </div>
+                </div>
             </div>
         </>
     )

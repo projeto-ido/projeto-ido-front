@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import api from '../../../api';
+import apiConquista from '../../../api/apiConquista';
 import ItemConquista from './conquista-components/ItemConquista';
 import BadgeConquista from './conquista-components/BadgeConquista';
 
@@ -7,7 +7,7 @@ function Conquista() {
     const [listaConquistas, setListaConquistas] = useState([]);
 
     useEffect(() => {
-        api.get().then(res => {
+        apiConquista.get().then(res => {
           console.log("dados:", res.data);
           console.log("status code:", res.status);
           setListaConquistas(res.data);

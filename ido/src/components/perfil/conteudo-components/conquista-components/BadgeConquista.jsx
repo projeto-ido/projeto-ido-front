@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import api from '../../../../api';
+import apiConquista from '../../../../api/apiConquista';
 import Badge from './Badge';
 
 function BadgeConquista() {
     const [listaBadges, setListaBadges] = useState([]);
     
     useEffect(() => {
-        api.get().then(res => {
+        apiConquista.get().then(res => {
             setListaBadges(res.data);
         }).catch(erro => {
           console.log(erro);
