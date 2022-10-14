@@ -390,7 +390,7 @@ body {
 .item-rectangle .grafico-timeline {
     height: 100%;
     width: 100%;
-    margin-left: 8%;
+    margin-left: 5%;
     margin-top: 3%;
 }
 
@@ -411,6 +411,14 @@ body {
 .item-square .grafico-etiqueta {
     height: 80%;
     width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-square .grafico-semana {
+    height: 95%;
+    width: 95%;
     display: flex;
     justify-content: center;
     align-items: center;

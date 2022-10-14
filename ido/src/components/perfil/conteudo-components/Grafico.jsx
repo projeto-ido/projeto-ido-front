@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import ItemSquare from './ItemSquare';
 import apiEtiqueta from '../../../api/apiEtiqueta';
 import ItemSquareEtiqueta from './grafico-components/ItemSquareEtiqueta';
 import ItemRectangleTimeline from './grafico-components/ItemRectangleTimeline';
+import ItemSquareSemana from './grafico-components/ItemSquareSemana';
 
 function Grafico() {
     const [listaEtiqueta, setListaEtiqueta] = useState([]);
@@ -31,7 +31,7 @@ function Grafico() {
     return(
         <>
             <div className="div-up-grafico">
-                <ItemSquare />
+                <ItemSquareSemana />
                 
                 <ItemSquareEtiqueta
                     etiquetas={nomeEtiqueta[0]}

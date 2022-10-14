@@ -22,6 +22,7 @@ function ItemRectangleTimeline() {
             new Date(dataFim).getTime()
         ];
         this.fillColor = '#5D84C2';
+        this.fontSize = '1vw';
     }
 
     const vetorTarefas = []
@@ -45,13 +46,13 @@ function ItemRectangleTimeline() {
 
         plotOptions: {
             bar: {
-                horizontal: true
+                horizontal: true,
             }
         },
 
         xaxis: {
             type: 'datetime'
-        },
+        }
     };
 
     return(
@@ -61,7 +62,7 @@ function ItemRectangleTimeline() {
                 series={options.series}
                 type={'rangeBar'}
                 height={'85%'}
-                width={'90%'}
+                width={'95%'}
             />
         </>
     )

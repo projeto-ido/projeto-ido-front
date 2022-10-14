@@ -16,26 +16,26 @@ function ItemSquareEtiqueta(props) {
                 expandOnClick: false,
                 
                 donut: {
-                    size: "70vw",
+                    size: '70vw',
                     background: 'transparent',
 
                     labels: {
                         show: true,
                         name: {
                             show: true,
-                            fontSize: "1vw",
+                            fontSize: '1vw',
                             fontFamily: 'Roboto, Helvetica, Arial'
                         },
                         value: {
                             show: true,
-                            fontSize: "1.5vw",
+                            fontSize: '1.5vw',
                             fontFamily: 'Roboto, Helvetica, Arial'
                         },
                         total: {
                             show: true,
-                            fontSize: "1.5vw",
+                            fontSize: '1.5vw',
                             fontFamily: 'Roboto, Helvetica, Arial',
-                            fontWeight: "bold"
+                            fontWeight: 'bold'
                         }
                     }
                 }
