@@ -6,7 +6,6 @@ function Perfil() {
     return(
         <>
             <div className="main-container">
-                <Header />
                 <Sidebar />
                 <Conteudo />
             </div>

@@ -1,10 +1,6 @@
 import React from 'react';
 
-function Header() {
-    // function Selecionar() {
-        <div className="selection"></div>
-    // } 
-        
+function Header(props) {
     return(
         <>
             <div className="box-header">
@@ -12,23 +8,23 @@ function Header() {
                     <div className="container">
                         <div>
                             <div className="text">
-                                <span>Overview</span>
+                                <span onClick={props.overviews}>Overview</span>
                             </div>
-                            <div className="div-selection"></div>
+                            <div className="div-selection">{props.selectOv}</div>
                         </div>
 
                         <div>
                         <div className="text">
-                            <span>Conquistas</span>
+                            <span onClick={props.conquistas}>Conquistas</span>
                         </div>
-                            <div className="div-selection"></div>
+                            <div className="div-selection">{props.selectCt}</div>
                         </div>
 
                         <div>
                         <div className="text">
-                            <span>Gráficos</span>
+                            <span onClick={props.graficos}>Gráficos</span>
                         </div>
-                            <div className="div-selection"></div>
+                            <div className="div-selection">{props.selectGf}</div>
                         </div>
                     </div>
                 </div>
