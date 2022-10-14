@@ -5,9 +5,22 @@ import './style.css';
 export const SignUp = () => {
   return (
     <>
-      <div className="campos">
+      <div className="campos__cadastro">
 
-      <div className="campo__signup username">
+      <div className="campo__signup nome">
+          <div className="form__container">
+
+            <div className="label">
+              <label for="">Nome</label>
+            </div>
+
+            <div className="input">
+              <input placeholder="Nome..." type="text" />
+            </div>
+          </div>
+        </div>
+
+        <div className="campo__signup username">
           <div className="form__container">
 
             <div className="label">
@@ -29,6 +42,19 @@ export const SignUp = () => {
 
             <div className="input">
               <input placeholder="Coloque seu email..." type="text" />
+            </div>
+          </div>
+        </div>
+
+        <div className="campo__signup email">
+          <div className="form__container">
+
+            <div className="label">
+              <label for="">Data de Nascimento</label>
+            </div>
+
+            <div className="input">
+              <input id="teste" placeholder="Coloque sua data de nas..." type="date" />
             </div>
           </div>
         </div>

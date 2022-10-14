@@ -27,13 +27,13 @@ main .main__container{
 }
 
 .main__container .formulario{
-    width: 37.5vw;
+    width: 41.5vw;
     height: 100%;
     background-color: #1F1E1E;
 }
 
 .main__container .formulario .container{
-    width: 75%;
+    width: 70%;
     margin: auto;
     margin-top: 8.6vh;
     height: 91%;
@@ -180,11 +180,13 @@ main .main__container{
     }
 
     .main__container .formulario .container .campo__signin{
-        height: 22.3%;
+        height: 28.3%;
     }
 
     .main__container .formulario .container .campo__signup{
-        height: 22.3%;
+        height: 24.3%;
+        margin-bottom: 8%;
+        width: 97%;
     }
 
     .label label{
