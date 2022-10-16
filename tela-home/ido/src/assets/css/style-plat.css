@@ -35,6 +35,26 @@ body {
     
 }
 
+.menu-tarefa-check{
+    background-color: #d9d9d9;
+    color: #5D84C2;
+    font-weight: bolder;
+    
+}
+
+.menu-tarefa-off{
+    background-color: #E7E7E7;
+    color: #7E7D7D;
+    font-weight: lighter;
+    
+}
+
+.menu-tarefa-default{
+    height: 100%;
+    border: none;
+    cursor: pointer;
+}
+
 .sessao-lateral-home {
     width: 10vw;
     height: 13.8vh;
@@ -280,11 +300,8 @@ header {
     width: 12.66vw;
     display: flex;
     justify-content: center;
-    color: #5D84C2;
-    font-weight: bolder;
     display: table-cell;
     vertical-align: middle;
-    padding-left: 12%;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
 }
@@ -292,19 +309,15 @@ header {
 .grupo {
     border-right: .2vh solid #AFAFAF;
     width: 12.66vw;
-    color: #7E7D7D;
     display: table-cell;
     vertical-align: middle;
-    padding-left: 12%;
 }
 
 .lista {
     /* border-right: .2vh solid #AFAFAF; */
     width: 12.66vw;
-    color: #7E7D7D;
     display: table-cell;
     vertical-align: middle;
-    padding-left: 12%;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 }
@@ -443,7 +456,6 @@ header {
     width: 81vw;
     height: 80%;
     margin-left: 14%;
-    display: none;
 }
 
 .grupo-fazer-agora {
@@ -592,7 +604,6 @@ header {
     width: 81vw;
     height: 80%;
     margin-left: 14%;
-    display: none;
 }
 
 .grupo-fazer-agora-lista {
