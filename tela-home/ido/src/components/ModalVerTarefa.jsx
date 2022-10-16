@@ -1,31 +1,31 @@
 import React, { useState, useEffect } from "react";
 
-
-export default function ModalCriarTarefa({openModal, setOpenModal}) {
+export default function ModalVerTarefa({openModalVerTarefa, setOpenModalVerTarefa}){
     
-    if(!openModal){
+    if(!openModalVerTarefa){
         return null;
     }
 
-    return (
+    return(
+        <>
         <div id="modalCriarTarefa" className="modal-criar-tarefa">
             <div className="topo-modal-tarefa">
-                <div onClick={() => setOpenModal(false)} className="botao-sair-tarefa">
+                <div onClick={() => setOpenModalVerTarefa(false)} className="botao-sair-tarefa">
                     <div>X</div>
                 </div>
             </div>
             <div className="titulo-modal-tarefa">
-                CRIAÇÃO DE TAREFA
+                DETALHES DA ATIVIDADE
             </div>
             <h3 className="titulo-tarefa-modal">Titulo da tarefa</h3>
-            <input maxLength="40" className="input-titulo-tarefa" type="text" />
+            <input maxLength="40" className="input-titulo-tarefa" type="text" value={"Nome da tarefa"}/>
             <div className="classificacao">
                 <div className="importancia">
                     <h3 className="titulo-importancia">Importância</h3>
 
                     <select id="selectImportancia" className="select-importancia" name="select-Importancia" 
                         //onChange="atualizarPrioridade()"
-                        >
+                        value={"1"}>
                         <option value="-1"></option>
                         <option value="1">Sim</option>
                         <option value="0">Não</option>
@@ -37,7 +37,7 @@ export default function ModalCriarTarefa({openModal, setOpenModal}) {
 
                     <select className="select-importancia" name="selectUrgencia" id="selectUrgencia"
                         // onChange="atualizarPrioridade()"
-                        >
+                        value={"1"}>
                         <option value=""></option>
                         <option value="1">Sim</option>
                         <option value="0">Não</option>
@@ -49,7 +49,7 @@ export default function ModalCriarTarefa({openModal, setOpenModal}) {
                     <h3 className="titulo-importancia">Prioridade</h3>
                     <div className="resultado-prioridade">
                         <div id="textoPrioridade" className="texto-prioridade">
-                            AGENDE
+                            Faça agora
                         </div>
                     </div>
                 </div>
@@ -58,23 +58,23 @@ export default function ModalCriarTarefa({openModal, setOpenModal}) {
             <div className="datas-modal">
                 <div className="data-inicio">
                     <h3 className="titulo-importancia">Data de Início</h3>
-                    <input type="datetime-local" className="input-data-inicio" />
+                    <input id="inputDataInicio" type="datetime-local" className="input-data-inicio" value={"2022-10-17T19:44"} />
                 </div>
                 <div className="data-final">
                     <h3 className="titulo-importancia">Data Final</h3>
-                    <input type="datetime-local" className="input-data-final" />
+                    <input id="inputDataFinal" type="datetime-local" className="input-data-final" value={"2022-10-20T22:44"}/>
                 </div>
             </div>
             <div className="container-descricao">
                 <h3 className="titulo-importancia">Descrição</h3>
-                <textarea maxLength="200" spellCheck="false" className="input-descricao" type="text"></textarea>
+                <textarea maxLength="200" spellCheck="false" className="input-descricao" type="text" value={"Aqui vai os detalhes do desenvolvimento da atividade em questão"}></textarea>
             </div>
 
             <div className="complemento-tarefa-modal">
                 <div className="subtarefa-tarefa-modal">
                     <h3 className="titulo-subtarefa">Subtarefa</h3>
                     <div className="container-criacao-subtarefa">
-                        <input maxLength="20" id="primeiraSubtarefa" className="input-subtarefa" type="text" />
+                        <input value={"Micro atividade da tarefa"} maxLength="20" id="primeiraSubtarefa" className="input-subtarefa" type="text" />
                         <div className="botao-criar-subtarefa">
                             <div //onClick="botaCriarSubtarefa()"
                              className="texto-acao-subtarefa">
@@ -124,20 +124,20 @@ export default function ModalCriarTarefa({openModal, setOpenModal}) {
 
                     <div className="continer-combo-etiquetas">
                         <div id="" className="container-select-etiqueta">
-                            <select className="select-etiquetas" name="" id="">
+                            <select className="select-etiquetas" name="" id="" value={"1"}>
                                 <option value=""></option>
-                                <option value="">Casa</option>
+                                <option value="1">Casa</option>
                                 <option value="">Facul</option>
                                 <option value="">Lazer</option>
                                 <option value="">Estágio</option>
                             </select>
                         </div>
                         <div id="" className="container-select-etiqueta">
-                            <select className="select-etiquetas" name="" id="">
+                            <select className="select-etiquetas" name="" id="" value={"2"}>
                                 <option value=""></option>
                                 <option value="">Casa</option>
                                 <option value="">Facul</option>
-                                <option value="">Lazer</option>
+                                <option value="2">Lazer</option>
                                 <option value="">Estágio</option>
                             </select>
                         </div>
@@ -155,5 +155,6 @@ export default function ModalCriarTarefa({openModal, setOpenModal}) {
             </div>
 
         </div>
+        </>
     );
 }

@@ -6,7 +6,7 @@ import iconEtiqueta from '../assets/imagens/icon-etiqueta.png';
 import iconConheca from '../assets/imagens/icon-conheca.png';
 import iconConfig from '../assets/imagens/icon-config.png';
 import iconSair from '../assets/imagens/icon-sair.png';
-import Vars from "./script";
+
 
 function MenuLateral(props) {
     return (

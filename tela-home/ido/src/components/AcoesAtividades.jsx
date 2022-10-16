@@ -4,9 +4,9 @@ import iconfiltro from '../assets/imagens/icon-filtro.png';
 import iconSoma from '../assets/imagens/icon-soma.png';
 
 
-export default function AcoesAtividades({ openModal, setOpenModal, tipoTarefa, setTipoTarefa}) {
+export default function AcoesAtividades({ openModal, setOpenModal, tipoTarefa, setTipoTarefa, openModalVerTarefa}) {
 
-    const opacidade = openModal ? "opacidade-model" : "";
+    const opacidade = (openModal || openModalVerTarefa) ? "opacidade-model" : "";
 
     function handleChecked(tipo) {
 
@@ -26,7 +26,7 @@ export default function AcoesAtividades({ openModal, setOpenModal, tipoTarefa, s
 
     return (
         <div className="acoes-atividades">
-            <div //onclick="sairCriacaoTarefas()" 
+            <div 
                 id="containerOptionsFiltros" className="container-options-filtros">
                 <img id="iconFiltro" className={`icon-filtro ${opacidade}`} src={iconfiltro}
                     alt="imagem de filtro de pesquisa" />

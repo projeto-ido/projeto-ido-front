@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import api from "../api";
 import iconLupa from '../assets/imagens/icon-lupa.png';
 
-export default function FilterPesquisar({openModal}){
+export default function FilterPesquisar({openModal, openModalVerTarefa}){
 
-    const opacidade = openModal ? "opacidade-model": "";
+    const opacidade = (openModal || openModalVerTarefa) ? "opacidade-model": "";
 
     return(
         <div className="pesquisar-container">

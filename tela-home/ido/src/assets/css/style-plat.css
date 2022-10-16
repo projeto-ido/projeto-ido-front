@@ -467,7 +467,6 @@ header {
     border-bottom: .3vh solid #E7E7E7;
     border-left: .3vh solid #E7E7E7;
     border-right: .3vh solid #E7E7E7;
-    display: none;
 
 }
 
@@ -480,7 +479,6 @@ header {
     border-bottom: .3vh solid #E7E7E7;
     border-left: .3vh solid #E7E7E7;
     border-right: .3vh solid #E7E7E7;
-    display: none;
 
 }
 
@@ -493,7 +491,6 @@ header {
     border-bottom: .3vh solid #E7E7E7;
     border-left: .3vh solid #E7E7E7;
     border-right: .3vh solid #E7E7E7;
-    display: none;
 
 }
 
@@ -506,8 +503,6 @@ header {
     border-bottom: .3vh solid #E7E7E7;
     border-left: .3vh solid #E7E7E7;
     border-right: .3vh solid #E7E7E7;
-    display: none;
-
 }
 
 
@@ -557,6 +552,7 @@ header {
 
 .icon-fechado-fazer-agora {
     color: #7E7D7D;
+    padding-top: 1vh;
 }
 
 .icon-aberto-fazer-agora {
@@ -660,7 +656,7 @@ header {
     align-items: center;
     justify-content: center;
     width: 50vw;
-    height: 70vh;
+    height: 72vh;
     position: fixed;
     background: #FFFFFF;
     border-top: 8px solid #7463C7;
@@ -797,7 +793,7 @@ header {
     transform: translateY(-50%);
     color: #7463C7;
     font-weight: 700;
-    font-size: 2vh;
+    font-size: 1vw;
 }
 
 .titulo-importancia{
