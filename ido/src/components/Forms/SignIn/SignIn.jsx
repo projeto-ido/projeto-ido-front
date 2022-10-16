@@ -30,21 +30,21 @@ export const SignIn = () => {
 
     return (
         <>
-            <div class="titulo">
+            <div className="titulo">
                 <h1>Seja Bem Vindo!</h1>
             </div>
 
-            <div class="campos">
+            <div className="campos">
 
                 <div className="campos__container">
-                    <div class="campo__signin email">
-                        <div class="form__container">
+                    <div className="campo__signin email">
+                        <div className="form__container">
 
-                            <div class="label">
+                            <div className="label">
                                 <label for="inpt-email">Email</label>
                             </div>
 
-                            <div class="input">
+                            <div className="input">
                                 <input
                                     name='email'
                                     placeholder="Coloque seu email..."
@@ -54,14 +54,14 @@ export const SignIn = () => {
                         </div>
                     </div>
 
-                    <div class="campo__signin senha">
-                        <div class="form__container">
+                    <div className="campo__signin senha">
+                        <div className="form__container">
 
-                            <div class="label">
+                            <div className="label">
                                 <label for="">Senha</label>
                             </div>
 
-                            <div class="input">
+                            <div className="input">
                                 <input
                                     name='senha'
                                     placeholder="Coloque seu senha..."

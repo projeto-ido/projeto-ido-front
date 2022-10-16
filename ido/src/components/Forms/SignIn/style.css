@@ -16,12 +16,13 @@
 
 
 
-.main__container .formulario .container .campo__signin{
-    height: 26.3%;
-    width: 100%;
+.main__container .formulario .container .campos__container .campo__signin{
+    height: 32.3%;
+    width: 97%;
+    margin-bottom: 8%;
     box-sizing: border-box;
     border: #fff solid 0.2rem;
-    border-radius: 2rem;
+    border-radius: 1rem;
 }
 
 

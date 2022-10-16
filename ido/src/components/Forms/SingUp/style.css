@@ -38,8 +38,9 @@
 }
 
 .main__container .formulario .container .campo__signup{
-    height: 18.3%;
-    width: 100%;
+    height: 24.3%;
+    width: 97%;
+    margin-bottom: 8%;
     box-sizing: border-box;
     border: #fff solid 0.2rem;
     border-radius: 1rem;
