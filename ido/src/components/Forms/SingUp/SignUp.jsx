@@ -1,5 +1,5 @@
 import { React, useState } from 'react';
-import { History } from '@remix-run/router';
+import { useNavigate } from 'react-router-dom';
 
 import logo from '../../../assets/images/logo-white.png'
 import api from '../../../api/api.jsx'
@@ -7,6 +7,7 @@ import api from '../../../api/api.jsx'
 import './style.css';
 
 export const SignUp = () => {
+  const navigate = useNavigate();
 
   const [nome, setNome] = useState("");
   const [apelido, setApelido] = useState("");
@@ -39,7 +40,7 @@ export const SignUp = () => {
     api.post("/usuarios", data)
       .then(resposta => {
         if (resposta.status === 201) {
-          
+          navigate("/SignIn")
         }
       }).catch(erro => {
         window.alert(erro)
@@ -51,7 +52,7 @@ export const SignUp = () => {
   return (
     <>
 
-      <div class="titulo">
+      <div className="titulo">
         <h1>Bem Vindo de Volta!</h1>
       </div>
 

@@ -8,7 +8,7 @@ import { BackGroundForm } from '../../components/Forms/BackGroundForm/BackGround
 import '../../assets/css/formulario.css'
 
 
-export const Cadastro = (props) => {
+export const Cadastro = () => {
   return (
     <>
         <main>
@@ -20,7 +20,7 @@ export const Cadastro = (props) => {
                     <div className="container">
                         <ComeBack />
 
-                        <SignUp props={props}/>
+                        <SignUp/>
                         
                     </div>
                 </div>

@@ -19,7 +19,7 @@ export const Login = () => {
                     <div className="formulario">
     
                         <div className="container">
-                            <ComeBack />
+                            <ComeBack path="/SignUp"/>
     
                             <SignIn />
                             

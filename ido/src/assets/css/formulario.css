@@ -46,6 +46,7 @@ main .main__container{
     top: 25px;
     left: 25px;
     height: 4vh;
+    cursor: pointer;
 }
 
 .voltar img{
@@ -128,51 +129,6 @@ main .main__container{
     width: 100%;
 }
 
-.main__container .img__calendario{
-    background: url("../images/background.png");
-    background-size: cover;
-    width: 62.5vw;
-    height: 100%;
-    background-color: #fffafa;
-}
-
-.main__container .img__calendario .calendario__container{
-    height: 100%;
-}
-
-.main__container .img__calendario .calendario__container .balao{
-    height: 30%;
-    display: flex;
-    align-items: center;
-}
-
-.calendario__container .balao img{
-    height: 60%;
-    margin-left: 15%;
-}
-
-.main__container .img__calendario .calendario__container .calendario{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 40%;
-}
-
-.calendario__container .calendario img{
-    height: 100%;
-}
-
-.main__container .img__calendario .calendario__container .balao__invertido{
-    height: 30%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-.calendario__container .balao__invertido img{
-    height: 60%;
-    margin-right: 16%;
-}
 
 @media screen and (max-width: 1600px) {
     .main__container .formulario .container h1{
