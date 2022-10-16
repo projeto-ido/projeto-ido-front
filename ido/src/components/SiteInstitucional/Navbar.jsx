@@ -5,7 +5,9 @@ function Navbar() {
     return(
         <>
             <div className="header" id="header">
-                <img src={darkIcon} alt="Logo da empresa iDo"/>
+                <a href="#">
+                    <img src={darkIcon} alt="Logo da empresa iDo"/>
+                </a>
                 <a href="#">Inicio</a>
                 <a href="#metodologias">Metodologias</a>
                 <a href="#beneficios">Beneficios</a>
