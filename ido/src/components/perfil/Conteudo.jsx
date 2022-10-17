@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import Overview from './conteudo-components/Overview';
 import Grafico from './conteudo-components/Grafico';
 import Conquista from './conteudo-components/Conquista';

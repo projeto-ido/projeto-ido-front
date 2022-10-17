@@ -7,8 +7,6 @@ function ItemRectangleTimeline() {
 
     useEffect(() => {
         apiTimeline.get().then(res => {
-            console.log("dados:", res.data);
-            console.log("status code:", res.status);
             setListaTarefa(res.data);
         }).catch(erro => {
             console.log(erro);

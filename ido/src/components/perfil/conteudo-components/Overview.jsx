@@ -8,8 +8,6 @@ function Overview(props) {
 
     useEffect(() => {
         api.get().then(res => {
-          console.log("dados:", res.data);
-          console.log("status code:", res.status);
           setListaInfoUser(res.data);
         }).catch(erro => {
           console.log(erro);

@@ -44,8 +44,6 @@ function ItemSquareSemana(props) {
         linhaNaoConcluido
     ]
 
-    console.log(series)
-
     const options = {
         legend: {
             show: true

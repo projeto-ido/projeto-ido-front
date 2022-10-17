@@ -133,7 +133,7 @@ body {
 
 .main-container .toolbar .container .foto-perfil {
     position: relative;
-    background-color: white;
+    background-color: #1F1E1E;
     float: left;
     width: 15vw;
     height: 15vw;
@@ -143,13 +143,19 @@ body {
     justify-content: end;
 }
 
+.main-container .toolbar .container .foto-perfil img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
+
 .main-container .toolbar .container .foto-perfil div {
     width: 35%;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    z-index: 1;
+    position: absolute;
     color: white;
     font-size: 2em;
 }
@@ -237,6 +243,9 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
+    background-image: url("../images/fundo-perfil-opaco.png");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .main-container .conteudo .container {
@@ -336,7 +345,6 @@ body {
 }
 
 .div-up .item-rectangle-bio .overview-imagem img {
-    height: 100%;
     width: 100%;
 }
 
