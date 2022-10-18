@@ -1,17 +1,22 @@
 import React from "react";
 import darkIcon from "../../assets/icons/logo-dark.ico";
+import { Link } from "react-router-dom";
 
 function Navbar() {
     return(
         <>
-            <div className="header" id="header">
-                <a href="#">
+            <div className="headerInstitucional" id="header">
+                <Link to="#">
                     <img src={darkIcon} alt="Logo da empresa iDo"/>
-                </a>
-                <a href="#">Inicio</a>
+                </Link>
+                <Link to="#">Inicio</Link>
                 <a href="#metodologias">Metodologias</a>
                 <a href="#beneficios">Beneficios</a>
-                <button className="btn-login">Login</button>
+                <Link to="/login">
+                    <button className="btnLogin">
+                        Login
+                    </button>
+                </Link>
             </div>
         </>
     );

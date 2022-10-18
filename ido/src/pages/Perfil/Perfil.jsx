@@ -1,11 +1,12 @@
-import Sidebar from '../components/perfil/Sidebar'
-import Header from '../components/perfil/Header';
-import Conteudo from '../components/perfil/Conteudo';
+import Sidebar from '../../components/Perfil/Sidebar'
+import Header from '../../components/Perfil/Header';
+import Conteudo from '../../components/Perfil/Conteudo';
 
 function Perfil() {
     return(
         <>
             <div className="main-container">
+                <Header />
                 <Sidebar />
                 <Conteudo />
             </div>

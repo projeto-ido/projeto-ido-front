@@ -25,13 +25,11 @@ function ItemRectangleTimeline() {
 
     const vetorTarefas = []
     
-    {
-        listaTarefa.map(tarefaAtual => (
-            vetorTarefas.push(
-                new Tarefa(tarefaAtual.prioridade, tarefaAtual.dataIni, tarefaAtual.dataFim)
-            )
-        ))
-    }
+    listaTarefa.map(tarefaAtual => (
+        vetorTarefas.push(
+            new Tarefa(tarefaAtual.prioridade, tarefaAtual.dataIni, tarefaAtual.dataFim)
+        )
+    ))
 
     const options = {
         series: [{

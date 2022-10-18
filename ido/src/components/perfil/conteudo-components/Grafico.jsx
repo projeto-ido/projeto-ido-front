@@ -18,15 +18,13 @@ function Grafico() {
     var nomeEtiqueta = [];
     var qtdEtiqueta = [];
     
-    {
-        nomeEtiqueta.push(listaEtiqueta.map(etiquetaAtual => (
-            etiquetaAtual.titulo
-        )))
+    nomeEtiqueta.push(listaEtiqueta.map(etiquetaAtual => (
+        etiquetaAtual.titulo
+    )))
 
-        qtdEtiqueta.push(listaEtiqueta.map(etiquetaAtual => (
-            etiquetaAtual.quantidade
-        )))
-    }
+    qtdEtiqueta.push(listaEtiqueta.map(etiquetaAtual => (
+        etiquetaAtual.quantidade
+    )))
     
     return(
         <>

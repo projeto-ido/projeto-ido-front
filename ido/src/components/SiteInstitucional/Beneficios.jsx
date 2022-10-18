@@ -1,5 +1,6 @@
 import React from "react";
 import beneficiosImg from "../../assets/images/beneficios-img.png"
+import { Link } from "react-router-dom";
 
 function Beneficios() {
     return(
@@ -23,7 +24,9 @@ function Beneficios() {
                         concentração, o que impacta diretamente 
                         no seu rendimento.</h4>
                     </div>
-                    <button className="btn-cadastro">Crie sua conta</button>
+                    <Link to="/cadastro">
+                        <button className="btn-cadastro">Crie sua conta</button>
+                    </Link>
                 </div>
                 <div className="right-content">
                     <img src={beneficiosImg} alt="Cards flutuantes com um circulo pontilhado no meio"/>

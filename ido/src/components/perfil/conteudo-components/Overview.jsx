@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ItemSquare from './ItemSquare';
 import ItemRectangleBio from './overview-components/ItemRectangleBio';
-import api from '../../../api';
+import api from '../../../api/apiConquista';
 
 function Overview(props) {
     const [listaInfoUser, setListaInfoUser] = useState([]);

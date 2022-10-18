@@ -148,7 +148,7 @@ body {
     border-radius: 50%;
     z-index: 1;
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
 }
 
 .main-container .toolbar .container .foto-perfil img {

@@ -4,15 +4,16 @@ import logoFacebook from "../../assets/images/facebook-icon.png"
 import logoInstagram from "../../assets/images/instagram-icon.png"
 import logoLinkedIn from "../../assets/images/linkedin-icon.png"
 import logoTwitter from "../../assets/images/twitter-icon.png"
+import { Link } from "react-router-dom";
 
 function Footer() {
     return(
         <>
-        <div className="footer">
+        <div className="footer-institucional">
             <div className="ido-copyright">
-                <a href="#">
+                <Link to="#">
                     <img src={logoIdo} alt="Logo da empresa iDo"/>
-                </a>
+                </Link>
                 <div>
                     <h1>© 2022 IDO S.A - SPTECH</h1>
                     <h2>Rua Hadoock Lobo, 595 - São Paulo, SP - 01141103</h2>

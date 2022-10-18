@@ -47,7 +47,7 @@ body {
     width: 100vw;
 }
 
-.header {
+.headerInstitucional {
     width: 100%;
     display: flex;
     align-items: center;
@@ -59,16 +59,16 @@ body {
     z-index: 2;
 }
 
-.header a{
+.headerInstitucional a{
     color: #1F1E1E;
-    font-size: 2.4em;
+    font-size: 2.4rem;
     text-decoration: none;
 }
 
-.btn-login{
+.btnLogin{
     width: 11vw;
     height: 6vh;
-    font-size: 2.4em;
+    font-size: 2.4rem;
     font-weight: 600;
     color: white;
     border: 0;
@@ -77,7 +77,7 @@ body {
     transition-duration: 0.3s;
 }
 
-.btn-login:hover{
+.btnLogin:hover{
     cursor: pointer;
     transition-duration: 0.3s;
     background-color: #FFCA6D;
@@ -113,12 +113,12 @@ body {
 .banner-text h1{
     color: #7463C7;
     font-weight: 600;
-    font-size: 4.0em;
+    font-size: 4.0rem;
 }
 
 .banner-text h2{
     color: #1F1E1E;
-    font-size: 3.0em;
+    font-size: 3.0rem;
     font-weight: 300;
     margin-bottom: 8vh;
 }
@@ -126,7 +126,7 @@ body {
 .btn-cadastro{
     width: 18vw;
     height: 7vh;
-    font-size: 2.4em;
+    font-size: 2.4rem;
     font-weight: 600;
     color: #1F1E1E;
     border: 0;
@@ -161,7 +161,7 @@ body {
     justify-content: center;
     flex-direction: column;
     color: #1F1E1E;
-    font-size: 1.6em;
+    font-size: 1.6rem;
     font-weight: 400;
 }
 
@@ -259,7 +259,7 @@ body {
 .metodologias-text h1{
     color: white;
     font-weight: 600;
-    font-size: 6.4em;
+    font-size: 6.4rem;
     margin: 2vh;
 }
 
@@ -268,7 +268,7 @@ body {
     width: 50vw;
     margin: 2vh;
     font-weight: 300;
-    font-size: 2.4em;
+    font-size: 2.4rem;
 }
 
 .cards-container{
@@ -287,7 +287,7 @@ body {
 
 .metodologias h3{
     color: #5D84C2;
-    font-size: 2.4em;
+    font-size: 2.4rem;
     padding-left: 2vw;
     margin-bottom: 1vh;
 }
@@ -295,7 +295,7 @@ body {
 .metodologias h4{
     color: white;
     font-weight: 300;
-    font-size: 2.0em;
+    font-size: 2.0rem;
     padding-left: 2vw;
     margin-top: 1vh;
 }
@@ -382,41 +382,42 @@ body {
 }
 
 .left-content button{
-    font-size: 2.0em;
+    font-size: 2.0rem;
     width: 14vw;
     height: 6vh;
 }
 
 .text h1{
-    font-size: 2.4em;
+    font-size: 2.4rem;
     color: #7463C7;
 }
 
 .text h4{
-    font-size: 2.0em;
+    font-size: 2.0rem;
     font-weight: 400;
     color: #1F1E1E;
 }
 
-.footer{
+.footer-institucional{
     background-color: #5D84C2;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     height: 25vh;
+    flex-direction: row;
 }
 
-.footer h1{
+.footer-institucional h1{
     font-weight: 400;
-    font-size: 2em;
+    font-size: 2rem;
     color: #FFF;
     margin-bottom: 1vw;
 }
 
-.footer h2{
+.footer-institucional h2{
     font-weight: 300;
-    font-size: 1.6em;
+    font-size: 1.6rem;
     color: #FFF;
     margin-top: 1vw;
 }

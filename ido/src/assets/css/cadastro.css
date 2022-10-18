@@ -6,8 +6,8 @@
 
 @font-face {
     font-family: 'Aqum';
-    src: url('Aqum.otf') format('opentype'),
-    url('Aqum.ttf') format('truetype');
+    src: url('../css/fonts/Aqum.otf') format('opentype'),
+    url('../css/fonts/Aqum.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
@@ -146,7 +146,7 @@ input:focus{
 }
 
 .main__container .img__calendario{
-    background: url("../imgs/backgound.png");
+    background: url("../../assets/images/background.png");
     background-size: cover;
     width: 62.5vw;
     height: 100%;

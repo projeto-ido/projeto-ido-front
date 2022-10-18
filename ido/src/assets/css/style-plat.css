@@ -1,0 +1,1247 @@
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-size: 1vw;
+    line-height: 7vh;
+    background-color: #FFFAFA;
+    display: flex;
+    min-height: 400px;
+}
+
+
+.menu-lateral {
+    vertical-align: baseline;
+    padding-top: 0;
+    width: 10vw;
+    height: 100.1vh;
+    background-color: #1F1E1E;
+    line-height: normal;
+    position: fixed;
+
+}
+
+.sessao-lateral {
+    width: 10vw;
+    height: 13.8vh;
+    border-bottom: .2vh solid #000000;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    
+    
+}
+
+.menu-tarefa-check{
+    background-color: #d9d9d9;
+    color: #5D84C2;
+    font-weight: bolder;
+    
+}
+
+.menu-tarefa-off{
+    background-color: #E7E7E7;
+    color: #7E7D7D;
+    font-weight: lighter;
+    
+}
+
+.menu-tarefa-default{
+    height: 100%;
+    border: none;
+    cursor: pointer;
+}
+
+.sessao-lateral-home {
+    width: 10vw;
+    height: 13.8vh;
+    border-bottom: .2vh solid #000000;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #FFFAFA;
+    
+}
+
+.logo {
+    width: 6vw;
+    height: 7.5vh;
+
+}
+
+.paragrafo-home{
+    margin: 0px; color: #5D84C2;
+}
+
+.paragrafo-grafico{
+    margin: 0px; color: #FFFAFA;
+}
+.paragrafo-etiqueta{
+    margin: 0px; color: #FFFAFA;
+}
+.paragrafo-conheca{
+    margin: 0px; color: #FFFAFA;
+}
+.paragrafo-config{
+    margin: 0px; color: #FFFAFA;
+}
+.paragrafo-sair{
+    margin: 0px; color: #FFFAFA; padding-left: .2vw;
+}
+
+.sessao-logo {
+    padding-top: 4vh;
+}
+
+.icon-home {
+    padding-left: .3vw;
+    width: 2vw;
+    height: 4vh;
+    padding-top: 3.5vh;
+
+}
+
+.icon-grafico {
+    padding-left: .7vw;
+    width: 2vw;
+    height: 4vh;
+    padding-top: 3.5vh;
+}
+
+.icon-etiqueta {
+    padding-left: 1.2vw;
+    width: 1.8vw;
+    height: 3.8vh;
+    padding-top: 3.5vh;
+}
+
+.icon-conheca {
+    padding-left: 1.2vw;
+    width: 2vw;
+    height: 3.8vh;
+    padding-top: 3.5vh;
+}
+
+.icon-config {
+    padding-left: 1.8vh;
+    width: 2vw;
+    height: 3.8vh;
+    padding-top: 3.5vh;
+}
+
+.sessao-sair {
+    width: 10vw;
+    height: 14.01vh;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.icon-sair {
+    width: 1.8vw;
+    height: 3.8vh;
+    padding-top: 3.5vh;
+}
+
+.funcional {
+    width: 99vw;
+
+}
+
+header {
+    display: flex;
+    align-items: center;
+    float: right;
+    padding-right: 3vw;
+    line-height: normal;
+}
+
+.nome-logado {
+    padding-right: 2vw;
+    color: #7E7D7D;
+    cursor: pointer;
+}
+
+.foto-perfil {
+    width: 3vw;
+    cursor: pointer;
+}
+
+.pesquisar-container {
+    width: 89vw;
+    display: flex;
+    justify-content: center;
+    margin-left: 9.5vw;
+    min-height: 20px;
+}
+
+.elemento-pesquisar {
+    background-color: #E7E7E7;
+    width: 38vw;
+    height: 6.5vh;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    min-height: 20px;
+
+}
+
+.input-pesquisar {
+    border: none;
+    background-color: #E7E7E7;
+    width: 80%;
+    height: 90%;
+    box-shadow: 0 0 0 0;
+    outline: 0;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    cursor: pointer;
+    font-size: 1.2vw;
+
+}
+
+.icon-lupa {
+    width: 2.5vw;
+    height: 5vh;
+    padding-left: 3vh;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+
+}
+
+.acoes-atividades {
+    display: flex;
+    width: 90vw;
+    height: 15vh;
+    margin-left: 8.5vw;
+    min-height: 40px;
+}
+
+.container-options-filtros {
+    margin-top: 4.2vh;
+    margin-left: 5.1vw;
+    display: flex;
+    background-color: #E7E7E7;
+    width: 18vw;
+    height: 6.5vh;
+    border-radius: 10px;
+    left: 5.2vw;
+    cursor: pointer;
+    min-height: 20px;
+
+
+}
+
+.opcoes-visualizacao {
+    margin-top: 4vh;
+    margin-left: 3.4vw;
+    display: flex;
+    background-color: #E7E7E7;
+    width: 38vw;
+    height: 6.5vh;
+    border-radius: 10px;
+    border: .2vh solid #AFAFAF;
+    cursor: pointer;
+    min-height: 20px;
+    line-height: normal;
+
+
+}
+
+.botao-adicionar-tarefa {
+    margin-top: 4.2vh;
+    margin-left: 3.3vw;
+    display: flex;
+    background-color: #FFCA6D;
+    width: 18vw;
+    height: 6.5vh;
+    border-radius: 10px;
+    left: 12.3vw;
+    justify-content: center;
+    cursor: pointer;
+    min-height: 20px;
+    line-height: normal;
+
+}
+
+.icon-filtro {
+    width: 1.5vw;
+    height: 3vh;
+    padding-left: 1vw;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+
+}
+
+.select-filtros {
+    border: none;
+    background-color: #E7E7E7;
+    width: 80%;
+    height: 93%;
+    box-shadow: 0 0 0 0;
+    outline: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: #7E7D7D;
+    cursor: pointer;
+    font-size: 1.2vw;
+
+}
+
+.matriz {
+    border-right: .2vh solid #AFAFAF;
+    width: 12.66vw;
+    display: flex;
+    justify-content: center;
+    display: table-cell;
+    vertical-align: middle;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.grupo {
+    border-right: .2vh solid #AFAFAF;
+    width: 12.66vw;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.lista {
+    /* border-right: .2vh solid #AFAFAF; */
+    width: 12.66vw;
+    display: table-cell;
+    vertical-align: middle;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.calendario {
+    width: 9.5vw;
+    color: #7E7D7D;
+    display: table-cell;
+    vertical-align: middle;
+    padding-left: 5%;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.texto-criacao-atividade {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.icon-soma {
+    width: 2.5vw;
+    height: 4vh;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+
+}
+
+.tarefas-geral-matriz {
+    width: 81vw;
+    height: 80%;
+    margin-left: 14%;
+    display: block;
+}
+
+.tarefas-superior {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container-etiquetas-matriz {
+    display: flex;
+    width: 40%;
+
+}
+
+
+.faca-agora {
+    width: 38.87vw;
+    background-color: #E7E7E7;
+    height: 40vh;
+    border-top: 1vh solid #7463C7;
+    border-radius: 0px 0px 25px 25px;
+    min-height: 150px;
+
+}
+
+.agendar {
+    width: 38.87vw;
+    background-color: #E7E7E7;
+    height: 40vh;
+    border-top: 1vh solid #7463C7;
+    border-radius: 0px 0px 25px 25px;
+    min-height: 150px;
+
+}
+
+.tarefas-inferior {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5vh;
+}
+
+.delegar {
+    width: 38.87vw;
+    background-color: #E7E7E7;
+    height: 40vh;
+    border-top: 1vh solid #7463C7;
+    border-radius: 0px 0px 25px 25px;
+    min-height: 150px;
+
+}
+
+.nao-priorizar {
+    width: 38.87vw;
+    background-color: #E7E7E7;
+    height: 40vh;
+    border-top: 1vh solid #7463C7;
+    border-radius: 0px 0px 25px 25px;
+    min-height: 150px;
+
+}
+
+
+.titulo-prioridade {
+    font-weight: 700;
+    color: #7463C7;
+    padding-left: 2vw;
+    margin: 0 0 0;
+
+}
+
+
+
+.tarefa-combo {
+    display: flex;
+    justify-content: flex-start;
+    line-height: normal;
+    cursor: pointer;
+}
+
+.tarefa {
+    padding-top: 2vh;
+    width: 50%;
+    padding-left: 2vw;
+
+}
+
+.etiqueta {
+    width: 7vw;
+    height: min-content;
+    line-height: normal;
+    background-color: #7463C7;
+    border-radius: 5px;
+    text-align: center;
+    margin-top: 2vh;
+    color: #fffafab3;
+    font-weight: 200;
+    margin-left: 3px;
+
+}
+
+/*Inicio visualização por grupo*/
+
+.tarefas-geral-grupo {
+    width: 81vw;
+    height: 80%;
+    margin-left: 14%;
+}
+
+.grupo-fazer-agora {
+    width: 100%;
+    background-color: #FFFAFA;
+    height: 32vh;
+    border-radius: 0px 0px 25px 25px;
+    min-height: 100px;
+    border-bottom: .3vh solid #E7E7E7;
+    border-left: .3vh solid #E7E7E7;
+    border-right: .3vh solid #E7E7E7;
+
+}
+
+.grupo-agendar {
+    width: 100%;
+    background-color: #FFFAFA;
+    height: 32vh;
+    border-radius: 0px 0px 25px 25px;
+    min-height: 100px;
+    border-bottom: .3vh solid #E7E7E7;
+    border-left: .3vh solid #E7E7E7;
+    border-right: .3vh solid #E7E7E7;
+
+}
+
+.grupo-delegar {
+    width: 100%;
+    background-color: #FFFAFA;
+    height: 32vh;
+    border-radius: 0px 0px 25px 25px;
+    min-height: 100px;
+    border-bottom: .3vh solid #E7E7E7;
+    border-left: .3vh solid #E7E7E7;
+    border-right: .3vh solid #E7E7E7;
+
+}
+
+.grupo-nao-priorizar {
+    width: 100%;
+    background-color: #FFFAFA;
+    height: 32vh;
+    border-radius: 0px 0px 25px 25px;
+    min-height: 100px;
+    border-bottom: .3vh solid #E7E7E7;
+    border-left: .3vh solid #E7E7E7;
+    border-right: .3vh solid #E7E7E7;
+}
+
+
+.container-tipo-tarefa {
+    background-color: #E7E7E7;
+    width: 100%;
+    border-right: .3vh solid #E7E7E7;
+    border-top: 1vh solid #7463C7;
+    border-left: .3vh solid #E7E7E7;
+    /*centralizando*/
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 5vh;
+    cursor: pointer;
+}
+
+.container-tipo-tarefa-topo {
+    background-color: #E7E7E7;
+    width: 100%;
+    border-right: .3vh solid #E7E7E7;
+    border-top: 1vh solid #7463C7;
+    border-left: .3vh solid #E7E7E7;
+    /*centralizando*/
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    cursor: pointer;
+
+}
+
+.container-tipo-tarefa-espaco {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+
+.aba-booleana {
+    display: flex;
+}
+
+.icon-fechado-fazer-agora {
+    color: #7E7D7D;
+    padding-top: 1vh;
+}
+
+.icon-aberto-fazer-agora {
+    display: none;
+    color: #7E7D7D;
+}
+
+.icon-aberto-agendar {
+    display: none;
+    color: #7E7D7D;
+}
+
+.icon-fechado-agendar {
+    color: #7E7D7D;
+}
+
+.icon-aberto-delegar {
+    display: none;
+    color: #7E7D7D;
+}
+
+.icon-fechado-delegar {
+    color: #7E7D7D;
+}
+
+.icon-aberto-nao-priorizar {
+    display: none;
+    color: #7E7D7D;
+}
+
+.icon-fechado-nao-priorizar {
+    color: #7E7D7D;
+}
+
+.titulo-prioridade-grupo {
+    font-weight: 700;
+    color: #7463C7;
+
+}
+
+
+/*inicio visualização lista*/
+
+.tarefas-geral-lista {
+    width: 81vw;
+    height: 80%;
+    margin-left: 14%;
+}
+
+.grupo-fazer-agora-lista {
+    width: 100%;
+    background-color: #FFFAFA;
+    border-radius: 0px 0px 25px 25px;
+    min-height: 100px;
+    border-bottom: .3vh solid #E7E7E7;
+    border-left: .3vh solid #E7E7E7;
+    border-right: .3vh solid #E7E7E7;
+
+}
+
+.respiro {
+    height: 10vh;
+}
+
+.tarefa-combo-lista {
+    display: flex;
+    justify-content: space-around;
+    line-height: normal;
+    cursor: pointer;
+    border-bottom: .3vh solid #E7E7E7;
+}
+
+.container-etiquetas {
+    display: flex;
+    width: 100%;
+    min-width: 300px;
+}
+
+.etiqueta-lista {
+    margin-bottom: 1.5vh;
+    width: 100px;
+    height: min-content;
+    line-height: normal;
+    background-color: #7463C7;
+    border-radius: 5px;
+    text-align: center;
+    margin-left: 8vw;
+    margin-top: 2vh;
+    color: #fffafab3;
+    font-weight: 200;
+
+}
+
+/*Modal criação de tarefa*/
+
+.modal-criar-tarefa {
+    top: 8vh;
+    right: 0;
+    bottom: 0;
+    left: 30vw;
+    align-items: center;
+    justify-content: center;
+    width: 50vw;
+    height: 72vh;
+    position: fixed;
+    background: #FFFFFF;
+    border-top: 8px solid #7463C7;
+    border-radius: 0px 0px 25px 25px;
+    min-height: 200px;
+}
+
+.fundo-escuro {
+    position: fixed;
+    width: 99vw;
+    height: 100%;
+    left: 0;
+    top: 0px;
+    background: rgba(0, 0, 0, 0.84);
+}
+
+.opacidade-model{
+    opacity: 0;
+}
+
+
+
+.titulo-modal-tarefa {
+    width: 100%;
+    height: 5vh;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    color: #7463C7;
+    font-weight: 700;
+   font-size: 2.5vh;
+}
+
+.topo-modal-tarefa {
+    padding-left: 47vw;
+    width: 100%;
+    line-height: normal;
+    min-height: 10px;
+}
+
+.botao-sair-tarefa {
+    margin-top: 4px;
+    width: 2vw;
+    font-size: 2.5vh;
+    background: #D3D3D3;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+
+}
+
+.titulo-tarefa-modal{
+    padding-top: 0;
+    margin-top: 0;
+    padding-left: 3.3vw;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    color: #1F1E1E;
+    height: 3.5vh;
+    font-size: 2vh;
+}
+
+.input-titulo-tarefa{
+    width: 86%;
+    height: 4.2vh;
+    margin-left: 6.8%;
+    background: #E7E7E7;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 0 0;
+    outline: 0;
+    color: #7E7D7D;
+    font-size: 1vw;
+}
+
+.classificacao{
+    width: 100%;
+    display: flex;
+    min-height: 30px;
+}
+
+.importancia{
+    width: 33.3%;
+    height: 9vh;
+}
+
+.select-importancia{
+    margin-left: 3.5vw;
+    border: none;
+    background-color: #E7E7E7;
+    width: 60%;
+    height: 4.3vh;
+    box-shadow: 0 0 0 0;
+    outline: 0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    color: #7E7D7D;
+    cursor: pointer;
+    font-size: 1vw;
+    padding-left: 5%;
+    
+}
+
+.urgencia{
+    width: 33.3%;
+    height: 9vh;
+}
+
+.prioridade{
+    width: 33.3%;
+    height: 9vh;
+}
+
+.resultado-prioridade{
+    margin-left: 3.5vw;
+    border: none;
+    background-color: #e7e7e7;
+    width: 60%;
+    margin-top: 1.4vh;
+    border-radius: 5px;
+    text-align: center;
+    height: 4.5vh;    
+    
+}
+
+.texto-prioridade{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #7463C7;
+    font-weight: 700;
+    font-size: 1vw;
+}
+
+.titulo-importancia{
+    padding-top: 0;
+    padding-left: 3.4vw;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    color: #1F1E1E;
+    height: 3.5vh;
+    font-size: 2vh;
+}
+
+.titulo-subtarefa{
+    padding-top: 0;
+    padding-left: 3.4vw;
+    padding-bottom: 0;
+    margin-top: .8vh;
+    margin-bottom: 0;
+    color: #1F1E1E;
+    height: 3.5vh;
+    font-size: 2vh;
+}
+
+.datas-modal{
+    width: 100%;
+    display: flex;
+}
+
+.data-inicio{
+    width: 50%;
+    height: 9vh;
+    font-size: .8vw;
+}
+
+.data-final{
+    width: 50%;
+    height: 9vh;
+    font-size: .8vw;
+}
+
+
+.input-data-inicio{
+    width: 72%;
+    height: 4.3vh;
+    margin-left: 14%;
+    padding-left: 5%;
+    background: #E7E7E7;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 0 0;
+    outline: 0;
+    font-size: 1.1vw;
+    color: #7E7D7D;
+   
+}
+
+.input-data-final{
+    width: 72%;
+    height: 4.3vh;
+    margin-left: 10%;
+    padding-left: 5%;
+    background: #E7E7E7;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 0 0;
+    outline: 0;
+    font-size: 1.1vw;
+    color: #7E7D7D;
+}
+
+.complemento-tarefa-modal{
+    width: 100%;
+    display: flex;
+}
+
+.subtarefa-tarefa-modal{
+    width: 50%;
+    height: 9.5vh;
+}
+
+
+
+.select-etiquetas{
+    border: none;
+    background-color: #E7E7E7;
+    width: 90%;
+    height: 4.5vh;
+    box-shadow: 0 0 0 0;
+    outline: 0;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    color: #7E7D7D;
+    cursor: pointer;
+    font-size: 1.2vw;
+    
+}
+
+.container-descricao{
+    width: 100%;
+    height: 13vh;
+}
+
+.input-descricao{
+    margin-top: 1.3vh;
+    width: 86%;
+    height: 7vh;
+    margin-left: 6.6%;
+    background: #E7E7E7;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 0 0;
+    outline: 0;
+    color: #7E7D7D;
+    font-size: 1vw;
+    
+}
+
+.footer-modal{
+    width: 100%;
+    height: 7vh;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.botao-salvar-tarefa{
+    width: 30%;
+    background-color: #FFCA6D;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2vh;
+    border-radius: 20px;
+    text-align: center;
+    height: 4vh;
+}
+.texto-salvar-tarefa{
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.input-subtarefa{
+    width: 75%;
+    height: 4.3vh;
+    margin-left: 13.5%;
+    background: #E7E7E7;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 0 0;
+    outline: 0;
+    color: #7E7D7D;
+    font-size: 1vw;
+}
+
+.container-criacao-subtarefa{
+    width: 100%;
+    display: flex;
+    margin-top: 1vh;
+}
+
+.container-criacao-subtarefa2{
+    width: 100%;
+    display: none;
+    margin-top: 1vh;
+}
+
+.container-criacao-subtarefa3{
+    width: 100%;
+    display: none;
+    margin-top: 1vh;
+}
+.container-criacao-subtarefa4{
+    width: 100%;
+    display: none;
+    margin-top: 1vh;
+}
+
+.botao-criar-subtarefa{
+    margin-top: .5vh;
+    margin-left: .5vw;
+    width: 1.5vw;
+    height: 3vh;
+    font-size: 2.5vh;
+    background-color: #7E7D7D;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    
+}
+
+.botao-apagar-subtarefa{
+    margin-top: .5vh;
+    margin-left: .5vw;
+    width: 1.5vw;
+    height: 3vh;
+    font-size: 2.5vh;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.texto-acao-subtarefa{
+    display: flex;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    justify-content: center;
+    
+}
+
+.texto-acao-subtarefa-lixo{
+    display: flex;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    justify-content: center;
+    margin-top: 1vh;
+}
+
+.icon-lixeira{
+    width: 1vw;
+    height: 2vh;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    
+}
+
+.container-select-etiqueta{
+    width: 100%;
+    display: flex;
+    margin-top: 1vh;
+}
+
+.titulo-etiqueta-modal{
+    padding-top: 0;
+    margin-top: 0;
+    padding-left: 2.6vw;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    color: #1F1E1E;
+    height: 3.5vh;
+    font-size: 2vh;
+    
+}
+
+.titulo-etiqueta-modal2{
+    padding-top: 0;
+    margin-top: 0;
+    padding-left: 0vw;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    color: #1F1E1E;
+    height: 3.5vh;
+    font-size: 2vh;
+}
+
+.continer-combo-etiquetas{
+    display: flex;
+    margin-left: 2.6vw;
+    width: 80%;
+}
+
+.container-titulo-etiquetas{
+    display: flex;
+}
+
+.container-main {
+    display: 'flex';
+    width: 100%
+}
+
+@media (max-width: 600px) {
+
+    body {
+        font-size: 2vw;
+    }
+
+    .container-options-filtros {
+        height: 5vh;
+    }
+
+    .icon-filtro {
+        width: 1.5vw;
+        height: 2.5vh;
+        padding-left: 1vw;
+    }
+
+    .opcoes-visualizacao {
+        height: 5vh;
+    }
+
+    .botao-adicionar-tarefa {
+        height: 5vh;
+    }
+
+    .texto-criacao-atividade {
+        margin-top: 3%;
+    }
+
+    .calendario {
+        padding-left: 0px;
+    }
+
+    .matriz {
+        padding-left: 10%;
+    }
+
+    .lista {
+        padding-left: 10%;
+    }
+
+    .grupo {
+        padding-left: 10%;
+    }
+
+    .tarefas-superior {
+        display: block;
+        margin-left: 10%;
+    }
+
+    .faca-agora {
+        width: 60vw;
+        height: 35vh;
+        max-height: 160px;
+        margin-top: 5vh;
+
+    }
+
+    .agendar {
+        width: 60vw;
+        height: 35vh;
+        max-height: 160px;
+        margin-top: 5vh;
+    }
+
+    .tarefas-inferior {
+        display: block;
+        margin-left: 10%;
+    }
+
+    .delegar {
+        width: 60vw;
+        height: 35vh;
+        max-height: 160px;
+        margin-top: 5vh;
+    }
+
+    .nao-priorizar {
+        width: 60vw;
+        height: 35vh;
+        max-height: 160px;
+        margin-top: 5vh;
+    }
+
+    .etiqueta {
+        width: 10vw;
+    }
+
+    .logo {
+        width: 6vw;
+        height: 5vh;
+        padding-top: 12%;
+    }
+
+    .icon-home {
+        padding-left: 1.2vw;
+        width: 3vw;
+        height: 4vh;
+        padding-top: 4vh;
+    }
+
+    .icon-grafico {
+        padding-left: 1.8vw;
+        width: 3vw;
+        height: 4vh;
+        padding-top: 4vh;
+    }
+
+    .icon-etiqueta {
+        padding-left: 2.5vw;
+        width: 3vw;
+        height: 4vh;
+        padding-top: 2.5vh;
+
+    }
+
+    .icon-lupa {
+        height: 4vh;
+    }
+
+    .icon-conheca {
+        padding-left: 2vw;
+        width: 4vw;
+        height: 4vh;
+        padding-top: 2.5vh;
+    }
+
+    .icon-config {
+        padding-left: 1.5vw;
+        width: 4vw;
+        height: 4vh;
+        padding-top: 2.5vh;
+    }
+
+    .icon-sair {
+        width: 3.5vw;
+        height: 3.5vh;
+        padding-top: 2.5vh;
+    }
+
+    .select-importancia{
+        font-size: 1.5vw;
+    }
+
+    .input-data-final{
+        font-size: 1.5vw;
+    }
+
+    .input-data-inicio{
+        font-size: 1.5vw;
+    }
+
+    .select-etiquetas{
+        font-size: 1.5vw;
+    }
+
+    .input-descricao{
+        font-size: 1.5vw;
+    }
+
+    .input-titulo-tarefa{
+        font-size: 1.5vw;
+    }
+
+    .input-subtarefa{
+        font-size: 1.5vw;
+    }
+
+
+}

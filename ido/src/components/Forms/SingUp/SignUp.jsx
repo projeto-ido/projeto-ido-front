@@ -40,7 +40,7 @@ export const SignUp = () => {
     api.post("/usuarios", data)
       .then(resposta => {
         if (resposta.status === 201) {
-          navigate("/SignIn")
+          navigate("/login")
         }
       }).catch(erro => {
         window.alert(erro)

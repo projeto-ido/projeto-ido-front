@@ -22,19 +22,17 @@ function ItemSquareSemana(props) {
     const qtdConcluido = [];
     const qtdNaoConcluido = [];
     
-    {
-        dias.push(listaDiaTarefa.map(diaTarefaAtual => (
-            diaTarefaAtual.data
-        )))
+    dias.push(listaDiaTarefa.map(diaTarefaAtual => (
+        diaTarefaAtual.data
+    )))
 
-        qtdConcluido.push(listaDiaTarefa.map(diaTarefaAtual => (
-            diaTarefaAtual.qtdConcluido
-        )))
+    qtdConcluido.push(listaDiaTarefa.map(diaTarefaAtual => (
+        diaTarefaAtual.qtdConcluido
+    )))
 
-        qtdNaoConcluido.push(listaDiaTarefa.map(diaTarefaAtual => (
-            diaTarefaAtual.qtdNaoConcluido
-        )))
-    }
+    qtdNaoConcluido.push(listaDiaTarefa.map(diaTarefaAtual => (
+        diaTarefaAtual.qtdNaoConcluido
+    )))
 
     var linhaConcluido = new TaskObject("Tarefas concluídas", qtdConcluido)
     var linhaNaoConcluido = new TaskObject("Tarefas não concluídas", qtdNaoConcluido)
