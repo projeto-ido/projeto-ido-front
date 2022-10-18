@@ -1,0 +1,44 @@
+body{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 62.5%;
+    display: flex;
+}
+
+.headerInstitucional {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 15vh;
+    border-bottom: 0.2vh solid #1F1E1E;
+    background-color: #FFF;
+    position: fixed;
+    z-index: 2;
+}
+
+.headerInstitucional .navbar{
+    color: #1F1E1E;
+    font-size: 2.4em;
+    text-decoration: none;
+}
+
+.btnLogin{
+    width: 11vw;
+    height: 6vh;
+    font-size: 2.4em;
+    font-weight: 600;
+    color: white;
+    border: 0;
+    background-color: #5D84C2;
+    border-radius: 2vw;
+    transition-duration: 0.3s;
+}
+
+.btnLogin:hover{
+    cursor: pointer;
+    transition-duration: 0.3s;
+    background-color: #FFCA6D;
+}

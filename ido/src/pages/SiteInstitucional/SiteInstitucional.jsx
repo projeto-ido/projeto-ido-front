@@ -2,11 +2,11 @@ import React from "react";
 import BannerRadio from "../../components/SiteInstitucional/BannerRadio";
 import Banner from "../../components/SiteInstitucional/Banner";
 import BannerIcons from "../../components/SiteInstitucional/BannerIcons";
-import Navbar from "../../components/SiteInstitucional/Navbar";
+import Navbar from "../../components/SiteInstitucional/Navbar/Navbar";
 import Metodologias from "../../components/SiteInstitucional/Metodologias";
 import Beneficios from "../../components/SiteInstitucional/Beneficios";
 import Footer from "../../components/SiteInstitucional/Footer";
-import "../../assets/css/index.css"  
+
 
 function SiteInstitucional(){
     return(
