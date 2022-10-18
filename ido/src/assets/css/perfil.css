@@ -21,7 +21,98 @@ body {
     display: flex;
 }
 
-/* TOOLBAR */
+/* SCROLLBAR */
+::-webkit-scrollbar {
+    width: 1vw;
+}
+
+::-webkit-scrollbar-track {
+    background: #7463C7;
+    border-radius: 100vw;
+    margin-block: .3vw;
+}
+
+::-webkit-scrollbar-thumb {
+    background: white;
+    border-radius: 100vw;
+    border: .3vw #7463C7 solid;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #E7E7E7;
+}
+
+/* HEADER */
+.main-container .box-header {
+    position: fixed;
+    display: flex;
+    justify-content: flex-end;
+    width: 100vw;
+    height: 15%;
+    border-bottom: 0.4vh #5D84C2 solid;
+}
+
+.main-container .box-header .btn-box {
+    position: fixed;
+    height: 15%;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-container .box-header .btn-box .container {
+    height: 100%;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-container .box-header .btn-box .container div {
+    width: 33%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+.main-container .box-header .btn-box .container div .text {
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.main-container .box-header .btn-box .container div .div-selection {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.main-container .box-header .btn-box .container div .div-selection .selection {
+    width: 60%;
+    height: 30%;
+    border-radius: 1vw 1vw 0 0;
+    background-color: #5D84C2;
+}
+
+.main-container .box-header .btn-box .container span {
+    font-size: 1.3vw;
+    font-weight: 700;
+}
+
+.main-container .box-header .btn-box .container span:hover {
+    cursor: pointer;
+    transition-duration: 0.3s;
+    color: #5D84C2;
+}
+
+/* SIDEBAR */
 .main-container .toolbar {
     width: 30%;
     height: 100vh;
@@ -50,7 +141,7 @@ body {
 
 .main-container .toolbar .container .foto-perfil {
     position: relative;
-    background-color: white;
+    background-color: #1F1E1E;
     float: left;
     width: 15vw;
     height: 15vw;
@@ -60,13 +151,19 @@ body {
     justify-content: end;
 }
 
+.main-container .toolbar .container .foto-perfil img {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
+
 .main-container .toolbar .container .foto-perfil div {
     width: 35%;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    z-index: 1;
+    position: absolute;
     color: white;
     font-size: 2em;
 }
@@ -138,7 +235,8 @@ body {
 
 .main-container .toolbar .container .status h1 {
     color: #7463C7;
-    font-size: 1vw;
+    font-size: 1.2vw;
+    margin: 0;
 }
 
 .main-container .toolbar .container .status span {
@@ -149,17 +247,313 @@ body {
 .main-container .conteudo {
     width: 70%;
     height: 100vh;
-    background-image: url("../assets/fundo-perfil.png");
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    background-image: url("../images/fundo-perfil-opaco.png");
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: right;
-    opacity: 0.1;
 }
 
 .main-container .conteudo .container {
-    height: 100%;
-    width: 90%;
+    height: 85%;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+.main-container .conteudo .container .box-container {
+    height: 90%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* ESTRUTURA = OVERVIEW - CONQUISTAS */
+.main-container .conteudo .container .box-container .div-up {
+    width: 100%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-container .conteudo .container .box-container .div-down {
+    width: 100%;
+    height: 55%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ESTRUTURA GRAFICOS */
+.main-container .conteudo .container .box-container .div-up-grafico {
+    width: 100%;
+    height: 55%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-container .conteudo .container .box-container .div-down-grafico {
+    width: 100%;
+    height: 40%;
+}
+
+/* OVERVIEW */
+.div-up .item-rectangle-bio {
+    width: 100%;
+    height: 100%;
+    background-color: #E7E7E7;
+    border-top: 0.5vw #7463C7 solid;
+    border-bottom-right-radius: 1vw;
+    border-bottom-left-radius: 1vw;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.div-up .item-rectangle-bio .overview-descricao {
+    height: 80%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.div-up .item-rectangle-bio .titulo-descricao {
+    height: 30%;
+    width: 100%;
+    border-bottom: 0.2vh black solid;
+    color: black;
+    display: flex;
+    align-items: center;
+    font-size: 0.5vw;
+}
+
+.div-up .item-rectangle-bio .texto-descricao {
+    height: 60%;
+    width: 100%;
+    color: black;
+    display: flex;
+    align-items: center;
+    font-size: 1vw;
+}
+
+.div-up .item-rectangle-bio .overview-imagem {
+    height: 80%;
+    width: 40%;
+    border-radius: 1.5vw;
+    background-color: #1F1E1E;
+    overflow: hidden;
+}
+
+.div-up .item-rectangle-bio .overview-imagem img {
+    width: 100%;
+}
+
+/* CONQUISTAS */
+.div-up .conquista-container-up {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.div-up .conquista-container-up .conquista-badges {
+    height: 100%;
+    width: 48%;
+    background-color: #E7E7E7;
+    border-top: 0.5vw #7463C7 solid;
+    border-bottom-right-radius: 1vw;
+    border-bottom-left-radius: 1vw;
+}
+
+.div-up .conquista-container-up .conquista-grafico {
+    height: 100%;
+    width: 48%;
+}
+
+.div-down .conquista-container-down {
+    height: 100%;
+    width: 100%;
+    background-color: #E7E7E7;
+    border-top: 0.5vw #7463C7 solid;
+    border-bottom-right-radius: 1vw;
+    border-bottom-left-radius: 1vw;
+    overflow-y: scroll;
+}
+
+/* ITEM RECTANGLE */
+.item-rectangle {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #E7E7E7;
+    border-top: 0.5vw #7463C7 solid;
+    border-bottom-right-radius: 1vw;
+    border-bottom-left-radius: 1vw;
+    overflow: hidden;
+}
+
+.item-rectangle .grafico-timeline {
+    height: 100%;
+    width: 100%;
+    margin-left: 5%;
+    margin-top: 3%;
+}
+
+/* ITEM SQUARE */
+.item-square {
+    height: 100%;
+    width: 48%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #E7E7E7;
+    border-top: 0.5vw #7463C7 solid;
+    border-bottom-right-radius: 1vw;
+    border-bottom-left-radius: 1vw;
+    overflow: hidden;
+}
+
+.item-square .grafico-etiqueta {
+    height: 80%;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-square .grafico-semana {
+    height: 95%;
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ITEM CONQUISTA */
+/* badges */
+.conquista-badges {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.conquista-badges .badge-container {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.conquista-badges .badge-container h1 {
+    font-size: 1.2vw;
+    color: black;
+}
+
+.conquista-badges .badge-container .list-badges {
+    width: 100%;
+    height: 70%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    overflow-y: scroll;
+}
+
+.badge {
+    height: 4.5vw;
+    width: 4.5vw;
+    background-color: black;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 0.5vw #E7E7E7 solid;
+}
+
+.badge img {
+    height: 100%;
+    width: 100%;
+}
+
+/* lista conquista */
+.conquista-corpo {
+    width: 100%;
+    height: 25%;
+    border-bottom: 0.2vh black solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.conquista-corpo .conquista-corpo-container {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.conquista-corpo .conquista-corpo-container div {
+    width: 90%;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.conquista-corpo .conquista-corpo-container .conquista-imagem {
+    width: 10%;
+    height: 85%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.conquista-corpo .conquista-corpo-container .conquista-imagem .div-imagem {
+    height: 4.5vw;
+    width: 4.5vw;
+    background-color: black;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.div-imagem img {
+    height: 100%;
+    width: 100%;
+}
+
+.conquista-corpo .conquista-corpo-container div .titulo-conquista {
+    width: 95%;
+    height: 35%;
+    color: black;
+    font-weight: bold;
+    font-size: 1.2vw;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.conquista-corpo .conquista-corpo-container div .descricao-conquista {
+    width: 95%;
+    height: 60%;
+    color: black;
+    font-size: 1vw;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    word-wrap: break-word;
+}
