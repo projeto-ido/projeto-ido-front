@@ -1,7 +1,7 @@
 import React from "react";
-import darkIcon from "../../../assets/icons/logo-dark.ico";
+import darkIcon from "../../assets/icons/logo-dark.ico";
 import { Link } from "react-router-dom";
-import styles from "./Navbar.module.css"
+import styles from "./SiteInstitucional.module.css"
 
 function Navbar() {
     return(
