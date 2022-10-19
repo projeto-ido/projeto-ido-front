@@ -5,12 +5,13 @@ import logoInstagram from "../../assets/images/instagram-icon.png"
 import logoLinkedIn from "../../assets/images/linkedin-icon.png"
 import logoTwitter from "../../assets/images/twitter-icon.png"
 import { Link } from "react-router-dom";
+import styles from "./SiteInstitucional.module.css";
 
 function Footer() {
     return(
         <>
-        <div className="footer-institucional">
-            <div className="ido-copyright">
+        <div className={styles.footerInstitucional}>
+            <div className={styles.idoCopyright}>
                 <Link to="#">
                     <img src={logoIdo} alt="Logo da empresa iDo"/>
                 </Link>
@@ -19,7 +20,7 @@ function Footer() {
                     <h2>Rua Hadoock Lobo, 595 - São Paulo, SP - 01141103</h2>
                 </div>
             </div>
-            <div className="social-media">
+            <div className={styles.socialMedia}>
                 <a href="https://www.facebook.com/sptech.school" target="_blank" rel="noreferrer">
                     <img src={logoFacebook} alt="Facebook"/>
                 </a>

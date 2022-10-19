@@ -1,10 +1,11 @@
 import React from "react";
 import Icons from "./Icons";
+import styles from "./SiteInstitucional.module.css"
 
 function BannerIcons() {
     return(
         <>
-            <div className="banner-icons">
+            <div className={styles.bannerIcons}>
                 <Icons />
             </div>
         </>

@@ -1,9 +1,10 @@
 import React from "react";
+import styles from "./SiteInstitucional.module.css";
 
 function BannerRadio() {
     return(
         <>
-            <div className="banner-radio">
+            <div className={styles.bannerRadio}>
                 <input type="radio" id="first-radio" defaultChecked onClick={() => moveCarousel(1)}/>
                 <input type="radio" id="second-radio" onClick={() => moveCarousel(2)}/>
                 <input type="radio" id="third-radio" onClick={() => moveCarousel(3)}/>
@@ -76,11 +77,11 @@ function setUncheckedTo(element){
 }
 
 function setClassToHideIcons(element){
-    element.className = "hidden-icon"
+    element.className = styles.hiddenIcon
 }
 
 function setClassToShowIcons(element){
-    element.className = "show-icon"
+    element.className = styles.showIcon
 }
 
 function setDisplayToFlex(element){

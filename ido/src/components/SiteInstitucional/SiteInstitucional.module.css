@@ -30,7 +30,7 @@ PALETA DE CORES
     background: #E7E7E7;
 }
 
-#root{
+.root{
     width: 100vw;
 }
 
@@ -40,11 +40,43 @@ body {
     border: 0;
     font-family: 'Roboto', sans-serif;
     font-size: 62.5%;
-    display: flex;
 }
 
-.container{
-    width: 100vw;
+.headerInstitucional {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 15vh;
+    border-bottom: 0.2vh solid #1F1E1E;
+    background-color: #FFF;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+}
+
+.headerInstitucional .navbar{
+    color: #1F1E1E;
+    font-size: 2.4em;
+    text-decoration: none;
+}
+
+.btnLogin{
+    width: 11vw;
+    height: 6vh;
+    font-size: 2.4em;
+    font-weight: 600;
+    color: white;
+    border: 0;
+    background-color: #5D84C2;
+    border-radius: 2vw;
+    transition-duration: 0.3s;
+}
+
+.btnLogin:hover{
+    cursor: pointer;
+    transition-duration: 0.3s;
+    background-color: #FFCA6D;
 }
 
 .banner{
@@ -54,7 +86,7 @@ body {
     height: 80vh;
 }
 
-.banner-text{
+.bannerText{
     padding: 6vw;
     padding-left: 9vw;
     width: 40vw;
@@ -62,35 +94,35 @@ body {
     flex-direction: column;
 }
 
-.banner-image{
+.bannerImage{
     display: flex;
     width: 20vw;
     padding: 6vh;
 }
 
-.banner-image img{
+.banneImage img{
     width: 55vw;
     height: 55vh;
 }
 
 
-.banner-text h1{
+.bannerText h1{
     color: #7463C7;
     font-weight: 600;
-    font-size: 4.0rem;
+    font-size: 4.0em;
 }
 
-.banner-text h2{
+.bannerText h2{
     color: #1F1E1E;
-    font-size: 3.0rem;
+    font-size: 3.0em;
     font-weight: 300;
     margin-bottom: 8vh;
 }
 
-.btn-cadastro{
+.btnCadastro{
     width: 18vw;
     height: 7vh;
-    font-size: 2.4rem;
+    font-size: 2.4em;
     font-weight: 600;
     color: #1F1E1E;
     border: 0;
@@ -100,20 +132,20 @@ body {
     cursor: pointer;
 }
 
-.btn-cadastro:hover{
+.btnCadastro:hover{
     color: #1F1E1E;
     border: 0;
     background-color: #ffb83d;
 }
 
-.banner-icons{
+.bannerIcons{
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-direction: row;
 }
 
-.banner-icons .icons{
+.bannerIcons .icons{
     width: 60vw;
     justify-content: space-evenly;
     display: flex;
@@ -125,7 +157,7 @@ body {
     justify-content: center;
     flex-direction: column;
     color: #1F1E1E;
-    font-size: 1.6rem;
+    font-size: 1.6em;
     font-weight: 400;
 }
 
@@ -134,14 +166,14 @@ body {
     height: 7vw;
 }
 
-.banner-radio{
+.bannerRadio{
     padding: 4vh;
     display: flex;
     justify-content: center;
     margin-bottom: 10vh;
 }
 
-.banner-radio input{
+.bannerRadio input{
     height: 1vw;
     width: 1vw;
     appearance: none;
@@ -151,7 +183,7 @@ body {
     transition-duration: 0.2s;
 }
 
-.banner-radio input:checked{
+.bannerRadio input:checked{
     height: 1.1vw;
     width: 1.1vw;
     appearance: none;
@@ -161,7 +193,7 @@ body {
     transition-duration: 0.2s;
 }
 
-.hidden-icon {
+.hiddenIcon {
     display: flex;
     width: 60vw;
     justify-content: space-evenly;
@@ -184,7 +216,7 @@ body {
     }
   }
 
-.show-icon {
+.showIcon {
     display: flex;
     width: 60vw;
     justify-content: space-evenly;
@@ -212,7 +244,7 @@ body {
     height: 150vh;
 }
 
-.metodologias-text {
+.metodologiasText {
     display: flex;
     flex-direction: column;
     padding: 7vw;
@@ -220,22 +252,22 @@ body {
     height: 28vh;
 }
 
-.metodologias-text h1{
+.metodologiasText h1{
     color: white;
     font-weight: 600;
-    font-size: 6.4rem;
+    font-size: 6.4em;
     margin: 2vh;
 }
 
-.metodologias-text h2{
+.metodologiasText h2{
     color: white;
     width: 50vw;
     margin: 2vh;
     font-weight: 300;
-    font-size: 2.4rem;
+    font-size: 2.4em;
 }
 
-.cards-container{
+.cardsContainer{
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -251,7 +283,7 @@ body {
 
 .metodologias h3{
     color: #5D84C2;
-    font-size: 2.4rem;
+    font-size: 2.4em;
     padding-left: 2vw;
     margin-bottom: 1vh;
 }
@@ -259,7 +291,7 @@ body {
 .metodologias h4{
     color: white;
     font-weight: 300;
-    font-size: 2.0rem;
+    font-size: 2.0em;
     padding-left: 2vw;
     margin-top: 1vh;
 }
@@ -271,8 +303,8 @@ body {
     background-color: #5D84C2;
 }
 
-.bigger-card{
-    background-image: url("../images/card-matriz.png");
+.biggerCard{
+    background-image: url("../../assets/images/card-matriz.png");
     background-size: cover;
     width: 40vw;
     height: 55vh;
@@ -287,7 +319,7 @@ body {
 }
 
 .card{
-    background-image: url("../images/bg-card.png");
+    background-image: url("../../assets/images/bg-card.png");
     background-size: cover;
     width: 41.5vw;
     height: 25.6vh;
@@ -297,8 +329,8 @@ body {
     justify-content: flex-end;
 }
 
-.bottom-card{
-    background-image: url("../images/card-progresso.png");
+.bottomCard{
+    background-image: url("../../assets/images/card-progresso.png");
     background-size: cover;
     width: 83vw;
     margin-top: 5vh;
@@ -309,11 +341,11 @@ body {
     justify-content: flex-end;
 }
 
-.card-pomodoro{
-    background-image: url("../images/card-pomodoro.png");
+.cardPomodoro{
+    background-image: url("../../assets/images/card-pomodoro.png");
 }
 
-.small-cards{
+.smallCards{
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -327,17 +359,17 @@ body {
     align-items: center;
 }
 
-.beneficios-content{
+.beneficiosContent{
     display: flex;
     justify-content: center;
     width: 80vw;
 }
 
-.beneficios-content .separator{
+.beneficiosContent .separator{
     margin-left: 0;
 }
 
-.left-content{
+.leftContent{
     width: 30vw;
     height: 75vh;
     display: flex;
@@ -345,24 +377,24 @@ body {
     justify-content: space-between;
 }
 
-.left-content button{
-    font-size: 2.0rem;
+.leftContent button{
+    font-size: 2.0em;
     width: 14vw;
     height: 6vh;
 }
 
 .text h1{
-    font-size: 2.4rem;
+    font-size: 2.4em;
     color: #7463C7;
 }
 
 .text h4{
-    font-size: 2.0rem;
+    font-size: 2.0em;
     font-weight: 400;
     color: #1F1E1E;
 }
 
-.footer-institucional{
+.footerInstitucional{
     background-color: #5D84C2;
     width: 100%;
     display: flex;
@@ -372,28 +404,28 @@ body {
     flex-direction: row;
 }
 
-.footer-institucional h1{
+.footerInstitucional h1{
     font-weight: 400;
-    font-size: 2rem;
+    font-size: 2em;
     color: #FFF;
     margin-bottom: 1vw;
 }
 
-.footer-institucional h2{
+.footerInstitucional h2{
     font-weight: 300;
-    font-size: 1.6rem;
+    font-size: 1.6em;
     color: #FFF;
     margin-top: 1vw;
 }
 
-.ido-copyright{
+.idoCopyright{
    width: 40vw;
    display: flex;
    justify-content: space-evenly;
    flex-direction: row; 
 }
 
-.social-media{
+.socialMedia{
     width: 30vw;
     display: flex;
     justify-content: space-evenly;
