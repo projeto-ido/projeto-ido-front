@@ -6,6 +6,7 @@ import { Cadastro } from "./pages/SignUp/Cadastro";
 import { Login } from "./pages/SignIn/Login";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+
 function App() {
   return (
     <>

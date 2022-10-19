@@ -1,6 +1,6 @@
-import Sidebar from '../../components/Perfil/Sidebar'
-import Header from '../../components/Perfil/Header';
-import Conteudo from '../../components/Perfil/Conteudo';
+import Sidebar from '../../components/perfil/Sidebar';
+import Header from '../../components/perfil/Header';
+import Conteudo from '../../components/perfil/Conteudo';
 
 function Perfil() {
     return(

@@ -1,18 +1,20 @@
 import React from "react";
-import { SignIn } from "../../components/Forms/SignIn/SignIn";
+import { SignIn } from "../../components/Forms/SignIn";
 import { ComeBack } from '../../components/Forms/ComeBack';
-import { BackGroundForm } from '../../components/Forms/BackGroundForm/BackGroundForm';
+import { BackGroundForm } from '../../components/Forms/BackGroundForm';
+
+import style from '../../components/Forms/Forms.module.css'
 
 export const Login = () => {
     return (
         <>
             <main>
     
-                <div className="main__container">
+                <div className={style.main__container}>
     
-                    <div className="formulario">
+                    <div className={style.formulario}>
     
-                        <div className="container">
+                        <div className={style.container}>
                             <ComeBack path="/"/>
     
                             <SignIn />

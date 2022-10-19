@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { IconName } from "react-icons/";
+import React, { useState } from "react";
 import { AiFillCaretLeft } from "react-icons/ai";
 import { AiOutlineCaretDown } from "react-icons/ai";
 import ContainerFazerAgora from "./ComboGrupo/ContainerFazerAgora";
