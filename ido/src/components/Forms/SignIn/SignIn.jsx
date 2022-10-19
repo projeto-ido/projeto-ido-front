@@ -1,10 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
-
-import './style.css'
-import logo from '../../../assets/images/logo-white.png'
-
 import api from "../../../api/api.jsx"
+
+import logo from '../../../assets/images/logo-white.png'
+import style from './style.css'
+
 
 
 
@@ -30,21 +30,21 @@ export const SignIn = () => {
 
     return (
         <>
-            <div className="titulo">
+            <div className={style.titulo}>
                 <h1>Seja Bem Vindo!</h1>
             </div>
 
-            <div className="campos">
+            <div className={style.campos}>
 
-                <div className="campos__container">
-                    <div className="campo__signin email">
-                        <div className="form__container">
+                <div className={style.campos__container}>
+                    <div className={[style.campo__signin, style.email]}>
+                        <div className={style.form__container}>
 
-                            <div className="label">
-                                <label for="inpt-email">Email</label>
+                            <div className={style.label}>
+                                <label for={style.inpt-email}>Email</label>
                             </div>
 
-                            <div className="input">
+                            <div className={style.input}>
                                 <input
                                     name='email'
                                     placeholder="Coloque seu email..."
@@ -54,14 +54,14 @@ export const SignIn = () => {
                         </div>
                     </div>
 
-                    <div className="campo__signin senha">
-                        <div className="form__container">
+                    <div className={[style.campo__signin, style.senha]}>
+                        <div className={style.form__container}>
 
-                            <div className="label">
+                            <div className={style.label}>
                                 <label for="">Senha</label>
                             </div>
 
-                            <div className="input">
+                            <div className={style.input}>
                                 <input
                                     name='senha'
                                     placeholder="Coloque seu senha..."
@@ -73,9 +73,9 @@ export const SignIn = () => {
                 </div>
             </div>
 
-            <div className="footer">
-                <div className="botao">
-                    <div onClick={logar} className={"botao__container botao__container__login"}>
+            <div className={style.footer}>
+                <div className={style.botao}>
+                    <div onClick={logar} className={[style.botao__container, style.botao__container__login]}>
                         <p>Logar</p>
                     </div>
                 </div>
