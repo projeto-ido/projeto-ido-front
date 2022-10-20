@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import ItemSquare from './ItemSquare';
 import ItemRectangleBio from './overview-components/ItemRectangleBio';
-import api from '../../../api/apiConquista';
+import apiPerfil from '../../../api/apiPerfil';
 import styles from "../Perfil.module.css";
 
 function Overview(props) {
     const [listaInfoUser, setListaInfoUser] = useState([]);
 
     useEffect(() => {
-        api.get().then(res => {
+        apiPerfil.get().then(res => {
           setListaInfoUser(res.data);
         }).catch(erro => {
           console.log(erro);
