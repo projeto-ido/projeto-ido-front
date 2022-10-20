@@ -214,6 +214,10 @@ body{
     color: white;
 }
 
+.main_container .toolbar .container .opcoes .sair { 
+    text-decoration: none;
+    color: #FFF;
+}
 .main_container .toolbar .container .opcoes button:hover {
     cursor: pointer;
     transition-duration: 0.3s;

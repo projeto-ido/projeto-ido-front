@@ -6,20 +6,20 @@ import style from './Home.module.css';
 
 export default function AcoesAtividades({ openModal, setOpenModal, tipoTarefa, setTipoTarefa, openModalVerTarefa}) {
 
-    const opacidade = (openModal || openModalVerTarefa) ? ".opacidade_model" : "";
+    const opacidade = (openModal || openModalVerTarefa) ? style.opacidade_model : "";
 
     function handleChecked(tipo) {
 
         if (tipoTarefa === "matriz" && tipo === "matriz") {
-            return ".menu_tarefa_check"
+            return style.menu_tarefa_check
         }
         if (tipoTarefa === "grupo" && tipo === "grupo") {
-            return ".menu_tarefa_check"
+            return style.menu_tarefa_check
         }
         if (tipoTarefa === "lista" && tipo === "lista") {
-            return ".menu_tarefa_check"
+            return style.menu_tarefa_check
         }
-        return ".menu_tarefa_off"
+        return style.menu_tarefa_off
 
 
     }
@@ -28,7 +28,7 @@ export default function AcoesAtividades({ openModal, setOpenModal, tipoTarefa, s
         <div className={style.acoes_atividades}>
             <div 
                 id="containerOptionsFiltros" className={style.container_options_filtros}>
-                <img id="iconFiltro" className={[`${style.icon_filtro} ${style + opacidade}`]} src={iconfiltro}
+                <img id="iconFiltro" className={`${style.icon_filtro} ${opacidade}`} src={iconfiltro}
                     alt="imagem de filtro de pesquisa" />
                 <select id="selectFiltros" className={style.select_filtros}>
                     <option style={{ color: "#E7E7E7" }} value="">Filtros</option>
@@ -42,15 +42,15 @@ export default function AcoesAtividades({ openModal, setOpenModal, tipoTarefa, s
                 <div>
 
                     <button onClick={() => setTipoTarefa("matriz")}
-                        id="matriz" className={[`${style.matriz} ${style + handleChecked("matriz")} ${style.menu_tarefa_default}`]}>
+                        id="matriz" className={`${style.matriz} ${handleChecked("matriz")} ${style.menu_tarefa_default}`}>
                         Matriz
                     </button>
                     <button id="grupo" onClick={() => setTipoTarefa("grupo")}
-                        className={[`${style.grupo} ${style + handleChecked("grupo")} ${style.menu_tarefa_default}`]}>
+                        className={`${style.grupo} ${handleChecked("grupo")} ${style.menu_tarefa_default}`}>
                         Grupo
                     </button>
                     <button id="lista" onClick={() => setTipoTarefa("lista")}
-                        className={`${style.lista} ${ style + handleChecked("lista")} ${style.menu_tarefa_default}`}>
+                        className={`${style.lista} ${handleChecked("lista")} ${style.menu_tarefa_default}`}>
                         Lista
                     </button>
 
@@ -59,7 +59,7 @@ export default function AcoesAtividades({ openModal, setOpenModal, tipoTarefa, s
 
             <div onClick={() => setOpenModal(true)}
                 id="botaoAdicionarTarefa" className={style.botao_adicionar_tarefa}>
-                <img id="iconSoma" className={[`${style.icon_soma} ${style + opacidade}`]} src={iconSoma} alt="" />
+                <img id="iconSoma" className={`${style.icon_soma} ${opacidade}`} src={iconSoma} alt="" />
                 <div style={{ display: "table" }}>
                     <div id="textoCriacaoAtividade" className={style.texto_criacao_atividade}>Criar Atividade</div>
                 </div>

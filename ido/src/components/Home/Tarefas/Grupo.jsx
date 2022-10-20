@@ -108,13 +108,13 @@ export default function Grupo({setOpenModalVerTarefa}) {
 
 
     return (
-        <div id="tarefas-geral-grupo" className="tarefas-geral-grupo">
+        <div id="tarefas-geral-grupo" className={style.tarefas_geral_grupo}>
 
             <div onClick={booleanFazerAgora} 
-            className="container-tipo-tarefa-topo">
-                <div className="container-tipo-tarefa-espaco">
-                    <span className="titulo-prioridade-grupo">Fazer Agora</span>
-                    <span id="iconFechadoFazerAgora" className="icon-fechado-fazer-agora">{handleIconFazer()} </span>
+            className={style.container_tipo_tarefa_topo}>
+                <div className={style.container_tipo_tarefa_espaco}>
+                    <span className={style.titulo_prioridade_grupo}>Fazer Agora</span>
+                    <span id="iconFechadoFazerAgora" className={style.icon_fechado_fazer_agora}>{handleIconFazer()} </span>
 
                 </div>
 

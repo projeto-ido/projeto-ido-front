@@ -45,8 +45,6 @@ export const SignUp = () => {
       }).catch(erro => {
         window.alert(erro)
       })
-
-
   }
 
   return (
@@ -56,7 +54,7 @@ export const SignUp = () => {
         <h1>Bem Vindo de Volta!</h1>
       </div>
 
-      <div className={style.campos__cadastro}>
+      <div className={style.campos__cadastro }>
 
         <div className={[style.campo__signup]}>
           <div className={style.form__container}>

@@ -6,6 +6,7 @@ import iconEtiqueta from '../../assets/images/icon-etiqueta.png';
 import iconConheca from '../../assets/images/icon-conheca.png';
 import iconConfig from '../../assets/images/icon-config.png';
 import iconSair from '../../assets/images/icon-sair.png';
+import { Link } from "react-router-dom";
 
 import style from './Home.module.css';
 
@@ -53,12 +54,14 @@ function MenuLateral(props) {
                         <p className={style.paragrafo_config}>Configs</p>
                     </div>
                 </div>
-                <div className={style.sessao_sair}>
-                    <div>
-                        <img className={style.icon_sair} src={iconSair} alt="icone Home" />
-                        <p className={style.paragrafo_sair}>Sair</p>
+                <Link to="/">
+                    <div className={style.sessao_sair}>
+                        <div>
+                            <img className={style.icon_sair} src={iconSair} alt="icone Home" />
+                            <p className={style.paragrafo_sair}>Sair</p>
+                        </div>
                     </div>
-                </div>
+                </Link>
             </div>
         </>
     )

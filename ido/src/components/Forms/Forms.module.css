@@ -59,7 +59,7 @@ main .main__container{
 }
 
 .main__container .formulario .container h1{
-    font-size: 6.6rem;
+    font-size: 3.5rem;
     font-family: "Aqum", sans-serif;
     font-weight: 700;
     color: #FFFF;
@@ -135,13 +135,6 @@ main .main__container{
     background: #E7E7E7;
 }
 
-/* ::-webkit-datetime-edit-text { color: red; padding: 0 0.3em; }
-::-webkit-datetime-edit-month-field { color: blue; }
-::-webkit-datetime-edit-day-field { color: green; }
-::-webkit-datetime-edit-year-field { color: purple; }
-::-webkit-inner-spin-button { display: none; }
-::-webkit-calendar-picker-indicator { background: orange; } */
-
 .main__container .formulario .container .campos__cadastro{
     height: 46vh;
     overflow-y: scroll;
@@ -178,7 +171,7 @@ main .main__container{
 }
 
 .label label{
-    font-size: 2.2rem;
+    font-size: 1.5rem;
     color: #fff;
     font-weight: 600;
 }
@@ -195,7 +188,7 @@ input{
     border: none;
     height: 90%;
     color: #fff;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 input:focus{
@@ -239,7 +232,7 @@ input:focus{
 }
 
 .formulario .container .botao .botao__container p{
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: bold;
 }
 
@@ -292,10 +285,6 @@ input:focus{
     color: #1F1E1E;
 }
 
-.formulario .container .botao .botao__container p{
-    font-size: 2rem;
-    font-weight: bold;
-}
 
 .img__icon{
     display: flex;

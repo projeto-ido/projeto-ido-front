@@ -84,12 +84,12 @@ export default function ModalVerTarefa({openModalVerTarefa, setOpenModalVerTaref
                             </div>
                         </div>
                     </div>
-                    <div id="containerSubtarefa2" className={style.container_criacao_subtarefa2}>
+                    {/* <div id="containerSubtarefa2" className={style.container_criacao_subtarefa2}>
                         <input maxLength="20" id="input-subtarefa2" className={style.input_subtarefa} type="text" />
                         <div className={style.botao_apagar_subtarefa}>
                             <div //onclick="apagarsubtarefa2()" 
                             className={style.texto_acao_subtarefa_lixo}>
-                                <img className={style.icon_lixeira} src="../src/assets/imagens/lixeira.png" alt="" />
+                                <img className={style.icon_lixeira} src={lixeira} alt="" />
                             </div>
                         </div>
                     </div>
@@ -98,7 +98,7 @@ export default function ModalVerTarefa({openModalVerTarefa, setOpenModalVerTaref
                         <div className={style.botao_apagar_subtarefa}>
                             <div //onClick="apagarsubtarefa3()" 
                             className={style.texto_acao_subtarefa_lixo}>
-                                <img className={style.icon_lixeira} src="../src/assets/imagens/lixeira.png" alt="" />
+                                <img className={style.icon_lixeira} src={lixeira} alt="" />
                             </div>
                         </div>
                     </div>
@@ -107,10 +107,10 @@ export default function ModalVerTarefa({openModalVerTarefa, setOpenModalVerTaref
                         <div className={style.botao_apagar_subtarefa}>
                             <div //onclick="apagarsubtarefa4()" 
                             className={style.texto_acao_subtarefa_lixo}>
-                                <img className={style.icon_lixeira} src="../src/assets/imagens/lixeira.png" alt="" />
+                                <img className={style.icon_lixeira} src={lixeira} alt="" />
                             </div>
                         </div>
-                    </div>
+                    </div> */}
 
 
                 </div>
