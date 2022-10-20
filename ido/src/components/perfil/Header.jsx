@@ -1,30 +1,31 @@
 import React from 'react';
+import styles from "./Perfil.module.css";
 
 function Header(props) {
     return(
         <>
-            <div className="box-header">
-                <div className="btn-box">
-                    <div className="container">
+            <div className={styles.box_header}>
+                <div className={styles.btn_box}>
+                    <div className={styles.container}>
                         <div>
-                            <div className="text">
+                            <div className={styles.text}>
                                 <span onClick={props.overviews}>Overview</span>
                             </div>
-                            <div className="div-selection">{props.selectOv}</div>
+                            <div className={styles.div_selection}>{props.selectOv}</div>
                         </div>
 
                         <div>
-                        <div className="text">
+                        <div className={styles.text}>
                             <span onClick={props.conquistas}>Conquistas</span>
                         </div>
-                            <div className="div-selection">{props.selectCt}</div>
+                            <div className={styles.div_selection}>{props.selectCt}</div>
                         </div>
 
                         <div>
-                        <div className="text">
+                        <div className={styles.text}>
                             <span onClick={props.graficos}>Gráficos</span>
                         </div>
-                            <div className="div-selection">{props.selectGf}</div>
+                            <div className={styles.div_selection}>{props.selectGf}</div>
                         </div>
                     </div>
                 </div>

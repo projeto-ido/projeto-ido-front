@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ApexChart from 'react-apexcharts';
 import apiDiaTarefa from '../../../../api/apiDiaTarefa'
+import styles from "../../Perfil.module.css";
 
 function ItemSquareSemana(props) {
     const [listaDiaTarefa, setListaDiaTarefa] = useState([]);
@@ -73,8 +74,8 @@ function ItemSquareSemana(props) {
 
     return(
         <>
-            <div className="item-square">
-                <div className="grafico-semana">
+            <div className={styles.item_square}>
+                <div className={styles.grafico_etiqueta}>
                     <ApexChart
                         options={options}
                         series={series}

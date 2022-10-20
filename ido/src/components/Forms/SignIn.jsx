@@ -1,19 +1,23 @@
 import React from 'react';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import './style.css'
-import logo from '../../../assets/images/logo-white.png'
+import logo from '../../assets/images/logo-white.png'
+import style from './Forms.module.css'
 
-import api from "../../../api/api.jsx"
+import api from "../../api/api.jsx"
 
 
 
 export const SignIn = () => {
+    const navigate = useNavigate();
+
 
     const [emai, setEmail] = useState("");
     const [senha, setSenha] = useState("");
 
     const logar = () => {
+        
         const data = {
             email: emai,
             senha: senha
@@ -21,7 +25,9 @@ export const SignIn = () => {
 
         api.post("/usuarios/login", data)
             .then(resposta => {
-                console.log(resposta);
+                if(resposta.status === 200){
+                    navigate("/home")
+                }
             }).catch(erro => {
                 console.log(erro);
             })
@@ -30,21 +36,21 @@ export const SignIn = () => {
 
     return (
         <>
-            <div className="titulo">
+            <div className={style.titulo}>
                 <h1>Seja Bem Vindo!</h1>
             </div>
 
-            <div className="campos">
+            <div className={style.campos}>
 
-                <div className="campos__container">
-                    <div className="campo__signin email">
-                        <div className="form__container">
+                <div className={style.campos__container}>
+                    <div className={style.campo__signin}>
+                        <div className={style.form__container}>
 
-                            <div className="label">
-                                <label for="inpt-email">Email</label>
+                            <div className={style.label}>
+                                <label for="">Email</label>
                             </div>
 
-                            <div className="input">
+                            <div className={style.input}>
                                 <input
                                     name='email'
                                     placeholder="Coloque seu email..."
@@ -54,14 +60,14 @@ export const SignIn = () => {
                         </div>
                     </div>
 
-                    <div className="campo__signin senha">
-                        <div className="form__container">
+                    <div className={style.campo__signin}>
+                        <div className={style.form__container}>
 
-                            <div className="label">
+                            <div className={style.label}>
                                 <label for="">Senha</label>
                             </div>
 
-                            <div className="input">
+                            <div className={style.input}>
                                 <input
                                     name='senha'
                                     placeholder="Coloque seu senha..."
@@ -73,14 +79,14 @@ export const SignIn = () => {
                 </div>
             </div>
 
-            <div className="footer">
-                <div className="botao">
-                    <div onClick={logar} className={"botao__container botao__container__login"}>
+            <div className={style.footer}>
+                <div className={style.botao}>
+                    <div onClick={logar} className={[`${style.botao__container} ${style.botao__container__login}`]}>
                         <p>Logar</p>
                     </div>
                 </div>
 
-                <div className="img__icon">
+                <div className={style.img__icon}>
                     <img src={logo} alt="" />
                 </div>
             </div>

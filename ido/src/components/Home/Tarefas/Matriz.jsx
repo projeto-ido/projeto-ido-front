@@ -1,70 +1,72 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+
+import style from "../Home.module.css"
 
 export default function TelaMatriz({setOpenModalVerTarefa}){
     return(
-        <div id="tarefas-geral-matriz" className="tarefas-geral-matriz">
+        <div id="tarefas-geral-matriz" className={style.tarefas_geral_matriz}>
 
 
-            <div className="tarefas-superior">
+            <div className={style.tarefas_superior}>
 
-                <div className="faca-agora">
-                    <h4 className="titulo-prioridade">Fazer agora</h4>
-                    <div onClick={() => setOpenModalVerTarefa(true)} className="tarefa-combo">
-                        <span className="tarefa">Nome da tarefa</span>
-                        <div className="container-etiquetas-matriz">
-                            <div className="etiqueta">Etiqueta</div>
-                            <div className="etiqueta" style={{backgroundColor: "#51BDAB"}} >Etiqueta</div>
+                <div className={style.faca_agora}>
+                    <h4 className={style.titulo_prioridade}>Fazer agora</h4>
+                    <div onClick={() => setOpenModalVerTarefa(true)} className={style.tarefa_combo}>
+                        <span className={style.tarefa}>Nome da tarefa</span>
+                        <div className={style.container_etiquetas_matriz}>
+                            <div className={style.etiqueta}>Etiqueta</div>
+                            <div className={style.etiqueta} style={{backgroundColor: "#51BDAB"}} >Etiqueta</div>
                         </div>
                     </div>
-                    <div className="tarefa-combo">
-                        <span className="tarefa">Nome da tarefa</span>
-                        <div className="container-etiquetas-matriz">
-                            <div className="etiqueta">Etiqueta</div>
+                    <div className={style.tarefa_combo}>
+                        <span className={style.tarefa}>Nome da tarefa</span>
+                        <div className={style.container_etiquetas_matriz}>
+                            <div className={style.etiqueta}>Etiqueta</div>
 
                         </div>
                     </div>
-                    <div className="tarefa-combo">
-                        <span className="tarefa">Nome da tarefa</span>
-                        <div className="container-etiquetas-matriz">
-                            <div className="etiqueta">Etiqueta</div>
-                            <div className="etiqueta" style={{backgroundColor: "#51BDAB"}}>Etiqueta</div>
+                    <div className={style.tarefa_combo}>
+                        <span className={style.tarefa}>Nome da tarefa</span>
+                        <div className={style.container_etiquetas_matriz}>
+                            <div className={style.etiqueta}>Etiqueta</div>
+                            <div className={style.etiqueta} style={{backgroundColor: "#51BDAB"}}>Etiqueta</div>
                         </div>
                     </div>
-                    <div className="tarefa-combo">
-                        <span className="tarefa">Nome da tarefa</span>
-                        <div className="container-etiquetas-matriz">
-                            <div className="etiqueta">Etiqueta</div>
+                    <div className={style.tarefa_combo}>
+                        <span className={style.tarefa}>Nome da tarefa</span>
+                        <div className={style.container_etiquetas_matriz}>
+                            <div className={style.etiqueta}>Etiqueta</div>
 
                         </div>
                     </div>
                 </div>
-                <div className="agendar">
-                    <h4 className="titulo-prioridade">Agendar</h4>
-                    <div className="tarefa-combo">
-                        <span className="tarefa">Nome da tarefa</span>
-                        <div className="container-etiquetas-matriz">
-                            <div className="etiqueta">Etiqueta</div>
+                <div className={style.agendar}>
+                    <h4 className={style.titulo_prioridade}>Agendar</h4>
+                    <div className={style.tarefa_combo}>
+                        <span className={style.tarefa}>Nome da tarefa</span>
+                        <div className={style.container_etiquetas_matriz}>
+                            <div className={style.etiqueta}>Etiqueta</div>
 
                         </div>
                     </div>
-                    <div className="tarefa-combo">
-                        <span className="tarefa">Nome da tarefa</span>
-                        <div className="container-etiquetas-matriz">
-                            <div className="etiqueta">Etiqueta</div>
+                    <div className={style.tarefa_combo}>
+                        <span className={style.tarefa}>Nome da tarefa</span>
+                        <div className={style.container_etiquetas_matriz}>
+                            <div className={style.etiqueta}>Etiqueta</div>
 
                         </div>
                     </div>
-                    <div className="tarefa-combo">
-                        <span className="tarefa">Nome da tarefa</span>
-                        <div className="container-etiquetas-matriz">
-                            <div className="etiqueta">Etiqueta</div>
+                    <div className={style.tarefa_combo}>
+                        <span className={style.tarefa}>Nome da tarefa</span>
+                        <div className={style.container_etiquetas_matriz}>
+                            <div className={style.etiqueta}>Etiqueta</div>
 
                         </div>
                     </div>
-                    <div className="tarefa-combo">
-                        <span className="tarefa">Nome da tarefa</span>
-                        <div className="container-etiquetas-matriz">
-                            <div className="etiqueta">Etiqueta</div>
+                    <div className={style.tarefa_combo}>
+                        <span className={style.tarefa}>Nome da tarefa</span>
+                        <div className={style.container_etiquetas_matriz}>
+                            <div className={style.etiqueta}>Etiqueta</div>
 
                         </div>
                     </div>
@@ -72,44 +74,44 @@ export default function TelaMatriz({setOpenModalVerTarefa}){
 
             </div>
 
-            <div className="tarefas-inferior">
+            <div className={style.tarefas_inferior}>
 
-                <div className="delegar">
-                    <h4 className="titulo-prioridade">Delegar</h4>
-                    <div className="tarefa-combo">
-                        <span className="tarefa">Nome da tarefa</span>
-                        <div className="etiqueta">Etiqueta</div>
+                <div className={style.delegar}>
+                    <h4 className={style.titulo_prioridade}>Delegar</h4>
+                    <div className={style.tarefa_combo}>
+                        <span className={style.tarefa}>Nome da tarefa</span>
+                        <div className={style.etiqueta}>Etiqueta</div>
                     </div>
-                    <div className="tarefa-combo">
-                        <span className="tarefa">Nome da tarefa</span>
-                        <div className="etiqueta">Etiqueta</div>
+                    <div className={style.tarefa_combo}>
+                        <span className={style.tarefa}>Nome da tarefa</span>
+                        <div className={style.etiqueta}>Etiqueta</div>
                     </div>
-                    <div className="tarefa-combo">
-                        <span className="tarefa">Nome da tarefa</span>
-                        <div className="etiqueta">Etiqueta</div>
+                    <div className={style.tarefa_combo}>
+                        <span className={style.tarefa}>Nome da tarefa</span>
+                        <div className={style.etiqueta}>Etiqueta</div>
                     </div>
-                    <div className="tarefa-combo">
-                        <span className="tarefa">Nome da tarefa</span>
-                        <div className="etiqueta">Etiqueta</div>
+                    <div className={style.tarefa_combo}>
+                        <span className={style.tarefa}>Nome da tarefa</span>
+                        <div className={style.etiqueta}>Etiqueta</div>
                     </div>
                 </div>
-                <div className="nao-priorizar">
-                    <h4 className="titulo-prioridade">Não Priorizar</h4>
-                    <div className="tarefa-combo">
-                        <span className="tarefa">Nome da tarefa</span>
-                        <div className="etiqueta">Etiqueta</div>
+                <div className={style.nao_priorizar}>
+                    <h4 className={style.titulo_prioridade}>Não Priorizar</h4>
+                    <div className={style.tarefa_combo}>
+                        <span className={style.tarefa}>Nome da tarefa</span>
+                        <div className={style.etiqueta}>Etiqueta</div>
                     </div>
-                    <div className="tarefa-combo">
-                        <span className="tarefa">Nome da tarefa</span>
-                        <div className="etiqueta">Etiqueta</div>
+                    <div className={style.tarefa_combo}>
+                        <span className={style.tarefa}>Nome da tarefa</span>
+                        <div className={style.etiqueta}>Etiqueta</div>
                     </div>
-                    <div className="tarefa-combo">
-                        <span className="tarefa">Nome da tarefa</span>
-                        <div className="etiqueta">Etiqueta</div>
+                    <div className={style.tarefa_combo}>
+                        <span className={style.tarefa}>Nome da tarefa</span>
+                        <div className={style.etiqueta}>Etiqueta</div>
                     </div>
-                    <div className="tarefa-combo">
-                        <span className="tarefa">Nome da tarefa</span>
-                        <div className="etiqueta">Etiqueta</div>
+                    <div className={style.tarefa_combo}>
+                        <span className={style.tarefa}>Nome da tarefa</span>
+                        <div className={style.etiqueta}>Etiqueta</div>
                     </div>
                 </div>
             </div>

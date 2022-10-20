@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { IconName } from "react-icons/";
+import React, { useState } from "react";
 import { AiFillCaretLeft } from "react-icons/ai";
 import { AiOutlineCaretDown } from "react-icons/ai";
 import ContainerFazerAgora from "./ComboGrupo/ContainerFazerAgora";
@@ -7,6 +6,7 @@ import ContainerAgendar from "./ComboGrupo/ContainerAgendar";
 import ContainerDelegar from "./ComboGrupo/ContainerDelegar";
 import ContainerNaoPriorizar from "./ComboGrupo/ContainerNaoPriorizar";
 
+import style from '../Home.module.css';
 
 export default function Grupo({setOpenModalVerTarefa}) {
     const [openFazer, setOpenFazer] = useState(true);
@@ -108,13 +108,13 @@ export default function Grupo({setOpenModalVerTarefa}) {
 
 
     return (
-        <div id="tarefas-geral-grupo" className="tarefas-geral-grupo">
+        <div id="tarefas-geral-grupo" className={style.tarefas_geral_grupo}>
 
             <div onClick={booleanFazerAgora} 
-            className="container-tipo-tarefa-topo">
-                <div className="container-tipo-tarefa-espaco">
-                    <span className="titulo-prioridade-grupo">Fazer Agora</span>
-                    <span id="iconFechadoFazerAgora" className="icon-fechado-fazer-agora">{handleIconFazer()} </span>
+            className={style.container_tipo_tarefa_topo}>
+                <div className={style.container_tipo_tarefa_espaco}>
+                    <span className={style.titulo_prioridade_grupo}>Fazer Agora</span>
+                    <span id="iconFechadoFazerAgora" className={style.icon_fechado_fazer_agora}>{handleIconFazer()} </span>
 
                 </div>
 
@@ -122,20 +122,20 @@ export default function Grupo({setOpenModalVerTarefa}) {
             {handleContainerFazer()}
 
             <div onClick={booleanAgendar} 
-            className="container-tipo-tarefa">
-                <div className="container-tipo-tarefa-espaco">
-                    <span className="titulo-prioridade-grupo">Agendar</span>
-                    <span id="iconFechadoFazerAgora" className="icon-fechado-fazer-agora">{handleIconAgendar()} </span>
+            className={style.container_tipo_tarefa}>
+                <div className={style.container_tipo_tarefa_espaco}>
+                    <span className={style.titulo_prioridade_grupo}>Agendar</span>
+                    <span id="iconFechadoFazerAgora" className={style.icon_fechado_fazer_agora}>{handleIconAgendar()} </span>
 
                 </div>
             </div>
             {handleContainerAgendar()}
 
             <div onClick={booleanDelegar} 
-            className="container-tipo-tarefa">
-                <div className="container-tipo-tarefa-espaco">
-                    <span className="titulo-prioridade-grupo">Delegar</span>
-                    <span id="iconFechadoFazerAgora" className="icon-fechado-fazer-agora">{handleIconDelegar()} </span>
+            className={style.container_tipo_tarefa}>
+                <div className={style.container_tipo_tarefa_espaco}>
+                    <span className={style.titulo_prioridade_grupo}>Delegar</span>
+                    <span id="iconFechadoFazerAgora" className={style.icon_fechado_fazer_agora}>{handleIconDelegar()} </span>
 
                 </div>
 
@@ -143,10 +143,10 @@ export default function Grupo({setOpenModalVerTarefa}) {
             {handleContainerDelegar()}
 
             <div onClick={booleanNaoPriorizar} 
-            className="container-tipo-tarefa">
-                <div className="container-tipo-tarefa-espaco">
-                    <span className="titulo-prioridade-grupo">Não priorizar</span>
-                    <span id="iconFechadoFazerAgora" className="icon-fechado-fazer-agora">{handleIconNaoPriorizar()} </span>
+            className={style.container_tipo_tarefa}>
+                <div className={style.container_tipo_tarefa_espaco}>
+                    <span className={style.titulo_prioridade_grupo}>Não priorizar</span>
+                    <span id="iconFechadoFazerAgora" className={style.icon_fechado_fazer_agora}>{handleIconNaoPriorizar()} </span>
 
                 </div>
 

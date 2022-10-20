@@ -1,10 +1,10 @@
 import { React, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import logo from '../../../assets/images/logo-white.png'
-import api from '../../../api/api.jsx'
+import logo from '../../assets/images/logo-white.png'
+import api from '../../api/api.jsx'
 
-import './style.css';
+import style from './Forms.module.css';
 
 export const SignUp = () => {
   const navigate = useNavigate();
@@ -45,27 +45,25 @@ export const SignUp = () => {
       }).catch(erro => {
         window.alert(erro)
       })
-
-
   }
 
   return (
     <>
 
-      <div className="titulo">
+      <div className={style.titulo}>
         <h1>Bem Vindo de Volta!</h1>
       </div>
 
-      <div className="campos__cadastro">
+      <div className={style.campos__cadastro }>
 
-        <div className="campo__signup nome">
-          <div className="form__container">
+        <div className={[style.campo__signup]}>
+          <div className={style.form__container}>
 
-            <div className="label">
+            <div className={style.label}>
               <label for="">Nome</label>
             </div>
 
-            <div className="input">
+            <div className={style.input}>
               <input name='nome'
                 placeholder="Nome..."
                 type="text"
@@ -76,14 +74,14 @@ export const SignUp = () => {
           </div>
         </div>
 
-        <div className="campo__signup username">
-          <div className="form__container">
+        <div className={[style.campo__signup]}>
+          <div className={[style.form__container]}>
 
-            <div className="label">
+            <div className={style.label}>
               <label for="">Username</label>
             </div>
 
-            <div className="input">
+            <div className={style.input}>
               <input
                 name='apelido'
                 placeholder="Username..."
@@ -95,14 +93,14 @@ export const SignUp = () => {
           </div>
         </div>
 
-        <div className="campo__signup email">
-          <div className="form__container">
+        <div className={[style.campo__signup]}>
+          <div className={style.form__container}>
 
-            <div className="label">
+            <div className={style.label}>
               <label for="">Email</label>
             </div>
 
-            <div className="input">
+            <div className={style.input}>
               <input pattern='/^[a-z0-9.]+@[a-z0-9]+\.[a-z]+\.([a-z]+)?$/i'
                 name='email'
                 placeholder="Coloque seu email..."
@@ -113,14 +111,14 @@ export const SignUp = () => {
           </div>
         </div>
 
-        <div className="campo__signup dt__nascimento">
-          <div className="form__container">
+        <div className={[style.campo__signup]}>
+          <div className={style.form__container}>
 
-            <div className="label">
+            <div className={style.label}>
               <label for="">Data de Nascimento</label>
             </div>
 
-            <div className="input">
+            <div className={style.input}>
               <input
                 name='nascimento'
                 placeholder="Coloque sua data de nas..."
@@ -131,14 +129,14 @@ export const SignUp = () => {
           </div>
         </div>
 
-        <div className="campo__signup senha">
-          <div className="form__container">
+        <div className={style.campo__signup}>
+          <div className={style.form__container}>
 
-            <div className="label">
+            <div className={style.label}>
               <label for="">Senha</label>
             </div>
 
-            <div className="input">
+            <div className={style.input}>
               <input
                 name="senha"
                 placeholder="Coloque seu senha..."
@@ -149,14 +147,14 @@ export const SignUp = () => {
           </div>
         </div>
 
-        <div className="campo__signup confirmacao__senha">
-          <div className="form__container">
+        <div className={style.campo__signup}>
+          <div className={style.form__container}>
 
-            <div className="label">
+            <div className={style.label}>
               <label for="">Confirmar Senha</label>
             </div>
 
-            <div className="input">
+            <div className={style.input}>
               <input
                 placeholder="Repita sua senha"
                 type="password"
@@ -169,14 +167,14 @@ export const SignUp = () => {
 
 
 
-      <div className="footer">
-        <div className="botao">
-          <div onClick={verificarSenha} className={"botao__container botao__container__cadastro"}>
+      <div className={style.footer}>
+        <div className={style.botao}>
+          <div onClick={verificarSenha} className={[`${style.botao__container} ${style.botao__container__cadastro}`]}>
             <p>Cadastrar-se</p>
           </div>
         </div>
 
-        <div className="img__icon">
+        <div className={style.img__icon}>
           <img src={logo} alt="" />
         </div>
       </div>

@@ -2,34 +2,35 @@ import React from "react";
 import iconfiltro from '../../assets/images/icon-filtro.png';
 import iconSoma from '../../assets/images/icon-soma.png';
 
+import style from './Home.module.css';
 
 export default function AcoesAtividades({ openModal, setOpenModal, tipoTarefa, setTipoTarefa, openModalVerTarefa}) {
 
-    const opacidade = (openModal || openModalVerTarefa) ? "opacidade-model" : "";
+    const opacidade = (openModal || openModalVerTarefa) ? style.opacidade_model : "";
 
     function handleChecked(tipo) {
 
         if (tipoTarefa === "matriz" && tipo === "matriz") {
-            return "menu-tarefa-check"
+            return style.menu_tarefa_check
         }
         if (tipoTarefa === "grupo" && tipo === "grupo") {
-            return "menu-tarefa-check"
+            return style.menu_tarefa_check
         }
         if (tipoTarefa === "lista" && tipo === "lista") {
-            return "menu-tarefa-check"
+            return style.menu_tarefa_check
         }
-        return "menu-tarefa-off"
+        return style.menu_tarefa_off
 
 
     }
 
     return (
-        <div className="acoes-atividades">
+        <div className={style.acoes_atividades}>
             <div 
-                id="containerOptionsFiltros" className="container-options-filtros">
-                <img id="iconFiltro" className={`icon-filtro ${opacidade}`} src={iconfiltro}
+                id="containerOptionsFiltros" className={style.container_options_filtros}>
+                <img id="iconFiltro" className={`${style.icon_filtro} ${opacidade}`} src={iconfiltro}
                     alt="imagem de filtro de pesquisa" />
-                <select id="selectFiltros" className="select-filtros">
+                <select id="selectFiltros" className={style.select_filtros}>
                     <option style={{ color: "#E7E7E7" }} value="">Filtros</option>
                     <option value="">Prioridade</option>
                     <option value="">Etiqueta</option>
@@ -37,19 +38,19 @@ export default function AcoesAtividades({ openModal, setOpenModal, tipoTarefa, s
                 </select>
             </div>
 
-            <div id="opcoesVisualizacao" className="opcoes-visualizacao">
+            <div id="opcoesVisualizacao" className={style.opcoes_visualizacao}>
                 <div>
 
                     <button onClick={() => setTipoTarefa("matriz")}
-                        id="matriz" className={`matriz ${handleChecked("matriz")} menu-tarefa-default`}>
+                        id="matriz" className={`${style.matriz} ${handleChecked("matriz")} ${style.menu_tarefa_default}`}>
                         Matriz
                     </button>
                     <button id="grupo" onClick={() => setTipoTarefa("grupo")}
-                        className={`grupo ${handleChecked("grupo")} menu-tarefa-default` }>
+                        className={`${style.grupo} ${handleChecked("grupo")} ${style.menu_tarefa_default}`}>
                         Grupo
                     </button>
                     <button id="lista" onClick={() => setTipoTarefa("lista")}
-                        className={`lista ${handleChecked("lista")} menu-tarefa-default`}>
+                        className={`${style.lista} ${handleChecked("lista")} ${style.menu_tarefa_default}`}>
                         Lista
                     </button>
 
@@ -57,10 +58,10 @@ export default function AcoesAtividades({ openModal, setOpenModal, tipoTarefa, s
             </div>
 
             <div onClick={() => setOpenModal(true)}
-                id="botaoAdicionarTarefa" className="botao-adicionar-tarefa">
-                <img id="iconSoma" className={`icon-soma ${opacidade}`} src={iconSoma} alt="" />
+                id="botaoAdicionarTarefa" className={style.botao_adicionar_tarefa}>
+                <img id="iconSoma" className={`${style.icon_soma} ${opacidade}`} src={iconSoma} alt="" />
                 <div style={{ display: "table" }}>
-                    <div id="textoCriacaoAtividade" className="texto-criacao-atividade">Criar Atividade</div>
+                    <div id="textoCriacaoAtividade" className={style.texto_criacao_atividade}>Criar Atividade</div>
                 </div>
             </div>
         </div>

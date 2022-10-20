@@ -1,9 +1,10 @@
 import React from 'react';
+import styles from "../Perfil.module.css";
 
 function ItemSquare(props) {
     return(
         <>
-            <div className="item-square"></div>
+            <div className={styles.item_square}></div>
         </>
     )
 }

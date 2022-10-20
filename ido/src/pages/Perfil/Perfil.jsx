@@ -1,15 +1,18 @@
-import Sidebar from '../../components/Perfil/Sidebar'
-import Header from '../../components/Perfil/Header';
-import Conteudo from '../../components/Perfil/Conteudo';
+import Sidebar from '../../components/perfil/Sidebar';
+import Header from '../../components/perfil/Header';
+import Conteudo from '../../components/perfil/Conteudo';
+import styles from "../../components/perfil/Perfil.module.css"
 
 function Perfil() {
     return(
         <>
-            <div className="main-container">
-                <Header />
-                <Sidebar />
-                <Conteudo />
-            </div>
+            <main className={styles.bodyPerfil}>
+                <div className={styles.main_container}>
+                    <Header />
+                    <Sidebar />
+                    <Conteudo />
+                </div>
+            </main>
         </>
     )
 }

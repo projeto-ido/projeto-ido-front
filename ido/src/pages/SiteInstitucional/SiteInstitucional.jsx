@@ -6,10 +6,12 @@ import Navbar from "../../components/SiteInstitucional/Navbar";
 import Metodologias from "../../components/SiteInstitucional/Metodologias";
 import Beneficios from "../../components/SiteInstitucional/Beneficios";
 import Footer from "../../components/SiteInstitucional/Footer";
+import styles from "../../components/SiteInstitucional/SiteInstitucional.module.css";
 
 function SiteInstitucional(){
     return(
         <>
+        <main className={styles.bodySiteInstitucional}>
             <Navbar />
             <Banner />
             <BannerIcons />
@@ -17,6 +19,7 @@ function SiteInstitucional(){
             <Metodologias />
             <Beneficios />
             <Footer />
+        </main>
         </>
     );
 }
