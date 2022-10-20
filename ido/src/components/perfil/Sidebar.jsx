@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import api from '../../api/apiConquista';
+import apiPerfil from '../../api/apiPerfil';
 import { Link } from 'react-router-dom';
 
 import styles from "./Perfil.module.css";
@@ -8,7 +8,7 @@ function Sidebar() {
     const [listaInfoUser, setListaInfoUser] = useState([])
 
     useEffect(() => {
-        api.get().then(res => {
+        apiPerfil.get().then(res => {
           setListaInfoUser(res.data);
         }).catch(erro => {
           console.log(erro);
