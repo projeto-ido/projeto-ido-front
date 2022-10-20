@@ -3,6 +3,7 @@ import Overview from './conteudo-components/Overview';
 import Grafico from './conteudo-components/Grafico';
 import Conquista from './conteudo-components/Conquista';
 import Header from './Header';
+import styles from "./Perfil.module.css"
 
 function Conteudo() {
     const [estado, setEstado] = useState({atual: <Overview />});
@@ -38,9 +39,9 @@ function Conteudo() {
                 selectGf={select.grafico}
             />
 
-            <div className="conteudo">
-                <div className="container">
-                    <div className="box-container">
+            <div className={styles.conteudo}>
+                <div className={styles.container}>
+                    <div className={styles.box_container}>
                         {estado.atual}
                     </div>
                 </div>

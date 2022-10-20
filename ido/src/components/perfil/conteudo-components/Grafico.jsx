@@ -3,6 +3,7 @@ import apiEtiqueta from '../../../api/apiEtiqueta';
 import ItemSquareEtiqueta from './grafico-components/ItemSquareEtiqueta';
 import ItemRectangleTimeline from './grafico-components/ItemRectangleTimeline';
 import ItemSquareSemana from './grafico-components/ItemSquareSemana';
+import styles from "../Perfil.module.css";
 
 function Grafico() {
     const [listaEtiqueta, setListaEtiqueta] = useState([]);
@@ -28,7 +29,7 @@ function Grafico() {
     
     return(
         <>
-            <div className="div-up-grafico">
+            <div className={styles.div_up_grafico}>
                 <ItemSquareSemana />
                 
                 <ItemSquareEtiqueta
@@ -37,9 +38,9 @@ function Grafico() {
                 />
             </div>
 
-            <div className="div-down-grafico">
-                <div className="item-rectangle">
-                    <div className="grafico-timeline">
+            <div className={styles.div_down_grafico}>
+                <div className={styles.item_rectangle}>
+                    <div className={styles.grafico_timeline}>
                         <ItemRectangleTimeline />
                     </div>
                 </div>

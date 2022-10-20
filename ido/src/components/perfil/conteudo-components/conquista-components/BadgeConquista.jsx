@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import apiConquista from '../../../../api/apiConquista';
 import Badge from './Badge';
+import styles from "../../Perfil.module.css";
 
 function BadgeConquista() {
     const [listaBadges, setListaBadges] = useState([]);
@@ -15,9 +16,9 @@ function BadgeConquista() {
 
     return(
         <>
-            <div className="badge-container">
+            <div className={styles.badge_container}>
                 <h1>Conquistas alcançadas</h1>
-                <div className="list-badges">
+                <div className={styles.list_badges}>
 
                     {
                         listaBadges.map(badgeAtual => (

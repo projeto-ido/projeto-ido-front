@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import api from '../../api/apiConquista';
+import styles from "./Perfil.module.css"
 
 function Sidebar() {
     const [listaInfoUser, setListaInfoUser] = useState([])
@@ -17,29 +18,29 @@ function Sidebar() {
             {
                 listaInfoUser.map(infoAtual => (
                     <React.Fragment key={infoAtual.id}>
-                        <div className="toolbar">
-                            <div className="container">
+                        <div className={styles.toolbar}>
+                            <div className={styles.container}>
                                 <div>
-                                    <div className="foto-perfil">
+                                    <div className={styles.foto_perfil}>
                                         <img src={infoAtual.imagem} alt="Foto de perfil do usuário" />
 
                                         <div>
-                                            <div className="nivel">
+                                            <div className={styles.nivel}>
                                                 <span id="nm-nivel">{infoAtual.nivel}</span>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                        <div className="opcoes">
+                                        <div className={styles.opcoes}>
                                             <span id="nome_usuario">{infoAtual.titulo}</span>
                                             <span id="usuario">@{infoAtual.texto}</span>
                                             <button>Editar Perfil</button>
                                             <button>Sair</button>
                                         </div>
 
-                                <div className="status">
-                                    <div className="status-container">
+                                <div className={styles.status}>
+                                    <div className={styles.status_container}>
                                         <h1>Status Gerais</h1>
                                         <span>Total de tarefas: {infoAtual.totalTarefa}</span>
                                         <span>Tarefas pendentes: {infoAtual.tarefaPendente}</span>

@@ -1,4 +1,8 @@
-body {
+body{
+    margin: 0;
+}
+
+.bodyPerfil {
     margin: 0;
     padding: 0;
     border: 0;
@@ -251,7 +255,7 @@ body {
     flex-direction: column;
     justify-content: center;
     justify-content: flex_end;
-    background-image: url("../images/fundo_perfil_opaco.png");
+    background-image: url("../../assets/images/fundo-perfil-opaco.png");
     background-repeat: no_repeat;
     background-size: cover;
 }

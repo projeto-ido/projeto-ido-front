@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import apiConquista from '../../../api/apiConquista';
 import ItemConquista from './conquista-components/ItemConquista';
 import BadgeConquista from './conquista-components/BadgeConquista';
+import styles from "../Perfil.module.css";
 
 function Conquista() {
     const [listaConquistas, setListaConquistas] = useState([]);
@@ -18,18 +19,18 @@ function Conquista() {
 
     return(
         <>
-            <div className="div-up">
-                <div className="conquista-container-up">
-                    <div className="conquista-badges">
+            <div className={styles.div_up}>
+                <div className={styles.conquista_container_up}>
+                    <div className={styles.conquista_badges}>
                         <BadgeConquista />
                     </div>
 
-                    <div className="conquista-grafico"></div>
+                    <div className={styles.conquista_grafico}></div>
                 </div>
             </div>
 
-            <div className="div-down">
-                <div className="conquista-container-down">
+            <div className={styles.div_down}>
+                <div className={styles.conquista_container_down}>
 
                     {
                         listaConquistas.map(conquistaAtual => (

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ItemSquare from './ItemSquare';
 import ItemRectangleBio from './overview-components/ItemRectangleBio';
 import api from '../../../api/apiConquista';
+import styles from "../Perfil.module.css";
 
 function Overview(props) {
     const [listaInfoUser, setListaInfoUser] = useState([]);
@@ -16,7 +17,7 @@ function Overview(props) {
 
     return(
         <>
-            <div className="div-up">
+            <div className={styles.div_up}>
 
                 {
                     listaInfoUser.map(infoAtual => (
@@ -32,7 +33,7 @@ function Overview(props) {
                 
             </div>
             
-            <div className="div-down">
+            <div className={styles.div_down}>
                 <ItemSquare />
                 <ItemSquare />
             </div>

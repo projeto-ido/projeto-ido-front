@@ -1,5 +1,6 @@
 import React from 'react';
 import ApexChart from 'react-apexcharts';
+import styles from "../../Perfil.module.css";
 
 function ItemSquareEtiqueta(props) {
     const options = {
@@ -54,8 +55,8 @@ function ItemSquareEtiqueta(props) {
 
     return(
         <>
-            <div className="item-square">
-                <div className="grafico-etiqueta">
+            <div className={styles.item_square}>
+                <div className={styles.grafico_etiqueta}>
                     <ApexChart
                         options={options}
                         series={quantidade}
