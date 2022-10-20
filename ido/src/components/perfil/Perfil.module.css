@@ -6,7 +6,7 @@ body{
     margin: 0;
     padding: 0;
     border: 0;
-    font-family: 'Roboto', sans_serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 62.5%;
     display: flex;
 }
@@ -26,23 +26,23 @@ body{
 }
 
 /* SCROLLBAR */
-::_webkit_scrollbar {
+::-webkit-scrollbar {
     width: 1vw;
 }
 
-::_webkit_scrollbar_track {
+::-webkit-scrollbar-track {
     background: #7463C7;
     border-radius: 100vw;
     margin-block: .3vw;
 }
 
-::_webkit_scrollbar_thumb {
+::-webkit-scrollbar-thumb {
     background: white;
     border-radius: 100vw;
     border: .3vw #7463C7 solid;
 }
 
-::_webkit_scrollbar_thumb:hover {
+::-webkit-scrollbar-thumb:hover {
     background: #E7E7E7;
 }
 
@@ -50,7 +50,7 @@ body{
 .main_container .box_header {
     position: fixed;
     display: flex;
-    justify-content: flex_end;
+    justify-content: flex-end;
     width: 100vw;
     height: 15%;
     border-bottom: 0.4vh #5D84C2 solid;
@@ -62,15 +62,15 @@ body{
     width: 70%;
     display: flex;
     justify-content: center;
-    justify-content: center;
+    align-items: center;
 }
 
 .main_container .box_header .btn_box .container {
     height: 100%;
     width: 90%;
     display: flex;
-    justify-content: space_between;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .main_container .box_header .btn_box .container div {
@@ -78,7 +78,7 @@ body{
     height: 100%;
     display: flex;
     justify-content: center;
-    justify-content: flex_end;
+    align-items: flex-end;
     flex-direction: column;
 }
 
@@ -86,16 +86,16 @@ body{
     width: 100%;
     height: 70%;
     display: flex;
-    justify-content: flex_end;
-    justify-content: center;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .main_container .box_header .btn_box .container div .div_selection {
     width: 100%;
     height: 30%;
     display: flex;
-    justify-content: flex_end;
-    justify-content: center;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .main_container .box_header .btn_box .container div .div_selection .selection {
@@ -123,7 +123,7 @@ body{
     background-color: #1F1E1E;
     display: flex;
     justify-content: center;
-    justify-content: center;
+    align-items: center;
 }
 
 .main_container .toolbar .container {
@@ -131,8 +131,8 @@ body{
     width: 80%;
     display: flex;
     flex-direction: column;
-    justify-content: space_evenly;
-    justify-content: center;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .main_container .toolbar .container div {
@@ -140,7 +140,7 @@ body{
     height: 35%;
     display: flex;
     justify-content: center;
-    justify-content: center;
+    align-items: center;
 }
 
 .main_container .toolbar .container .foto_perfil {
@@ -152,7 +152,7 @@ body{
     border-radius: 50%;
     z-index: 1;
     display: flex;
-    justify-content: flex_end;
+    justify-content: flex-end;
 }
 
 .main_container .toolbar .container .foto_perfil img {
@@ -166,7 +166,7 @@ body{
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: flex_start;
+    justify-content: flex-start;
     position: absolute;
     color: white;
     font-size: 2em;
@@ -180,7 +180,7 @@ body{
     border: 0.5vh #1F1E1E solid;
     display: flex;
     justify-content: center;
-    justify-content: center;
+    align-items: center;
     font-size: 1.5vw;
     font-weight: 900;
 }
@@ -190,8 +190,8 @@ body{
     height: 20%;
     display: flex;
     flex-direction: column;
-    justify-content: space_between;
-    justify-content: flex_start;
+    justify-content: space-between;
+    align-items: flex-start;
     color: white;
 }
 
@@ -233,8 +233,8 @@ body{
     height: 80%;
     display: flex;
     flex-direction: column;
-    justify-content: space_evenly;
-    justify-content: flex_start;
+    justify-content: space-evenly;
+    align-items: flex-start;
 }
 
 .main_container .toolbar .container .status h1 {
@@ -253,10 +253,10 @@ body{
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    justify-content: flex_end;
+    align-items: center;
+    justify-content: flex-end;
     background-image: url("../../assets/images/fundo-perfil-opaco.png");
-    background-repeat: no_repeat;
+    background-repeat: no-repeat;
     background-size: cover;
 }
 
@@ -265,7 +265,7 @@ body{
     width: 80%;
     display: flex;
     justify-content: center;
-    justify-content: center;
+    align-items: center;
 }
 
 .main_container .conteudo .container .box_container {
@@ -273,7 +273,7 @@ body{
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space_between;
+    justify-content: space-between;
 }
 
 /* ESTRUTURA = OVERVIEW _ CONQUISTAS */
@@ -282,15 +282,15 @@ body{
     height: 40%;
     display: flex;
     justify-content: center;
-    justify-content: center;
+    align-items: center;
 }
 
 .main_container .conteudo .container .box_container .div_down {
     width: 100%;
     height: 55%;
     display: flex;
-    justify-content: space_between;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
 }
 
 /* ESTRUTURA GRAFICOS */
@@ -298,8 +298,8 @@ body{
     width: 100%;
     height: 55%;
     display: flex;
-    justify-content: space_between;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .main_container .conteudo .container .box_container .div_down_grafico {
@@ -316,8 +316,8 @@ body{
     border-bottom-right-radius: 1vw;
     border-bottom-left-radius: 1vw;
     display: flex;
-    justify-content: space_evenly;
-    justify-content: center;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .div_up .item_rectangle_bio .overview_descricao {
@@ -325,8 +325,8 @@ body{
     width: 50%;
     display: flex;
     flex-direction: column;
-    justify-content: space_between;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .div_up .item_rectangle_bio .titulo_descricao {
@@ -335,7 +335,7 @@ body{
     border-bottom: 0.2vh black solid;
     color: black;
     display: flex;
-    justify-content: center;
+    align-items: center;
     font-size: 0.5vw;
 }
 
@@ -344,7 +344,7 @@ body{
     width: 100%;
     color: black;
     display: flex;
-    justify-content: center;
+    align-items: center;
     font-size: 1vw;
 }
 
@@ -365,8 +365,8 @@ body{
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: space_between;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .div_up .conquista_container_up .conquista_badges {
@@ -420,7 +420,7 @@ body{
     width: 48%;
     display: flex;
     justify-content: center;
-    justify-content: center;
+    align-items: center;
     background-color: #E7E7E7;
     border-top: 0.5vw #7463C7 solid;
     border-bottom-right-radius: 1vw;
@@ -433,7 +433,7 @@ body{
     width: 80%;
     display: flex;
     justify-content: center;
-    justify-content: center;
+    align-items: center;
 }
 
 .item_square .grafico_semana {
@@ -441,7 +441,7 @@ body{
     width: 95%;
     display: flex;
     justify-content: center;
-    justify-content: center;
+    align-items: center;
 }
 
 /* ITEM CONQUISTA */
@@ -451,7 +451,7 @@ body{
     height: 100%;
     display: flex;
     justify-content: center;
-    justify-content: center;
+    align-items: center;
 }
 
 .conquista_badges .badge_container {
@@ -460,7 +460,7 @@ body{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    justify-content: flex_start;
+    align-items: flex-start;
 }
 
 .conquista_badges .badge_container h1 {
@@ -474,7 +474,7 @@ body{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space_evenly;
+    justify-content: space-evenly;
     overflow-y: scroll;
 }
 
@@ -499,7 +499,7 @@ body{
     border-bottom: 0.2vh black solid;
     display: flex;
     justify-content: center;
-    justify-content: center;
+    align-items: center;
 }
 
 .conquista_corpo .conquista_corpo_container {
@@ -507,7 +507,7 @@ body{
     height: 100%;
     display: flex;
     justify-content: center;
-    justify-content: center;
+    align-items: center;
 }
 
 .conquista_corpo .conquista_corpo_container div {
@@ -515,8 +515,8 @@ body{
     height: 85%;
     display: flex;
     flex-direction: column;
-    justify-content: space_between;
-    justify-content: flex_start;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
 .conquista_corpo .conquista_corpo_container .conquista_imagem {
@@ -524,7 +524,7 @@ body{
     height: 85%;
     display: flex;
     justify-content: center;
-    justify-content: center;
+    align-items: center;
 }
 
 .conquista_corpo .conquista_corpo_container .conquista_imagem .div_imagem {
@@ -548,7 +548,7 @@ body{
     font-size: 1.2vw;
     display: flex;
     justify-content: center;
-    justify-content: flex_start;
+    align-items: flex-start;
 }
 
 .conquista_corpo .conquista_corpo_container div .descricao_conquista {
@@ -558,6 +558,6 @@ body{
     font-size: 1vw;
     display: flex;
     justify-content: center;
-    justify-content: flex_start;
-    word-wrap: break_word;
+    align-items: flex-start;
+    word-wrap: break-word;
 }
