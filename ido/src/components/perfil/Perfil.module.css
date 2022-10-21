@@ -188,6 +188,7 @@ body{
 .main_container .toolbar .container .opcoes {
     width: 65%;
     height: 20%;
+    font-size: 1vw;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
