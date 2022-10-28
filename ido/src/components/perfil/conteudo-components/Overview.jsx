@@ -4,7 +4,7 @@ import ItemRectangleBio from './overview-components/ItemRectangleBio';
 import apiPerfil from '../../../api/apiPerfil';
 import styles from "../Perfil.module.css";
 
-function Overview(props) {
+function Overview() {
     const [listaInfoUser, setListaInfoUser] = useState([]);
 
     useEffect(() => {
@@ -18,19 +18,19 @@ function Overview(props) {
     return(
         <>
             <div className={styles.div_up}>
-
-                {
-                    listaInfoUser.map(infoAtual => (
-                        <React.Fragment key={infoAtual.id}>
-                            <ItemRectangleBio 
-                                titulo={infoAtual.titulo}
-                                texto={infoAtual.texto}
-                                imagem={infoAtual.imagem}
-                            />
-                        </React.Fragment>
-                    ))
-                }
-                
+                <div className={styles.item_rectangle_bio}>
+                    {
+                        listaInfoUser.map(infoAtual => (
+                            <React.Fragment key={infoAtual.id}>
+                                <ItemRectangleBio 
+                                    titulo={infoAtual.titulo}
+                                    texto={infoAtual.texto}
+                                    imagem={infoAtual.imagem}
+                                />
+                            </React.Fragment>
+                        ))
+                    }
+                </div>
             </div>
             
             <div className={styles.div_down}>

@@ -34,16 +34,16 @@ function Sidebar() {
                                     </div>
                                 </div>
 
-                                        <div className={styles.opcoes}>
-                                            <span id="nome_usuario">{infoAtual.titulo}</span>
-                                            <span id="usuario">@{infoAtual.texto}</span>
-                                            <button>Editar Perfil</button>
-                                            <button>
-                                                <Link to="/home" className={styles.sair}>
-                                                    Sair
-                                                </Link>
-                                            </button>
-                                        </div>
+                                <div className={styles.opcoes}>
+                                    <span id="nome_usuario">{infoAtual.titulo}</span>
+                                    <span id="usuario">@{infoAtual.texto}</span>
+                                    <button>Editar Perfil</button>
+                                    <button>
+                                        <Link to="/home" className={styles.sair}>
+                                            Sair
+                                        </Link>
+                                    </button>
+                                </div>
 
                                 <div className={styles.status}>
                                     <div className={styles.status_container}>
