@@ -1,7 +1,6 @@
 import React from "react";
 import iconfiltro from '../../assets/images/icon-filtro.png';
 import iconSoma from '../../assets/images/icon-soma.png';
-
 import style from './Home.module.css';
 
 export default function AcoesAtividades({ openModal, setOpenModal, tipoTarefa, setTipoTarefa, openModalVerTarefa}) {
