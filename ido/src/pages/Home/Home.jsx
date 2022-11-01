@@ -10,6 +10,7 @@ import Lista from "../../components/Home/Tarefas/Lista"
 import ModalVerTarefa from "../../components/Home/ModalVerTarefa";
 
 import style from '../../components/Home/Home.module.css';
+import Spotify from "../../components/Home/Tarefas/Spotify";
 
 function Home(params) {
     const [openModal, setOpenModal] = useState(false);
@@ -44,6 +45,7 @@ function Home(params) {
                     {handleTarefa()}
                     
                 </div>
+                <Spotify />
 
             </main>
         </>
