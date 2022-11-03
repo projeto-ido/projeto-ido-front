@@ -37,7 +37,7 @@ function Home(params) {
                         openGerenciadorEtiquetas={openGerenciadorEtiquetas}
                     />
                 </div>
-                <Spotify />
+                {/* <Spotify /> */}
 
             </main>
         </>

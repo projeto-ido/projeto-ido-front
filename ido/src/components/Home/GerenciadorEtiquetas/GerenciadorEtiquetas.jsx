@@ -3,6 +3,7 @@ import style from "./GerenciadorEtiquetas.module.css";
 import iconAdicionar from "../../../assets/images/icon-adicionar.png"
 import iconLixeira from "../../../assets/images/icon-lixeira.png"
 import Etiqueta from "./Etiqueta";
+import ModalCriarEtiqueta from "./ModalCriarEtiqueta";
 
 function GerenciadorEtiquetas(){
     
@@ -45,6 +46,8 @@ function GerenciadorEtiquetas(){
                         <Etiqueta titulo="Facul" cor="#7463C7"/>
                     </div>
                </div>
+
+               <ModalCriarEtiqueta />
            </div>
         </>
     );
