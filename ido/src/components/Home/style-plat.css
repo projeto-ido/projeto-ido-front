@@ -925,6 +925,7 @@ header {
     outline: 0;
     color: #7E7D7D;
     font-size: 1vw;
+    resize: none
 
 }
 
@@ -955,6 +956,14 @@ header {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
+    color: white;
+    font-size: 1.4vw;
+    text-shadow:
+        -1px -1px 0px rgba(32, 31, 31, 0.087),
+        -1px 1px 0px rgba(32, 31, 31, 0.087),
+        1px -1px 0px rgba(32, 31, 31, 0.087),
+        1px 0px 0px rgba(32, 31, 31, 0.087);
+
 }
 
 .input-subtarefa {
@@ -1099,39 +1108,41 @@ header {
 }
 
 .modal-1-subtarefas {
-    height: 70vh;
+    height: 76vh;
 
 }
 
 .modal-2-subtarefas {
-    height: 76vh;
+    height: 82vh;
 
 }
 
 .modal-3-subtarefas {
     top: 3vh;
-    height: 82vh;
-
-}
-.modal-4-subtarefas {
-    top: 3vh;
     height: 88vh;
 
 }
 
+.modal-4-subtarefas {
+    top: 3vh;
+    height: 94vh;
+
+}
+
 .footer-modal-1-subtarefas {
-    height: 7vh;
+    height: 9vh;
 }
 
 .footer-modal-2-subtarefas {
-    height: 12.5vh;
+    height: 14.5vh;
 }
 
 .footer-modal-3-subtarefas {
-    height: 18vh;
+    height: 20vh;
 }
+
 .footer-modal-4-subtarefas {
-    height: 24vh;
+    height: 26vh;
 }
 
 

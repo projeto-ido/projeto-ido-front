@@ -346,6 +346,8 @@ header {
                 1px 0px 0px rgba(32, 31, 31, 0.087);
 }
 
+
+
 .icon_soma {
     width: 2.5vw;
     height: 4vh;
@@ -934,6 +936,7 @@ header {
     flex-wrap: wrap;
     justify-content: center;
     cursor: pointer;
+    
 }
 
 .botao_salvar_tarefa{

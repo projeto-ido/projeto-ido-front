@@ -232,7 +232,9 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
             <input maxLength="40" value={inputTitulo} onChange={(e) => setInputTitulo(e.target.value)} className="input-titulo-tarefa" type="text" />
             <div className="classificacao">
                 <div className="importancia">
-                    <h3 className="titulo-importancia">Importe</h3>
+                    <h3 className="titulo-importancia">Importante </h3>
+
+                    
 
                     <select value={selectImportancia} className="select-importancia" name="select-Importancia"
                         onChange={ 
@@ -280,7 +282,7 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
             </div>
             <div className="container-descricao">
                 <h3 className="titulo-importancia">Descrição</h3>
-                <textarea maxLength="200" spellCheck="false" value={inputDescricao} onChange={(e) => setInputDescricao(e.target.value)} className="input-descricao" type="text"></textarea>
+                <textarea  maxLength="200" spellCheck="false" value={inputDescricao} onChange={(e) => setInputDescricao(e.target.value)} className="input-descricao" type="text"></textarea>
             </div>
 
             <div className="complemento-tarefa-modal">
