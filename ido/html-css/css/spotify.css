@@ -1,0 +1,13 @@
+.container{
+    width: 98%;
+    height: 99%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    position: absolute;
+}
+.spotify-card{
+    width: 25%;
+    border-radius:12px
+}

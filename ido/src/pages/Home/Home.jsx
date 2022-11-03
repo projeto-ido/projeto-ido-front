@@ -3,6 +3,7 @@ import MenuLateral from "../../components/Home/MenuLateral";
 import style from '../../components/Home/Home.module.css';
 import HomeComponent from "../../components/Home/HomeComponent";
 import GerenciadorEtiquetas from "../../components/Home/GerenciadorEtiquetas/GerenciadorEtiquetas";
+import Spotify from "../../components/Home/Tarefas/Spotify";
 
 function Home(params) {
     const [openModal, setOpenModal] = useState(false);
@@ -36,6 +37,7 @@ function Home(params) {
                         openGerenciadorEtiquetas={openGerenciadorEtiquetas}
                     />
                 </div>
+                <Spotify />
 
             </main>
         </>
