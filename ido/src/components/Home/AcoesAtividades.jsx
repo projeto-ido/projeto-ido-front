@@ -4,9 +4,9 @@ import iconSoma from '../../assets/images/icon-soma.png';
 
 import style from './Home.module.css';
 
-export default function AcoesAtividades({ openModal, setOpenModal, tipoTarefa, setTipoTarefa, openModalVerTarefa}) {
+export default function AcoesAtividades({ openModal, setOpenModal, tipoTarefa, setTipoTarefa, openModalVerTarefa, openGerenciadorEtiquetas}) {
 
-    const opacidade = (openModal || openModalVerTarefa) ? style.opacidade_model : "";
+    const opacidade = (openModal || openModalVerTarefa || openGerenciadorEtiquetas) ? style.opacidade_model : "";
 
     function handleChecked(tipo) {
 

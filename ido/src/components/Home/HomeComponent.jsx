@@ -8,7 +8,7 @@ import Matriz from "./Tarefas/Matriz"
 import Grupo from "./Tarefas/Grupo"
 import Lista from "./Tarefas/Lista"
 
-function HomeComponent({openModal, setOpenModal, openModalVerTarefa, setOpenModalVerTarefa, tipoTarefa, setTipoTarefa}){
+function HomeComponent({openModal, setOpenModal, openModalVerTarefa, setOpenModalVerTarefa, tipoTarefa, setTipoTarefa, openGerenciadorEtiquetas}){
     
     function handleTarefa() {
         switch (tipoTarefa) {
@@ -27,13 +27,15 @@ function HomeComponent({openModal, setOpenModal, openModalVerTarefa, setOpenModa
     return(
         <>
             <Perfil />
-            <FilterPesquisar openModal={openModal}  openModalVerTarefa={openModalVerTarefa}/>
+            <FilterPesquisar openModal={openModal}  openModalVerTarefa={openModalVerTarefa} openGerenciadorEtiquetas={openGerenciadorEtiquetas}/>
             <AcoesAtividades 
             openModalVerTarefa={openModalVerTarefa} 
             setOpenModal={setOpenModal}
             openModal={openModal} 
             tipoTarefa={tipoTarefa} 
-            setTipoTarefa={setTipoTarefa}/>
+            setTipoTarefa={setTipoTarefa}
+            openGerenciadorEtiquetas={openGerenciadorEtiquetas}
+            />
             <ModalCriarTarefa 
             openModal={openModal} 
             setOpenModal={setOpenModal} />

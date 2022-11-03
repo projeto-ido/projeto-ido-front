@@ -21,21 +21,20 @@ function Home(params) {
                     openGerenciadorEtiquetas={openGerenciadorEtiquetas} 
                     setOpenGerenciadorEtiquetas={setOpenGerenciadorEtiquetas}
                 />
+                {
+                    openGerenciadorEtiquetas ? <GerenciadorEtiquetas /> : null
+                }
                 {(openModal || openModalVerTarefa) && <div className={style.fundo_escuro} onClick={() => setOpenModal(false)} ></div>}
                 <div className={style.funcional}>
-                    {
-                        openHome ? <HomeComponent 
-                            openModal={openModal}
-                            setOpenModal={setOpenModal}
-                            openModalVerTarefa={openModalVerTarefa}
-                            setOpenModalVerTarefa={setOpenModalVerTarefa}
-                            tipoTarefa={tipoTarefa}
-                            setTipoTarefa={setTipoTarefa}
-                       /> : null
-                    }
-                    {
-                        openGerenciadorEtiquetas ? <GerenciadorEtiquetas /> : null
-                    }
+                    <HomeComponent 
+                        openModal={openModal}
+                        setOpenModal={setOpenModal}
+                        openModalVerTarefa={openModalVerTarefa}
+                        setOpenModalVerTarefa={setOpenModalVerTarefa}
+                        tipoTarefa={tipoTarefa}
+                        setTipoTarefa={setTipoTarefa}
+                        openGerenciadorEtiquetas={openGerenciadorEtiquetas}
+                    />
                 </div>
 
             </main>

@@ -101,6 +101,7 @@
 }
 .paragrafo_sair{
     margin: 0px; color: #FFFAFA; padding-left: .2vw;
+    text-decoration: none;
 }
 
 .sessao_logo {
