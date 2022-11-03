@@ -22,44 +22,44 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
     const [inputSubtarefa4, setInputSubtarefa4] = useState("");
     const [etiqueta1, setEtiqueta1] = useState("");
     const [etiqueta2, setEtiqueta2] = useState("");
-    const [arrayTarefas, setArrayTarefas] = useState([]);
+    //const [arrayTarefas, setArrayTarefas] = Array([]);
     const [prioridade, setPrioridade] = useState("");
+    let listaSubtarefas = [];
 
     function criar() {
-        // if(selectImportancia === '-1'){
-        // alert("Necessário informar a importância da atividade");
+        if(selectImportancia === '-1'){
+        alert("Necessário informar a importância da atividade");
 
-        // } else if(selectImportancia === '1'){
-        //     setSelectImportancia(true);
-        // } else if('0'){
-        //     setSelectImportancia(false);
-        // }
-
-        // if(selectUrgencia === '-1'){
-        //     alert("Necessário informar a urgência da atividade");
-        //     } else if(selectImportancia === '1'){
-        //         setSelectUrgencia(true);
-        //     } else if('0'){
-        //         setSelectUrgencia(false);
-        //     }
-        if (inputSubtarefa1 !== "") {
-            //aqui vou montar o array das subtarefas ********
+        } else if(selectImportancia === '1'){
+            setSelectImportancia(true);
+        } else if('0'){
+            setSelectImportancia(false);
         }
 
+        if(selectUrgencia === '-1'){
+            alert("Necessário informar a urgência da atividade");
+            } else if(selectImportancia === '1'){
+                setSelectUrgencia(true);
+            } else if('0'){
+                setSelectUrgencia(false);
+            }        
+        
 
+        listaSubtarefas = {inputSubtarefa1,inputSubtarefa2,inputSubtarefa3,inputSubtarefa4}     
         const tarefaAtualizada = {
             titulo: inputTitulo,
             descricao: inputDescricao,
             dataInicio: inputDataInicio,
             dataFinal: inputDataFinal,
             urgencia: selectUrgencia,
-            importancia: selectImportancia
-            //subTarefas: {}
+            importancia: selectImportancia,
+            subTarefas: [
+                {inputSubtarefa1,inputSubtarefa2,inputSubtarefa3,inputSubtarefa4}
+            ]
         }
-        console.log(tarefaAtualizada);
+        console.log(listaSubtarefas)
         api.post("/usuarios/1/tarefas", tarefaAtualizada).then(res => {
             alert("tarefa cadastrada");
-            setArrayTarefas("");
             setInputDataFinal("");
             setInputDataInicio("");
             setInputTitulo("");
@@ -74,12 +74,16 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
             setInputSubtarefa4("");
             setPrioridade("");
             setOpenModal(false);
+            setInputSubtarefa1("");
+            setInputSubtarefa2("");
+            setInputSubtarefa3("");
+            setInputSubtarefa4("");            
         }).catch(erro => {
-            console.log("erro: " + erro + "certifique-se de estar logado. ");
+            console.log("erro: " + erro + " certifique-se de estar logado. ");
             alert(erro);
         })
 
-        console.log(arrayTarefas);
+        
     }
 
     function buscarAlturaModal() {
@@ -121,6 +125,7 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
                         <div onClick={() => {
                             setQtdsubtarefa(qtdSubtarefa - 1)
                             setSubtarefa2(false);
+                            setInputSubtarefa2("");
                         }}
                             className="texto-acao-subtarefa-lixo">
                             <img className="icon-lixeira" src={iconLixeira} alt="" />
@@ -142,6 +147,7 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
                         <div onClick={() => {
                             setQtdsubtarefa(qtdSubtarefa - 1)
                             setSubtarefa3(false);
+                            setInputSubtarefa3("");
                         }}
                             className="texto-acao-subtarefa-lixo">
                             <img className="icon-lixeira" src={iconLixeira} alt="" />
@@ -167,6 +173,7 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
                         <div onClick={() => {
                             setQtdsubtarefa(qtdSubtarefa - 1)
                             setSubtarefa4(false);
+                            setInputSubtarefa4("");
                         }}
                             className="texto-acao-subtarefa-lixo">
                             <img className="icon-lixeira" src={iconLixeira} alt="" />
@@ -193,8 +200,6 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
     }
 
     function handlePrioridade(){
-        console.log("Estou aqui");
-        console.log(selectImportancia + selectUrgencia)
             if(selectUrgencia == 0 || selectImportancia == 0){
                 return "";                
             } else {                

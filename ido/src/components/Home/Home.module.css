@@ -337,6 +337,13 @@ header {
 .texto_criacao_atividade {
     display: table-cell;
     vertical-align: middle;
+    color: white;
+    font-size: 1.5vw;
+    text-shadow: 
+               -1px -1px 0px rgba(32, 31, 31, 0.087), 
+               -1px 1px 0px rgba(32, 31, 31, 0.087),                    
+                1px -1px 0px rgba(32, 31, 31, 0.087),                  
+                1px 0px 0px rgba(32, 31, 31, 0.087);
 }
 
 .icon_soma {
@@ -1110,18 +1117,6 @@ header {
         padding-left: 0px;
     }
 
-    .matriz {
-        padding-left: 10%;
-    }
-
-    .lista {
-        padding-left: 10%;
-    }
-
-    .grupo {
-        padding-left: 10%;
-    }
-
     .tarefas_superior {
         display: block;
         margin-left: 10%;
@@ -1171,7 +1166,7 @@ header {
         padding-top: 12%;
     }
 
-    .icon_home {
+    /* .icon_home {
         padding-left: 1.2vw;
         width: 3vw;
         height: 4vh;
@@ -1191,13 +1186,13 @@ header {
         height: 4vh;
         padding-top: 2.5vh;
 
-    }
+    } */
 
     .icon_lupa {
         height: 4vh;
     }
 
-    .icon_conheca {
+    /* .icon_conheca {
         padding-left: 2vw;
         width: 4vw;
         height: 4vh;
@@ -1215,7 +1210,7 @@ header {
         width: 3.5vw;
         height: 3.5vh;
         padding-top: 2.5vh;
-    }
+    } */
 
     .select_importancia{
         font-size: 1.5vw;
