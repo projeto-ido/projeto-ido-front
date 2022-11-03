@@ -32,8 +32,17 @@
     border-bottom: .2vh solid #000000;
     display: flex;
     justify-content: center;
+    cursor: pointer;   
+}
+
+.sessao_lateral_destaque {
+    width: 10vw;
+    height: 13.8vh;
+    border-bottom: .2vh solid #000000;
+    display: flex;
+    justify-content: center;
     cursor: pointer;
-    
+    background-color: #FFFAFA;
     
 }
 
@@ -57,21 +66,16 @@
     cursor: pointer;
 }
 
-.sessao_lateral_home {
-    width: 10vw;
-    height: 13.8vh;
-    border-bottom: .2vh solid #000000;
-    display: flex;
-    justify-content: center;
-    cursor: pointer;
-    background-color: #FFFAFA;
-    
-}
+
 
 .logo {
     width: 6vw;
     height: 7.5vh;
 
+}
+
+.paragrafo{
+    margin: 0px; color: #FFFAFA;
 }
 
 .paragrafo_home{
@@ -84,6 +88,11 @@
 .paragrafo_etiqueta{
     margin: 0px; color: #FFFAFA;
 }
+
+.paragrafo_destaque{
+    margin: 0px; color: #5D84C2;
+}
+
 .paragrafo_conheca{
     margin: 0px; color: #FFFAFA;
 }
