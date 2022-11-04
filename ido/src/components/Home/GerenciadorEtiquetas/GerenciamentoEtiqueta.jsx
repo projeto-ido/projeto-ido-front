@@ -7,7 +7,7 @@ function GerenciamentoEtiqueta({ titulo, cor }) {
   return (
     <>
       <div className={style.container_etiqueta_acoes}>
-        <Etiqueta titulo={titulo} cor={cor} />
+        <Etiqueta titulo={titulo} cor={cor} classe={style.container_etiqueta}/>
         <div className={style.container_acoes}>
           <img className={style.acoes} src={iconEditar} alt="icone lapis" />
           <input className={style.checkbox_etiqueta} type="checkbox" />

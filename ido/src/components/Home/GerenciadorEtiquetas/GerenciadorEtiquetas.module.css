@@ -105,6 +105,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #E7E7E7;
+    font-weight: 700;
+    font-size: 1.2em;
 }
 
 .etiqueta span {
@@ -129,9 +132,16 @@
     margin-left: 50vw;
     margin-top: 30vh;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
     font-size: 62.5%;
+    padding: 1vw;
+}
+
+.modal_etiqueta .texto_modal_etiqueta {
+    align-self: flex-start;
+    margin-left: 1vw;
 }
 
 .input_modal_etiqueta {
@@ -151,4 +161,32 @@
     outline: none;
     border: none;
     scroll-behavior: smooth;
+}
+
+.container_modal_etiqueta_botao {
+    display: flex;
+    width: 20vw;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container_modal_etiqueta_botao .etiqueta_modal {
+    margin-left: 1vw;
+    width: 10vw;
+    border-radius: 0.4vw;
+}
+
+.botao_modal {
+    border-radius: 1vw;
+    background-color: #5D84C2;
+    font-size: 2.0em;
+    width: 8vw;
+    height: 5vh;
+    color: #E7E7E7;
+    font-weight: 600;
+    border: 0;
+}
+
+.botao_modal:hover {
+    cursor: pointer;
 }
