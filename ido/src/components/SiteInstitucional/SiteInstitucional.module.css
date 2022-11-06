@@ -9,6 +9,10 @@ PALETA DE CORES
     AMARELO: #FFCA6D
 */
 
+*{
+    scroll-behavior: smooth;
+}
+
 /* SCROLLBAR */
 ::-webkit-scrollbar {
     width: 0.2vw;

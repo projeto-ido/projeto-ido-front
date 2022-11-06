@@ -31,7 +31,6 @@
     margin-left: 2vw;
     align-items: center;
     justify-content: space-between;
-    width: 35vw;
 }
 
 .container_acoes_icons {
@@ -92,7 +91,8 @@
 
 .container_etiqueta_acoes .container_acoes {
     display: flex;
-    width: 6vw;
+    width: 5vw;
+    margin-right: 1vw;
 }
 
 .checkbox_etiqueta {
@@ -185,8 +185,31 @@
     color: #E7E7E7;
     font-weight: 600;
     border: 0;
+    transition-duration: 0.4s;
 }
 
 .botao_modal:hover {
+    cursor: pointer;
+    background-color: #4473be;
+    transition-duration: 0.4s;
+}
+
+.botao_modal:focus{
+    outline: 0;
+}
+
+.container_fechar_modal{
+    display: flex;
+    align-self: flex-end;
+}
+
+.fechar_modal{
+    display: flex;
+    font-size: 1vw;
+    background-color: #E7E7E7;
+    width: 1vw;
+    height: 2vh;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
 }
