@@ -4,13 +4,12 @@ import Perfil from "../../components/Home/Perfil";
 import FilterPesquisar from "../../components/Home/FilterPesquisar"
 import AcoesAtividades from "../../components/Home/AcoesAtividades"
 import ModalCriarTarefa from "../../components/Home/ModalCriarTarefa"
-import Matriz from "../../components/Home/Tarefas/Matriz"
+import Matriz from "../../components/Home/Tarefas/ComboMatriz/Matriz"
 import Grupo from "../../components/Home/Tarefas/Grupo"
 import Lista from "../../components/Home/Tarefas/Lista"
 import ModalVerTarefa from "../../components/Home/ModalVerTarefa";
-
 import style from '../../components/Home/Home.module.css';
-import Spotify from "../../components/Home/Tarefas/Spotify";
+import Spotify from '../../components/Spotify/Spotify';
 
 function Home(params) {
     const [openModal, setOpenModal] = useState(false);
@@ -20,7 +19,7 @@ function Home(params) {
     function handleTarefa() {
         switch (tipoTarefa) {
             case "matriz":
-                return <Matriz setOpenModalVerTarefa={setOpenModalVerTarefa}/>
+                return <Matriz setOpenModalVerTarefa={setOpenModalVerTarefa} />
             case "grupo":
                 return <Grupo setOpenModalVerTarefa={setOpenModalVerTarefa}/>
             case "lista":

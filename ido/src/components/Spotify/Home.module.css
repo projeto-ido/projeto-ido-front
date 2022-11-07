@@ -422,12 +422,6 @@ header {
 
 }
 
-.containerTarefasMatriz{
-    overflow-y: auto;
-    max-height: 30vh;
-    min-height: 120px;
-    margin-right: 5px;
-}
 
 .titulo_prioridade {
     font-weight: 700;

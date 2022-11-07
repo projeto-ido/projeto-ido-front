@@ -57,7 +57,6 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
                 {inputSubtarefa1,inputSubtarefa2,inputSubtarefa3,inputSubtarefa4}
             ]
         }
-        console.log(listaSubtarefas)
         api.post("/usuarios/1/tarefas", tarefaAtualizada).then(res => {
             alert("tarefa cadastrada");
             setInputDataFinal("");
