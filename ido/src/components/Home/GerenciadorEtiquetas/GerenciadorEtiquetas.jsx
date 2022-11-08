@@ -6,7 +6,6 @@ import GerenciamentoEtiqueta from "./GerenciamentoEtiqueta";
 import apiMockGerenciadorEtiquetas from "../../../api/apiMockGerenciadorEtiqueta";
 
 function GerenciadorEtiquetas() {
-
   const [openModalEtiqueta, setOpenModalEtiqueta] = useState(false);
   const [textoInput, setTextoInput] = useState("");
   const [corEtiqueta, setCorEtiqueta] = useState("#51BDAB");

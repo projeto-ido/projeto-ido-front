@@ -25,6 +25,15 @@ main .main__container{
     display: flex;
 }
 
+/* VARIAVEIS DAS CORES */
+:root {
+    --cor--azul: #5D84C2;
+    --cor--verde: #51BDAB;
+    --cor--roxo: #7463C7;
+    --cor--amarela: #FFCA6D;
+    --cor--preta: #1F1E1E;
+}
+
 .main__container{
     height: 100%;
 }
@@ -32,7 +41,7 @@ main .main__container{
 .main__container .formulario{
     width: 37.5vw;
     height: 100%;
-    background-color: #1F1E1E;
+    background-color: var(--cor--preta);
 }
 
 .main__container .formulario .container{
@@ -127,13 +136,13 @@ input:focus{
     text-align: center;
     height: 100%;
     width: 15.52vw;
-    background-color: #FFCA6D;
+    background-color: var(--cor--amarela);
     border-radius: 10rem;
     cursor: pointer;
 }
 
 .formulario .container .botao .botao__container p{
-    color: #1F1E1E;
+    color: var(--cor--preta);
     font-size: 2rem;
     font-weight: bold;
 }
