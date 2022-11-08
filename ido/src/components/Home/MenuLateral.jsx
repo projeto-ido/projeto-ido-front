@@ -4,17 +4,24 @@ import iconHome from '../../assets/images/icon-home.png';
 import iconGrafico from '../../assets/images/icon-grafico.png';
 import iconEtiqueta from '../../assets/images/icon-etiqueta.png';
 import iconConheca from '../../assets/images/icon-conheca.png';
-import iconConfig from '../../assets/images/icon-config.png';
 import iconSair from '../../assets/images/icon-sair.png';
-
 import iconHomeDestaque from '../../assets/images/icon-home-destaque.png';
 import iconEtiquetaDestaque from '../../assets/images/icon-etiqueta-destaque.png'
+import iconAcessibilidade from '../../assets/images/icon-acessibilidade.png'
+import iconAcessibilidadeDestaque from '../../assets/images/icon-acessibilidade-destaque.png'
 import { Link } from "react-router-dom";
 
 import style from './Home.module.css';
 
 
-function MenuLateral({openGerenciadorEtiquetas, setOpenGerenciadorEtiquetas, openHome, setOpenHome}) {
+function MenuLateral({
+    openGerenciadorEtiquetas,
+    setOpenGerenciadorEtiquetas,
+    openHome,
+    setOpenHome,
+    openAcessibilidade,
+    setOpenAcessibilidade
+}) {
     const iconeGerenciadorEtiqueta = openGerenciadorEtiquetas ? iconEtiquetaDestaque : iconEtiqueta
     const descricaoEtiqueta = openGerenciadorEtiquetas ? style.paragrafo_destaque : style.paragrafo
     const menuLateralEtiqueta = openGerenciadorEtiquetas ? style.sessao_lateral_destaque : style.sessao_lateral
@@ -23,18 +30,29 @@ function MenuLateral({openGerenciadorEtiquetas, setOpenGerenciadorEtiquetas, ope
     const descricaoHome = openHome ? style.paragrafo_destaque : style.paragrafo
     const menuLateralHome = openHome ? style.sessao_lateral_destaque : style.sessao_lateral
 
+    const iconeAcessibilidade = openAcessibilidade ? iconAcessibilidadeDestaque : iconAcessibilidade
+    const descricaoAcessibilidade = openAcessibilidade ? style.paragrafo_destaque : style.paragrafo
+    const menuLateralAcessibilidade = openAcessibilidade ? style.sessao_lateral_destaque : style.sessao_lateral
+
     var menuLateralAnalise = style.sessao_lateral
     var menuLateralConheca = style.sessao_lateral
-    var menuLateralConfig = style.sessao_lateral
 
     function menuHome(){
         setOpenGerenciadorEtiquetas(false)
+        setOpenAcessibilidade(false)
         setOpenHome(true)
     }
-
+    
     function menuEtiqueta(){
+        setOpenAcessibilidade(false)
         setOpenGerenciadorEtiquetas(true)
         setOpenHome(false)
+    }
+
+    function menuAcessibilidade(){
+        setOpenGerenciadorEtiquetas(false)
+        setOpenHome(false)
+        setOpenAcessibilidade(true)
     }
 
 
@@ -74,10 +92,12 @@ function MenuLateral({openGerenciadorEtiquetas, setOpenGerenciadorEtiquetas, ope
                         <p className={style.paragrafo_conheca}>Conheça</p>
                     </div>
                 </div>
-                <div className={menuLateralConfig}>
+                <div className={menuLateralAcessibilidade} onClick={menuAcessibilidade}>
                     <div>
-                        <img className={style.icon_config} src={iconConfig} alt="icone Home" />
-                        <p className={style.paragrafo_config}>Configs</p>
+                        <div>
+                            <img className={style.icon_acessibilidade} src={iconeAcessibilidade} alt="icone Acessibilidade" />
+                            <p className={descricaoAcessibilidade}>Acessibilidade</p>
+                        </div>
                     </div>
                 </div>
                 <Link to="/">

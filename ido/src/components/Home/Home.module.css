@@ -137,11 +137,11 @@
     padding-top: 3.5vh;
 }
 
-.icon_config {
-    padding-left: 1.8vh;
-    width: 2vw;
-    height: 3.8vh;
-    padding-top: 3.5vh;
+.icon_acessibilidade{
+    padding-left: 3.8vh;
+    width: 2.9vw;
+    height: 5vh;
+    padding-top: 2.5vh;
 }
 
 .sessao_sair {
@@ -674,6 +674,7 @@ header {
     border-top: 8px solid #7463C7;
     border-radius: 0px 0px 25px 25px;
     min-height: 200px;
+    z-index: 1;
 }
 
 .fundo_escuro {
@@ -683,6 +684,7 @@ header {
     left: 0;
     top: 0px;
     background: rgba(0, 0, 0, 0.84);
+    z-index: 1;
 }
 
 .opacidade_model{

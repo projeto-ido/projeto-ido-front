@@ -7,6 +7,7 @@
     left: 10%;
     top: 0px;
     background: rgba(0, 0, 0, 0.84);
+    z-index: 1;
 }
 
 .fundo_escuro .modal_lateral {
