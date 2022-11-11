@@ -4,6 +4,8 @@ import iconAdicionar from "../../../assets/images/icon-adicionar.png";
 import ModalCriarEtiqueta from "./ModalCriarEtiqueta";
 import GerenciamentoEtiqueta from "./GerenciamentoEtiqueta";
 import apiMockGerenciadorEtiquetas from "../../../api/apiMockGerenciadorEtiqueta";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function GerenciadorEtiquetas() {
   const [openModalEtiqueta, setOpenModalEtiqueta] = useState(false);
@@ -17,6 +19,9 @@ function GerenciadorEtiquetas() {
   const [listaEtiquetas, setListaEtiquetas] = useState([])
   const [idEtiquetaSelecionada, setIdEtiquetaSelecionada] = useState(0)
   const [etiquetasAtualizadas, setEtiquetasAtualizadas] = useState(true)
+  const [clickDesabilitado, setClickDesabilitado] = useState(false);
+  const textoBotaoCriar = "Criar";
+  const textoBotaoSalvar = "Salvar";
 
   useEffect(() => {
     apiMockGerenciadorEtiquetas
@@ -37,21 +42,55 @@ function GerenciadorEtiquetas() {
     setTextoBotao("Criar")
   }
 
+  function toastSucesso(texto){
+    toast.success(texto, {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  }
+
+  function toastErro(texto){
+    toast.error(texto, {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
+  }
+
   function deletar(id) {
+    if(clickDesabilitado){
+      return;
+    }
+
+    setClickDesabilitado(true)
     apiMockGerenciadorEtiquetas
       .delete(`/etiquetas/${id}`)
       .then((res) => {
         setListaEtiquetas(listaEtiquetas.filter((etiqueta) => etiqueta.id_etiqueta !== id));
         console.log("deleted status code:", res.status);
+        toastSucesso(`Etiqueta deletada`)
+        setClickDesabilitado(false)
       })
       .catch((erro) => {
         console.log(erro);
+        toastErro(`Falha na exclusão de etiqueta`)
       });
       setOpenModalEtiqueta(false)
   }
 
   function criarOuAtualizar(id){
-    if(textoBotao === "Criar"){
+    if(textoBotao === textoBotaoCriar){
       console.log("post")
 
       const data = {
@@ -65,12 +104,14 @@ function GerenciadorEtiquetas() {
         .then((res) => {
           console.log(res.status)
           setEtiquetasAtualizadas(false)
+          toastSucesso(`Etiqueta criada`)
         })
         .catch((erro) => {
           console.log(erro)
+          toastErro(`Falha na criação de etiqueta`)
         })
 
-    } else if(textoBotao === "Salvar"){
+    } else if(textoBotao === textoBotaoSalvar){
       console.log("put")
 
       const data = {
@@ -79,24 +120,36 @@ function GerenciadorEtiquetas() {
         fk_usuario: 1
       }
 
+      if(clickDesabilitado){
+        return;
+      }
+  
+      setClickDesabilitado(true)
+
       apiMockGerenciadorEtiquetas
         .put(`/etiquetas/${idEtiquetaSelecionada}`, data)
         .then((res) => {
           console.log(res.status)
           setEtiquetasAtualizadas(false)
+          toastSucesso(`Etiqueta atualizada`)
+          setClickDesabilitado(false)
+          setOpenModalEtiqueta(false)
         })
         .catch((erro) => {
           console.log(erro)
+          toastErro(`Falha na atualização de etiqueta`)
         })
 
     } else {
       console.log("erro na criacao / atualizacao")
+      toastErro(`Erro em atualizar / criar`)
     }
   }
 
   return (
     <>
       <div className={style.fundo_escuro}>
+        <ToastContainer />
         <ModalCriarEtiqueta
           openModalEtiqueta={openModalEtiqueta}
           setOpenModalEtiqueta={setOpenModalEtiqueta}
