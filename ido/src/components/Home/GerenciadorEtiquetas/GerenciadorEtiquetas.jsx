@@ -3,7 +3,7 @@ import style from "./GerenciadorEtiquetas.module.css";
 import iconAdicionar from "../../../assets/images/icon-adicionar.png";
 import ModalCriarEtiqueta from "./ModalCriarEtiqueta";
 import GerenciamentoEtiqueta from "./GerenciamentoEtiqueta";
-import apiMockGerenciadorEtiquetas from "../../../api/apiMockGerenciadorEtiqueta";
+import apiGerenciadorEtiquetas from "../../../api/apiService";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -22,10 +22,11 @@ function GerenciadorEtiquetas() {
   const [clickDesabilitado, setClickDesabilitado] = useState(false);
   const textoBotaoCriar = "Criar";
   const textoBotaoSalvar = "Salvar";
+  const idUsuario = 1 //TODO: Depois alterar para consumir o sessionStorage
 
   useEffect(() => {
-    apiMockGerenciadorEtiquetas
-      .get("/etiquetas")
+    apiGerenciadorEtiquetas
+      .get(`/usuarios/${idUsuario}/etiquetas`)
       .then((res) => {
       console.log(res.data)
       setListaEtiquetas(res.data);
@@ -74,10 +75,10 @@ function GerenciadorEtiquetas() {
     }
 
     setClickDesabilitado(true)
-    apiMockGerenciadorEtiquetas
-      .delete(`/etiquetas/${id}`)
+    apiGerenciadorEtiquetas
+      .delete(`/usuarios/${idUsuario}/etiquetas/${id}`)
       .then((res) => {
-        setListaEtiquetas(listaEtiquetas.filter((etiqueta) => etiqueta.id_etiqueta !== id));
+        setListaEtiquetas(listaEtiquetas.filter((etiqueta) => etiqueta.idEtiqueta !== id));
         console.log("deleted status code:", res.status);
         toastSucesso(`Etiqueta deletada`)
         setClickDesabilitado(false)
@@ -95,12 +96,11 @@ function GerenciadorEtiquetas() {
 
       const data = {
         titulo: textoInput,
-        cor: corEtiqueta,
-        fk_usuario: 1
+        cor: corEtiqueta
       }
 
-      apiMockGerenciadorEtiquetas
-        .post("/etiquetas", data)
+      apiGerenciadorEtiquetas
+        .post(`/usuarios/${idUsuario}/etiquetas`, data)
         .then((res) => {
           console.log(res.status)
           setEtiquetasAtualizadas(false)
@@ -116,8 +116,7 @@ function GerenciadorEtiquetas() {
 
       const data = {
         titulo: textoInput,
-        cor: corEtiqueta,
-        fk_usuario: 1
+        cor: corEtiqueta
       }
 
       if(clickDesabilitado){
@@ -126,8 +125,8 @@ function GerenciadorEtiquetas() {
   
       setClickDesabilitado(true)
 
-      apiMockGerenciadorEtiquetas
-        .put(`/etiquetas/${idEtiquetaSelecionada}`, data)
+      apiGerenciadorEtiquetas
+        .put(`/usuarios/${idUsuario}/etiquetas/${idEtiquetaSelecionada}`, data)
         .then((res) => {
           console.log(res.status)
           setEtiquetasAtualizadas(false)
@@ -188,8 +187,8 @@ function GerenciadorEtiquetas() {
           {
             listaEtiquetas.map((etiqueta) => (   
               <GerenciamentoEtiqueta 
-                key={etiqueta.id_etiqueta}
-                id={etiqueta.id_etiqueta}
+                key={etiqueta.idEtiqueta}
+                id={etiqueta.idEtiqueta}
                 titulo={etiqueta.titulo}
                 cor={etiqueta.cor}
                 setOpenModalEtiqueta={setOpenModalEtiqueta}

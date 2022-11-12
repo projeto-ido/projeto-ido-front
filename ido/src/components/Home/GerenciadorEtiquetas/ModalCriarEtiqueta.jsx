@@ -60,7 +60,7 @@ function ModalCriarEtiqueta({
         onChange={e => setTextoInput(e.target.value)}
         value={textoInput} type="text" />
         <span className={style.texto_modal_etiqueta}>Cor da Etiqueta</span>
-        <select defaultValue="Verde Água" className={style.select_modal_etiqueta} onChange={e => setCorEtiqueta(e.target.value)} name="cores" id="cor">
+        <select className={style.select_modal_etiqueta} onChange={e => setCorEtiqueta(e.target.value)} name="cores" id="cor">
           <option selected={verdeAgua} value="#51BDAB">Verde Água</option>
           <option selected={azul} value="#5D84C2">Azul</option>
           <option selected={roxo} value="#7463C7">Roxo</option>

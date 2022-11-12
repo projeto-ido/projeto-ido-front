@@ -61,7 +61,8 @@
 }
 
 .modal_lateral {
-    border-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
     width: 40vw;
     height: 100vh;
     background-color: white;
