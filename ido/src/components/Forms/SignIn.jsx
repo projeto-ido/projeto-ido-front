@@ -26,6 +26,18 @@ export const SignIn = () => {
         api.post("/usuarios/login", data)
             .then(resposta => {
                 if(resposta.status === 200){
+                    const data = resposta.data;
+
+                    sessionStorage.setItem("id", data.idUsuario);
+                    sessionStorage.setItem("nome", data.nome);
+                    sessionStorage.setItem("apelido", data.apelido);
+                    sessionStorage.setItem("email", data.email);
+                    sessionStorage.setItem("biografia", data.biografia);
+                    sessionStorage.setItem("imagemBiografica", data.imagemBiografica);
+                    sessionStorage.setItem("imagemPerfil", data.imagemPerfil);
+                    sessionStorage.setItem("nascimento", data.nascimento);
+                    sessionStorage.setItem("nivel", data.nivel);
+
                     navigate("/home")
                 }
             }).catch(erro => {
