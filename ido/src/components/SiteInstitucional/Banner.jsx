@@ -6,7 +6,7 @@ import styles from "./SiteInstitucional.module.css"
 function Banner() {
     return(
         <>
-        <div className={styles.banner}>
+        <div className={styles.banner} id="banner">
             <div className={styles.bannerText}>
                 <h1>Você no controle da sua vida!</h1>
                 <h2>Solução completa da gestão do seu tempo em um só lugar!</h2>

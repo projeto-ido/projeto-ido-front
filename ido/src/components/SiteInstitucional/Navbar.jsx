@@ -10,7 +10,7 @@ function Navbar() {
                 <Link className={styles.navbar} to="#">
                     <img src={darkIcon} alt="Logo da empresa iDo"/>
                 </Link>
-                <Link className={styles.navbar} to="#">Inicio</Link>
+                <a className={styles.navbar} href="#banner">Inicio</a>
                 <a className={styles.navbar} href="#metodologias">Metodologias</a>
                 <a className={styles.navbar} href="#beneficios">Beneficios</a>
                 <Link to="/login">

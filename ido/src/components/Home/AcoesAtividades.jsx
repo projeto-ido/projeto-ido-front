@@ -4,9 +4,7 @@ import iconSoma from '../../assets/images/icon-soma.png';
 
 import style from './Home.module.css';
 
-export default function AcoesAtividades({ openModal, setOpenModal, tipoTarefa, setTipoTarefa, openModalVerTarefa}) {
-
-    const opacidade = (openModal || openModalVerTarefa) ? style.opacidade_model : "";
+export default function AcoesAtividades({ openModal, setOpenModal, tipoTarefa, setTipoTarefa, openModalVerTarefa, openGerenciadorEtiquetas}) {
 
     function handleChecked(tipo) {
 
@@ -28,7 +26,7 @@ export default function AcoesAtividades({ openModal, setOpenModal, tipoTarefa, s
         <div className={style.acoes_atividades}>
             <div 
                 id="containerOptionsFiltros" className={style.container_options_filtros}>
-                <img id="iconFiltro" className={`${style.icon_filtro} ${opacidade}`} src={iconfiltro}
+                <img id="iconFiltro" className={style.icon_filtro} src={iconfiltro}
                     alt="imagem de filtro de pesquisa" />
                 <select id="selectFiltros" className={style.select_filtros}>
                     <option style={{ color: "#E7E7E7" }} value="">Filtros</option>
@@ -59,7 +57,7 @@ export default function AcoesAtividades({ openModal, setOpenModal, tipoTarefa, s
 
             <div onClick={() => setOpenModal(true)}
                 id="botaoAdicionarTarefa" className={style.botao_adicionar_tarefa}>
-                <img id="iconSoma" className={`${style.icon_soma} ${opacidade}`} src={iconSoma} alt="" />
+                <img id="iconSoma" className={style.icon_soma} src={iconSoma} alt="" />
                 <div style={{ display: "table" }}>
                     <div id="textoCriacaoAtividade" className={style.texto_criacao_atividade}>Criar Atividade</div>
                 </div>

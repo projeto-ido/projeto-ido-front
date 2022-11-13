@@ -1,49 +1,87 @@
 import React, { useState } from "react";
 import MenuLateral from "../../components/Home/MenuLateral";
-import Perfil from "../../components/Home/Perfil";
-import FilterPesquisar from "../../components/Home/FilterPesquisar"
-import AcoesAtividades from "../../components/Home/AcoesAtividades"
-import ModalCriarTarefa from "../../components/Home/ModalCriarTarefa"
-import Matriz from "../../components/Home/Tarefas/Matriz"
-import Grupo from "../../components/Home/Tarefas/Grupo"
-import Lista from "../../components/Home/Tarefas/Lista"
-import ModalVerTarefa from "../../components/Home/ModalVerTarefa";
-
 import style from '../../components/Home/Home.module.css';
+import HomeComponent from "../../components/Home/HomeComponent";
+import GerenciadorEtiquetas from "../../components/Home/GerenciadorEtiquetas/GerenciadorEtiquetas";
+import Spotify from "../../components/Home/Tarefas/Spotify";
+import Acessibilidade from "../../components/Home/Acessibilidade/Acessibilidade";
 
 function Home(params) {
+    if(sessionStorage.getItem("name") === "Normal") {
+        /* NORMAL */
+        document.body.style.setProperty('--cor--azul', '#5D84C2');
+        document.body.style.setProperty('--cor--verde', '#51BDAB');
+        document.body.style.setProperty('--cor--roxo', '#7463C7');
+        document.body.style.setProperty('--cor--amarela', '#FFCA6D');
+
+    } else if (sessionStorage.getItem("name") === "Protanopia") {
+        /* PROTANOPIA */
+        document.body.style.setProperty('--cor--azul', '#5D84C2');
+        document.body.style.setProperty('--cor--verde', '#DAD080');
+        document.body.style.setProperty('--cor--roxo', '#059ECC');
+        document.body.style.setProperty('--cor--amarela', '#FFE36D');
+
+    } else if(sessionStorage.getItem("name") === "Deuteranopia") {
+        /* DEUTERANOPIA */
+        document.body.style.setProperty('--cor--azul', '#5D84C2');
+        document.body.style.setProperty('--cor--verde', '#00C34D');
+        document.body.style.setProperty('--cor--roxo', '#1CA0C7');
+        document.body.style.setProperty('--cor--amarela', '#FFCA6D');
+
+    } else if (sessionStorage.getItem("name") === "Tritanopia") {
+        /* TRITANOPIA */
+        document.body.style.setProperty('--cor--azul', '#95F313');
+        document.body.style.setProperty('--cor--verde', '#238FF7');
+        document.body.style.setProperty('--cor--roxo', '#FFA58D');
+        document.body.style.setProperty('--cor--amarela', '#E44D4D');
+
+    } else {
+        /* NORMAL */
+        document.body.style.setProperty('--cor--azul', '#5D84C2');
+        document.body.style.setProperty('--cor--verde', '#51BDAB');
+        document.body.style.setProperty('--cor--roxo', '#7463C7');
+        document.body.style.setProperty('--cor--amarela', '#FFCA6D');
+        
+    }
+
     const [openModal, setOpenModal] = useState(false);
     const [tipoTarefa, setTipoTarefa] = useState("matriz");
     const [openModalVerTarefa, setOpenModalVerTarefa] = useState(false);
-
-    function handleTarefa() {
-        switch (tipoTarefa) {
-            case "matriz":
-                return <Matriz setOpenModalVerTarefa={setOpenModalVerTarefa}/>
-            case "grupo":
-                return <Grupo setOpenModalVerTarefa={setOpenModalVerTarefa}/>
-            case "lista":
-                return <Lista setOpenModalVerTarefa={setOpenModalVerTarefa}/>
-            default:
-                return null;
-        }
-    }
+    const [openGerenciadorEtiquetas, setOpenGerenciadorEtiquetas] = useState(false);
+    const [openHome, setOpenHome] = useState(true);
+    const [openAcessibilidade, setOpenAcessibilidade] = useState(false);
 
     return (
         <>  
             <main className={style.bodyHome}>
 
-                <MenuLateral />
+                <MenuLateral 
+                    openHome={openHome}
+                    setOpenHome={setOpenHome}
+                    openGerenciadorEtiquetas={openGerenciadorEtiquetas} 
+                    setOpenGerenciadorEtiquetas={setOpenGerenciadorEtiquetas}
+                    openAcessibilidade={openAcessibilidade}
+                    setOpenAcessibilidade={setOpenAcessibilidade}
+                />
+                {
+                    openGerenciadorEtiquetas ? <GerenciadorEtiquetas /> : null
+                }
+                {
+                    openAcessibilidade ? <Acessibilidade /> : null
+                }
                 {(openModal || openModalVerTarefa) && <div className={style.fundo_escuro} onClick={() => setOpenModal(false)} ></div>}
                 <div className={style.funcional}>
-                    <Perfil />
-                    <FilterPesquisar openModal={openModal}  openModalVerTarefa={openModalVerTarefa}/>
-                    <AcoesAtividades openModalVerTarefa={openModalVerTarefa} setOpenModal={setOpenModal} openModal={openModal} tipoTarefa={tipoTarefa} setTipoTarefa={setTipoTarefa}/>
-                    <ModalCriarTarefa openModal={openModal} setOpenModal={setOpenModal} />
-                    <ModalVerTarefa openModalVerTarefa={openModalVerTarefa} setOpenModalVerTarefa={setOpenModalVerTarefa}/>
-                    {handleTarefa()}
-                    
+                    <HomeComponent 
+                        openModal={openModal}
+                        setOpenModal={setOpenModal}
+                        openModalVerTarefa={openModalVerTarefa}
+                        setOpenModalVerTarefa={setOpenModalVerTarefa}
+                        tipoTarefa={tipoTarefa}
+                        setTipoTarefa={setTipoTarefa}
+                        openGerenciadorEtiquetas={openGerenciadorEtiquetas}
+                    />
                 </div>
+                {/* <Spotify /> */}
 
             </main>
         </>
