@@ -1,13 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
-/*
-PALETA DE CORES
-    CINZA: #1F1E1E
-    AZUL: #5D84C2
-    VERDE: #51BDAB
-    ROXO: #7463C7
-    AMARELO: #FFCA6D
-*/
+/* VARIAVEIS DAS CORES */
+:root {
+    --cor--azul: #5D84C2;
+    --cor--verde: #51BDAB;
+    --cor--roxo: #7463C7;
+    --cor--amarela: #FFCA6D;
+    --cor--preta: #1F1E1E;
+}
+
+*{
+    scroll-behavior: smooth;
+}
 
 /* SCROLLBAR */
 ::-webkit-scrollbar {
@@ -48,7 +52,7 @@ PALETA DE CORES
     align-items: center;
     justify-content: space-evenly;
     height: 15vh;
-    border-bottom: 0.2vh solid #1F1E1E;
+    border-bottom: 0.2vh solid var(--cor--preta);
     background-color: #FFF;
     position: fixed;
     top: 0;
@@ -56,7 +60,7 @@ PALETA DE CORES
 }
 
 .headerInstitucional .navbar{
-    color: #1F1E1E;
+    color: var(--cor--preta);
     font-size: 2.4em;
     text-decoration: none;
 }
@@ -68,7 +72,7 @@ PALETA DE CORES
     font-weight: 600;
     color: white;
     border: 0;
-    background-color: #5D84C2;
+    background-color: var(--cor--azul);
     border-radius: 2vw;
     transition-duration: 0.3s;
 }
@@ -76,7 +80,7 @@ PALETA DE CORES
 .btnLogin:hover{
     cursor: pointer;
     transition-duration: 0.3s;
-    background-color: #FFCA6D;
+    background-color: var(--cor--amarela);
 }
 
 .banner{
@@ -107,13 +111,13 @@ PALETA DE CORES
 
 
 .bannerText h1{
-    color: #7463C7;
+    color: var(--cor--roxo);
     font-weight: 600;
     font-size: 4.0em;
 }
 
 .bannerText h2{
-    color: #1F1E1E;
+    color: var(--cor--preta);
     font-size: 3.0em;
     font-weight: 300;
     margin-bottom: 8vh;
@@ -124,16 +128,16 @@ PALETA DE CORES
     height: 7vh;
     font-size: 2.4em;
     font-weight: 600;
-    color: #1F1E1E;
+    color: var(--cor--preta);
     border: 0;
-    background-color: #FFCA6D;
+    background-color: var(--cor--amarela);
     border-radius: 2vw;
     transition-duration: 0.3s;
     cursor: pointer;
 }
 
 .btnCadastro:hover{
-    color: #1F1E1E;
+    color: var(--cor--preta);
     border: 0;
     background-color: #ffb83d;
 }
@@ -156,7 +160,7 @@ PALETA DE CORES
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    color: #1F1E1E;
+    color: var(--cor--preta);
     font-size: 1.6em;
     font-weight: 400;
 }
@@ -187,7 +191,7 @@ PALETA DE CORES
     height: 1.1vw;
     width: 1.1vw;
     appearance: none;
-    background-color: #5D84C2;
+    background-color: var(--cor--azul);
     border-radius: 100%; 
     cursor: pointer;
     transition-duration: 0.2s;
@@ -240,7 +244,7 @@ PALETA DE CORES
 }
 
 .metodologias{
-    background-color: #1F1E1E;
+    background-color: var(--cor--preta);
     height: 150vh;
 }
 
@@ -271,7 +275,7 @@ PALETA DE CORES
     display: flex;
     align-items: center;
     flex-direction: column;
-    background-color: #1F1E1E;
+    background-color: var(--cor--preta);
     justify-content: space-evenly;
 }
 
@@ -282,7 +286,7 @@ PALETA DE CORES
 }
 
 .metodologias h3{
-    color: #5D84C2;
+    color: var(--cor--azul);
     font-size: 2.4em;
     padding-left: 2vw;
     margin-bottom: 1vh;
@@ -300,7 +304,7 @@ PALETA DE CORES
     width: 4vw;
     height: 0.1vh;
     margin-left: 2vw;
-    background-color: #5D84C2;
+    background-color: var(--cor--azul);
 }
 
 .biggerCard{
@@ -385,17 +389,17 @@ PALETA DE CORES
 
 .text h1{
     font-size: 2.4em;
-    color: #7463C7;
+    color: var(--cor--roxo);
 }
 
 .text h4{
     font-size: 2.0em;
     font-weight: 400;
-    color: #1F1E1E;
+    color: var(--cor--preta);
 }
 
 .footerInstitucional{
-    background-color: #5D84C2;
+    background-color: var(--cor--azul);
     width: 100%;
     display: flex;
     align-items: center;

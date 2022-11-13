@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+/* VARIAVEIS DAS CORES */
+:root {
+    --cor--azul: #5D84C2;
+    --cor--verde: #51BDAB;
+    --cor--roxo: #7463C7;
+    --cor--amarela: #FFCA6D;
+    --cor--preta: #1F1E1E;
+}
+
+.fundo_escuro {
+    position: fixed;
+    width: 100vw;
+    height: 100%;
+    left: 10%;
+    top: 0px;
+    background: rgba(0, 0, 0, 0.84);
+    z-index: 1;
+}
+
+.fundo_escuro .modal_lateral {
+    font-size: 62.5%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container_texto_destaque {
+    display: flex;
+    margin-top: 3vw;
+    margin-left: 2vw;
+    line-height: 4vh;
+    justify-content: center;
+    align-items: center;
+    width: 20vw;
+    height: 10vh;
+}
+
+.container_acoes {
+    display: flex;
+    margin-left: 2vw;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container_acoes_icons {
+    display: flex;
+    justify-content: space-between;
+    width: 5vw;
+}
+
+.container_acoes h2 {
+    font-size: 2.4em;
+    color: var(--cor--preta);
+}
+
+.texto_destaque {
+    color: var(--cor--roxo);
+    font-size: 3.2em;
+    font-weight: 600;
+}
+
+.modal_lateral {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    width: 40vw;
+    height: 100vh;
+    background-color: white;
+}
+
+.acoes {
+    cursor: pointer;
+}
+
+.listagem_etiquetas {
+    margin-left: 2vw;
+    border-radius: 20px;
+    width: 35vw;
+    height: 65vh;
+    overflow-y: scroll;
+    background-color: #E7E7E7;
+}
+
+.container_etiqueta {
+    height: 5vh;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 2vw;
+}
+
+.container_etiqueta .container_acoes {
+    display: flex;
+    width: 6vw;
+}
+
+.container_etiqueta_acoes {
+    height: 5vh;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2vh;
+}
+
+.container_etiqueta_acoes .container_acoes {
+    display: flex;
+    width: 5vw;
+    margin-right: 1vw;
+}
+
+.checkbox_etiqueta {
+    background-color: var(--cor--roxo);
+}
+
+.etiqueta {
+    width: 10vw;
+    border-radius: 0.4vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #E7E7E7;
+    font-weight: 700;
+    font-size: 1.2em;
+}
+
+.etiqueta span {
+    font-size: 2.0em;
+}
+
+.texto_modal_etiqueta {
+    color: var(--cor--preta);
+    font-size: 2.0em;
+    font-weight: 800;
+}
+
+.modal_etiqueta {
+    border-top: 0.5vw solid var(--cor--roxo);
+    border-bottom-left-radius: 1vw;
+    border-bottom-right-radius: 1vw;
+    width: 20vw;
+    height: 40vh;
+    background-color: white;
+    z-index: 1;
+    position: fixed;
+    margin-left: 50vw;
+    margin-top: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 62.5%;
+    padding: 1vw;
+}
+
+.modal_etiqueta .texto_modal_etiqueta {
+    align-self: flex-start;
+    margin-left: 1vw;
+}
+
+.input_modal_etiqueta {
+    background-color: #E7E7E7;
+    border-radius: 0.4vw;
+    height: 6vh;
+    width: 18vw;
+    color: var(--cor--preta);
+}
+
+.select_modal_etiqueta {
+    background-color: #E7E7E7;
+    border-radius: 0.4vw;
+    height: 6vh;
+    width: 18vw;
+    color: var(--cor--preta);
+    outline: none;
+    border: none;
+    scroll-behavior: smooth;
+}
+
+.container_modal_etiqueta_botao {
+    display: flex;
+    width: 20vw;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container_modal_etiqueta_botao .etiqueta_modal {
+    margin-left: 1vw;
+    width: 10vw;
+    border-radius: 0.4vw;
+}
+
+.botao_modal {
+    border-radius: 1vw;
+    background-color: var(--cor--azul);
+    font-size: 2.0em;
+    width: 8vw;
+    height: 5vh;
+    color: #E7E7E7;
+    font-weight: 600;
+    border: 0;
+    transition-duration: 0.4s;
+}
+
+.botao_modal:hover {
+    cursor: pointer;
+    background-color: #4473be;
+    transition-duration: 0.4s;
+}
+
+.botao_modal:focus{
+    outline: 0;
+}
+
+.container_fechar_modal{
+    display: flex;
+    align-self: flex-end;
+}
+
+.fechar_modal{
+    display: flex;
+    font-size: 1vw;
+    background-color: #E7E7E7;
+    width: 1vw;
+    height: 2vh;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
