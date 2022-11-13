@@ -138,6 +138,7 @@ main .main__container{
 .main__container .formulario .container .campos__cadastro{
     height: 46vh;
     overflow-y: scroll;
+    margin-bottom: 15px;
 }
 
 .main__container .formulario .container .campos__cadastro .info__usuario{
@@ -252,7 +253,7 @@ input:focus{
     justify-content: center;
 }
 
-.formulario .container .botao .botao__container__cadastro{
+.formulario .container .botao button{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -262,6 +263,14 @@ input:focus{
     background-color: #FFCA6D;
     border-radius: 10rem;
     cursor: pointer;
+    font-size: 2rem;
+    color: #FFF;
+    transition-duration: 0.4s;
+}
+
+.formulario .container .botao button:hover{
+    background-color: #febf52;
+    transition-duration: 0.4s;
 }
 
 .formulario .container .botao .botao__container__login{
