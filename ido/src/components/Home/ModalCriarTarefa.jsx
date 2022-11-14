@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import iconLixeira from '../../assets/images/lixeira.png';
-import api from "../../api/api.jsx"
-import style from "./style-plat.css"
+import api from "../../api/api.jsx";
+import style from "./style-plat.css";
+import { useSessionStorageString } from "react-use-window-sessionstorage";
 
 export default function ModalCriarTarefa({ openModal, setOpenModal }) {
     const [qtdSubtarefa, setQtdsubtarefa] = useState(1);
@@ -25,6 +26,10 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
     //const [arrayTarefas, setArrayTarefas] = Array([]);
     const [prioridade, setPrioridade] = useState("");
     let listaSubtarefas = [];
+    const [idUsuarioStorage, setIdUsuarioStorage] = useSessionStorageString("idLogado",  "");
+
+
+
 
     function criar() {
         if(selectImportancia === '-1'){
@@ -57,7 +62,7 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
                 {inputSubtarefa1,inputSubtarefa2,inputSubtarefa3,inputSubtarefa4}
             ]
         }
-        api.post("/usuarios/1/tarefas", tarefaAtualizada).then(res => {
+        api.post(`/usuarios/${idUsuarioStorage}/tarefas`, tarefaAtualizada).then(res => {
             alert("tarefa cadastrada");
             setInputDataFinal("");
             setInputDataInicio("");
@@ -76,7 +81,8 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
             setInputSubtarefa1("");
             setInputSubtarefa2("");
             setInputSubtarefa3("");
-            setInputSubtarefa4("");            
+            setInputSubtarefa4("");      
+            window.location.reload(false);      
         }).catch(erro => {
             console.log("erro: " + erro + " certifique-se de estar logado. ");
             alert(erro);

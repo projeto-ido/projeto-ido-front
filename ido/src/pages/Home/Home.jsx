@@ -42,9 +42,10 @@ function Home(params) {
                     <ModalCriarTarefa openModal={openModal} setOpenModal={setOpenModal} />
                     <ModalVerTarefa openModalVerTarefa={openModalVerTarefa} setOpenModalVerTarefa={setOpenModalVerTarefa}/>
                     {handleTarefa()}
-                    
+                    <Spotify />
                 </div>
-                <Spotify />
+                
+                
 
             </main>
         </>

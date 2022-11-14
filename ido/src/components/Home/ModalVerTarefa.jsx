@@ -61,7 +61,8 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
             ]
         }
         api.post("/usuarios/1/tarefas", tarefaAtualizada).then(res => {
-            alert("tarefa cadastrada");         
+            alert("tarefa cadastrada"); 
+            window.location.reload(false);           
         }).catch(erro => {
             console.log("erro: " + erro + " certifique-se de estar logado. ");
             alert(erro);

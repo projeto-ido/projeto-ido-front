@@ -1012,6 +1012,10 @@ header {
     
 }
 
+.tarefa{
+    font-size: 1.2vw;
+}
+
 .botao_apagar_subtarefa{
     margin-top: .5vh;
     margin-left: .5vw;
@@ -1136,6 +1140,7 @@ header {
         height: 35vh;
         max-height: 160px;
         margin-top: 5vh;
+        font-size: 2vw;
 
     }
 
@@ -1144,6 +1149,7 @@ header {
         height: 35vh;
         max-height: 160px;
         margin-top: 5vh;
+        font-size: 2vw;
     }
 
     .tarefas_inferior {
@@ -1156,6 +1162,7 @@ header {
         height: 35vh;
         max-height: 160px;
         margin-top: 5vh;
+        font-size: 2vw;
     }
 
     .nao_priorizar {
@@ -1163,6 +1170,7 @@ header {
         height: 35vh;
         max-height: 160px;
         margin-top: 5vh;
+        font-size: 2vw;
     }
 
     .etiqueta {
@@ -1263,6 +1271,10 @@ header {
     .spotify_card{
         width: 25%;
         border-radius:12px
+    }
+
+    .tarefa{
+        font-size: 2vw;
     }
 
 

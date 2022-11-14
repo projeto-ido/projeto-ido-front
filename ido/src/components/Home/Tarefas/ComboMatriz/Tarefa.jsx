@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import style from "../../Home.module.css"
+import style from "../../Home.module.css";
 import { useSessionStorageNumber, useSessionStorageString } from "react-use-window-sessionstorage";
 
 export default function Tarefa(props) {

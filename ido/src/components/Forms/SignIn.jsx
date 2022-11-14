@@ -1,18 +1,16 @@
 import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import { useSessionStorageString } from "react-use-window-sessionstorage";
 import logo from '../../assets/images/logo-white.png'
 import style from './Forms.module.css'
-
 import api from "../../api/api.jsx"
 
 
 
 export const SignIn = () => {
     const navigate = useNavigate();
-
-
+    const [idUsuarioStorage, setIdUsuarioStorage] = useSessionStorageString("idLogado",  "");
     const [emai, setEmail] = useState("");
     const [senha, setSenha] = useState("");
 
@@ -25,14 +23,20 @@ export const SignIn = () => {
 
         api.post("/usuarios/login", data)
             .then(resposta => {
-                if(resposta.status === 200){
-                    navigate("/home")
+                if(resposta.status === 200){                    
+                    setIdUsuarioStorage(resposta.data.idUsuario);
+                    if(idUsuarioStorage != ""){
+                        console.log("Usuario logado " + idUsuarioStorage);
+                        navigate("/home")
+                    }
+                    
                 }
             }).catch(erro => {
                 console.log(erro);
             })
 
     }
+
 
     return (
         <>

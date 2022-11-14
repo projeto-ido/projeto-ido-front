@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useLayoutEffect } from "react";
 import Tarefa from "./Tarefa";
 import style from "../../Home.module.css";
 import apiTarefa from "../../../../api/apiTarefa";
 import { useSessionStorageNumber } from "react-use-window-sessionstorage";
+import { useSessionStorageString } from "react-use-window-sessionstorage";
 
 export default function TelaMatriz({ setOpenModalVerTarefa }) {
     const [listaTarefas, setListaTarefas] = useState([]);
@@ -17,11 +18,14 @@ export default function TelaMatriz({ setOpenModalVerTarefa }) {
     const [importancia, setImportancia] = useState("");
     const [subTarefas, setSubTarefas] = useState("");
     const [fkUsuario, setFkUsuario] = useState("");
+    const [idUsuarioStorage, setIdUsuarioStorage] = useSessionStorageString("idLogado", "");
     const defaultId = 0;
 
+    
 
     useEffect(() => {
-        apiTarefa.get().then(res => {
+        var idUsuario = sessionStorage.getItem("idLogado");
+        apiTarefa.get(`/usuarios/${idUsuario}/tarefas` ).then(res => {
             console.log("dados", res.data);
             console.log("status code", res.status);
             setListaTarefas(res.data);
@@ -31,6 +35,7 @@ export default function TelaMatriz({ setOpenModalVerTarefa }) {
 
         }).catch(erro => {
             console.log(erro)
+            
         })
 
     }, [])
