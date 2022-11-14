@@ -11,6 +11,7 @@ import api from "../../api/api.jsx"
 export const SignIn = () => {
     const navigate = useNavigate();
     const [idUsuarioStorage, setIdUsuarioStorage] = useSessionStorageString("idLogado",  "");
+    const [nomeUsuarioStorage, setNomeUsuarioStorage] = useSessionStorageString("nomeLogado",  "");
     const [emai, setEmail] = useState("");
     const [senha, setSenha] = useState("");
 
@@ -25,8 +26,10 @@ export const SignIn = () => {
             .then(resposta => {
                 if(resposta.status === 200){                    
                     setIdUsuarioStorage(resposta.data.idUsuario);
-                    if(idUsuarioStorage != ""){
+                    setNomeUsuarioStorage(resposta.data.apelido);
+                    if(idUsuarioStorage != "" && nomeUsuarioStorage != ""){
                         console.log("Usuario logado " + idUsuarioStorage);
+                        console.log("Nome logado " + nomeUsuarioStorage);
                         navigate("/home")
                     }
                     
