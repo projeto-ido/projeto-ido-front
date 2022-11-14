@@ -27,7 +27,7 @@ export const SignIn = () => {
                 if(resposta.status === 200){                    
                     setIdUsuarioStorage(resposta.data.idUsuario);
                     setNomeUsuarioStorage(resposta.data.apelido);
-                    if(idUsuarioStorage != "" && nomeUsuarioStorage != ""){
+                    if(idUsuarioStorage !== "" && nomeUsuarioStorage !== ""){
                         console.log("Usuario logado " + idUsuarioStorage);
                         console.log("Nome logado " + nomeUsuarioStorage);
                         navigate("/home")

@@ -478,7 +478,7 @@ header {
 .grupo_fazer_agora {
     width: 100%;
     background-color: #FFFAFA;
-    height: 32vh;
+    height: 36vh;
     border-radius: 0px 0px 25px 25px;
     min-height: 100px;
     border-bottom: .3vh solid #E7E7E7;
@@ -490,19 +490,26 @@ header {
 .grupo_agendar {
     width: 100%;
     background-color: #FFFAFA;
-    height: 32vh;
+    height: 36vh;
     border-radius: 0px 0px 25px 25px;
     min-height: 100px;
     border-bottom: .3vh solid #E7E7E7;
     border-left: .3vh solid #E7E7E7;
     border-right: .3vh solid #E7E7E7;
+    
 
+}
+
+.grupoTarefas{
+    overflow-y: auto;
+    margin-right: 5px;
+    height: 90%;
 }
 
 .grupo_delegar {
     width: 100%;
     background-color: #FFFAFA;
-    height: 32vh;
+    height: 36vh;
     border-radius: 0px 0px 25px 25px;
     min-height: 100px;
     border-bottom: .3vh solid #E7E7E7;
@@ -514,7 +521,7 @@ header {
 .grupo_nao_priorizar {
     width: 100%;
     background-color: #FFFAFA;
-    height: 32vh;
+    height: 36vh;
     border-radius: 0px 0px 25px 25px;
     min-height: 100px;
     border-bottom: .3vh solid #E7E7E7;
@@ -627,7 +634,14 @@ header {
     border-bottom: .3vh solid #E7E7E7;
     border-left: .3vh solid #E7E7E7;
     border-right: .3vh solid #E7E7E7;
+    height: 55vh;
+    
+}
 
+.tarefas_listadas{
+    height: 90%; 
+    overflow-y: auto;
+    margin-right: 5px;
 }
 
 .respiro {

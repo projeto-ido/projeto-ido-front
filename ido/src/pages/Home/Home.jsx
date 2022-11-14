@@ -6,7 +6,7 @@ import AcoesAtividades from "../../components/Home/AcoesAtividades"
 import ModalCriarTarefa from "../../components/Home/ModalCriarTarefa"
 import Matriz from "../../components/Home/Tarefas/ComboMatriz/Matriz"
 import Grupo from "../../components/Home/Tarefas/Grupo"
-import Lista from "../../components/Home/Tarefas/Lista"
+import Lista from "../../components/Home/Tarefas/ComboLista/Lista"
 import ModalVerTarefa from "../../components/Home/ModalVerTarefa";
 import style from '../../components/Home/Home.module.css';
 import Spotify from '../../components/Spotify/Spotify';
@@ -42,7 +42,7 @@ function Home(params) {
                     <ModalCriarTarefa openModal={openModal} setOpenModal={setOpenModal} />
                     <ModalVerTarefa openModalVerTarefa={openModalVerTarefa} setOpenModalVerTarefa={setOpenModalVerTarefa}/>
                     {handleTarefa()}
-                    <Spotify />
+                    {/* <Spotify /> */}
                 </div>
                 
                 

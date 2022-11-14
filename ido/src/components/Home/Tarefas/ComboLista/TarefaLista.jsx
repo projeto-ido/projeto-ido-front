@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import style from "../../Home.module.css";
 import { useSessionStorageNumber, useSessionStorageString } from "react-use-window-sessionstorage";
 
-export default function Tarefa(props) {
+export default function TarefaLista(props){
     const [id, setId] = useState(props.idTarefa);
     const [idTarefa, setIdTarefa] = useSessionStorageNumber("idDaTarefa", 0);
 
@@ -54,19 +54,18 @@ export default function Tarefa(props) {
 
     }
 
-    return (
-        <>  <div onClick={plotarTarefa}>
-            <div onClick={(() => props.setOpenModalVerTarefa(true))}
-                className={style.tarefa_combo}>
+    return(
+        <>
+        <div onClick={plotarTarefa}>
+        <div onClick={() => props.setOpenModalVerTarefa(true)} className={style.tarefa_combo_lista}>
                 <span className={style.tarefa}>{titulo}</span>
-                <div className={style.container_etiquetas_matriz}>
-                    <div className={style.etiqueta}>Etiqueta</div>
-                    <div className={style.etiqueta} style={{ backgroundColor: "#51BDAB" }} >Etiqueta</div>
+                <div className={style.container_etiquetas}>
+                    <div className={style.etiqueta_lista}>Etiqueta</div>
+                    <div className={style.etiqueta_lista} style={{backgroundColor: "#51BDAB"}}>Etiqueta</div>
                 </div>
+
             </div>
         </div>
-
         </>
     );
 }
-

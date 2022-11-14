@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Tarefa from "./Tarefa";
 import style from "../../Home.module.css";
 import apiTarefa from "../../../../api/apiTarefa";
