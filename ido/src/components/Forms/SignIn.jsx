@@ -1,26 +1,22 @@
 import React from 'react';
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import logo from '../../assets/images/logo-white.png'
-import style from './Forms.module.css'
+import logo from '../../assets/images/logo-white.png';
+import style from './Forms.module.css';
 
-import api from "../../api/api.jsx"
+import api from "../../api/api.jsx";
 
 
 
 export const SignIn = () => {
     const navigate = useNavigate();
 
-
-    const [emai, setEmail] = useState("");
-    const [senha, setSenha] = useState("");
-
-    const logar = () => {
+    const logar = (event) => {
+        event.preventDefault();
         
         const data = {
-            email: emai,
-            senha: senha
+            email: event.target.email.value,
+            senha: event.target.senha.value
         }
 
         api.post("/usuarios/login", data)
@@ -38,7 +34,7 @@ export const SignIn = () => {
                     sessionStorage.setItem("nascimento", data.nascimento);
                     sessionStorage.setItem("nivel", data.nivel);
 
-                    navigate("/home")
+                    navigate("/home");
                 }
             }).catch(erro => {
                 console.log(erro);
@@ -52,52 +48,55 @@ export const SignIn = () => {
                 <h1>Seja Bem Vindo!</h1>
             </div>
 
-            <div className={style.campos}>
+            <form onSubmit={logar}>
 
-                <div className={style.campos__container}>
-                    <div className={style.campo__signin}>
-                        <div className={style.form__container}>
+                <div className={style.campos}>
 
-                            <div className={style.label}>
-                                <label for="">Email</label>
-                            </div>
+                    <div className={style.campos__container}>
+                        <div className={style.campo__signin}>
+                            <div className={style.form__container}>
 
-                            <div className={style.input}>
-                                <input
-                                    name='email'
-                                    placeholder="Coloque seu email..."
-                                    type="email"
-                                    onChange={e => setEmail(e.target.value)} />
+                                <div className={style.label}>
+                                    <label for="">Email</label>
+                                </div>
+
+                                <div className={style.input}>
+                                    <input
+                                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                                        name='email'
+                                        placeholder="Coloque seu email..."
+                                        type="email"
+                                        required/>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div className={style.campo__signin}>
-                        <div className={style.form__container}>
+                        <div className={style.campo__signin}>
+                            <div className={style.form__container}>
 
-                            <div className={style.label}>
-                                <label for="">Senha</label>
-                            </div>
+                                <div className={style.label}>
+                                    <label for="">Senha</label>
+                                </div>
 
-                            <div className={style.input}>
-                                <input
-                                    name='senha'
-                                    placeholder="Coloque seu senha..."
-                                    type="password"
-                                    onChange={e => setSenha(e.target.value)} />
+                                <div className={style.input}>
+                                    <input
+                                        name='senha'
+                                        placeholder="Coloque seu senha..."
+                                        type="password"
+                                        required/>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+
+                <div className={style.botao__login}>
+                    <button type='submit'>Logar</button>
+                </div>
+
+            </form>
 
             <div className={style.footer}>
-                <div className={style.botao}>
-                    <div onClick={logar} className={[`${style.botao__container} ${style.botao__container__login}`]}>
-                        <p>Logar</p>
-                    </div>
-                </div>
-
                 <div className={style.img__icon}>
                     <img src={logo} alt="" />
                 </div>
