@@ -7,6 +7,9 @@ import api from '../../api/api.jsx'
 import style from './Forms.module.css';
 import { useEffect } from 'react';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
+
 export const SignUp = () => {
   const navigate = useNavigate();
 
@@ -24,14 +27,42 @@ export const SignUp = () => {
     console.log(inputs.nascimento.value);
 
     if (inputs.confirmarSenha.value !== inputs.senha.value) {
-      window.alert("Senhas não batem")
+      erro("Confirmação de senha invalida");
     } else {
       cadastrar(inputs);
     }
 
   }
 
+  function sucesso(texto) {
+    toast.success(texto, {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    })
+  }
+
+  function erro(texto) {
+    toast.error(texto, {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: false,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    })
+  }
+
   const cadastrar = (inputs) => {
+
+    console.log(inputs);
 
     const data = {
       nome: inputs.nome.value,
@@ -44,15 +75,22 @@ export const SignUp = () => {
     api.post("/usuarios", data)
       .then(resposta => {
         if (resposta.status === 201) {
-          navigate("/login")
+          sucesso("Cadastro realizado com sucesso");
+          
+          setTimeout(() => {
+            navigate("/login")
+          }, 4000);
+        
         }
-      }).catch(erro => {
-        window.alert(erro)
+      }).catch(() => {
+        erro("Ops!, Sinto muito não foi possivel realizar seu cadastro 😕. Espere alguns minutos e tente novamente.")
       })
   }
 
   return (
     <>
+
+      <ToastContainer />
 
       <div className={style.titulo}>
         <h1>Bem Vindo de Volta!</h1>
