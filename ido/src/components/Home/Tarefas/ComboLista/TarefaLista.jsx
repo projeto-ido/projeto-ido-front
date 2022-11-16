@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import style from "../../Home.module.css";
-import { useSessionStorageNumber, useSessionStorageString } from "react-use-window-sessionstorage";
+import { useSessionStorageNumber, useSessionStorageString, useSessionStorageBoolean } from "react-use-window-sessionstorage";
 
 export default function TarefaLista(props){
     const [id, setId] = useState(props.idTarefa);
@@ -36,6 +36,20 @@ export default function TarefaLista(props){
     const [fkUsuarioStorage, setFkUsuarioStorage] = useSessionStorageString("setFkUsuarioStorage", "");
     const [fkUsuario, setFkUsuario] = useState(props.fkUsuario);
 
+    const [sub1Storage, setSub1Storage] = useSessionStorageString("subTarefa1")
+    const [sub1, setSub1] = useState("")
+
+    const [sub2Storage, setSub2Storage] = useSessionStorageString("subTarefa2")
+    const [sub2, setSub2] = useState("")
+
+    const [sub3Storage, setSub3Storage] = useSessionStorageString("subTarefa3")
+    const [sub3, setSub3] = useState("")
+    
+    const [sub4Storage, setSub4Storage] = useSessionStorageString("subTarefa4")
+    const [sub4, setSub4] = useState("")
+
+    const [plotarSubTarefas, setPlotarSubTarefas] = useSessionStorageBoolean("isAtualizarSubs");
+
     function plotarTarefa() {
         if (id !== undefined) {
             console.log(importancia)
@@ -50,6 +64,21 @@ export default function TarefaLista(props){
             setImportanciaStorage(importancia);
             setSubTarefasStorage(subTarefas);
             setFkUsuarioStorage(fkUsuario);
+
+            if(props.subTarefas[0] !== undefined){
+                setSub1Storage(props.subTarefas[0].titulo);       
+            }
+            if(props.subTarefas[1] !== undefined){
+                setSub2Storage(props.subTarefas[1].titulo);        
+            }
+            if(props.subTarefas[2] !== undefined){
+                setSub3Storage(props.subTarefas[2].titulo);        
+            }
+            if(props.subTarefas[3] !== undefined){
+                setSub4Storage(props.subTarefas[3].titulo);        
+            }
+
+            setPlotarSubTarefas(true);
         }
 
     }

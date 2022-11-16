@@ -4,6 +4,7 @@ import style from "../../Home.module.css";
 import apiTarefa from "../../../../api/apiTarefa";
 import { useSessionStorageNumber } from "react-use-window-sessionstorage";
 import { useSessionStorageString } from "react-use-window-sessionstorage";
+import Spotify from "../../../Spotify/Spotify";
 
 export default function TelaMatriz({ setOpenModalVerTarefa }) {
     const [listaTarefas, setListaTarefas] = useState([]);
@@ -20,12 +21,20 @@ export default function TelaMatriz({ setOpenModalVerTarefa }) {
     const [fkUsuario, setFkUsuario] = useState("");
     const [idUsuarioStorage, setIdUsuarioStorage] = useSessionStorageString("idLogado", "");
     const defaultId = 0;
+    const [sub1Storage, setSub1Storage] = useSessionStorageString("subTarefa1")
+    const [sub2Storage, setSub2Storage] = useSessionStorageString("subTarefa2")
+    const [sub3Storage, setSub3Storage] = useSessionStorageString("subTarefa3")
+    const [sub4Storage, setSub4Storage] = useSessionStorageString("subTarefa4")
 
-    
 
     useEffect(() => {
         var idUsuario = sessionStorage.getItem("idLogado");
-        apiTarefa.get(`/usuarios/${idUsuario}/tarefas` ).then(res => {
+            setSub1Storage("");       
+            setSub2Storage("");        
+            setSub3Storage("");        
+            setSub4Storage("");        
+        
+        apiTarefa.get(`/usuarios/${idUsuario}/tarefas`).then(res => {
             console.log("dados", res.data);
             console.log("status code", res.status);
             setListaTarefas(res.data);
@@ -35,7 +44,7 @@ export default function TelaMatriz({ setOpenModalVerTarefa }) {
 
         }).catch(erro => {
             console.log(erro)
-            
+
         })
 
     }, [])
@@ -81,7 +90,7 @@ export default function TelaMatriz({ setOpenModalVerTarefa }) {
                     <h4 className={style.titulo_prioridade}>Agendar</h4>
                     <div className={style.containerTarefasMatriz}>
                         {
-                           listaTarefas.filter(tarefa => tarefa.importancia == true && tarefa.urgencia == false).map(tarefaAtual => (
+                            listaTarefas.filter(tarefa => tarefa.importancia == true && tarefa.urgencia == false).map(tarefaAtual => (
 
                                 <React.Fragment key={tarefaAtual.idTarefa}>
                                     <Tarefa
@@ -116,7 +125,7 @@ export default function TelaMatriz({ setOpenModalVerTarefa }) {
                     <h4 className={style.titulo_prioridade}>Delegar</h4>
                     <div className={style.containerTarefasMatriz}>
                         {
-                           listaTarefas.filter(tarefa => tarefa.importancia == false && tarefa.urgencia == true).map(tarefaAtual => (
+                            listaTarefas.filter(tarefa => tarefa.importancia == false && tarefa.urgencia == true).map(tarefaAtual => (
 
                                 <React.Fragment key={tarefaAtual.idTarefa}>
                                     <Tarefa
@@ -145,8 +154,8 @@ export default function TelaMatriz({ setOpenModalVerTarefa }) {
                 <div className={style.nao_priorizar}>
                     <h4 className={style.titulo_prioridade}>Não Priorizar</h4>
                     <div className={style.containerTarefasMatriz}>
-                        {   
-                            
+                        {
+
                             listaTarefas.filter(tarefa => tarefa.importancia == false && tarefa.urgencia == false).map(tarefaAtual => (
 
                                 <React.Fragment key={tarefaAtual.idTarefa}>
@@ -175,7 +184,7 @@ export default function TelaMatriz({ setOpenModalVerTarefa }) {
                 </div>
             </div>
 
-
+        <Spotify/>
 
         </div>
     );

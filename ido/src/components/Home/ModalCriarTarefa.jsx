@@ -26,31 +26,57 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
     //const [arrayTarefas, setArrayTarefas] = Array([]);
     const [prioridade, setPrioridade] = useState("");
     let listaSubtarefas = [];
-    const [idUsuarioStorage, setIdUsuarioStorage] = useSessionStorageString("idLogado",  "");
-
-
+    const [idUsuarioStorage, setIdUsuarioStorage] = useSessionStorageString("idLogado", "");
+    const [subtarefas, setSubtarefas] = useState([]);
+    
 
 
     function criar() {
-        if(selectImportancia === '-1'){
-        alert("Necessário informar a importância da atividade");
+        if (selectImportancia === '-1') {
+            alert("Necessário informar a importância da atividade");
 
-        } else if(selectImportancia === '1'){
+        } else if (selectImportancia === '1') {
             setSelectImportancia(true);
-        } else if('0'){
+        } else if ('0') {
             setSelectImportancia(false);
         }
 
-        if(selectUrgencia === '-1'){
+        if (selectUrgencia === '-1') {
             alert("Necessário informar a urgência da atividade");
-            } else if(selectImportancia === '1'){
-                setSelectUrgencia(true);
-            } else if('0'){
-                setSelectUrgencia(false);
-            }        
-        
+        } else if (selectImportancia === '1') {
+            setSelectUrgencia(true);
+        } else if ('0') {
+            setSelectUrgencia(false);
+        }
 
-        listaSubtarefas = {inputSubtarefa1,inputSubtarefa2,inputSubtarefa3,inputSubtarefa4}     
+        if (inputSubtarefa1 !== "") {
+            subtarefas.push({            
+                    "titulo": inputSubtarefa1,
+                    "status": false                
+            })
+        }
+        if (inputSubtarefa2 !== "") {
+            subtarefas.push({            
+                "titulo": inputSubtarefa2,
+                "status": false                
+        })
+        }
+
+        if(inputSubtarefa3 !== ""){
+            subtarefas.push({            
+                "titulo": inputSubtarefa3,
+                "status": false                
+        })
+        }
+
+        if(inputSubtarefa4 !== ""){
+            subtarefas.push({            
+                "titulo": inputSubtarefa4,
+                "status": false                
+        })
+        }
+
+
         const tarefaAtualizada = {
             titulo: inputTitulo,
             descricao: inputDescricao,
@@ -58,37 +84,38 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
             dataFinal: inputDataFinal,
             urgencia: selectUrgencia,
             importancia: selectImportancia,
-            subTarefas: [
-                {inputSubtarefa1,inputSubtarefa2,inputSubtarefa3,inputSubtarefa4}
-            ]
+            subTarefas: subtarefas,
+            status: false
         }
-        api.post(`/usuarios/${idUsuarioStorage}/tarefas`, tarefaAtualizada).then(res => {
-            alert("tarefa cadastrada");
-            setInputDataFinal("");
-            setInputDataInicio("");
-            setInputTitulo("");
-            setEtiqueta1("");
-            setEtiqueta2("");
-            setInputDescricao("");
-            setSelectImportancia("");
-            setSelectUrgencia("");
-            setInputSubtarefa1("");
-            setInputSubtarefa2("");
-            setInputSubtarefa3("");
-            setInputSubtarefa4("");
-            setPrioridade("");
-            setOpenModal(false);
-            setInputSubtarefa1("");
-            setInputSubtarefa2("");
-            setInputSubtarefa3("");
-            setInputSubtarefa4("");      
-            window.location.reload(false);      
-        }).catch(erro => {
-            console.log("erro: " + erro + " certifique-se de estar logado. ");
-            alert(erro);
-        })
+        console.log("Data inicial: " + inputDataInicio + " / Data final: " + inputDataFinal);
 
-        
+            api.post(`/usuarios/${idUsuarioStorage}/tarefas`, tarefaAtualizada).then(res => {
+                alert("tarefa cadastrada");
+                setInputDataFinal("");
+                setInputDataInicio("");
+                setInputTitulo("");
+                setEtiqueta1("");
+                setEtiqueta2("");
+                setInputDescricao("");
+                setSelectImportancia("");
+                setSelectUrgencia("");
+                setInputSubtarefa1("");
+                setInputSubtarefa2("");
+                setInputSubtarefa3("");
+                setInputSubtarefa4("");
+                setPrioridade("");
+                setOpenModal(false);
+                setInputSubtarefa1("");
+                setInputSubtarefa2("");
+                setInputSubtarefa3("");
+                setInputSubtarefa4("");
+                window.location.reload(false);
+            }).catch(erro => {
+                console.log("erro: " + erro + " certifique-se de estar logado. ");
+                alert(erro);
+            })
+
+
     }
 
     function buscarAlturaModal() {
@@ -204,19 +231,21 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
 
     }
 
-    function handlePrioridade(){
-            if(selectUrgencia == 0 || selectImportancia == 0){
-                return "";                
-            } else {                
-                if (selectUrgencia == 'true' && selectImportancia == 'true') {
-                    return "Fazer Agora";
-                } else if (selectUrgencia == 'false' && selectImportancia == 'true') {
-                    return "Agendar";
-                } else if (selectUrgencia) {
-                    return "Delegar";
-                } 
+    function handlePrioridade() {
+        if (selectUrgencia == 0 || selectImportancia == 0) {
+            return "";
+        } else {
+            if (selectUrgencia == 'true' && selectImportancia == 'true') {
+                return "Fazer Agora";
+            } else if (selectUrgencia == 'false' && selectImportancia == 'true') {
+                return "Agendar";
+            } else if (selectUrgencia == 'false' && selectImportancia == 'false') {
+                return "Não Priorizar"
+            } else if (selectUrgencia) {
+                return "Delegar";
             }
-            
+        }
+
     }
 
     if (!openModal) {
@@ -239,11 +268,11 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
                 <div className="importancia">
                     <h3 className="titulo-importancia">Importante </h3>
 
-                    
+
 
                     <select value={selectImportancia} className="select-importancia" name="select-Importancia"
-                        onChange={ 
-                        ((e) => setSelectImportancia(e.target.value))
+                        onChange={
+                            ((e) => setSelectImportancia(e.target.value))
                         } onSelect={handlePrioridade}
                     >
                         <option value={0}></option>
@@ -287,7 +316,7 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
             </div>
             <div className="container-descricao">
                 <h3 className="titulo-importancia">Descrição</h3>
-                <textarea  maxLength="200" spellCheck="false" value={inputDescricao} onChange={(e) => setInputDescricao(e.target.value)} className="input-descricao" type="text"></textarea>
+                <textarea maxLength="200" spellCheck="false" value={inputDescricao} onChange={(e) => setInputDescricao(e.target.value)} className="input-descricao" type="text"></textarea>
             </div>
 
             <div className="complemento-tarefa-modal">
@@ -302,16 +331,20 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
                                     alert("Quantidade de subtarefas excedida, se necessário cadastre uma nova tarefa.")
                                 } else {
                                     {
+                                        if (inputSubtarefa1 !== "") {
+                                            if (subTarefa2 === false) {
+                                                setSubtarefa2(true);
+                                            } else if (subTarefa3 === false) {
+                                                setSubtarefa3(true);
+                                            } else if (subTarefa4 === false) {
+                                                setSubtarefa4(true);
+                                            }
 
-                                        if (subTarefa2 === false) {
-                                            setSubtarefa2(true);
-                                        } else if (subTarefa3 === false) {
-                                            setSubtarefa3(true);
-                                        } else if (subTarefa4 === false) {
-                                            setSubtarefa4(true);
+                                            setQtdsubtarefa(qtdSubtarefa + 1)
+                                        } else {
+                                            alert("É necessário incluir uma subtarefa para adicionar outras.")
                                         }
 
-                                        setQtdsubtarefa(qtdSubtarefa + 1)
                                     }
                                 }
                             }}

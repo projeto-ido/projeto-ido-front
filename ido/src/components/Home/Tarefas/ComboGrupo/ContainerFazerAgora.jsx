@@ -2,12 +2,22 @@ import React, { useState, useEffect } from "react";
 import apiTarefa from "../../../../api/apiTarefa";
 import style from "../../Home.module.css";
 import TarefaGrupo from "./TarefaGrupo";
+import { useSessionStorageString } from "react-use-window-sessionstorage";
 
 export default function ContainerFazerAgora({ setOpenModalVerTarefa }) {
     const [listaTarefas, setListaTarefas] = useState([]);
+    const [sub1Storage, setSub1Storage] = useSessionStorageString("subTarefa1")
+    const [sub2Storage, setSub2Storage] = useSessionStorageString("subTarefa2")
+    const [sub3Storage, setSub3Storage] = useSessionStorageString("subTarefa3")
+    const [sub4Storage, setSub4Storage] = useSessionStorageString("subTarefa4")
 
     useEffect(() => {
         var idUsuario = sessionStorage.getItem("idLogado");
+        setSub1Storage("");       
+        setSub2Storage("");        
+        setSub3Storage("");        
+        setSub4Storage("");  
+
         apiTarefa.get(`/usuarios/${idUsuario}/tarefas`).then(res => {
             console.log("dados", res.data);
             console.log("status code", res.status);
