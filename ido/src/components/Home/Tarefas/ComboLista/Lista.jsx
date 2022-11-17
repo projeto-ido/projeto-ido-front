@@ -3,7 +3,7 @@ import TarefaLista from "./TarefaLista";
 import style from "../../Home.module.css";
 import apiTarefa from "../../../../api/apiTarefa";
 import { useSessionStorageNumber, useSessionStorageString } from "react-use-window-sessionstorage";
-import Spotify from "../../../Spotify/Spotify";
+// import Spotify from "../../../Spotify/Spotify";
 
 export default function Lista({ setOpenModalVerTarefa }) {
     const [listaTarefas, setListaTarefas] = useState([]);
@@ -86,7 +86,7 @@ export default function Lista({ setOpenModalVerTarefa }) {
 
 
 
-        <Spotify/>
+        {/* <Spotify/> */}
         </div>
     );
 }

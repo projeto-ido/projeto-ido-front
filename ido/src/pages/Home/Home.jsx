@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import MenuLateral from "../../components/Home/MenuLateral";
-import style from '../../components/Home/Home.module.css';
 import HomeComponent from "../../components/Home/HomeComponent";
 import GerenciadorEtiquetas from "../../components/Home/GerenciadorEtiquetas/GerenciadorEtiquetas";
-import Spotify from "../../components/Home/Tarefas/Spotify";
 import Acessibilidade from "../../components/Home/Acessibilidade/Acessibilidade";
 import style from '../../components/Home/Home.module.css';
-import Spotify from '../../components/Spotify/Spotify';
 
 function Home(params) {
     if(sessionStorage.getItem("name") === "Normal") {
@@ -83,8 +80,6 @@ function Home(params) {
                         openGerenciadorEtiquetas={openGerenciadorEtiquetas}
                     />
                 </div>
-                {/* <Spotify /> */}
-
             </main>
         </>
     );
