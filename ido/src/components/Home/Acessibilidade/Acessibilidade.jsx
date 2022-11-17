@@ -5,21 +5,32 @@ import imgProtanopia from '../../../assets/images/protanopia.png';
 import imgDeuteranopia from '../../../assets/images/deuteranopia.png';
 import imgTritanopia from '../../../assets/images/tritanopia.png';
 
-function Acessibilidade() {
+function Acessibilidade({setOpenHome, setOpenAcessibilidade, funcaoNotificar}) {
+
+  function notificarEAlterarParaHome(){
+    setOpenAcessibilidade(false)
+    setOpenHome(true)
+    funcaoNotificar()
+  }
+
   function normal() {
     sessionStorage.setItem("name", "Normal");
+    notificarEAlterarParaHome()
   }
 
   function protanopia() {
     sessionStorage.setItem("name", "Protanopia");
+    notificarEAlterarParaHome()
   }
 
   function deuteranopia() {
     sessionStorage.setItem("name", "Deuteranopia");
+    notificarEAlterarParaHome()
   }
 
   function tritanopia() {
     sessionStorage.setItem("name", "Tritanopia");
+    notificarEAlterarParaHome()
   }
 
   return (

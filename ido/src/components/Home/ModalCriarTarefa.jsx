@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import iconLixeira from '../../assets/images/lixeira.png';
 import api from "../../api/api.jsx";
-import style from "./style-plat.css";
 import { useSessionStorageString } from "react-use-window-sessionstorage";
 
 export default function ModalCriarTarefa({ openModal, setOpenModal }) {

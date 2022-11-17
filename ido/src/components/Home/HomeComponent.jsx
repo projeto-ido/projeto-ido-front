@@ -7,10 +7,13 @@ import Perfil from "./Perfil";
 import Matriz from "./Tarefas/ComboMatriz/Matriz"
 import Grupo from "./Tarefas/Grupo"
 import Lista from "./Tarefas/ComboLista/Lista"
+<<<<<<< HEAD
 import Spotify from "../../components/Spotify/Spotify";
 
 
 function HomeComponent({ openModal, setOpenModal, openModalVerTarefa, setOpenModalVerTarefa, tipoTarefa, setTipoTarefa, openGerenciadorEtiquetas }) {
+=======
+>>>>>>> 538d8062439980e6b948daa81964da52ea83fbee
 
     function handleTarefa() {
         switch (tipoTarefa) {

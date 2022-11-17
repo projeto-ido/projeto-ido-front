@@ -9,7 +9,7 @@ import iconHomeDestaque from '../../assets/images/icon-home-destaque.png';
 import iconEtiquetaDestaque from '../../assets/images/icon-etiqueta-destaque.png'
 import iconAcessibilidade from '../../assets/images/icon-acessibilidade.png'
 import iconAcessibilidadeDestaque from '../../assets/images/icon-acessibilidade-destaque.png'
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import style from './Home.module.css';
 
@@ -22,6 +22,13 @@ function MenuLateral({
     openAcessibilidade,
     setOpenAcessibilidade
 }) {
+    const navigate = useNavigate()
+
+    function sair(){
+        sessionStorage.clear()
+        navigate("/")
+    }
+
     const iconeGerenciadorEtiqueta = openGerenciadorEtiquetas ? iconEtiquetaDestaque : iconEtiqueta
     const descricaoEtiqueta = openGerenciadorEtiquetas ? style.paragrafo_destaque : style.paragrafo
     const menuLateralEtiqueta = openGerenciadorEtiquetas ? style.sessao_lateral_destaque : style.sessao_lateral
@@ -100,14 +107,12 @@ function MenuLateral({
                         </div>
                     </div>
                 </div>
-                <Link to="/">
-                    <div className={style.sessao_sair}>
-                        <div>
-                            <img className={style.icon_sair} src={iconSair} alt="icone Home" />
-                            <p className={style.paragrafo_sair}>Sair</p>
-                        </div>
+                <div className={style.sessao_sair} onClick={sair}>
+                    <div>
+                        <img className={style.icon_sair} src={iconSair} alt="icone Home" />
+                        <p className={style.paragrafo_sair}>Sair</p>
                     </div>
-                </Link>
+                </div>
             </div>
         </>
     )
