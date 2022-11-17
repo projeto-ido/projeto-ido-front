@@ -3,10 +3,9 @@ import MenuLateral from "../../components/Home/MenuLateral";
 import style from '../../components/Home/Home.module.css';
 import HomeComponent from "../../components/Home/HomeComponent";
 import GerenciadorEtiquetas from "../../components/Home/GerenciadorEtiquetas/GerenciadorEtiquetas";
-import Spotify from "../../components/Home/Tarefas/Spotify";
 import Acessibilidade from "../../components/Home/Acessibilidade/Acessibilidade";
-import style from '../../components/Home/Home.module.css';
-import Spotify from '../../components/Spotify/Spotify';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Home(params) {
     if(sessionStorage.getItem("name") === "Normal") {
@@ -46,6 +45,19 @@ function Home(params) {
         
     }
 
+    function notificarSucesso(){
+        toast.success("Cores alteradas!", {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+    }
+
     const [openModal, setOpenModal] = useState(false);
     const [tipoTarefa, setTipoTarefa] = useState("matriz");
     const [openModalVerTarefa, setOpenModalVerTarefa] = useState(false);
@@ -53,10 +65,11 @@ function Home(params) {
     const [openHome, setOpenHome] = useState(true);
     const [openAcessibilidade, setOpenAcessibilidade] = useState(false);
 
+
     return (
         <>  
             <main className={style.bodyHome}>
-
+                <ToastContainer />
                 <MenuLateral 
                     openHome={openHome}
                     setOpenHome={setOpenHome}
@@ -69,7 +82,10 @@ function Home(params) {
                     openGerenciadorEtiquetas ? <GerenciadorEtiquetas /> : null
                 }
                 {
-                    openAcessibilidade ? <Acessibilidade /> : null
+                    openAcessibilidade ? <Acessibilidade 
+                        setOpenHome={setOpenHome} 
+                        setOpenAcessibilidade={setOpenAcessibilidade} 
+                        funcaoNotificar={notificarSucesso}/> : null
                 }
                 {(openModal || openModalVerTarefa) && <div className={style.fundo_escuro} onClick={() => setOpenModal(false)} ></div>}
                 <div className={style.funcional}>
@@ -83,7 +99,6 @@ function Home(params) {
                         openGerenciadorEtiquetas={openGerenciadorEtiquetas}
                     />
                 </div>
-                {/* <Spotify /> */}
 
             </main>
         </>

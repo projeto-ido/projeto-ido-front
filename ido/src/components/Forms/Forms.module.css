@@ -301,6 +301,7 @@ input:focus{
     width: 15.52vw;
     background-color: var(--cor--amarela);
     border-radius: 10rem;
+    border: none;
     cursor: pointer;
     font-size: 1.3rem;
     color: #FFF;

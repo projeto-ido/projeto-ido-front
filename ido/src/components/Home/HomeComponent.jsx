@@ -4,9 +4,9 @@ import FilterPesquisar from "./FilterPesquisar";
 import ModalCriarTarefa from "./ModalCriarTarefa";
 import ModalVerTarefa from "./ModalVerTarefa";
 import Perfil from "./Perfil";
-import Matriz from "./Tarefas/Matriz"
+import Matriz from "./Tarefas/ComboMatriz/Matriz"
 import Grupo from "./Tarefas/Grupo"
-import Lista from "./Tarefas/Lista"
+import Lista from "./Tarefas/ComboLista/Lista"
 
 function HomeComponent({openModal, setOpenModal, openModalVerTarefa, setOpenModalVerTarefa, tipoTarefa, setTipoTarefa, openGerenciadorEtiquetas}){
     
