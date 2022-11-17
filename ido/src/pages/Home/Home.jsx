@@ -5,6 +5,8 @@ import HomeComponent from "../../components/Home/HomeComponent";
 import GerenciadorEtiquetas from "../../components/Home/GerenciadorEtiquetas/GerenciadorEtiquetas";
 import Spotify from "../../components/Home/Tarefas/Spotify";
 import Acessibilidade from "../../components/Home/Acessibilidade/Acessibilidade";
+import style from '../../components/Home/Home.module.css';
+import Spotify from '../../components/Spotify/Spotify';
 
 function Home(params) {
     if(sessionStorage.getItem("name") === "Normal") {

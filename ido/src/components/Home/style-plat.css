@@ -12,21 +12,13 @@ body {
     min-height: 400px;
 }
 
-/* VARIAVEIS DAS CORES */
-:root {
-    --cor--azul: #5D84C2;
-    --cor--verde: #51BDAB;
-    --cor--roxo: #7463C7;
-    --cor--amarela: #FFCA6D;
-    --cor--preta: #1F1E1E;
-}
 
 .menu-lateral {
     vertical-align: baseline;
     padding-top: 0;
     width: 10vw;
     height: 100.1vh;
-    background-color: var(--cor--preta);
+    background-color: #1F1E1E;
     line-height: normal;
     position: fixed;
 
@@ -45,7 +37,7 @@ body {
 
 .menu-tarefa-check {
     background-color: #d9d9d9;
-    color: var(--cor--azul);
+    color: #5D84C2;
     font-weight: bolder;
 
 }
@@ -80,8 +72,9 @@ body {
 
 }
 
-.paragrafo-home{
-    margin: 0px; color: var(--cor--azul);
+.paragrafo-home {
+    margin: 0px;
+    color: #5D84C2;
 }
 
 .paragrafo-grafico {
@@ -144,7 +137,7 @@ body {
 }
 
 .icon-config {
-    padding-left: 1.8vh;
+    padding-left: 1.2vh;
     width: 2vw;
     height: 3.8vh;
     padding-top: 3.5vh;
@@ -276,7 +269,7 @@ header {
     margin-top: 4.2vh;
     margin-left: 3.3vw;
     display: flex;
-    background-color: var(--cor--amarela);
+    background-color: #FFCA6D;
     width: 18vw;
     height: 6.5vh;
     border-radius: 10px;
@@ -388,7 +381,7 @@ header {
     width: 38.87vw;
     background-color: #E7E7E7;
     height: 40vh;
-    border-top: 1vh solid var(--cor--roxo);
+    border-top: 1vh solid #7463C7;
     border-radius: 0px 0px 25px 25px;
     min-height: 150px;
 
@@ -398,7 +391,7 @@ header {
     width: 38.87vw;
     background-color: #E7E7E7;
     height: 40vh;
-    border-top: 1vh solid var(--cor--roxo);
+    border-top: 1vh solid #7463C7;
     border-radius: 0px 0px 25px 25px;
     min-height: 150px;
 
@@ -414,7 +407,7 @@ header {
     width: 38.87vw;
     background-color: #E7E7E7;
     height: 40vh;
-    border-top: 1vh solid var(--cor--roxo);
+    border-top: 1vh solid #7463C7;
     border-radius: 0px 0px 25px 25px;
     min-height: 150px;
 
@@ -424,7 +417,7 @@ header {
     width: 38.87vw;
     background-color: #E7E7E7;
     height: 40vh;
-    border-top: 1vh solid var(--cor--roxo);
+    border-top: 1vh solid #7463C7;
     border-radius: 0px 0px 25px 25px;
     min-height: 150px;
 
@@ -433,7 +426,7 @@ header {
 
 .titulo-prioridade {
     font-weight: 700;
-    color: var(--cor--roxo);
+    color: #7463C7;
     padding-left: 2vw;
     margin: 0 0 0;
 
@@ -459,7 +452,7 @@ header {
     width: 7vw;
     height: min-content;
     line-height: normal;
-    background-color: var(--cor--roxo);
+    background-color: #7463C7;
     border-radius: 5px;
     text-align: center;
     margin-top: 2vh;
@@ -529,7 +522,7 @@ header {
     background-color: #E7E7E7;
     width: 100%;
     border-right: .3vh solid #E7E7E7;
-    border-top: 1vh solid var(--cor--roxo);
+    border-top: 1vh solid #7463C7;
     border-left: .3vh solid #E7E7E7;
     /*centralizando*/
     align-items: center;
@@ -545,7 +538,7 @@ header {
     background-color: #E7E7E7;
     width: 100%;
     border-right: .3vh solid #E7E7E7;
-    border-top: 1vh solid var(--cor--roxo);
+    border-top: 1vh solid #7463C7;
     border-left: .3vh solid #E7E7E7;
     /*centralizando*/
     align-items: center;
@@ -608,7 +601,7 @@ header {
 
 .titulo-prioridade-grupo {
     font-weight: 700;
-    color: var(--cor--roxo);
+    color: #7463C7;
 
 }
 
@@ -655,7 +648,7 @@ header {
     width: 100px;
     height: min-content;
     line-height: normal;
-    background-color: var(--cor--roxo);
+    background-color: #7463C7;
     border-radius: 5px;
     text-align: center;
     margin-left: 8vw;
@@ -678,7 +671,7 @@ header {
     height: 72vh;
     position: fixed;
     background: #FFFFFF;
-    border-top: 8px solid var(--cor--roxo);
+    border-top: 8px solid #7463C7;
     border-radius: 0px 0px 25px 25px;
     min-height: 200px;
 }
@@ -706,7 +699,7 @@ header {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    color: var(--cor--roxo);
+    color: #7463C7;
     font-weight: 700;
     font-size: 2.5vh;
 }
@@ -735,7 +728,7 @@ header {
     padding-left: 3.3vw;
     padding-bottom: 0;
     margin-bottom: 0;
-    color: var(--cor--preta);
+    color: #1F1E1E;
     height: 3.5vh;
     font-size: 2vh;
 }
@@ -810,7 +803,7 @@ header {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
-    color: var(--cor--roxo);
+    color: #7463C7;
     font-weight: 700;
     font-size: 1vw;
 }
@@ -820,7 +813,7 @@ header {
     padding-left: 3.4vw;
     padding-bottom: 0;
     margin-bottom: 0;
-    color: var(--cor--preta);
+    color: #1F1E1E;
     height: 3.5vh;
     font-size: 2vh;
 }
@@ -831,7 +824,7 @@ header {
     padding-bottom: 0;
     margin-top: .8vh;
     margin-bottom: 0;
-    color: var(--cor--preta);
+    color: #1F1E1E;
     height: 3.5vh;
     font-size: 2vh;
 }
@@ -932,6 +925,7 @@ header {
     outline: 0;
     color: #7E7D7D;
     font-size: 1vw;
+    resize: none
 
 }
 
@@ -948,7 +942,7 @@ header {
 
 .botao-salvar-tarefa {
     width: 30%;
-    background-color: var(--cor--amarela);
+    background-color: #FFCA6D;
     position: relative;
     top: 50%;
     transform: translateY(-50%);
@@ -962,6 +956,14 @@ header {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
+    color: white;
+    font-size: 1.4vw;
+    text-shadow:
+        -1px -1px 0px rgba(32, 31, 31, 0.087),
+        -1px 1px 0px rgba(32, 31, 31, 0.087),
+        1px -1px 0px rgba(32, 31, 31, 0.087),
+        1px 0px 0px rgba(32, 31, 31, 0.087);
+
 }
 
 .input-subtarefa {
@@ -1065,7 +1067,7 @@ header {
     padding-left: 2.6vw;
     padding-bottom: 0;
     margin-bottom: 0;
-    color: var(--cor--preta);
+    color: #1F1E1E;
     height: 3.5vh;
     font-size: 2vh;
 
@@ -1077,7 +1079,7 @@ header {
     padding-left: 0vw;
     padding-bottom: 0;
     margin-bottom: 0;
-    color: var(--cor--preta);
+    color: #1F1E1E;
     height: 3.5vh;
     font-size: 2vh;
 }
@@ -1106,39 +1108,41 @@ header {
 }
 
 .modal-1-subtarefas {
-    height: 70vh;
+    height: 76vh;
 
 }
 
 .modal-2-subtarefas {
-    height: 76vh;
+    height: 82vh;
 
 }
 
 .modal-3-subtarefas {
     top: 3vh;
-    height: 82vh;
-
-}
-.modal-4-subtarefas {
-    top: 3vh;
     height: 88vh;
 
 }
 
+.modal-4-subtarefas {
+    top: 3vh;
+    height: 94vh;
+
+}
+
 .footer-modal-1-subtarefas {
-    height: 7vh;
+    height: 9vh;
 }
 
 .footer-modal-2-subtarefas {
-    height: 12.5vh;
+    height: 14.5vh;
 }
 
 .footer-modal-3-subtarefas {
-    height: 18vh;
+    height: 20vh;
 }
+
 .footer-modal-4-subtarefas {
-    height: 24vh;
+    height: 26vh;
 }
 
 

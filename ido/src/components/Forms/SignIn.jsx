@@ -1,17 +1,16 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-
-import logo from '../../assets/images/logo-white.png';
-import style from './Forms.module.css';
-
-import api from "../../api/api.jsx";
+import { useSessionStorageString } from "react-use-window-sessionstorage";
+import logo from '../../assets/images/logo-white.png'
+import style from './Forms.module.css'
+import api from "../../api/api.jsx"
 
 
 
 export const SignIn = () => {
     const navigate = useNavigate();
-
-    const logar = (event) => {
+    const [idUsuarioStorage, setIdUsuarioStorage] = useSessionStorageString("idLogado",  "");
+    const [nomeUsuarioStorage, setNomeUsuarioStorage] = useSessionStorageString("nomeLogado",  "");    const logar = (event) => {
         event.preventDefault();
         
         const data = {
@@ -21,8 +20,13 @@ export const SignIn = () => {
 
         api.post("/usuarios/login", data)
             .then(resposta => {
-                if(resposta.status === 200){
-                    const data = resposta.data;
+                if(resposta.status === 200){                    
+                    setIdUsuarioStorage(resposta.data.idUsuario);
+                    setNomeUsuarioStorage(resposta.data.apelido);
+                    if(idUsuarioStorage !== "" && nomeUsuarioStorage !== ""){
+                        console.log("Usuario logado " + idUsuarioStorage);
+                        console.log("Nome logado " + nomeUsuarioStorage);
+                        const data = resposta.data;
 
                     sessionStorage.setItem("id", data.idUsuario);
                     sessionStorage.setItem("nome", data.nome);
@@ -35,12 +39,15 @@ export const SignIn = () => {
                     sessionStorage.setItem("nivel", data.nivel);
 
                     navigate("/home");
+                    }
+                    
                 }
             }).catch(erro => {
                 console.log(erro);
             })
 
     }
+
 
     return (
         <>
