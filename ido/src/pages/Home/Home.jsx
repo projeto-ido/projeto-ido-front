@@ -3,12 +3,10 @@ import MenuLateral from "../../components/Home/MenuLateral";
 import HomeComponent from "../../components/Home/HomeComponent";
 import GerenciadorEtiquetas from "../../components/Home/GerenciadorEtiquetas/GerenciadorEtiquetas";
 import Acessibilidade from "../../components/Home/Acessibilidade/Acessibilidade";
-<<<<<<< HEAD
-import style from '../../components/Home/Home.module.css';
-=======
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
->>>>>>> 538d8062439980e6b948daa81964da52ea83fbee
+import style from '../../components/Home/HomeComponent';
+
 
 function Home(params) {
     if(sessionStorage.getItem("name") === "Normal") {
@@ -102,10 +100,6 @@ function Home(params) {
                         openGerenciadorEtiquetas={openGerenciadorEtiquetas}
                     />
                 </div>
-<<<<<<< HEAD
-=======
-
->>>>>>> 538d8062439980e6b948daa81964da52ea83fbee
             </main>
         </>
     );
