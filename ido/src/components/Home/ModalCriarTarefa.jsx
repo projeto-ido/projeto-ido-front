@@ -136,13 +136,13 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
     function buscarAlturaFooter() {
         switch (qtdSubtarefa) {
             case 1:
-                return "footer-modal-1-subtarefas";
+                return style.footer_modal_1_subtarefas;
             case 2:
-                return "footer-modal-2-subtarefas";
+                return style.footer_modal_2_subtarefas;
             case 3:
-                return "footer-modal-3-subtarefas";
+                return style.footer_modal_3_subtarefas;
             case 4:
-                return "footer-modal-4-subtarefas";
+                return style.footer_modal_4_subtarefas;
             default:
                 break;
         }
