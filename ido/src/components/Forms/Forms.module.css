@@ -28,6 +28,19 @@ main .main__container{
     --cor--preta: #1F1E1E;
 }
 
+input[type="date"]{
+    background: url("../../assets/images/calendario-datepicker.png") no-repeat;
+    background-size: 2rem;
+    background-position: 102%;
+    border: none;
+    outline: none;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator{
+    opacity: 0;
+    cursor: pointer;
+}
+
 .main__container{
     height: 100%;
 }

@@ -145,7 +145,7 @@ export const SignUp = () => {
 
               <div className={style.input}>
                 <input
-                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                  pattern="[a-z0-9._]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                   name='email'
                   placeholder="Coloque seu email..."
                   type="email"
@@ -183,7 +183,7 @@ export const SignUp = () => {
                   name='nascimento'
                   placeholder="Coloque sua data de nas..."
                   type="date"
-                  max={dataMaxima}
+                  max="2022-11-16"
                   required />
               </div>
             </div>
@@ -200,6 +200,7 @@ export const SignUp = () => {
                 <input
                   name="senha"
                   placeholder="Coloque seu senha..."
+                  minLength="8"
                   type="password"
                   required />
               </div>
