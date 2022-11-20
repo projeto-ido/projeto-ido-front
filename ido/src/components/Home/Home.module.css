@@ -730,6 +730,44 @@ header {
     z-index: 1;
 }
 
+.modal_1_subtarefas {
+    height: 76vh;
+
+}
+
+.modal_2_subtarefas {
+    height: 82vh;
+
+}
+
+.modal_3_subtarefas {
+    top: 3vh;
+    height: 88vh;
+
+}
+
+.modal_4_subtarefas {
+    top: 3vh;
+    height: 94vh;
+
+}
+
+.footer_modal_1_subtarefas {
+    height: 9vh;
+}
+
+.footer_modal_2_subtarefas {
+    height: 14.5vh;
+}
+
+.footer_modal_3_subtarefas {
+    height: 20vh;
+}
+
+.footer_modal_4_subtarefas {
+    height: 26vh;
+}
+
 .opacidade_model{
     opacity: 0;
 }
@@ -801,6 +839,14 @@ header {
 .importancia{
     width: 33.3%;
     height: 9vh;
+}
+
+.select_perfil {
+    border: none;
+    width: 1.5vw;
+    box-shadow: 0 0 0 0;
+    outline: 0;
+    cursor: pointer;
 }
 
 .select_importancia{
@@ -975,7 +1021,6 @@ header {
 
 .footer_modal{
     width: 100%;
-    height: 7vh;
     align-items: center;
     display: flex;
     flex-direction: row;
@@ -1024,18 +1069,18 @@ header {
 
 .container_criacao_subtarefa2{
     width: 100%;
-    display: none;
+    display: flex;
     margin-top: 1vh;
 }
 
 .container_criacao_subtarefa3{
     width: 100%;
-    display: none;
+    display: flex;
     margin-top: 1vh;
 }
 .container_criacao_subtarefa4{
     width: 100%;
-    display: none;
+    display: flex;
     margin-top: 1vh;
 }
 

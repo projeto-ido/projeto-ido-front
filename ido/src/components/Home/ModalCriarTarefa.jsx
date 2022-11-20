@@ -23,12 +23,11 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
     const [inputSubtarefa4, setInputSubtarefa4] = useState("");
     const [etiqueta1, setEtiqueta1] = useState("");
     const [etiqueta2, setEtiqueta2] = useState("");
-    //const [arrayTarefas, setArrayTarefas] = Array([]);
     const [prioridade, setPrioridade] = useState("");
     let listaSubtarefas = [];
     const [idUsuarioStorage, setIdUsuarioStorage] = useSessionStorageString("idLogado", "");
     const [subtarefas, setSubtarefas] = useState([]);
-    
+
 
 
     function criar() {
@@ -50,30 +49,30 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
         }
 
         if (inputSubtarefa1 !== "") {
-            subtarefas.push({            
-                    "titulo": inputSubtarefa1,
-                    "status": false                
+            subtarefas.push({
+                "titulo": inputSubtarefa1,
+                "status": false
             })
         }
         if (inputSubtarefa2 !== "") {
-            subtarefas.push({            
+            subtarefas.push({
                 "titulo": inputSubtarefa2,
-                "status": false                
-        })
+                "status": false
+            })
         }
 
-        if(inputSubtarefa3 !== ""){
-            subtarefas.push({            
+        if (inputSubtarefa3 !== "") {
+            subtarefas.push({
                 "titulo": inputSubtarefa3,
-                "status": false                
-        })
+                "status": false
+            })
         }
 
-        if(inputSubtarefa4 !== ""){
-            subtarefas.push({            
+        if (inputSubtarefa4 !== "") {
+            subtarefas.push({
                 "titulo": inputSubtarefa4,
-                "status": false                
-        })
+                "status": false
+            })
         }
 
 
@@ -89,31 +88,31 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
         }
         console.log("Data inicial: " + inputDataInicio + " / Data final: " + inputDataFinal);
 
-            api.post(`/usuarios/${idUsuarioStorage}/tarefas`, tarefaAtualizada).then(res => {
-                alert("tarefa cadastrada");
-                setInputDataFinal("");
-                setInputDataInicio("");
-                setInputTitulo("");
-                setEtiqueta1("");
-                setEtiqueta2("");
-                setInputDescricao("");
-                setSelectImportancia("");
-                setSelectUrgencia("");
-                setInputSubtarefa1("");
-                setInputSubtarefa2("");
-                setInputSubtarefa3("");
-                setInputSubtarefa4("");
-                setPrioridade("");
-                setOpenModal(false);
-                setInputSubtarefa1("");
-                setInputSubtarefa2("");
-                setInputSubtarefa3("");
-                setInputSubtarefa4("");
-                window.location.reload(false);
-            }).catch(erro => {
-                console.log("erro: " + erro + " certifique-se de estar logado. ");
-                alert(erro);
-            })
+        api.post(`/usuarios/${idUsuarioStorage}/tarefas`, tarefaAtualizada).then(res => {
+            alert("tarefa cadastrada");
+            setInputDataFinal("");
+            setInputDataInicio("");
+            setInputTitulo("");
+            setEtiqueta1("");
+            setEtiqueta2("");
+            setInputDescricao("");
+            setSelectImportancia("");
+            setSelectUrgencia("");
+            setInputSubtarefa1("");
+            setInputSubtarefa2("");
+            setInputSubtarefa3("");
+            setInputSubtarefa4("");
+            setPrioridade("");
+            setOpenModal(false);
+            setInputSubtarefa1("");
+            setInputSubtarefa2("");
+            setInputSubtarefa3("");
+            setInputSubtarefa4("");
+            window.location.reload(false);
+        }).catch(erro => {
+            console.log("erro: " + erro + " certifique-se de estar logado. ");
+            alert(erro);
+        })
 
 
     }
@@ -149,6 +148,7 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
     };
 
     function subtarefa2() {
+
         if (subTarefa2) {
             return (
                 <div className={style.container_criacao_subtarefa2}>
@@ -253,7 +253,8 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
     }
 
     return (
-        <div className={`${style.modal_criar_tarefa} ${buscarAlturaModal()}`}>
+        <div className={`${style.modal_criar_tarefa} ${buscarAlturaModal()}`}
+        >
             <div className={style.topo_modal_tarefa}>
                 <div onClick={() => setOpenModal(false)} className={style.botao_sair_tarefa}>
                     <div>X</div>
@@ -325,32 +326,35 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
                     <div className={style.container_criacao_subtarefa}>
                         <input maxLength="20" value={inputSubtarefa1} onChange={(e) => setInputSubtarefa1(e.target.value)} id="primeiraSubtarefa" className={style.input_subtarefa} type="text" />
                         <div className={style.botao_criar_subtarefa}>
-                            <div onClick={() => {
+                            <div className={style.texto_acao_subtarefa}>
+                                <div onClick={() => {
 
-                                if (qtdSubtarefa === 4) {
-                                    alert("Quantidade de subtarefas excedida, se necessário cadastre uma nova tarefa.")
-                                } else {
-                                    {
-                                        if (inputSubtarefa1 !== "") {
-                                            if (subTarefa2 === false) {
-                                                setSubtarefa2(true);
-                                            } else if (subTarefa3 === false) {
-                                                setSubtarefa3(true);
-                                            } else if (subTarefa4 === false) {
-                                                setSubtarefa4(true);
+                                    if (qtdSubtarefa === 4) {
+                                        alert("Quantidade de subtarefas excedida, se necessário cadastre uma nova tarefa.")
+                                    } else {
+                                        {
+                                            if (inputSubtarefa1 !== "") {
+                                                if (subTarefa2 === false) {
+                                                    setSubtarefa2(true);
+                                                } else if (subTarefa3 === false) {
+                                                    setSubtarefa3(true);
+                                                } else if (subTarefa4 === false) {
+                                                    setSubtarefa4(true);
+                                                }
+
+                                                setQtdsubtarefa(qtdSubtarefa + 1)
+                                            } else {
+                                                alert("É necessário incluir uma subtarefa para adicionar outras.")
                                             }
 
-                                            setQtdsubtarefa(qtdSubtarefa + 1)
-                                        } else {
-                                            alert("É necessário incluir uma subtarefa para adicionar outras.")
                                         }
-
                                     }
-                                }
-                            }}
-                                className={style.titulo_acao_subtarefa}>
-                                +
+                                }}
+                                >
+                                    +
+                                </div>
                             </div>
+
                         </div>
                     </div>
                     {handleSubtarefa()}
@@ -393,7 +397,7 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
                 </div>
             </div>
 
-            <div id="ToterModal" className={`${style.footer_modal} ${buscarAlturaFooter()}`}>
+            <div className={`${style.footer_modal} ${buscarAlturaFooter()}`}>
                 <div onClick={criar}
                     className={style.botao_salvar_tarefa}>
                     <div className={style.texto_salvar_tarefa}>

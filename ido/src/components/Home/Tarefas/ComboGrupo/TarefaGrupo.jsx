@@ -48,6 +48,11 @@ export default function TarefaGrupo(props) {
     const [sub4Storage, setSub4Storage] = useSessionStorageString("subTarefa4")
     const [sub4, setSub4] = useState("")
 
+    const [idSub1, setIdSub1] = useSessionStorageNumber("idSub1");
+    const [idSub2, setIdSub2] = useSessionStorageNumber("idSub2");
+    const [idSub3, setIdSub3] = useSessionStorageNumber("idSub3");
+    const [idSub4, setIdSub4] = useSessionStorageNumber("idSub4");
+
     const [plotarSubTarefas, setPlotarSubTarefas] = useSessionStorageBoolean("isAtualizarSubs");
 
 
@@ -67,16 +72,20 @@ export default function TarefaGrupo(props) {
             setFkUsuarioStorage(fkUsuario);
             
             if(props.subTarefas[0] !== undefined){
-                setSub1Storage(props.subTarefas[0].titulo);       
+                setSub1Storage(props.subTarefas[0].titulo); 
+                setIdSub1(props.subTarefas[0].idSubTarefa)     
             }
             if(props.subTarefas[1] !== undefined){
-                setSub2Storage(props.subTarefas[1].titulo);        
+                setSub2Storage(props.subTarefas[1].titulo);
+                setIdSub2(props.subTarefas[1].idSubTarefa)         
             }
             if(props.subTarefas[2] !== undefined){
-                setSub3Storage(props.subTarefas[2].titulo);        
+                setSub3Storage(props.subTarefas[2].titulo); 
+                setIdSub3(props.subTarefas[2].idSubTarefa)        
             }
             if(props.subTarefas[3] !== undefined){
-                setSub4Storage(props.subTarefas[3].titulo);        
+                setSub4Storage(props.subTarefas[3].titulo);
+                setIdSub4(props.subTarefas[3].idSubTarefa)         
             }
 
             setPlotarSubTarefas(true);
