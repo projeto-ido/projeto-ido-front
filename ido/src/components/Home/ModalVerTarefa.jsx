@@ -31,6 +31,10 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
     const [idSub3, setIdSub3] = useSessionStorageNumber("idSub3");
     const [idSub4, setIdSub4] = useSessionStorageNumber("idSub4");
     const [subtarefas, setSubtarefas] = useState([]);
+    const [sub1StorageRecebido, SetSub1StorageRecebido ] = useState("");
+    const [sub2StorageRecebido, SetSub2StorageRecebido ] = useState("");
+    const [sub3StorageRecebido, SetSub3StorageRecebido ] = useState("");
+    const [sub4StorageRecebido, SetSub4StorageRecebido ] = useState("");
 
     if (plotarSubTarefas) {
         plotarSubTarefasFunction();
@@ -39,16 +43,23 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
 
     function plotarSubTarefasFunction() {
 
+        if (sub1Storage !== "") {
+            SetSub1StorageRecebido(sub1Storage);
+        }
+
         if (sub2Storage !== "") {
             setSubtarefa2(true);
+            SetSub2StorageRecebido(sub2Storage);
         }
 
         if (sub3Storage !== "") {
             setSubtarefa3(true);
+            SetSub3StorageRecebido(sub3Storage);
         }
 
         if (sub4Storage !== "") {
             setSubtarefa4(true);
+            SetSub4StorageRecebido(sub4Storage);
         }
 
         if (sub4Storage !== "") {
@@ -65,8 +76,6 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
     function apagarSubtarefa(idSub) {
         if (idSub != "") {
             api.delete(`/usuarios/${idUsuarioStorage}/tarefas/${idTarefa}/sub-tarefas/${idSub}`).then(res => {
-                alert("tarefa atualizada");
-                window.location.reload(false);
             }).catch(erro => {
                 console.log("erro: " + erro + " certifique_se de estar logado. ");
                 alert(erro);
@@ -84,6 +93,24 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
     }
 
     function criar() {
+        if(sub1Storage !== sub1StorageRecebido){
+            apagarSubtarefa(idSub1);
+            criarSubtarefa(sub1Storage)
+        }
+        if(sub2Storage !== sub2StorageRecebido){
+            apagarSubtarefa(idSub2);
+            criarSubtarefa(sub2Storage)
+        }
+        if(sub3Storage !== sub3StorageRecebido){
+            apagarSubtarefa(idSub3);
+            criarSubtarefa(sub3Storage)
+        }
+        if(sub4Storage !== sub4StorageRecebido){
+            apagarSubtarefa(idSub4);
+            criarSubtarefa(sub4Storage)
+        }
+
+
         if (selectImportancia === '-1') {
             alert("Necessário informar a importância da atividade");
 
@@ -155,6 +182,21 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
         })
 
 
+    }
+
+    function criarSubtarefa(nomeSub){
+        const novaSub = {
+            
+                "titulo": `${nomeSub}`,
+                "status": false
+            
+        }
+
+        api.post(`/usuarios/${idUsuarioStorage}/tarefas/${idTarefa}/sub-tarefas`, novaSub).then(res => {
+        }).catch(erro => {
+            console.log("erro: " + erro + " certifique-se de estar logado. ");
+            alert(erro);
+        })
     }
 
     function buscarAlturaModal() {
@@ -350,11 +392,11 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
             <div className={style.datas_modal}>
                 <div className={style.data_inicio}>
                     <h3 className={style.titulo_importancia}>Data de Início</h3>
-                    <input type="datetime_local" value={inputDataInicio} onChange={(e) => setInputDataInicio(e.target.value)} className={style.input_data_inicio} />
+                    <input type="datetime-local" value={inputDataInicio} onChange={(e) => setInputDataInicio(e.target.value)} className={style.input_data_inicio} />
                 </div>
                 <div className={style.data_final}>
                     <h3 className={style.titulo_importancia}>Data Final</h3>
-                    <input type="datetime_local" value={inputDataFinal} onChange={(e) => setInputDataFinal(e.target.value)} className={style.input_data_final} />
+                    <input type="datetime-local" value={inputDataFinal} onChange={(e) => setInputDataFinal(e.target.value)} className={style.input_data_final} />
                 </div>
             </div>
             <div className={style.container_descricao}>
