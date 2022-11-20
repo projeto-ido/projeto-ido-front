@@ -54,7 +54,7 @@ export default function AcoesAtividades({ openModal, setOpenModal, tipoTarefa, s
                 </div>
             </div>
 
-            <div onClick={() => setOpenModal(true)}id="botaoAdicionarTarefa" className={style.botao_adicionar_tarefa}>
+            <div onClick={() => setOpenModal(true)} id="botaoAdicionarTarefa" className={style.botao_adicionar_tarefa}>
                 <div className={style.icon_soma}>
                     <img id="iconSoma" src={iconSoma} alt="" />
                 </div>

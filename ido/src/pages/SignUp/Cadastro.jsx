@@ -3,7 +3,7 @@ import { ComeBack } from '../../components/Forms/ComeBack';
 import { SignUp } from '../../components/Forms/SignUp';
 import { BackGroundForm } from '../../components/Forms/BackGroundForm';
 import style from '../../components/Forms/Forms.module.css';
-import acessibilidade from '../../scripts/acessibilidade';
+import acessibilidade from "../../scripts/acessibilidade";
 
 export const Cadastro = () => {
     acessibilidade();

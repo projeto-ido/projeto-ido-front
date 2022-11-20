@@ -2,7 +2,7 @@ import Sidebar from '../../components/perfil/Sidebar';
 import Header from '../../components/perfil/Header';
 import Conteudo from '../../components/perfil/Conteudo';
 import styles from "../../components/perfil/Perfil.module.css";
-import acessibilidade from '../../scripts/acessibilidade';
+import acessibilidade from "../../scripts/acessibilidade";
 
 function Perfil() {
     acessibilidade();

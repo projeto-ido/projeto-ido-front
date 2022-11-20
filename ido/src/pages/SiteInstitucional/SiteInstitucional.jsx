@@ -7,7 +7,7 @@ import Metodologias from "../../components/SiteInstitucional/Metodologias";
 import Beneficios from "../../components/SiteInstitucional/Beneficios";
 import Footer from "../../components/SiteInstitucional/Footer";
 import styles from "../../components/SiteInstitucional/SiteInstitucional.module.css";
-import acessibilidade from '../../scripts/acessibilidade';
+import acessibilidade from "../../scripts/acessibilidade";
 
 function SiteInstitucional(){
     acessibilidade();

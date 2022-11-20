@@ -2,8 +2,8 @@ import React from "react";
 import { SignIn } from "../../components/Forms/SignIn";
 import { ComeBack } from '../../components/Forms/ComeBack';
 import { BackGroundForm } from '../../components/Forms/BackGroundForm';
-import style from '../../components/Forms/Forms.module.css';
 import acessibilidade from "../../scripts/acessibilidade";
+import style from '../../components/Forms/Forms.module.css'
 
 export const Login = () => {
     acessibilidade();
