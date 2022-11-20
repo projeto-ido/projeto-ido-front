@@ -22,15 +22,20 @@ function GerenciadorEtiquetas() {
   const [clickDesabilitado, setClickDesabilitado] = useState(false);
   const textoBotaoCriar = "Criar";
   const textoBotaoSalvar = "Salvar";
-  const idUsuario = 1 //TODO: Depois alterar para consumir o sessionStorage
+  const idUsuario = sessionStorage.getItem("idLogado")
 
   useEffect(() => {
     apiGerenciadorEtiquetas
       .get(`/usuarios/${idUsuario}/etiquetas`)
       .then((res) => {
-      console.log(res.data)
-      setListaEtiquetas(res.data);
-      setEtiquetasAtualizadas(true)
+        if(res.status === 204){
+          setListaEtiquetas([])
+          setEtiquetasAtualizadas(true)
+        } else if(res.status === 200) {
+          console.log(res.data)
+          setListaEtiquetas(res.data);
+          setEtiquetasAtualizadas(true)
+        }
     }).catch((erro) => {
       console.log(erro)
     })
