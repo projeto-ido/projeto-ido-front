@@ -1,5 +1,4 @@
 function acessibilidade() {
-
     if(sessionStorage.getItem("name") === "Normal") {
         /* NORMAL */
         document.body.style.setProperty('--cor--azul', '#5D84C2');

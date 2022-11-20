@@ -65,45 +65,35 @@ function MenuLateral({
 
     return (
         <>
-            <div
-                className={style.menu_lateral}>
+            <div className={style.menu_lateral}>
                 <div className={style.sessao_lateral}>
                     <div className={style.sessao_logo}>
                         <img className={style.logo} src={logo} alt="logo IDO" />
                     </div>
-
                 </div>
-                <div className={menuLateralHome} onClick={menuHome}>
-                    <div>
-                        <img className={style.icon_home} src={iconeHome} alt="icone Home" />
-                        <p className={descricaoHome}>Home</p>
-                    </div>
-                </div>
-                <div className={menuLateralAnalise}>
-                    <div>
-                        <img className={style.icon_grafico} src={iconGrafico} alt="icone Home" />
-                        <p className={style.paragrafo_grafico}>Análise</p>
-                    </div>
-                </div>
-                <div className={menuLateralEtiqueta} onClick={menuEtiqueta}>
-                    <div>
-                        <div>
-                            <img className={style.icon_etiqueta} src={iconeGerenciadorEtiqueta} alt="icone Home" />
-                            <p className={descricaoEtiqueta}>Etiquetas</p>
+                <div className={style.funcoes}>
+                    <div className={menuLateralHome} onClick={menuHome}>
+                        <div className={style.div_imagem}>
+                            <div>
+                                <img src={iconeHome} alt="icone Home" />
+                                <p className={descricaoHome}>Home</p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div className={menuLateralConheca}>
-                    <div>
-                        <img className={style.icon_conheca} src={iconConheca} alt="icone Home" />
-                        <p className={style.paragrafo_conheca}>Conheça</p>
+                    <div className={menuLateralEtiqueta} onClick={menuEtiqueta}>
+                        <div className={style.div_imagem}>
+                            <div>
+                                <img src={iconeGerenciadorEtiqueta} alt="icone Etiqueta" />
+                                <p className={descricaoEtiqueta}>Etiquetas</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div className={menuLateralAcessibilidade} onClick={menuAcessibilidade}>
-                    <div>
-                        <div>
-                            <img className={style.icon_acessibilidade} src={iconeAcessibilidade} alt="icone Acessibilidade" />
-                            <p className={descricaoAcessibilidade}>Acessibilidade</p>
+                    <div className={menuLateralAcessibilidade} onClick={menuAcessibilidade}>
+                        <div className={style.div_imagem}>
+                            <div>
+                                <img src={iconeAcessibilidade} alt="icone Acessibilidade" />
+                                <p className={descricaoAcessibilidade}>Acessibilidade</p>
+                            </div>
                         </div>
                     </div>
                 </div>
