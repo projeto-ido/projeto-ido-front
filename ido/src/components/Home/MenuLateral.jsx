@@ -73,23 +73,25 @@ function MenuLateral({
                 </div>
                 <div className={style.funcoes}>
                     <div className={menuLateralHome} onClick={menuHome}>
-                        <div>
-                            <img className={style.icon_home} src={iconeHome} alt="icone Home" />
-                            <p className={descricaoHome}>Home</p>
+                        <div className={style.div_imagem}>
+                            <div>
+                                <img src={iconeHome} alt="icone Home" />
+                                <p className={descricaoHome}>Home</p>
+                            </div>
                         </div>
                     </div>
                     <div className={menuLateralEtiqueta} onClick={menuEtiqueta}>
-                        <div>
+                        <div className={style.div_imagem}>
                             <div>
-                                <img className={style.icon_etiqueta} src={iconeGerenciadorEtiqueta} alt="icone Home" />
+                                <img src={iconeGerenciadorEtiqueta} alt="icone Etiqueta" />
                                 <p className={descricaoEtiqueta}>Etiquetas</p>
                             </div>
                         </div>
                     </div>
                     <div className={menuLateralAcessibilidade} onClick={menuAcessibilidade}>
-                        <div>
+                        <div className={style.div_imagem}>
                             <div>
-                                <img className={style.icon_acessibilidade} src={iconeAcessibilidade} alt="icone Acessibilidade" />
+                                <img src={iconeAcessibilidade} alt="icone Acessibilidade" />
                                 <p className={descricaoAcessibilidade}>Acessibilidade</p>
                             </div>
                         </div>
