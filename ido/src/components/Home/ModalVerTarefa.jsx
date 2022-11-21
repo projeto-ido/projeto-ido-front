@@ -3,6 +3,8 @@ import iconLixeira from '../../assets/images/lixeira.png';
 import api from "../../api/api.jsx";
 import { useSessionStorageNumber, useSessionStorageString, useSessionStorageBoolean } from "react-use-window-sessionstorage";
 import style from "../../components/Home/Home.module.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTarefa }) {
     const [qtdSubtarefa, setQtdSubtarefa] = useState(1);
@@ -40,7 +42,7 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
         plotarSubTarefasFunction();
         setPlotarSubTarefas(false);
     }
-
+    
     function plotarSubTarefasFunction() {
 
         if (sub1Storage !== "") {
@@ -77,8 +79,6 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
         if (idSub != "") {
             api.delete(`/usuarios/${idUsuarioStorage}/tarefas/${idTarefa}/sub-tarefas/${idSub}`).then(res => {
             }).catch(erro => {
-                console.log("erro: " + erro + " certifique_se de estar logado. ");
-                alert(erro);
             })
         }
 
@@ -92,7 +92,11 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
         setSubtarefa4(false);
     }
 
-    function criar() {
+    function reload(){
+        window.location.reload(false);
+    }
+
+    function atualizarTarefa() {
         if(sub1Storage !== sub1StorageRecebido){
             apagarSubtarefa(idSub1);
             criarSubtarefa(sub1Storage)
@@ -112,7 +116,7 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
 
 
         if (selectImportancia === '-1') {
-            alert("Necessário informar a importância da atividade");
+            toastAlert(`Necessário informar a importância da atividade`);
 
         } else if (selectImportancia === '1') {
             setSelectImportancia(true);
@@ -121,7 +125,7 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
         }
 
         if (selectUrgencia === '-1') {
-            alert("Necessário informar a urgência da atividade");
+            toastAlert(`Necessário informar a urgência da atividade`);
         } else if (selectImportancia === '1') {
             setSelectUrgencia(true);
         } else if ('0') {
@@ -167,18 +171,18 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
             dataFinal: inputDataFinal,
             urgencia: selectUrgencia,
             importancia: selectImportancia,
-            //subTarefas: subtarefas,
             status: false
         }
 
 
 
         api.put(`/usuarios/${idUsuarioStorage}/tarefas/${idTarefa}`, tarefaAtualizada).then(res => {
-            window.location.reload(false);
-            alert("Tarefa atualizada!")
+            toastSucesso(`Tarefa atualizada!`)
+            setTimeout(reload, 2000); 
+            
         }).catch(erro => {
             console.log("erro: " + erro);
-            alert(erro);
+            toastErro(erro);
         })
 
 
@@ -195,9 +199,48 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
         api.post(`/usuarios/${idUsuarioStorage}/tarefas/${idTarefa}/sub-tarefas`, novaSub).then(res => {
         }).catch(erro => {
             console.log("erro: " + erro + " certifique-se de estar logado. ");
-            alert(erro);
+            toastErro(erro);
         })
     }
+
+    function toastSucesso(texto){
+        toast.success(texto, {
+          position: "top-right",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }
+
+      function toastAlert(texto) {
+        toast.info(texto, {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
+    }
+    
+      function toastErro(texto){
+        toast.error(texto, {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
+      }
 
     function buscarAlturaModal() {
         console.log('qtddd ' + qtdSubtarefa)
@@ -414,7 +457,7 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
                                 <div onClick={() => {
 
                                     if (qtdSubtarefa === 4) {
-                                        alert("Quantidade de subtarefas excedida, se necessário cadastre uma nova tarefa.")
+                                        toastErro(`Quantidade de subtarefas excedida, se necessário cadastre uma nova tarefa.`)
                                     } else {
                                         {
 
@@ -478,7 +521,7 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
             </div>
 
             <div className={`${style.footer_modal} ${buscarAlturaFooter()}`}>
-                <div onClick={criar}
+                <div onClick={atualizarTarefa}
                     className={style.botao_salvar_tarefa}>
                     <div className={style.texto_salvar_tarefa}>
                         Salvar Tarefa
