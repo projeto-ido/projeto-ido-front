@@ -5,6 +5,7 @@ import { useSessionStorageNumber, useSessionStorageString, useSessionStorageBool
 import style from "../../components/Home/Home.module.css";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import EtiquetaSelect from "./Tarefas/Etiquetas/EtiquetaSelect"; 
 
 export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTarefa }) {
     const [qtdSubtarefa, setQtdSubtarefa] = useState(1);
@@ -498,22 +499,10 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
 
                     <div className={style.continer_combo_etiquetas}>
                         <div id="" className={style.container_select_etiqueta}>
-                            <select value={etiqueta1} onChange={(e) => setEtiqueta1(e.target.value)} className={style.select_etiquetas} name="" id="">
-                                <option value=""></option>
-                                <option value="">Casa</option>
-                                <option value="">Facul</option>
-                                <option value="">Lazer</option>
-                                <option value="">Estágio</option>
-                            </select>
+                            <EtiquetaSelect/>
                         </div>
                         <div id="" className={style.container_select_etiqueta}>
-                            <select value={etiqueta2} onChange={(e) => setEtiqueta2(e.target.value)} className={style.select_etiquetas} name="" id="">
-                                <option value=""></option>
-                                <option value="">Casa</option>
-                                <option value="">Facul</option>
-                                <option value="">Lazer</option>
-                                <option value="">Estágio</option>
-                            </select>
+                            <EtiquetaSelect/>
                         </div>
                     </div>
 
