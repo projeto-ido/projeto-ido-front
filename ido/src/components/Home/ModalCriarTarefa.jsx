@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import iconLixeira from '../../assets/images/lixeira.png';
 import api from "../../api/api.jsx";
-import { useSessionStorageString } from "react-use-window-sessionstorage";
+import { useSessionStorageString, useSessionStorageNumber } from "react-use-window-sessionstorage";
 import style from "../../components/Home/Home.module.css";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import EtiquetaSelect from "./Tarefas/Etiquetas/EtiquetaSelect"; 
+import EtiquetaSelect2 from "./Tarefas/Etiquetas/EtiquetaSelect2";
 
 export default function ModalCriarTarefa({ openModal, setOpenModal }) {
     const [qtdSubtarefa, setQtdsubtarefa] = useState(1);
@@ -24,13 +25,14 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
     const [inputSubtarefa2, setInputSubtarefa2] = useState("");
     const [inputSubtarefa3, setInputSubtarefa3] = useState("");
     const [inputSubtarefa4, setInputSubtarefa4] = useState("");
-    const [etiqueta1, setEtiqueta1] = useState("");
-    const [etiqueta2, setEtiqueta2] = useState("");
     const [prioridade, setPrioridade] = useState("");
-    let listaSubtarefas = [];
     const [idUsuarioStorage, setIdUsuarioStorage] = useSessionStorageString("idLogado", "");
     const [subtarefas, setSubtarefas] = useState([]);
+    const [etiquetas, setEtiquetas] = useState([]);
   
+    function reload(){
+        window.location.reload(false);
+    }
 
     function criar() {
         if (selectImportancia === '-1') {
@@ -77,6 +79,16 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
             })
         }
 
+        if(sessionStorage.getItem("etiqueta1") != undefined){
+            etiquetas.push({"idEtiqueta": Number(sessionStorage.getItem("etiqueta1").replace(/["]/g, ''))})
+            
+        }
+
+        if(sessionStorage.getItem("etiqueta2" != undefined)){
+            etiquetas.push({"idEtiqueta": Number(sessionStorage.getItem("etiqueta2").replace(/["]/g, ''))})
+        }
+
+        
 
         const tarefaAtualizada = {
             titulo: inputTitulo,
@@ -86,17 +98,17 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
             urgencia: selectUrgencia,
             importancia: selectImportancia,
             subTarefas: subtarefas,
+            etiquetas: etiquetas,
             status: false
         }
-        console.log("Data inicial: " + inputDataInicio + " / Data final: " + inputDataFinal);
+
+        console.log(tarefaAtualizada);
 
         api.post(`/usuarios/${idUsuarioStorage}/tarefas`, tarefaAtualizada).then(res => {
             toastSucesso(`tarefa cadastrada`);
             setInputDataFinal("");
             setInputDataInicio("");
             setInputTitulo("");
-            setEtiqueta1("");
-            setEtiqueta2("");
             setInputDescricao("");
             setSelectImportancia("");
             setSelectUrgencia("");
@@ -110,7 +122,8 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
             setInputSubtarefa2("");
             setInputSubtarefa3("");
             setInputSubtarefa4("");
-            window.location.reload(false);
+            setTimeout(reload, 2000);
+            setEtiquetas([]);   
         }).catch(erro => {
             console.log("erro: " + erro + " certifique-se de estar logado. ");
             toastErro(erro);
@@ -419,7 +432,7 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
                             <EtiquetaSelect/>
                         </div>
                         <div id="" className={style.container_select_etiqueta}>
-                            <EtiquetaSelect/>
+                            <EtiquetaSelect2/>
                         </div>
                     </div>
 

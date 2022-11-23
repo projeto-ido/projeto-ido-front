@@ -3,10 +3,10 @@ import style from "../../../../components/Home/Home.module.css";
 import api from "../../../../api/api.jsx";
 import { useSessionStorageNumber } from "react-use-window-sessionstorage";
 
-export default function EtiquetaSelect(){
+export default function EtiquetaSelect2(){
     const [listaEtiquetas, setListaEtiquetas] = useState([]);
     const [qtdEtiquetas, setQtdEtiquetas] = useState(0);
-    const [etiqueta1, setEtiqueta1] = useSessionStorageNumber("etiqueta1");
+    const [etiqueta2, setEtiqueta2] = useSessionStorageNumber("etiqueta2");
 
     useEffect(() => {
         var idUsuario = sessionStorage.getItem("idLogado");
@@ -26,8 +26,8 @@ export default function EtiquetaSelect(){
     }, [])
 
     return (
-        <select value={etiqueta1} onChange={(e) =>
-            setEtiqueta1(e.target.value)} className={style.select_etiquetas}
+        <select value={etiqueta2} onChange={(e) =>
+            setEtiqueta2(e.target.value)} className={style.select_etiquetas}
             name="" id="">
             <option value=""></option>
             {listaEtiquetas.map((item) => (

@@ -6,6 +6,7 @@ import style from "../../components/Home/Home.module.css";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import EtiquetaSelect from "./Tarefas/Etiquetas/EtiquetaSelect"; 
+import EtiquetaSelect2 from "./Tarefas/Etiquetas/EtiquetaSelect2";
 
 export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTarefa }) {
     const [qtdSubtarefa, setQtdSubtarefa] = useState(1);
@@ -179,8 +180,7 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
 
         api.put(`/usuarios/${idUsuarioStorage}/tarefas/${idTarefa}`, tarefaAtualizada).then(res => {
             toastSucesso(`Tarefa atualizada!`)
-            setTimeout(reload, 2000); 
-            
+            setTimeout(reload, 2000);            
         }).catch(erro => {
             console.log("erro: " + erro);
             toastErro(erro);
@@ -502,7 +502,7 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
                             <EtiquetaSelect/>
                         </div>
                         <div id="" className={style.container_select_etiqueta}>
-                            <EtiquetaSelect/>
+                            <EtiquetaSelect2/>
                         </div>
                     </div>
 
