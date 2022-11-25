@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import apiPerfil from '../../api/apiPerfil';
-import { Link } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
 import styles from "./Perfil.module.css";
+import Conteudo from './Conteudo';
 
 function Sidebar() {
+    const navigate = useNavigate();
     const [listaInfoUser, setListaInfoUser] = useState([])
-
+    
     useEffect(() => {
         apiPerfil.get().then(res => {
           setListaInfoUser(res.data);
@@ -14,6 +15,21 @@ function Sidebar() {
           console.log(erro);
         })
     }, [])
+
+    function sair() {
+        document.body.style.setProperty('--background--conteudo', '');
+        document.body.style.setProperty('--opacidade--conteudo', '100%');
+        navigate("/home")
+    }
+
+    function editarPerfil() {
+        document.getElementById("botao_editar").disabled = true;
+        document.getElementById("botao_editar").style.opacity = "50%";
+        document.getElementById("botao_editar").style.cursor = "default";
+        document.getElementById("botao_editar").style.backgroundColor = "#5D84C2";
+        document.body.style.setProperty('--background--conteudo', 'black');
+        document.body.style.setProperty('--opacidade--conteudo', '80%');
+    }
 
     return(
         <>
@@ -25,7 +41,6 @@ function Sidebar() {
                                 <div>
                                     <div className={styles.foto_perfil}>
                                         <img src={infoAtual.imagem} alt="Foto de perfil do usuário" />
-
                                         <div>
                                             <div className={styles.nivel}>
                                                 <span id="nm-nivel">{infoAtual.nivel}</span>
@@ -33,18 +48,11 @@ function Sidebar() {
                                         </div>
                                     </div>
                                 </div>
-
-                                        <div className={styles.opcoes}>
-                                            <span id="nome_usuario">{infoAtual.titulo}</span>
-                                            <span id="usuario">@{infoAtual.texto}</span>
-                                            <button>Editar Perfil</button>
-                                            <button>
-                                                <Link to="/home" className={styles.sair}>
-                                                    Sair
-                                                </Link>
-                                            </button>
-                                        </div>
-
+                                    <div className={styles.opcoes}>
+                                        <span id="nome_usuario">{infoAtual.titulo}</span>
+                                        <span id="usuario">@{infoAtual.texto}</span>
+                                        <button onClick={sair}>Sair</button>
+                                    </div>
                                 <div className={styles.status}>
                                     <div className={styles.status_container}>
                                         <h1>Status Gerais</h1>
