@@ -10,9 +10,7 @@ import iconEtiquetaDestaque from '../../assets/images/icon-etiqueta-destaque.png
 import iconAcessibilidade from '../../assets/images/icon-acessibilidade.png'
 import iconAcessibilidadeDestaque from '../../assets/images/icon-acessibilidade-destaque.png'
 import { useNavigate } from "react-router-dom";
-
 import style from './Home.module.css';
-
 
 function MenuLateral({
     openGerenciadorEtiquetas,
@@ -62,7 +60,6 @@ function MenuLateral({
         setOpenAcessibilidade(true)
     }
 
-
     return (
         <>
             <div className={style.menu_lateral}>
@@ -106,11 +103,6 @@ function MenuLateral({
             </div>
         </>
     )
-
-    
-
-
-
 }
 
 export default MenuLateral;

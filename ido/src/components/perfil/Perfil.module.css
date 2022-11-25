@@ -18,6 +18,8 @@ body{
     --cor--roxo: #7463C7;
     --cor--amarela: #FFCA6D;
     --cor--preta: #1F1E1E;
+    --background--conteudo: "";
+    --opacidade--conteudo: "100%"
 }
 
 /* HEADER */
@@ -197,21 +199,12 @@ body{
 .main_container .toolbar .container .opcoes {
     width: 65%;
     height: 20%;
-    font-size: 1vw;
+    font-size: 1.3vw;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: flex-start;
     color: white;
-}
-
-.main_container .toolbar .container .opcoes #nome_usuario {
-    font-weight: 900;
-    font-size: 1.5vw;
-}
-
-.main_container .toolbar .container .opcoes #usuario {
-    font-size: 1vw;
 }
 
 .main_container .toolbar .container .opcoes button {
@@ -222,12 +215,26 @@ body{
     background-color: var(--cor--azul);
     border-radius: 1em;
     color: white;
+    transition-duration: 0.3s;
+}
+
+.main_container .toolbar .container .opcoes div {
+    width: 100%;
+    height: 22%;
+    font-size: 1vw;
+    border: none;
+    background-color: var(--cor--azul);
+    border-radius: 1em;
+    color: white;
+    opacity: 50%;
+    display: none;
 }
 
 .main_container .toolbar .container .opcoes .sair { 
     text-decoration: none;
     color: #FFF;
 }
+
 .main_container .toolbar .container .opcoes button:hover {
     cursor: pointer;
     transition-duration: 0.3s;
@@ -272,6 +279,8 @@ body{
     background-image: url("../../assets/images/fundo-perfil-opaco.png");
     background-repeat: no-repeat;
     background-size: cover;
+    background-color: var(--background--conteudo);
+    opacity: var(--opacidade--conteudo);
 }
 
 .main_container .conteudo .container {
@@ -305,6 +314,22 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.main_container .conteudo .container .box_container .div_down .div_botao button {
+    width: 25%;
+    height: 15%;
+    font-size: 1vw;
+    border: none;
+    background-color: var(--cor--azul);
+    border-radius: 2em;
+    color: white;
+}
+
+.main_container .conteudo .container .box_container .div_down .div_botao button:hover {
+    cursor: pointer;
+    transition-duration: 0.3s;
+    background-color: var(--cor--amarela);
 }
 
 /* ESTRUTURA GRAFICOS */
@@ -574,4 +599,220 @@ body{
     justify-content: center;
     align-items: flex-start;
     word-wrap: break-word;
+}
+
+/* EDITOR */
+.div_editor {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 1.2vh;
+}
+
+.div_editor .editor_primeira_coluna {
+    height: 100%;
+    width: 60%;
+}
+
+.div_editor .textos_editor {
+    height: 60%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.div_editor .nome_user_editor {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    align-items: center;
+    background-color: #E7E7E7;
+    border-top: 0.5vw var(--cor--roxo) solid;
+    border-bottom-right-radius: 0.5vw;
+    border-bottom-left-radius: 0.5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.div_editor .nome_user_editor div {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+
+.div_editor .nome_user_editor .div_editor_icon_lapis {
+    width: 20%;
+    display: flex;
+    justify-content: right;
+}
+
+.div_editor .nome_user_editor .div_editor_icon_lapis img {
+    height: 40%;
+}
+
+.div_editor .nome_user_editor h1 {
+    padding-left: 1vw;
+}
+
+.div_editor .nome_user_editor span {
+    font-size: 2vh;
+    padding-left: 1vw;
+}
+
+.div_editor .biografia_editor {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: flex-start;
+    overflow: hidden;
+    box-sizing: border-box;
+    white-space: normal;
+    background-color: #E7E7E7;
+    border-top: 0.5vw var(--cor--roxo) solid;
+    border-bottom-right-radius: 0.5vw;
+    border-bottom-left-radius: 0.5vw;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+}
+
+.div_editor .biografia_editor h1 {
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
+
+.div_editor .biografia_editor span {
+    font-size: 2vh;
+}
+
+.div_editor .biografia_editor .div_biografia_icon_lapis {
+    height: 30%;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.div_editor .biografia_editor .div_biografia_icon_lapis img {
+    height: 43%;
+}
+
+.biografia {
+    height: 100%;
+    width: 80%;
+    display: flex;
+    align-items: center;
+}
+
+.div_editor .imagem_perfil_editor {
+    height: 40%;
+    width: 100%;
+}
+
+.div_editor .imagem_perfil_editor .biografia_editor {
+    height: 100%;
+}
+
+.div_editor .imagem_perfil_editor .biografia_editor .biografia {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.div_editor .imagem_perfil_editor .biografia_editor .biografia div {
+    height: 80%;
+    width: 95%;
+    background-color: var(--cor--preta);
+    border-radius: 2vh;
+    overflow: hidden;
+}
+
+.div_editor .imagem_perfil_editor .biografia_editor .biografia img {
+    width: 100%;
+}
+
+.div_editor .imagem_perfil_editor .biografia_editor .div_image_icon_lapis {
+    height: 100%;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.div_editor .imagem_perfil_editor .biografia_editor .div_image_icon_lapis img {
+    width: 23%;
+    padding-bottom: 2vh;
+    padding-top: 2vh;
+}
+
+.acoes {
+    cursor: pointer;
+    padding-right: 1vw;
+}
+
+.div_editor .editor_segunda_coluna {
+    height: 100%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.editor_segunda_coluna .div_image_perfil {
+    height: 35vh;
+    width: 35vh;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: var(--cor--preta);
+}
+
+.editor_segunda_coluna .div_image_perfil img {
+    height: 100%;
+}
+
+.btn_segunda_coluna {
+    width: 50%;
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn_segunda_coluna div {
+    width: 50%;
+    height: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn_segunda_coluna img {
+    height: 100%;
+    padding: 0;
+}
+
+
+.editor_segunda_coluna button {
+    width: 65%;
+    height: 6%;
+    font-size: 1vw;
+    border: none;
+    background-color: var(--cor--azul);
+    border-radius: 1em;
+    color: white;
+    transition-duration: 0.3s;
+}
+
+.editor_segunda_coluna button:hover {
+    cursor: pointer;
+    transition-duration: 0.3s;
+    background-color: var(--cor--amarela);
 }

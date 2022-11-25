@@ -23,7 +23,6 @@ function HomeComponent({openModal, setOpenModal, openModalVerTarefa, setOpenModa
         }
     }
     
-    
     return(
         <>
             <Perfil />
