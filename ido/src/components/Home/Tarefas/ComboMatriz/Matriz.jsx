@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Tarefa from "./Tarefa";
+import Tarefa from "./TarefaGrupo";
 import style from "../../Home.module.css";
 import apiTarefa from "../../../../api/apiTarefa";
 import { useSessionStorageNumber } from "react-use-window-sessionstorage";
