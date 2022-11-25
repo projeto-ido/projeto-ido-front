@@ -27,7 +27,7 @@ export const SignUp = () => {
     console.log(inputs.nascimento.value);
 
     if (inputs.confirmarSenha.value !== inputs.senha.value) {
-      erro("Confirmação de senha invalida");
+      erro("Senhas estão diferentes");
     } else {
       cadastrar(inputs);
     }
@@ -165,6 +165,8 @@ export const SignUp = () => {
                 <input
                   name='nascimento'
                   placeholder="11950334249"
+                  minLength="10"
+                  maxLength="11"
                   type="cell"
                   required />
               </div>
@@ -183,7 +185,7 @@ export const SignUp = () => {
                   name='nascimento'
                   placeholder="Coloque sua data de nas..."
                   type="date"
-                  max="2022-11-16"
+                  max="2022-11-24"
                   required />
               </div>
             </div>
