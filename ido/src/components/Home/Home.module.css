@@ -285,7 +285,8 @@ header {
     cursor: pointer;
     min-height: 20px;
     line-height: normal;
-
+    color: white;
+    font-size: 2.5vh;
 }
 
 .icon_filtro {
@@ -354,15 +355,30 @@ header {
 .texto_criacao_atividade {
     display: table-cell;
     vertical-align: middle;
+    color: white;
+    font-size: 1.5vw;
+    text-shadow: 
+               -1px -1px 0px rgba(32, 31, 31, 0.087), 
+               -1px 1px 0px rgba(32, 31, 31, 0.087),                    
+                1px -1px 0px rgba(32, 31, 31, 0.087),                  
+                1px 0px 0px rgba(32, 31, 31, 0.087);
 }
 
+
+
 .icon_soma {
-    width: 2.5vw;
-    height: 4vh;
+    width: 20%;
+    height: 70%;
     position: relative;
     top: 50%;
     transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
 
+.icon_soma img {
+    height: 100%;
 }
 
 .tarefas_geral_matriz {
@@ -430,6 +446,12 @@ header {
 
 }
 
+.containerTarefasMatriz{
+    overflow-y: auto;
+    max-height: 30vh;
+    min-height: 120px;
+    margin-right: 5px;
+}
 
 .titulo_prioridade {
     font-weight: 700;
@@ -480,7 +502,7 @@ header {
 .grupo_fazer_agora {
     width: 100%;
     background-color: #FFFAFA;
-    height: 32vh;
+    height: 36vh;
     border-radius: 0px 0px 25px 25px;
     min-height: 100px;
     border-bottom: .3vh solid #E7E7E7;
@@ -492,19 +514,26 @@ header {
 .grupo_agendar {
     width: 100%;
     background-color: #FFFAFA;
-    height: 32vh;
+    height: 36vh;
     border-radius: 0px 0px 25px 25px;
     min-height: 100px;
     border-bottom: .3vh solid #E7E7E7;
     border-left: .3vh solid #E7E7E7;
     border-right: .3vh solid #E7E7E7;
+    
 
+}
+
+.grupoTarefas{
+    overflow-y: auto;
+    margin-right: 5px;
+    height: 90%;
 }
 
 .grupo_delegar {
     width: 100%;
     background-color: #FFFAFA;
-    height: 32vh;
+    height: 36vh;
     border-radius: 0px 0px 25px 25px;
     min-height: 100px;
     border-bottom: .3vh solid #E7E7E7;
@@ -516,7 +545,7 @@ header {
 .grupo_nao_priorizar {
     width: 100%;
     background-color: #FFFAFA;
-    height: 32vh;
+    height: 36vh;
     border-radius: 0px 0px 25px 25px;
     min-height: 100px;
     border-bottom: .3vh solid #E7E7E7;
@@ -629,7 +658,14 @@ header {
     border-bottom: .3vh solid #E7E7E7;
     border-left: .3vh solid #E7E7E7;
     border-right: .3vh solid #E7E7E7;
+    height: 55vh;
+    
+}
 
+.tarefas_listadas{
+    height: 90%; 
+    overflow-y: auto;
+    margin-right: 5px;
 }
 
 .respiro {
@@ -692,6 +728,44 @@ header {
     top: 0px;
     background: rgba(0, 0, 0, 0.84);
     z-index: 1;
+}
+
+.modal_1_subtarefas {
+    height: 76vh;
+
+}
+
+.modal_2_subtarefas {
+    height: 82vh;
+
+}
+
+.modal_3_subtarefas {
+    top: 3vh;
+    height: 88vh;
+
+}
+
+.modal_4_subtarefas {
+    top: 3vh;
+    height: 94vh;
+
+}
+
+.footer_modal_1_subtarefas {
+    height: 9vh;
+}
+
+.footer_modal_2_subtarefas {
+    height: 14.5vh;
+}
+
+.footer_modal_3_subtarefas {
+    height: 20vh;
+}
+
+.footer_modal_4_subtarefas {
+    height: 26vh;
 }
 
 .opacidade_model{
@@ -765,6 +839,14 @@ header {
 .importancia{
     width: 33.3%;
     height: 9vh;
+}
+
+.select_perfil {
+    border: none;
+    width: 1.5vw;
+    box-shadow: 0 0 0 0;
+    outline: 0;
+    cursor: pointer;
 }
 
 .select_importancia{
@@ -939,13 +1021,13 @@ header {
 
 .footer_modal{
     width: 100%;
-    height: 7vh;
     align-items: center;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     cursor: pointer;
+    
 }
 
 .botao_salvar_tarefa{
@@ -987,18 +1069,18 @@ header {
 
 .container_criacao_subtarefa2{
     width: 100%;
-    display: none;
+    display: flex;
     margin-top: 1vh;
 }
 
 .container_criacao_subtarefa3{
     width: 100%;
-    display: none;
+    display: flex;
     margin-top: 1vh;
 }
 .container_criacao_subtarefa4{
     width: 100%;
-    display: none;
+    display: flex;
     margin-top: 1vh;
 }
 
@@ -1013,6 +1095,10 @@ header {
     cursor: pointer;
     text-align: center;
     
+}
+
+.tarefa{
+    font-size: 1.2vw;
 }
 
 .botao_apagar_subtarefa{
@@ -1129,18 +1215,6 @@ header {
         padding-left: 0px;
     }
 
-    .matriz {
-        padding-left: 10%;
-    }
-
-    .lista {
-        padding-left: 10%;
-    }
-
-    .grupo {
-        padding-left: 10%;
-    }
-
     .tarefas_superior {
         display: block;
         margin-left: 10%;
@@ -1151,6 +1225,7 @@ header {
         height: 35vh;
         max-height: 160px;
         margin-top: 5vh;
+        font-size: 2vw;
 
     }
 
@@ -1159,6 +1234,7 @@ header {
         height: 35vh;
         max-height: 160px;
         margin-top: 5vh;
+        font-size: 2vw;
     }
 
     .tarefas_inferior {
@@ -1171,6 +1247,7 @@ header {
         height: 35vh;
         max-height: 160px;
         margin-top: 5vh;
+        font-size: 2vw;
     }
 
     .nao_priorizar {
@@ -1178,6 +1255,7 @@ header {
         height: 35vh;
         max-height: 160px;
         margin-top: 5vh;
+        font-size: 2vw;
     }
 
     .etiqueta {
@@ -1190,7 +1268,7 @@ header {
         padding-top: 12%;
     }
 
-    .icon_home {
+    /* .icon_home {
         padding-left: 1.2vw;
         width: 3vw;
         height: 4vh;
@@ -1210,13 +1288,13 @@ header {
         height: 4vh;
         padding-top: 2.5vh;
 
-    }
+    } */
 
     .icon_lupa {
         height: 4vh;
     }
 
-    .icon_conheca {
+    /* .icon_conheca {
         padding-left: 2vw;
         width: 4vw;
         height: 4vh;
@@ -1234,7 +1312,7 @@ header {
         width: 3.5vw;
         height: 3.5vh;
         padding-top: 2.5vh;
-    }
+    } */
 
     .select_importancia{
         font-size: 1.5vw;
@@ -1278,6 +1356,10 @@ header {
     .spotify_card{
         width: 25%;
         border-radius:12px
+    }
+
+    .tarefa{
+        font-size: 2vw;
     }
 
 

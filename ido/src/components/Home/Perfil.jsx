@@ -6,10 +6,12 @@ import style from './Home.module.css';
 
 
 function Perfil() {
+    var nomeUsuario = sessionStorage.getItem("nomeLogado");
+
     return (
         <>
             <header>
-                <p className={style.nome_logado}>Julia Veloso Santos</p>
+                <p className={style.nome_logado}>Bem vindo, {nomeUsuario}</p>
                 <Link to="/perfil">
                     <img className={style.foto_perfil} src={perfil} alt="foto do perfil do usuário" />
                 </Link>

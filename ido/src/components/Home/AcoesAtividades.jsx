@@ -1,7 +1,6 @@
 import React from "react";
 import iconfiltro from '../../assets/images/icon-filtro.png';
 import iconSoma from '../../assets/images/icon-soma.png';
-
 import style from './Home.module.css';
 
 export default function AcoesAtividades({ openModal, setOpenModal, tipoTarefa, setTipoTarefa, openModalVerTarefa, openGerenciadorEtiquetas}) {
@@ -55,9 +54,10 @@ export default function AcoesAtividades({ openModal, setOpenModal, tipoTarefa, s
                 </div>
             </div>
 
-            <div onClick={() => setOpenModal(true)}
-                id="botaoAdicionarTarefa" className={style.botao_adicionar_tarefa}>
-                <img id="iconSoma" className={style.icon_soma} src={iconSoma} alt="" />
+            <div onClick={() => setOpenModal(true)} id="botaoAdicionarTarefa" className={style.botao_adicionar_tarefa}>
+                <div className={style.icon_soma}>
+                    <img id="iconSoma" src={iconSoma} alt="" />
+                </div>
                 <div style={{ display: "table" }}>
                     <div id="textoCriacaoAtividade" className={style.texto_criacao_atividade}>Criar Atividade</div>
                 </div>

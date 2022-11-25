@@ -1,38 +1,67 @@
-import React from "react";
-
+import React, { useState, useEffect } from "react";
 import style from "../../Home.module.css";
+import apiTarefa from "../../../../api/apiTarefa";
+import TarefaGrupo from "./TarefaGrupo";
+import { useSessionStorageString } from "react-use-window-sessionstorage";
 
-export default function ContainerAgendar(){
-    return(
+export default function ContainerAgendar({ setOpenModalVerTarefa }) {
+    const [listaTarefas, setListaTarefas] = useState([]);
+    const [sub1Storage, setSub1Storage] = useSessionStorageString("subTarefa1")
+    const [sub2Storage, setSub2Storage] = useSessionStorageString("subTarefa2")
+    const [sub3Storage, setSub3Storage] = useSessionStorageString("subTarefa3")
+    const [sub4Storage, setSub4Storage] = useSessionStorageString("subTarefa4")
+
+    useEffect(() => {
+        var idUsuario = sessionStorage.getItem("idLogado");
+        setSub1Storage("");       
+        setSub2Storage("");        
+        setSub3Storage("");        
+        setSub4Storage(""); 
+        
+        apiTarefa.get(`/usuarios/${idUsuario}/tarefas`).then(res => {
+            console.log("dados", res.data);
+            console.log("status code", res.status);
+            setListaTarefas(res.data);
+            if (res.data === "") {
+                setListaTarefas([""])
+            }
+
+        }).catch(erro => {
+            console.log(erro)
+
+        })
+
+    }, [])
+
+    return (
         <div id="grupoDelegar" className={style.grupo_delegar}>
-                <div className={style.tarefa_combo}>
-                    <span className={style.tarefa}>Nome da tarefa</span>
-                    <div className={style.container_etiquetas_matriz}>
-                        <div className={style.etiqueta}>Etiqueta</div>
+            <div className={style.grupoTarefas}>
+            {
+                           listaTarefas.filter(tarefa => tarefa.importancia == false && tarefa.urgencia == true).map(tarefaAtual => (
 
-                    </div>
-                </div>
-                <div className={style.tarefa_combo}>
-                    <span className={style.tarefa}>Nome da tarefa</span>
-                    <div className={style.container_etiquetas_matriz}>
-                        <div className={style.etiqueta}>Etiqueta</div>
+                                <React.Fragment key={tarefaAtual.idTarefa}>
+                                    <TarefaGrupo
+                                        setOpenModalVerTarefa={setOpenModalVerTarefa}
+                                        titulo={tarefaAtual.titulo}
+                                        descricao={tarefaAtual.descricao}
+                                        status={tarefaAtual.status}
+                                        dataInicio={tarefaAtual.dataInicio}
+                                        dataFinal={tarefaAtual.dataFinal}
+                                        dataCriacao={tarefaAtual.dataCriacao}
+                                        urgencia={tarefaAtual.urgencia}
+                                        importancia={tarefaAtual.importancia}
+                                        subTarefas={tarefaAtual.subTarefas}
+                                        fkUsuario={tarefaAtual.FkUsuario}
+                                        etiquetasTarefa={tarefaAtual.etiquetasTarefa}
+                                        idTarefa={tarefaAtual.idTarefa}
+                                        key={tarefaAtual.idTarefa}
+                                    />
+                                </React.Fragment>
 
-                    </div>
-                </div>
-                <div className={style.tarefa_combo}>
-                    <span className={style.tarefa}>Nome da tarefa</span>
-                    <div className={style.container_etiquetas_matriz}>
-                        <div className={style.etiqueta}>Etiqueta</div>
 
-                    </div>
-                </div>
-                <div className={style.tarefa_combo}>
-                    <span className={style.tarefa}>Nome da tarefa</span>
-                    <div className={style.container_etiquetas_matriz}>
-                        <div className={style.etiqueta}>Etiqueta</div>
-
-                    </div>
-                </div>
+                            ))
+                        }
             </div>
+        </div>
     );
 }
