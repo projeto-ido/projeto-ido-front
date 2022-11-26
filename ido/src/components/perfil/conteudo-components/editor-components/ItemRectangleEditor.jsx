@@ -3,40 +3,140 @@ import styles from "../../Perfil.module.css";
 import iconEditar from "../../../../assets/images/icon-editar-etiqueta.png";
 import iconDeletar from "../../../../assets/images/icon-lixeira.png";
 import iconUpload from "../../../../assets/images/upload.png";
+import { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import { useEffect } from 'react';
+
 
 function ItemRectangleEditor(props) {
+
+    const [nomeEditavel, setNomeEditavel] = useState(false);
+    const [usernameEditavel, setUsernameEditavel] = useState(false);
+    const [biografiaEditavel, setBiografiaEditavel] = useState(false);
+
+    function bioEditavel() {
+        var textarea = document.getElementById("bio")
+
+        setBiografiaEditavel(!biografiaEditavel)
+
+        !biografiaEditavel ? textarea.setAttribute("disabled", true)
+         : textarea.removeAttribute("disabled");
+    }
+
+    function salvarALteracao(event) {
+        event.preventDefault();
+
+        const names = event.target;
+
+        console.log(names.nome.value.trim() == "");
+        
+        if (names.nome.value.trim() == "") 
+            return info("Não pode espaços em branch")
+        else if (names.username.value.trim() == "") 
+            return info("Não pode espaços em branch")
+        else if (names.biografia.value.trim() == "") 
+            return info("Não pode espaços em branch")
+        
+        sucesso("Atualização feita com sucesso")
+        console.log(event);
+    }
+
+    function sucesso(texto) {
+        toast.success(texto, {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        })
+      }
+
+      function info(texto) {
+        toast.info(texto, {
+            position: "top-right",
+            autoClose: 1600,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: false,
+            draggable: false,
+            progress: undefined,
+            theme: "light",
+        })
+      }
+    
+      function erro(texto) {
+        toast.error(texto, {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        })
+      }
+
     return(
         <>
+        <ToastContainer/>
+        <form id='form' onSubmit={salvarALteracao}>
+        
             <div className={styles.div_editor}>
                 <div className={styles.editor_primeira_coluna}>
                     <div className={styles.textos_editor}>
                         <div className={styles.nome_user_editor}>
                             <div>
                                 <h1 type="text">Nome:</h1>
-                                <span>{props.titulo}</span>
+                                <input
+                                type="text"
+                                name='nome'
+                                minLength="3"
+                                maxLength="30"
+                                disabled={!nomeEditavel}
+                                defaultValue={props.titulo} 
+                                required/>
                             </div>
                             <div className={styles.div_editor_icon_lapis}>
-                                <img className={styles.acoes} src={iconEditar} alt="icone lapis" />
+                                <img onClick={() => setNomeEditavel(!nomeEditavel)} className={styles.acoes} src={iconEditar} alt="icone lapis" />
                             </div>
                         </div>
 
                         <div className={styles.nome_user_editor}>
                             <div>
                                 <h1 type="text">Usuario:</h1> 
-                                <span>{props.usuario}</span>
+                                <input
+                                name='username'
+                                disabled={!usernameEditavel}
+                                type="text"
+                                minLength="3"
+                                maxLength="10"
+                                defaultValue={props.usuario}
+                                required/>
                             </div>
                             <div className={styles.div_editor_icon_lapis}>
-                                <img className={styles.acoes} src={iconEditar} alt="icone lapis" />
+                                <img onClick={() => setUsernameEditavel(!usernameEditavel)} className={styles.acoes} src={iconEditar} alt="icone lapis" />
                             </div>
                         </div>
 
                         <div className={styles.biografia_editor}>
                             <div className={styles.biografia}>
                                 <h1 type="text">Biografia:​</h1> 
-                                <span>“{props.texto}”</span>
+                                <textarea
+                                id="bio"
+                                name="biografia"
+                                wrap='hard'
+                                cols="30" rows="10"
+                                minLength="5"
+                                maxLength="240"
+                                defaultValue={`“${props.texto}”`}
+                                required></textarea>
                             </div>
                             <div className={styles.div_biografia_icon_lapis}>
-                                <img className={styles.acoes} src={iconEditar} alt="icone lapis" />
+                                <img onClick={bioEditavel} className={styles.acoes} src={iconEditar} alt="icone lapis" />
                             </div>
                         </div>
                     </div>
@@ -71,9 +171,10 @@ function ItemRectangleEditor(props) {
                         </div>
                     </div>
 
-                    <button>Salvar Alterações</button>
+                    <button type='submit'>Salvar Alterações</button>
                 </div>
             </div>
+        </form>
         </>
     )
 }
