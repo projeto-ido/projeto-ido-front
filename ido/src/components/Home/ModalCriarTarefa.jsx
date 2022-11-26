@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
 import iconLixeira from '../../assets/images/lixeira.png';
 import api from "../../api/api.jsx";
-import { useSessionStorageString } from "react-use-window-sessionstorage";
+import { useSessionStorageString, useSessionStorageNumber } from "react-use-window-sessionstorage";
 import style from "../../components/Home/Home.module.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import EtiquetaSelect from "./Tarefas/Etiquetas/EtiquetaSelect"; 
+import EtiquetaSelect2 from "./Tarefas/Etiquetas/EtiquetaSelect2";
 
 export default function ModalCriarTarefa({ openModal, setOpenModal }) {
     const [qtdSubtarefa, setQtdsubtarefa] = useState(1);
@@ -21,18 +25,18 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
     const [inputSubtarefa2, setInputSubtarefa2] = useState("");
     const [inputSubtarefa3, setInputSubtarefa3] = useState("");
     const [inputSubtarefa4, setInputSubtarefa4] = useState("");
-    const [etiqueta1, setEtiqueta1] = useState("");
-    const [etiqueta2, setEtiqueta2] = useState("");
     const [prioridade, setPrioridade] = useState("");
-    let listaSubtarefas = [];
     const [idUsuarioStorage, setIdUsuarioStorage] = useSessionStorageString("idLogado", "");
     const [subtarefas, setSubtarefas] = useState([]);
-
-
+    const [etiquetas, setEtiquetas] = useState([]);
+  
+    function reload(){
+        window.location.reload(false);
+    }
 
     function criar() {
         if (selectImportancia === '-1') {
-            alert("Necessário informar a importância da atividade");
+            toastAlert(`Necessário informar a importância da atividade`);
 
         } else if (selectImportancia === '1') {
             setSelectImportancia(true);
@@ -41,7 +45,7 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
         }
 
         if (selectUrgencia === '-1') {
-            alert("Necessário informar a urgência da atividade");
+            toastAlert(`Necessário informar a urgência da atividade`);
         } else if (selectImportancia === '1') {
             setSelectUrgencia(true);
         } else if ('0') {
@@ -75,6 +79,16 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
             })
         }
 
+        if(sessionStorage.getItem("etiqueta1") != undefined){
+            etiquetas.push({"idEtiqueta": Number(sessionStorage.getItem("etiqueta1").replace(/["]/g, ''))})
+            
+        }
+
+        if(sessionStorage.getItem("etiqueta2" != undefined)){
+            etiquetas.push({"idEtiqueta": Number(sessionStorage.getItem("etiqueta2").replace(/["]/g, ''))})
+        }
+
+        
 
         const tarefaAtualizada = {
             titulo: inputTitulo,
@@ -84,17 +98,17 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
             urgencia: selectUrgencia,
             importancia: selectImportancia,
             subTarefas: subtarefas,
+            etiquetas: etiquetas,
             status: false
         }
-        console.log("Data inicial: " + inputDataInicio + " / Data final: " + inputDataFinal);
+
+        console.log(tarefaAtualizada);
 
         api.post(`/usuarios/${idUsuarioStorage}/tarefas`, tarefaAtualizada).then(res => {
-            alert("tarefa cadastrada");
+            toastSucesso(`tarefa cadastrada`);
             setInputDataFinal("");
             setInputDataInicio("");
             setInputTitulo("");
-            setEtiqueta1("");
-            setEtiqueta2("");
             setInputDescricao("");
             setSelectImportancia("");
             setSelectUrgencia("");
@@ -108,10 +122,11 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
             setInputSubtarefa2("");
             setInputSubtarefa3("");
             setInputSubtarefa4("");
-            window.location.reload(false);
+            setTimeout(reload, 2000);
+            setEtiquetas([]);   
         }).catch(erro => {
             console.log("erro: " + erro + " certifique-se de estar logado. ");
-            alert(erro);
+            toastErro(erro);
         })
 
 
@@ -231,6 +246,45 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
 
     }
 
+    function toastSucesso(texto) {
+        toast.success(texto, {
+            position: "top-right",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
+    }
+
+    function toastAlert(texto) {
+        toast.info(texto, {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
+    }
+
+    function toastErro(texto) {
+        toast.error(texto, {
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+        });
+    }
+
     function handlePrioridade() {
         if (selectUrgencia == 0 || selectImportancia == 0) {
             return "";
@@ -330,7 +384,7 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
                                 <div onClick={() => {
 
                                     if (qtdSubtarefa === 4) {
-                                        alert("Quantidade de subtarefas excedida, se necessário cadastre uma nova tarefa.")
+                                        toastErro(`Quantidade de subtarefas excedida, se necessário cadastre uma nova tarefa.`)
                                     } else {
                                         {
                                             if (inputSubtarefa1 !== "") {
@@ -344,7 +398,7 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
 
                                                 setQtdsubtarefa(qtdSubtarefa + 1)
                                             } else {
-                                                alert("É necessário incluir uma subtarefa para adicionar outras.")
+                                                toastAlert(`É necessário incluir uma subtarefa para adicionar outras.`)
                                             }
 
                                         }
@@ -375,22 +429,10 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
 
                     <div className={style.continer_combo_etiquetas}>
                         <div id="" className={style.container_select_etiqueta}>
-                            <select value={etiqueta1} onChange={(e) => setEtiqueta1(e.target.value)} className={style.select_etiquetas} name="" id="">
-                                <option value=""></option>
-                                <option value="">Casa</option>
-                                <option value="">Facul</option>
-                                <option value="">Lazer</option>
-                                <option value="">Estágio</option>
-                            </select>
+                            <EtiquetaSelect/>
                         </div>
                         <div id="" className={style.container_select_etiqueta}>
-                            <select value={etiqueta2} onChange={(e) => setEtiqueta2(e.target.value)} className={style.select_etiquetas} name="" id="">
-                                <option value=""></option>
-                                <option value="">Casa</option>
-                                <option value="">Facul</option>
-                                <option value="">Lazer</option>
-                                <option value="">Estágio</option>
-                            </select>
+                            <EtiquetaSelect2/>
                         </div>
                     </div>
 
