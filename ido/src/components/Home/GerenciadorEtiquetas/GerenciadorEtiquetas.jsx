@@ -113,7 +113,7 @@ function GerenciadorEtiquetas() {
   }
 
   function criarOuAtualizar(id){
-    if(textoInput.trim() == ""){
+    if(textoInput.trim() === ""){
       return toastErro("Titulo não pode ser vazio")
     }
 
@@ -211,7 +211,7 @@ function GerenciadorEtiquetas() {
           })
           .catch((erro) => {
             console.log(erro)
-            if(erro.response.status == 422){
+            if(erro.response.status === 422){
               toastErro(`Limite de ações atingido`)
             }
           })
@@ -221,14 +221,14 @@ function GerenciadorEtiquetas() {
     apiGerenciadorEtiquetas
       .get(`/usuarios/${idUsuario}/etiquetas/acoes/desfazer`)
       .then((res) => {
-        if(res.status == 200){
+        if(res.status === 200){
           setEtiquetasAtualizadas(false)
           setQtdAcoes(qtdAcoes - 1)
           verificarQtdAcoes()
           toastSucesso("Ação desfeita!")
         }
     }).catch((erro) => {
-      if(erro.response.status == 422){
+      if(erro.response.status === 422){
         setBotaoDesfazerAcao(false)
         return
       }
@@ -237,7 +237,7 @@ function GerenciadorEtiquetas() {
 
   function verificarQtdAcoes(){
     console.log(qtdAcoes)
-    if(qtdAcoes == 1){
+    if(qtdAcoes === 1){
       setBotaoDesfazerAcao(false)
     }
   }

@@ -639,6 +639,12 @@ body{
     align-items: center;
 }
 
+.div_editor .nome_user_editor input {
+    padding-left: 1vw;
+    color: var(--cor--preta);
+    font-size: 2.1vh;
+}
+
 .div_editor .nome_user_editor div {
     height: 100%;
     width: 50%;
@@ -689,6 +695,18 @@ body{
 
 .div_editor .biografia_editor span {
     font-size: 2vh;
+}
+
+.div_editor .biografia_editor textarea {
+    height: 80%;
+    width: 100%;
+    resize: none;
+    border-radius: 1vw;
+    padding-left: 1vh;
+    padding-top: 1vh;
+    font-family: 'Roboto', sans-serif;
+    border-style: none;
+    font-size: 1.7vh;
 }
 
 .div_editor .biografia_editor .div_biografia_icon_lapis {
@@ -818,20 +836,11 @@ body{
     background-color: var(--cor--amarela);
 }
 
-
-
-
-
-
-
-
 .modal{
 
     height: 30vh;
     background-color:#7463C7;
 }
-
-
 
 .fundo_escuro {
     position: fixed;

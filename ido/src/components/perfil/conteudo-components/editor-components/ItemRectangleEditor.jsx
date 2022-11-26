@@ -28,13 +28,13 @@ function ItemRectangleEditor(props) {
 
         const names = event.target;
 
-        console.log(names.nome.value.trim() == "");
+        console.log(names.nome.value.trim() === "");
         
-        if (names.nome.value.trim() == "") 
+        if (names.nome.value.trim() === "") 
             return info("Não pode espaços em branch")
-        else if (names.username.value.trim() == "") 
+        else if (names.username.value.trim() === "") 
             return info("Não pode espaços em branch")
-        else if (names.biografia.value.trim() == "") 
+        else if (names.biografia.value.trim() === "") 
             return info("Não pode espaços em branch")
         
         sucesso("Atualização feita com sucesso")
@@ -132,7 +132,7 @@ function ItemRectangleEditor(props) {
                                 cols="30" rows="10"
                                 minLength="5"
                                 maxLength="240"
-                                defaultValue={`“${props.texto}”`}
+                                defaultValue={`${props.texto}`}
                                 required></textarea>
                             </div>
                             <div className={styles.div_biografia_icon_lapis}>

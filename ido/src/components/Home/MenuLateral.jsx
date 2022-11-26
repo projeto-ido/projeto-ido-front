@@ -1,9 +1,7 @@
 import React from "react";
 import logo from '../../assets/images/logo.png';
 import iconHome from '../../assets/images/icon-home.png';
-import iconGrafico from '../../assets/images/icon-grafico.png';
 import iconEtiqueta from '../../assets/images/icon-etiqueta.png';
-import iconConheca from '../../assets/images/icon-conheca.png';
 import iconSair from '../../assets/images/icon-sair.png';
 import iconHomeDestaque from '../../assets/images/icon-home-destaque.png';
 import iconEtiquetaDestaque from '../../assets/images/icon-etiqueta-destaque.png'
@@ -38,9 +36,6 @@ function MenuLateral({
     const iconeAcessibilidade = openAcessibilidade ? iconAcessibilidadeDestaque : iconAcessibilidade
     const descricaoAcessibilidade = openAcessibilidade ? style.paragrafo_destaque : style.paragrafo
     const menuLateralAcessibilidade = openAcessibilidade ? style.sessao_lateral_destaque : style.sessao_lateral
-
-    var menuLateralAnalise = style.sessao_lateral
-    var menuLateralConheca = style.sessao_lateral
 
     function menuHome(){
         setOpenGerenciadorEtiquetas(false)
