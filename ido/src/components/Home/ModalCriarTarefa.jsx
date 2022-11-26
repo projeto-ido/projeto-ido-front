@@ -12,9 +12,9 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
     const [qtdSubtarefa, setQtdsubtarefa] = useState(1);
     const alturaModal = buscarAlturaModal();
     const alturaFooterModal = buscarAlturaFooter();
+    const [subTarefa1, setSubtarefa1] = useState(false);
     const [subTarefa2, setSubtarefa2] = useState(false);
     const [subTarefa3, setSubtarefa3] = useState(false);
-    const [subTarefa4, setSubtarefa4] = useState(false);
     const [inputTitulo, setInputTitulo] = useState("");
     const [selectImportancia, setSelectImportancia] = useState(0);
     const [selectUrgencia, setSelectUrgencia] = useState(0);
@@ -29,7 +29,8 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
     const [idUsuarioStorage, setIdUsuarioStorage] = useSessionStorageString("idLogado", "");
     const [subtarefas, setSubtarefas] = useState([]);
     const [etiquetas, setEtiquetas] = useState([]);
-  
+    const [inputSubtarefa, setInputSubtarefa] = useState("")
+
     function reload(){
         window.location.reload(false);
     }
@@ -72,13 +73,6 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
             })
         }
 
-        if (inputSubtarefa4 !== "") {
-            subtarefas.push({
-                "titulo": inputSubtarefa4,
-                "status": false
-            })
-        }
-
         if(sessionStorage.getItem("etiqueta1") != undefined){
             etiquetas.push({"idEtiqueta": Number(sessionStorage.getItem("etiqueta1").replace(/["]/g, ''))})
             
@@ -115,13 +109,8 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
             setInputSubtarefa1("");
             setInputSubtarefa2("");
             setInputSubtarefa3("");
-            setInputSubtarefa4("");
             setPrioridade("");
             setOpenModal(false);
-            setInputSubtarefa1("");
-            setInputSubtarefa2("");
-            setInputSubtarefa3("");
-            setInputSubtarefa4("");
             setTimeout(reload, 2000);
             setEtiquetas([]);   
         }).catch(erro => {
@@ -162,11 +151,33 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
         }
     };
 
-    function subtarefa2() {
+    function subtarefa1() {
 
-        if (subTarefa2) {
+        if (subTarefa1) {
             return (
                 <div className={style.container_criacao_subtarefa2}>
+                    <input value={inputSubtarefa1} onChange={(e) => setInputSubtarefa1(e.target.value)} maxLength="20" className={style.input_subtarefa} type="text" />
+                    <div className={style.botao_apagar_subtarefa}>
+                        <div onClick={() => {
+                            setQtdsubtarefa(qtdSubtarefa - 1)
+                            setSubtarefa1(false);
+                            setInputSubtarefa1("");
+                        }}
+                            className={style.texto_acao_subtarefa_lixo}>
+                            <img className={style.icon_lixeira} src={iconLixeira} alt="" />
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+    }
+
+    function subtarefa2() {
+        if (subTarefa2) {
+            return (
+
+                <div className={style.container_criacao_subtarefa3}>
                     <input value={inputSubtarefa2} onChange={(e) => setInputSubtarefa2(e.target.value)} maxLength="20" className={style.input_subtarefa} type="text" />
                     <div className={style.botao_apagar_subtarefa}>
                         <div onClick={() => {
@@ -179,16 +190,20 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
                         </div>
                     </div>
                 </div>
+
             );
         }
+
+
 
     }
 
     function subtarefa3() {
+
         if (subTarefa3) {
             return (
 
-                <div className={style.container_criacao_subtarefa3}>
+                <div className={style.container_criacao_subtarefa4}>
                     <input value={inputSubtarefa3} onChange={(e) => setInputSubtarefa3(e.target.value)} maxLength="20" className={style.input_subtarefa} type="text" />
                     <div className={style.botao_apagar_subtarefa}>
                         <div onClick={() => {
@@ -205,41 +220,15 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
             );
         }
 
-
-
-    }
-
-    function subtarefa4() {
-
-        if (subTarefa4) {
-            return (
-
-                <div className={style.container_criacao_subtarefa4}>
-                    <input value={inputSubtarefa4} onChange={(e) => setInputSubtarefa4(e.target.value)} maxLength="20" className={style.input_subtarefa} type="text" />
-                    <div className={style.botao_apagar_subtarefa}>
-                        <div onClick={() => {
-                            setQtdsubtarefa(qtdSubtarefa - 1)
-                            setSubtarefa4(false);
-                            setInputSubtarefa4("");
-                        }}
-                            className={style.texto_acao_subtarefa_lixo}>
-                            <img className={style.icon_lixeira} src={iconLixeira} alt="" />
-                        </div>
-                    </div>
-                </div>
-
-            );
-        }
-
     }
 
     function handleSubtarefa() {
 
         return (
             <>
+                {subtarefa1()}
                 {subtarefa2()}
                 {subtarefa3()}
-                {subtarefa4()}
             </>
         );
 
@@ -378,27 +367,34 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
                 <div className={style.subtarefa_tarefa_modal}>
                     <h3 className={style.titulo_subtarefa}>Subtarefa</h3>
                     <div className={style.container_criacao_subtarefa}>
-                        <input maxLength="20" value={inputSubtarefa1} onChange={(e) => setInputSubtarefa1(e.target.value)} id="primeiraSubtarefa" className={style.input_subtarefa} type="text" />
+                        <input maxLength="20" value={inputSubtarefa} onChange={(e) => setInputSubtarefa(e.target.value)} id="primeiraSubtarefa" className={style.input_subtarefa} type="text" />
                         <div className={style.botao_criar_subtarefa}>
                             <div className={style.texto_acao_subtarefa}>
                                 <div onClick={() => {
 
                                     if (qtdSubtarefa === 4) {
                                         toastErro(`Quantidade de subtarefas excedida, se necessário cadastre uma nova tarefa.`)
+                                        setInputSubtarefa("")
                                     } else {
                                         {
-                                            if (inputSubtarefa1 !== "") {
-                                                if (subTarefa2 === false) {
+                                            if (inputSubtarefa.trim() !== "") {
+                                                if (subTarefa1 === false) {
+                                                    setSubtarefa1(true);
+                                                    setInputSubtarefa1(inputSubtarefa)
+                                                    setInputSubtarefa("")
+                                                } else if (subTarefa2 === false) {
                                                     setSubtarefa2(true);
+                                                    setInputSubtarefa2(inputSubtarefa)
+                                                    setInputSubtarefa("")
                                                 } else if (subTarefa3 === false) {
                                                     setSubtarefa3(true);
-                                                } else if (subTarefa4 === false) {
-                                                    setSubtarefa4(true);
+                                                    setInputSubtarefa3(inputSubtarefa)
+                                                    setInputSubtarefa("")
                                                 }
 
                                                 setQtdsubtarefa(qtdSubtarefa + 1)
                                             } else {
-                                                toastAlert(`É necessário incluir uma subtarefa para adicionar outras.`)
+                                                toastAlert("Titulo da sub tarefa não pode ser vazio")
                                             }
 
                                         }
