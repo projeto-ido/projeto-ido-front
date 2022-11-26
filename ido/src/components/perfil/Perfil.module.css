@@ -603,7 +603,7 @@ body{
 
 /* EDITOR */
 .div_editor {
-    height: 100%;
+    height: 74vh;
     width: 100%;
     display: flex;
     justify-content: space-evenly;
@@ -764,6 +764,7 @@ body{
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    overflow: hidden;
 }
 
 .editor_segunda_coluna .div_image_perfil {
@@ -815,4 +816,32 @@ body{
     cursor: pointer;
     transition-duration: 0.3s;
     background-color: var(--cor--amarela);
+}
+
+
+
+
+
+
+
+
+.modal{
+
+    height: 30vh;
+    background-color:#7463C7;
+}
+
+
+
+.fundo_escuro {
+    position: fixed;
+    width: 100vw;
+    height: 100%;
+    left: 0%;
+    top: 0px;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.84);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

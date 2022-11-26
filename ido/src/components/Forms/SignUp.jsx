@@ -113,6 +113,7 @@ export const SignUp = () => {
                   placeholder="Nome..."
                   type="text"
                   minLength="3"
+                  maxLength="30"
                   required />
               </div>
             </div>
