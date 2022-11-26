@@ -50,7 +50,7 @@ function ItemRectangleEditor(props) {
                                 </div>
                             </div>
                             <div className={styles.div_image_icon_lapis}>
-                                <img className={styles.acoes} src={iconEditar} alt="icone lapis" />
+                                <img className={styles.acoes} src={iconUpload} alt="icone lapis" />
                                 <img className={styles.acoes} src={iconDeletar} alt="icone lixeira" />
                             </div>
                         </div>
