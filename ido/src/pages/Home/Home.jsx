@@ -7,6 +7,7 @@ import Acessibilidade from "../../components/Home/Acessibilidade/Acessibilidade"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import acessibilidade from "../../scripts/acessibilidade";
+import apiGerenciadorEtiquetas from "../../api/apiService"
 
 function Home(params) {
     acessibilidade();
@@ -30,7 +31,17 @@ function Home(params) {
     const [openGerenciadorEtiquetas, setOpenGerenciadorEtiquetas] = useState(false);
     const [openHome, setOpenHome] = useState(true);
     const [openAcessibilidade, setOpenAcessibilidade] = useState(false);
+    const idUsuario = sessionStorage.getItem("idLogado")
 
+    function limparAcoes(){
+        apiGerenciadorEtiquetas.delete(`/usuarios/${idUsuario}/etiquetas/acoes`)
+        .then((res) => {
+            console.log("Ações limpas")
+        }
+        ).catch((erro) => {
+            console.log(erro)
+        })
+    }
 
     return (
         <>  
@@ -45,7 +56,7 @@ function Home(params) {
                     setOpenAcessibilidade={setOpenAcessibilidade}
                 />
                 {
-                    openGerenciadorEtiquetas ? <GerenciadorEtiquetas /> : null
+                    openGerenciadorEtiquetas ? <GerenciadorEtiquetas /> : limparAcoes()
                 }
                 {
                     openAcessibilidade ? <Acessibilidade 
