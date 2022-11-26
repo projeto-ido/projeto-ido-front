@@ -113,6 +113,14 @@ function GerenciadorEtiquetas() {
   }
 
   function criarOuAtualizar(id){
+    if(textoInput.trim() == ""){
+      return toastErro("Titulo não pode ser vazio")
+    }
+
+    if(textoInput.length <= 2){
+      return toastErro("Titulo com 3 caracteres ou mais")
+    }
+    
     if(textoBotao === textoBotaoCriar){
       console.log("post")
 
@@ -203,7 +211,9 @@ function GerenciadorEtiquetas() {
           })
           .catch((erro) => {
             console.log(erro)
-            toastErro(`Falha no registro de ação`)
+            if(erro.response.status == 422){
+              toastErro(`Limite de ações atingido`)
+            }
           })
   }
 
@@ -218,7 +228,10 @@ function GerenciadorEtiquetas() {
           toastSucesso("Ação desfeita!")
         }
     }).catch((erro) => {
-      toastErro("Falha em desfazer ação")
+      if(erro.response.status == 422){
+        setBotaoDesfazerAcao(false)
+        return
+      }
     })
   }
 

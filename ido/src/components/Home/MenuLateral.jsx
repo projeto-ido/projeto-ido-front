@@ -96,7 +96,7 @@ function MenuLateral({
                 </div>
                 <div className={style.sessao_sair} onClick={sair}>
                     <div>
-                        <img className={style.icon_sair} src={iconSair} alt="icone Home" />
+                        <img className={style.icon_sair} src={iconSair} alt="icone Sair" />
                         <p className={style.paragrafo_sair}>Sair</p>
                     </div>
                 </div>
