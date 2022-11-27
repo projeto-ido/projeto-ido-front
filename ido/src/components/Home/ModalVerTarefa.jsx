@@ -19,8 +19,9 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
     const [inputDataInicio, setInputDataInicio] = useSessionStorageString("dataInicioStorage", "");
     const [inputDataFinal, setInputDataFinal] = useSessionStorageString("dataFinalStorage", "");
     const [inputDescricao, setInputDescricao] = useSessionStorageString("descricaoStorage", "");
-    const [etiqueta1, setEtiqueta1] = useState("");
-    const [etiqueta2, setEtiqueta2] = useState("");
+    const [etiqueta1, setEtiqueta1] = useSessionStorageNumber("etiqueta1");
+    const [etiqueta2, setEtiqueta2] = useSessionStorageNumber("etiqueta2");
+    const [etiquetas, setEtiquetas] = useState([]);
     const [prioridade, setPrioridade] = useState("");
     const [idTarefa, setIdTarefa] = useSessionStorageNumber("idDaTarefa", 0);
     const [fkUsuarioStorage, setFkUsuarioStorage] = useSessionStorageString("setFkUsuarioStorage", "");
@@ -39,10 +40,11 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
     const [sub2StorageRecebido, SetSub2StorageRecebido ] = useState("");
     const [sub3StorageRecebido, SetSub3StorageRecebido ] = useState("");
     const [sub4StorageRecebido, SetSub4StorageRecebido ] = useState("");
-
+    
     if (plotarSubTarefas) {
         plotarSubTarefasFunction();
         setPlotarSubTarefas(false);
+        plotarEtiquetas();
     }
     
     function plotarSubTarefasFunction() {
@@ -75,6 +77,17 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
         }
         
 
+    }
+
+    function plotarEtiquetas(){
+        
+        if(sessionStorage.getItem("etiqueta1") != undefined){
+            etiquetas.push({"idEtiqueta": Number(sessionStorage.getItem("etiqueta1").replace(/["]/g, ''))})
+        }
+
+        if(sessionStorage.getItem("etiqueta2") != undefined){
+            etiquetas.push({"idEtiqueta": Number(sessionStorage.getItem("etiqueta2").replace(/["]/g, ''))})
+        }
     }
 
     function apagarSubtarefa(idSub) {
@@ -244,7 +257,6 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
       }
 
     function buscarAlturaModal() {
-        console.log('qtddd ' + qtdSubtarefa)
         switch (qtdSubtarefa) {
             case 1:
                 return style.modal_1_subtarefas;

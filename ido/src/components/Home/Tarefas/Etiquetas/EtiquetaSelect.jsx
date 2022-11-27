@@ -18,6 +18,11 @@ export default function EtiquetaSelect(){
             if (res.data === "") {
                 setListaEtiquetas([""])
             }
+            if(JSON.parse(sessionStorage.getItem("etiqueta1")).idEtiqueta !== undefined){
+                setEtiqueta1(JSON.parse(sessionStorage.getItem("etiqueta1")).idEtiqueta)
+            }
+            
+            
         }).catch(erro => {
             console.log(erro)
 

@@ -29,7 +29,9 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
     const [idUsuarioStorage, setIdUsuarioStorage] = useSessionStorageString("idLogado", "");
     const [subtarefas, setSubtarefas] = useState([]);
     const [etiquetas, setEtiquetas] = useState([]);
-  
+    const [etiqueta1, setEtiqueta1] = useSessionStorageNumber("etiqueta1");
+    const [etiqueta2, setEtiqueta2] = useSessionStorageNumber("etiqueta2");
+
     function reload(){
         window.location.reload(false);
     }
@@ -84,11 +86,9 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
             
         }
 
-        if(sessionStorage.getItem("etiqueta2" != undefined)){
+        if(sessionStorage.getItem("etiqueta2") != undefined){
             etiquetas.push({"idEtiqueta": Number(sessionStorage.getItem("etiqueta2").replace(/["]/g, ''))})
         }
-
-        
 
         const tarefaAtualizada = {
             titulo: inputTitulo,
@@ -123,7 +123,9 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
             setInputSubtarefa3("");
             setInputSubtarefa4("");
             setTimeout(reload, 2000);
-            setEtiquetas([]);   
+            setEtiquetas([]);
+            setEtiqueta1("");
+            setEtiqueta2("");
         }).catch(erro => {
             console.log("erro: " + erro + " certifique-se de estar logado. ");
             toastErro(erro);
