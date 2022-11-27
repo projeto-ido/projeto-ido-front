@@ -5,7 +5,7 @@ import { useSessionStorageNumber, useSessionStorageString, useSessionStorageBool
 import style from "../../components/Home/Home.module.css";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import EtiquetaSelect from "./Tarefas/Etiquetas/EtiquetaSelect"; 
+import EtiquetaSelect from "./Tarefas/Etiquetas/EtiquetaSelect";
 import EtiquetaSelect2 from "./Tarefas/Etiquetas/EtiquetaSelect2";
 
 export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTarefa }) {
@@ -36,17 +36,16 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
     const [idSub3, setIdSub3] = useSessionStorageNumber("idSub3");
     const [idSub4, setIdSub4] = useSessionStorageNumber("idSub4");
     const [subtarefas, setSubtarefas] = useState([]);
-    const [sub1StorageRecebido, SetSub1StorageRecebido ] = useState("");
-    const [sub2StorageRecebido, SetSub2StorageRecebido ] = useState("");
-    const [sub3StorageRecebido, SetSub3StorageRecebido ] = useState("");
-    const [sub4StorageRecebido, SetSub4StorageRecebido ] = useState("");
-    
+    const [sub1StorageRecebido, SetSub1StorageRecebido] = useState("");
+    const [sub2StorageRecebido, SetSub2StorageRecebido] = useState("");
+    const [sub3StorageRecebido, SetSub3StorageRecebido] = useState("");
+    const [sub4StorageRecebido, SetSub4StorageRecebido] = useState("");
+
     if (plotarSubTarefas) {
         plotarSubTarefasFunction();
         setPlotarSubTarefas(false);
-        plotarEtiquetas();
     }
-    
+
     function plotarSubTarefasFunction() {
 
         if (sub1Storage !== "") {
@@ -70,24 +69,13 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
 
         if (sub4Storage !== "") {
             setQtdSubtarefa(4);
-        } else if (sub3Storage !== ""){
+        } else if (sub3Storage !== "") {
             setQtdSubtarefa(3);
-        } else if(sub2Storage){
+        } else if (sub2Storage) {
             setQtdSubtarefa(2);
         }
-        
 
-    }
 
-    function plotarEtiquetas(){
-        
-        if(sessionStorage.getItem("etiqueta1") != undefined){
-            etiquetas.push({"idEtiqueta": Number(sessionStorage.getItem("etiqueta1").replace(/["]/g, ''))})
-        }
-
-        if(sessionStorage.getItem("etiqueta2") != undefined){
-            etiquetas.push({"idEtiqueta": Number(sessionStorage.getItem("etiqueta2").replace(/["]/g, ''))})
-        }
     }
 
     function apagarSubtarefa(idSub) {
@@ -107,24 +95,24 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
         setSubtarefa4(false);
     }
 
-    function reload(){
+    function reload() {
         window.location.reload(false);
     }
 
     function atualizarTarefa() {
-        if(sub1Storage !== sub1StorageRecebido){
+        if (sub1Storage !== sub1StorageRecebido) {
             apagarSubtarefa(idSub1);
             criarSubtarefa(sub1Storage)
         }
-        if(sub2Storage !== sub2StorageRecebido){
+        if (sub2Storage !== sub2StorageRecebido) {
             apagarSubtarefa(idSub2);
             criarSubtarefa(sub2Storage)
         }
-        if(sub3Storage !== sub3StorageRecebido){
+        if (sub3Storage !== sub3StorageRecebido) {
             apagarSubtarefa(idSub3);
             criarSubtarefa(sub3Storage)
         }
-        if(sub4Storage !== sub4StorageRecebido){
+        if (sub4Storage !== sub4StorageRecebido) {
             apagarSubtarefa(idSub4);
             criarSubtarefa(sub4Storage)
         }
@@ -133,17 +121,17 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
         if (selectImportancia === '-1') {
             toastAlert(`Necessário informar a importância da atividade`);
 
-        } else if (selectImportancia === '1') {
+        } else if (selectImportancia === '1' || selectImportancia === true) {
             setSelectImportancia(true);
-        } else if ('0') {
+        } else {
             setSelectImportancia(false);
         }
 
         if (selectUrgencia === '-1') {
             toastAlert(`Necessário informar a urgência da atividade`);
-        } else if (selectImportancia === '1') {
+        } else if (selectUrgencia === '1' || selectUrgencia === true) {
             setSelectUrgencia(true);
-        } else if ('0') {
+        } else {
             setSelectUrgencia(false);
         }
 
@@ -169,13 +157,20 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
                 "status": false
             })
         }
-
         if (sub4Storage !== "") {
             subtarefas.push({
                 "idSubTarefa": idSub4,
                 "titulo": sub4Storage,
                 "status": false
             })
+        }
+
+
+        if (sessionStorage.getItem("etiqueta1") !== undefined && sessionStorage.getItem("etiqueta1") !== `""`) {
+            etiquetas.push({ "idEtiqueta": Number(sessionStorage.getItem("etiqueta1").replace(/["]/g, '')) })
+        }
+        if (sessionStorage.getItem("etiqueta2") !== undefined && sessionStorage.getItem("etiqueta2") !== `""`) {
+            etiquetas.push({ "idEtiqueta": Number(sessionStorage.getItem("etiqueta2").replace(/["]/g, '')) })
         }
 
         const tarefaAtualizada = {
@@ -186,28 +181,31 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
             dataFinal: inputDataFinal,
             urgencia: selectUrgencia,
             importancia: selectImportancia,
+            etiquetas: etiquetas,
             status: false
         }
 
-
-
-        api.put(`/usuarios/${idUsuarioStorage}/tarefas/${idTarefa}`, tarefaAtualizada).then(res => {
-            toastSucesso(`Tarefa atualizada!`)
-            setTimeout(reload, 2000);            
-        }).catch(erro => {
-            console.log("erro: " + erro);
-            toastErro(erro);
-        })
+        atualizarTarefaApi(tarefaAtualizada)
 
 
     }
 
-    function criarSubtarefa(nomeSub){
+    function atualizarTarefaApi(tarefaAtualizada) {
+        api.put(`/usuarios/${idUsuarioStorage}/tarefas/${idTarefa}`, tarefaAtualizada).then(res => {
+            toastSucesso(`Tarefa atualizada!`)
+            setTimeout(reload, 2000);
+        }).catch(erro => {
+            console.log("erro: " + erro);
+            toastErro(erro);
+        })
+    }
+
+    function criarSubtarefa(nomeSub) {
         const novaSub = {
-            
-                "titulo": `${nomeSub}`,
-                "status": false
-            
+
+            "titulo": `${nomeSub}`,
+            "status": false
+
         }
 
         api.post(`/usuarios/${idUsuarioStorage}/tarefas/${idTarefa}/sub-tarefas`, novaSub).then(res => {
@@ -217,20 +215,20 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
         })
     }
 
-    function toastSucesso(texto){
+    function toastSucesso(texto) {
         toast.success(texto, {
-          position: "top-right",
-          autoClose: 1000,
-          hideProgressBar: false,
-          closeOnClick: false,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
+            position: "top-right",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
         });
-      }
+    }
 
-      function toastAlert(texto) {
+    function toastAlert(texto) {
         toast.info(texto, {
             position: "top-right",
             autoClose: 3000,
@@ -242,19 +240,19 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
             theme: "light",
         });
     }
-    
-      function toastErro(texto){
+
+    function toastErro(texto) {
         toast.error(texto, {
-          position: "top-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: false,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
         });
-      }
+    }
 
     function buscarAlturaModal() {
         switch (qtdSubtarefa) {
@@ -511,10 +509,10 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
 
                     <div className={style.continer_combo_etiquetas}>
                         <div id="" className={style.container_select_etiqueta}>
-                            <EtiquetaSelect/>
+                            <EtiquetaSelect />
                         </div>
                         <div id="" className={style.container_select_etiqueta}>
-                            <EtiquetaSelect2/>
+                            <EtiquetaSelect2 />
                         </div>
                     </div>
 

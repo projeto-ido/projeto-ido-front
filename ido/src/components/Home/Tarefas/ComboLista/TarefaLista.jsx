@@ -55,6 +55,9 @@ export default function TarefaLista(props){
     const [idSub3, setIdSub3] = useSessionStorageNumber("idSub3");
     const [idSub4, setIdSub4] = useSessionStorageNumber("idSub4");
 
+    const [etiqueta1, setEtiqueta1] = useSessionStorageNumber("etiqueta1");
+    const [etiqueta2, setEtiqueta2] = useSessionStorageNumber("etiqueta2");
+
     function plotarTarefa() {
         if (id !== undefined) {
             console.log(importancia)
@@ -85,6 +88,18 @@ export default function TarefaLista(props){
             if(props.subTarefas[3] !== undefined){
                 setSub4Storage(props.subTarefas[3].titulo);
                 setIdSub4(props.subTarefas[3].idSubTarefa)         
+            }
+            if(props.etiquetasTarefa[0] !== undefined){
+                setEtiqueta1(props.etiquetasTarefa[0])
+                console.log(props.etiquetasTarefa[0])
+            } else {
+                setEtiqueta1("")
+            }
+            if(props.etiquetasTarefa[1] !== undefined){
+                setEtiqueta2(props.etiquetasTarefa[1])
+                console.log(props.etiquetasTarefa[1])
+            } else {
+                setEtiqueta2("")
             }
 
             setPlotarSubTarefas(true);
