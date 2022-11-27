@@ -58,6 +58,15 @@ export default function TarefaGrupo(props) {
     const [etiqueta1, setEtiqueta1] = useSessionStorageNumber("etiqueta1");
     const [etiqueta2, setEtiqueta2] = useSessionStorageNumber("etiqueta2");
 
+    const [etiquetas, setEtiquetas] = useState([]);
+    var forPlotar = true;
+
+    useEffect(() => {
+        if(forPlotar){
+            plotarEtiquetaVisaoGeral()
+        }           
+    }, [])
+
     function plotarTarefa() {
         if (id !== undefined) {
             console.log(importancia)
@@ -91,13 +100,11 @@ export default function TarefaGrupo(props) {
             }
             if(props.etiquetasTarefa[0] !== undefined){
                 setEtiqueta1(props.etiquetasTarefa[0])
-                console.log(props.etiquetasTarefa[0])
             } else {
                 setEtiqueta1("")
             }
             if(props.etiquetasTarefa[1] !== undefined){
                 setEtiqueta2(props.etiquetasTarefa[1])
-                console.log(props.etiquetasTarefa[1])
             } else {
                 setEtiqueta2("")
             }
@@ -107,6 +114,16 @@ export default function TarefaGrupo(props) {
 
     }
 
+    function plotarEtiquetaVisaoGeral(){
+        if(props.etiquetasTarefa[0] !== undefined){
+            etiquetas.push(props.etiquetasTarefa[0])
+        } 
+        if(props.etiquetasTarefa[1] !== undefined){
+            etiquetas.push(props.etiquetasTarefa[1])
+        } 
+        forPlotar = false;
+       }
+
     return (
         <>
 
@@ -114,8 +131,10 @@ export default function TarefaGrupo(props) {
                 <div onClick={() => props.setOpenModalVerTarefa(true)} className={style.tarefa_combo}>
                     <span className={style.tarefa}>{titulo}</span>
                     <div className={style.container_etiquetas_matriz}>
-                        <div className={style.etiqueta}>Etiqueta</div>
-                        <div className={style.etiqueta} style={{ backgroundColor: "#51BDAB" }}>Etiqueta</div>
+                    {etiquetas.map((item) => (
+                        <div className={style.etiqueta} style={{ backgroundColor: item.cor }} >{item.titulo}</div>
+                    ))}
+                    
                     </div>
                 </div>
             </div>

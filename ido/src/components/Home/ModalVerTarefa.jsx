@@ -75,7 +75,6 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
             setQtdSubtarefa(2);
         }
 
-
     }
 
     function apagarSubtarefa(idSub) {
@@ -116,7 +115,6 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
             apagarSubtarefa(idSub4);
             criarSubtarefa(sub4Storage)
         }
-
 
         if (selectImportancia === '-1') {
             toastAlert(`Necessário informar a importância da atividade`);
@@ -164,7 +162,6 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
                 "status": false
             })
         }
-
 
         if (sessionStorage.getItem("etiqueta1") !== undefined && sessionStorage.getItem("etiqueta1") !== `""`) {
             etiquetas.push({ "idEtiqueta": Number(sessionStorage.getItem("etiqueta1").replace(/["]/g, '')) })
