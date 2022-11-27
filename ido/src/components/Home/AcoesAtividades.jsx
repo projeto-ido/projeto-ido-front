@@ -2,8 +2,11 @@ import React from "react";
 import iconfiltro from '../../assets/images/icon-filtro.png';
 import iconSoma from '../../assets/images/icon-soma.png';
 import style from './Home.module.css';
+import { useSessionStorageNumber } from "react-use-window-sessionstorage";
 
 export default function AcoesAtividades({ openModal, setOpenModal, tipoTarefa, setTipoTarefa, openModalVerTarefa, openGerenciadorEtiquetas}) {
+    const [etiqueta1, setEtiqueta1] = useSessionStorageNumber("etiqueta1");
+    const [etiqueta2, setEtiqueta2] = useSessionStorageNumber("etiqueta2");
 
     function handleChecked(tipo) {
 
@@ -19,6 +22,11 @@ export default function AcoesAtividades({ openModal, setOpenModal, tipoTarefa, s
         return style.menu_tarefa_off
 
 
+    }
+
+    function limparEtiquetas(){
+        setEtiqueta1("")
+        setEtiqueta2("")
     }
 
     return (
@@ -55,7 +63,7 @@ export default function AcoesAtividades({ openModal, setOpenModal, tipoTarefa, s
             </div>
 
             <div onClick={() => setOpenModal(true)} id="botaoAdicionarTarefa" className={style.botao_adicionar_tarefa}>
-                <div className={style.icon_soma}>
+                <div className={style.icon_soma} onClick={limparEtiquetas}>
                     <img id="iconSoma" src={iconSoma} alt="" />
                 </div>
                 <div style={{ display: "table" }}>

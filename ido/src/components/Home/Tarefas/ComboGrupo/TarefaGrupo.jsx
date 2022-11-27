@@ -85,18 +85,30 @@ export default function TarefaGrupo(props) {
             if(props.subTarefas[0] !== undefined){
                 setSub1Storage(props.subTarefas[0].titulo); 
                 setIdSub1(props.subTarefas[0].idSubTarefa)     
+            } else {
+                setSub1Storage("")
+                setIdSub1("")
             }
             if(props.subTarefas[1] !== undefined){
                 setSub2Storage(props.subTarefas[1].titulo);
                 setIdSub2(props.subTarefas[1].idSubTarefa)         
+            } else {
+                setSub2Storage("")
+                setIdSub2("")
             }
             if(props.subTarefas[2] !== undefined){
                 setSub3Storage(props.subTarefas[2].titulo); 
                 setIdSub3(props.subTarefas[2].idSubTarefa)        
+            } else {
+                setSub3Storage("")
+                setIdSub3("")
             }
             if(props.subTarefas[3] !== undefined){
                 setSub4Storage(props.subTarefas[3].titulo);
                 setIdSub4(props.subTarefas[3].idSubTarefa)         
+            } else {
+                setSub4Storage("")
+                setIdSub4("")
             }
             if(props.etiquetasTarefa[0] !== undefined){
                 setEtiqueta1(props.etiquetasTarefa[0])
@@ -134,7 +146,7 @@ export default function TarefaGrupo(props) {
                     {etiquetas.map((item) => (
                         <div className={style.etiqueta} style={{ backgroundColor: item.cor }} >{item.titulo}</div>
                     ))}
-                    
+
                     </div>
                 </div>
             </div>
