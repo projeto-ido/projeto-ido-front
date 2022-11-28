@@ -9,7 +9,7 @@ import Grupo from "./Tarefas/Grupo"
 import Lista from "./Tarefas/ComboLista/Lista"
 
 function HomeComponent({openModal, setOpenModal, openModalVerTarefa, setOpenModalVerTarefa, tipoTarefa, setTipoTarefa, openGerenciadorEtiquetas}){
-    
+
     function handleTarefa() {
         switch (tipoTarefa) {
             case "matriz":
@@ -27,7 +27,14 @@ function HomeComponent({openModal, setOpenModal, openModalVerTarefa, setOpenModa
     return(
         <>
             <Perfil />
-            <FilterPesquisar openModal={openModal}  openModalVerTarefa={openModalVerTarefa} openGerenciadorEtiquetas={openGerenciadorEtiquetas}/>
+            <FilterPesquisar 
+            openModal={openModal}  
+            openModalVerTarefa={openModalVerTarefa} 
+            openGerenciadorEtiquetas={openGerenciadorEtiquetas}
+            tipoTarefa={tipoTarefa}
+            setTipoTarefa={setTipoTarefa}
+
+            />
             <AcoesAtividades 
             openModalVerTarefa={openModalVerTarefa} 
             setOpenModal={setOpenModal}

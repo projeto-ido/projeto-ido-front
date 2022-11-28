@@ -60,7 +60,7 @@ export default function TarefaLista(props) {
 
     const [etiquetas, setEtiquetas] = useState([]);
     var forPlotar = true;
-
+    
     useEffect(() => {
         if (forPlotar) {
             plotarEtiquetaVisaoGeral()

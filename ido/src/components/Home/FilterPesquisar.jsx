@@ -1,13 +1,15 @@
 import React from "react";
 import iconLupa from '../../assets/images/icon-lupa.png';
 import style from './Home.module.css';
-
-export default function FilterPesquisar({openModal, openModalVerTarefa, openGerenciadorEtiquetas}){
+import { useSessionStorageString, useSessionStorageBoolean } from "react-use-window-sessionstorage";
+export default function FilterPesquisar({openModal, openModalVerTarefa, openGerenciadorEtiquetas, tipoTarefa, setTipoTarefa}){
+    const [palavraPesquisa, setParalavraPesquisa] = useSessionStorageString("palavraPesquisa")
+    const [atualizarFiltro, setAtualizarFiltro] = useSessionStorageBoolean("atualizarFiltro", false);
 
     return(
-        <div className={style.pesquisar_container}>
-            <div id="elementoPesquisar" className={style.elemento_pesquisar}>
-                <input id="inputPesquisar" className={style.input_pesquisar} type="text" placeholder="Pesquisar"/>
+        <div className={style.pesquisar_container} onChange={() => setAtualizarFiltro(true)}>
+            <div id="elementoPesquisar" className={style.elemento_pesquisar} onChange={() => setTipoTarefa("lista")}>
+                <input onChange={(e) => setParalavraPesquisa(e.target.value)} id="inputPesquisar" className={style.input_pesquisar} type="text" placeholder="Pesquisar"/>
                 <img id="iconLupa"  className={style.icon_lupa} src={iconLupa} alt="barra de pesquisa"/>
             </div>
         </div>
