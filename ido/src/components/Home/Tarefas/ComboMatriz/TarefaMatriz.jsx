@@ -12,9 +12,6 @@ export default function Tarefa(props) {
     const [descricaoStorage, setDescricaoStorage] = useSessionStorageString("descricaoStorage", "");
     const [descricao, setDescricao] = useState(props.descricao);
 
-    const [statusStorage, setStatusStorage] = useSessionStorageString("statusStorage", "");
-    const [status, setStatus] = useState(props.status);
-
     const [dataInicioStorage, setDataInicioStorage] = useSessionStorageString("dataInicioStorage", "");
     const [dataInicio, setDataInicio] = useState(props.dataInicio);
 
@@ -54,6 +51,8 @@ export default function Tarefa(props) {
     const [etiquetas, setEtiquetas] = useState([]);
     var forPlotar = true;
 
+    const [statusTarefa, setStatusTarefa] = useSessionStorageBoolean("statusTarefa")
+
     useEffect(() => {
         if(forPlotar){
             plotarEtiquetaVisaoGeral()
@@ -67,7 +66,6 @@ export default function Tarefa(props) {
             setIdTarefa(id);
             setTituloStorage(titulo);
             setDescricaoStorage(descricao);
-            setStatusStorage(status);
             setDataInicioStorage(dataInicio);
             setDataFinalStorage(dataFinal);
             setDataCriacaoStorage(dataCriacao);
@@ -75,7 +73,8 @@ export default function Tarefa(props) {
             setImportanciaStorage(importancia);
             setSubTarefasStorage(subTarefas);
             setFkUsuarioStorage(fkUsuario);
-            
+            setStatusTarefa(props.status);
+
             if(props.subTarefas[0] !== undefined){
                 setSub1Storage(props.subTarefas[0].titulo); 
                 setIdSub1(props.subTarefas[0].idSubTarefa)     
@@ -116,6 +115,8 @@ export default function Tarefa(props) {
                 setEtiqueta2("")
             }
             
+            console.log("statusss " + statusTarefa)
+
             setPlotarSubTarefas(true);
         }
 

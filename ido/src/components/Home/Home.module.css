@@ -869,9 +869,8 @@ header {
 }
 
 .classificacao{
-    width: 100%;
+    width: 96%;
     display: flex;
-    min-height: 30px;
 }
 
 .importancia{
@@ -912,9 +911,30 @@ header {
 }
 
 .prioridade{
+    width: 36%;
+    height: 9vh;
+
+}
+
+.progresso{
     width: 33.3%;
     height: 9vh;
+    margin-left: 2.5vw;
 }
+
+.input_status{
+    width: 3vw;
+    cursor: pointer;
+    height: 2.2vh;
+    margin-top: 2.5vh;
+    background-color: var(--cor--roxo);
+    
+}
+.texto_concluido{
+    font-size: 1.3vw; 
+    color: var(--cor--preta);
+}
+
 
 .resultado_prioridade{
     margin-left: 3.5vw;

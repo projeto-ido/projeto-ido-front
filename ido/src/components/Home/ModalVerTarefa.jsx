@@ -43,7 +43,7 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
     const [sub2StorageRecebido, SetSub2StorageRecebido] = useState("");
     const [sub3StorageRecebido, SetSub3StorageRecebido] = useState("");
     const [sub4StorageRecebido, SetSub4StorageRecebido] = useState("");
-
+    const [statusTarefa, setStatusTarefa] = useSessionStorageBoolean("statusTarefa")
     if (plotarSubTarefas) {
         plotarSubTarefasFunction();
         setPlotarSubTarefas(false);
@@ -182,7 +182,7 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
             urgencia: selectUrgencia,
             importancia: selectImportancia,
             etiquetas: etiquetas,
-            status: false
+            status: statusTarefa
         }
 
         atualizarTarefaApi(tarefaAtualizada)
@@ -200,7 +200,7 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
                 },
                 {
                     label: 'Deletar',
-                    
+
                     onClick: () => {
                         if (sub1Storage !== "") {
                             apagarSubtarefa(idSub1)
@@ -214,16 +214,16 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
                         if (sub4Storage !== "") {
                             apagarSubtarefa(idSub4)
                         }
-                
-                
+
+
                         setTimeout(apagarTarefaApi, 100);
                     }
                 }],
-                overlayClassName: style.confirme_alert,
-                
-                
+            overlayClassName: style.confirme_alert,
+
+
         })
-        
+
 
 
 
@@ -239,7 +239,6 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
             toastErro(erro);
         })
     }
-
 
     function atualizarTarefaApi(tarefaAtualizada) {
         api.put(`/usuarios/${idUsuarioStorage}/tarefas/${idTarefa}`, tarefaAtualizada).then(res => {
@@ -441,8 +440,6 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
     }
 
 
-
-
     return (
         <div className={`${style.modal_criar_tarefa} ${buscarAlturaModal()}`}>
             <div className={style.topo_modal_tarefa}>
@@ -461,6 +458,14 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
                 <img onClick={deletarTarefa} className={style.icon_apagar_tarefa} src={iconLixeira} alt="" />
             </div>
             <div className={style.classificacao}>
+
+                <div className={style.progresso}>
+                    <h3 className={style.titulo_importancia}>Progresso</h3>
+                    <input checked={Boolean(statusTarefa)} onClick={(e) => setStatusTarefa(e.target.checked)} className={style.input_status} type="checkbox" />
+                    <span className={style.texto_concluido}>Concluído</span>
+
+                </div>
+
                 <div className={style.importancia}>
                     <h3 className={style.titulo_importancia}>Importante </h3>
 
@@ -490,6 +495,9 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
 
 
                 </div>
+
+
+
                 <div className={style.prioridade}>
                     <h3 className={style.titulo_importancia}>Prioridade</h3>
                     <div className={style.resultado_prioridade}>
@@ -498,6 +506,8 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
                         </div>
                     </div>
                 </div>
+
+
 
             </div>
             <div className={style.datas_modal}>
