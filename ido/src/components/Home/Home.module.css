@@ -848,6 +848,26 @@ header {
     font-size: 1vw;
 }
 
+.input_titulo_tarefa_visualizacao{
+    width: 80%;
+    height: 4.2vh;
+    margin-left: 6.8%;
+    background: #E7E7E7;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 0 0;
+    outline: 0;
+    color: #7E7D7D;
+    font-size: 1vw;
+    margin-top: 1.5vh;
+    display: flex;
+}
+
+.container_titulo_lixo_tarefa{
+    display: flex;
+}
+
 .classificacao{
     width: 100%;
     display: flex;
@@ -1155,6 +1175,20 @@ header {
     top: 50%;
     transform: translateY(-50%);
     
+}
+
+.icon_apagar_tarefa{
+    width: 1.5vw;
+    height: 3.5vh;
+    display: flex;
+    margin-left: 1.5vw;
+    margin-top: 1.8vh;
+    cursor: pointer;
+}
+
+.confirme_alert{
+    margin-bottom: 60vh;
+    background: rgba(77, 139, 56, 0.9);
 }
 
 .container_select_etiqueta{

@@ -8,6 +8,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import EtiquetaSelect from "./Tarefas/Etiquetas/EtiquetaSelect";
 import EtiquetaSelect2 from "./Tarefas/Etiquetas/EtiquetaSelect2";
 
+import { confirmAlert } from 'react-confirm-alert'
+import 'react-confirm-alert/src/react-confirm-alert.css'
+
 export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTarefa }) {
     const [qtdSubtarefa, setQtdSubtarefa] = useState(1);
     const [subTarefa2, setSubtarefa2] = useState(false);
@@ -186,6 +189,57 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
 
 
     }
+
+    function deletarTarefa() {
+
+        confirmAlert({
+            message: `Gostaria de excluir essa tarefa?`,
+            buttons: [
+                {
+                    label: 'Cancelar',
+                },
+                {
+                    label: 'Deletar',
+                    
+                    onClick: () => {
+                        if (sub1Storage !== "") {
+                            apagarSubtarefa(idSub1)
+                        }
+                        if (sub2Storage !== "") {
+                            apagarSubtarefa(idSub2)
+                        }
+                        if (sub3Storage !== "") {
+                            apagarSubtarefa(idSub3)
+                        }
+                        if (sub4Storage !== "") {
+                            apagarSubtarefa(idSub4)
+                        }
+                
+                
+                        setTimeout(apagarTarefaApi, 100);
+                    }
+                }],
+                overlayClassName: style.confirme_alert,
+                
+                
+        })
+        
+
+
+
+
+    }
+
+    function apagarTarefaApi() {
+        api.delete(`/usuarios/${idUsuarioStorage}/tarefas/${idTarefa}`).then(res => {
+            toastSucesso("Tarefa deletada com sucesso.")
+            setTimeout(reload, 2000);
+        }).catch(erro => {
+            console.log("erro: " + erro);
+            toastErro(erro);
+        })
+    }
+
 
     function atualizarTarefaApi(tarefaAtualizada) {
         api.put(`/usuarios/${idUsuarioStorage}/tarefas/${idTarefa}`, tarefaAtualizada).then(res => {
@@ -386,6 +440,9 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
         return null;
     }
 
+
+
+
     return (
         <div className={`${style.modal_criar_tarefa} ${buscarAlturaModal()}`}>
             <div className={style.topo_modal_tarefa}>
@@ -399,7 +456,10 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
                 VISUALIZAÇÃO DE TAREFA
             </div>
             <h3 className={style.titulo_tarefa_modal}>Titulo</h3>
-            <input maxLength="40" value={inputTitulo} onChange={(e) => setInputTitulo(e.target.value)} className={style.input_titulo_tarefa} type="text" />
+            <div className={style.container_titulo_lixo_tarefa}>
+                <input maxLength="40" value={inputTitulo} onChange={(e) => setInputTitulo(e.target.value)} className={style.input_titulo_tarefa_visualizacao} type="text" />
+                <img onClick={deletarTarefa} className={style.icon_apagar_tarefa} src={iconLixeira} alt="" />
+            </div>
             <div className={style.classificacao}>
                 <div className={style.importancia}>
                     <h3 className={style.titulo_importancia}>Importante </h3>
@@ -520,7 +580,7 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
                 <div onClick={atualizarTarefa}
                     className={style.botao_salvar_tarefa}>
                     <div className={style.texto_salvar_tarefa}>
-                        Salvar Tarefa
+                        Atualizar Tarefa
                     </div>
                 </div>
             </div>
