@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Tarefa from "./TarefaGrupo";
+import Tarefa from "./TarefaMatriz";
 import style from "../../Home.module.css";
 import apiTarefa from "../../../../api/apiTarefa";
 import { useSessionStorageNumber } from "react-use-window-sessionstorage";
@@ -35,8 +35,6 @@ export default function TelaMatriz({ setOpenModalVerTarefa }) {
             setSub4Storage("");        
         
         apiTarefa.get(`/usuarios/${idUsuario}/tarefas`).then(res => {
-            console.log("dados", res.data);
-            console.log("status code", res.status);
             setListaTarefas(res.data);
             if (res.data === "") {
                 setListaTarefas([""])

@@ -12,9 +12,6 @@ export default function Tarefa(props) {
     const [descricaoStorage, setDescricaoStorage] = useSessionStorageString("descricaoStorage", "");
     const [descricao, setDescricao] = useState(props.descricao);
 
-    const [statusStorage, setStatusStorage] = useSessionStorageString("statusStorage", "");
-    const [status, setStatus] = useState(props.status);
-
     const [dataInicioStorage, setDataInicioStorage] = useSessionStorageString("dataInicioStorage", "");
     const [dataInicio, setDataInicio] = useState(props.dataInicio);
 
@@ -48,13 +45,27 @@ export default function Tarefa(props) {
     const [idSub3, setIdSub3] = useSessionStorageNumber("idSub3");
     const [idSub4, setIdSub4] = useSessionStorageNumber("idSub4");
 
+    const [etiqueta1, setEtiqueta1] = useSessionStorageNumber("etiqueta1");
+    const [etiqueta2, setEtiqueta2] = useSessionStorageNumber("etiqueta2");
+
+    const [etiquetas, setEtiquetas] = useState([]);
+    var forPlotar = true;
+
+    const [statusTarefa, setStatusTarefa] = useSessionStorageBoolean("statusTarefa")
+
+    useEffect(() => {
+        if(forPlotar){
+            plotarEtiquetaVisaoGeral()
+        }           
+    }, [])
+
+
     function plotarTarefa() {
         if (id !== undefined) {
             console.log(importancia)
             setIdTarefa(id);
             setTituloStorage(titulo);
             setDescricaoStorage(descricao);
-            setStatusStorage(status);
             setDataInicioStorage(dataInicio);
             setDataFinalStorage(dataFinal);
             setDataCriacaoStorage(dataCriacao);
@@ -62,30 +73,66 @@ export default function Tarefa(props) {
             setImportanciaStorage(importancia);
             setSubTarefasStorage(subTarefas);
             setFkUsuarioStorage(fkUsuario);
-            
+            setStatusTarefa(props.status);
+
             if(props.subTarefas[0] !== undefined){
                 setSub1Storage(props.subTarefas[0].titulo); 
                 setIdSub1(props.subTarefas[0].idSubTarefa)     
+            } else {
+                setSub1Storage("")
+                setIdSub1("")
             }
             if(props.subTarefas[1] !== undefined){
                 setSub2Storage(props.subTarefas[1].titulo);
                 setIdSub2(props.subTarefas[1].idSubTarefa)         
+            } else {
+                setSub2Storage("")
+                setIdSub2("")
             }
             if(props.subTarefas[2] !== undefined){
                 setSub3Storage(props.subTarefas[2].titulo); 
                 setIdSub3(props.subTarefas[2].idSubTarefa)        
+            } else {
+                setSub3Storage("")
+                setIdSub3("")
             }
             if(props.subTarefas[3] !== undefined){
                 setSub4Storage(props.subTarefas[3].titulo);
                 setIdSub4(props.subTarefas[3].idSubTarefa)         
+            } else {
+                setSub4Storage("")
+                setIdSub4("")
             }
+            
+            if(props.etiquetasTarefa[0] !== undefined){
+                setEtiqueta1(props.etiquetasTarefa[0])
+            } else {
+                setEtiqueta1("")
+            }
+            if(props.etiquetasTarefa[1] !== undefined){
+                setEtiqueta2(props.etiquetasTarefa[1])
+            } else {
+                setEtiqueta2("")
+            }
+            
+            console.log("statusss " + statusTarefa)
 
             setPlotarSubTarefas(true);
         }
 
+       
+
     }
     
-    
+   function plotarEtiquetaVisaoGeral(){
+    if(props.etiquetasTarefa[0] !== undefined){
+        etiquetas.push(props.etiquetasTarefa[0])
+    } 
+    if(props.etiquetasTarefa[1] !== undefined){
+        etiquetas.push(props.etiquetasTarefa[1])
+    } 
+    forPlotar = false;
+   }
 
     return (
         <>  <div onClick={plotarTarefa}>
@@ -93,8 +140,10 @@ export default function Tarefa(props) {
                 className={style.tarefa_combo}>
                 <span className={style.tarefa}>{titulo}</span>
                 <div className={style.container_etiquetas_matriz}>
-                    <div className={style.etiqueta}>Etiqueta</div>
-                    <div className={style.etiqueta} style={{ backgroundColor: "#51BDAB" }} >Etiqueta</div>
+                    {etiquetas.map((item) => (
+                        <div className={style.etiqueta} style={{ backgroundColor: item.cor }} >{item.titulo}</div>
+                    ))}
+                    
                 </div>
             </div>
         </div>

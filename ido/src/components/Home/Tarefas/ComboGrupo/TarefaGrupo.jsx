@@ -55,6 +55,17 @@ export default function TarefaGrupo(props) {
 
     const [plotarSubTarefas, setPlotarSubTarefas] = useSessionStorageBoolean("isAtualizarSubs");
 
+    const [etiqueta1, setEtiqueta1] = useSessionStorageNumber("etiqueta1");
+    const [etiqueta2, setEtiqueta2] = useSessionStorageNumber("etiqueta2");
+
+    const [etiquetas, setEtiquetas] = useState([]);
+    var forPlotar = true;
+
+    useEffect(() => {
+        if(forPlotar){
+            plotarEtiquetaVisaoGeral()
+        }           
+    }, [])
 
     function plotarTarefa() {
         if (id !== undefined) {
@@ -74,24 +85,56 @@ export default function TarefaGrupo(props) {
             if(props.subTarefas[0] !== undefined){
                 setSub1Storage(props.subTarefas[0].titulo); 
                 setIdSub1(props.subTarefas[0].idSubTarefa)     
+            } else {
+                setSub1Storage("")
+                setIdSub1("")
             }
             if(props.subTarefas[1] !== undefined){
                 setSub2Storage(props.subTarefas[1].titulo);
                 setIdSub2(props.subTarefas[1].idSubTarefa)         
+            } else {
+                setSub2Storage("")
+                setIdSub2("")
             }
             if(props.subTarefas[2] !== undefined){
                 setSub3Storage(props.subTarefas[2].titulo); 
                 setIdSub3(props.subTarefas[2].idSubTarefa)        
+            } else {
+                setSub3Storage("")
+                setIdSub3("")
             }
             if(props.subTarefas[3] !== undefined){
                 setSub4Storage(props.subTarefas[3].titulo);
                 setIdSub4(props.subTarefas[3].idSubTarefa)         
+            } else {
+                setSub4Storage("")
+                setIdSub4("")
+            }
+            if(props.etiquetasTarefa[0] !== undefined){
+                setEtiqueta1(props.etiquetasTarefa[0])
+            } else {
+                setEtiqueta1("")
+            }
+            if(props.etiquetasTarefa[1] !== undefined){
+                setEtiqueta2(props.etiquetasTarefa[1])
+            } else {
+                setEtiqueta2("")
             }
 
             setPlotarSubTarefas(true);
         }
 
     }
+
+    function plotarEtiquetaVisaoGeral(){
+        if(props.etiquetasTarefa[0] !== undefined){
+            etiquetas.push(props.etiquetasTarefa[0])
+        } 
+        if(props.etiquetasTarefa[1] !== undefined){
+            etiquetas.push(props.etiquetasTarefa[1])
+        } 
+        forPlotar = false;
+       }
 
     return (
         <>
@@ -100,8 +143,10 @@ export default function TarefaGrupo(props) {
                 <div onClick={() => props.setOpenModalVerTarefa(true)} className={style.tarefa_combo}>
                     <span className={style.tarefa}>{titulo}</span>
                     <div className={style.container_etiquetas_matriz}>
-                        <div className={style.etiqueta}>Etiqueta</div>
-                        <div className={style.etiqueta} style={{ backgroundColor: "#51BDAB" }}>Etiqueta</div>
+                    {etiquetas.map((item) => (
+                        <div className={style.etiqueta} style={{ backgroundColor: item.cor }} >{item.titulo}</div>
+                    ))}
+
                     </div>
                 </div>
             </div>

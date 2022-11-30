@@ -229,6 +229,7 @@ header {
     border-bottom-left-radius: 10px;
     cursor: pointer;
     font-size: 1.2vw;
+    color: rgb(27, 26, 26);
 
 }
 
@@ -502,8 +503,8 @@ header {
     border-radius: 5px;
     text-align: center;
     margin-top: 2vh;
-    color: #fffafab3;
-    font-weight: 200;
+    color: #000000;
+    font-weight: 400;
     margin-left: 3px;
 
 }
@@ -713,8 +714,8 @@ header {
     text-align: center;
     margin-left: 8vw;
     margin-top: 2vh;
-    color: #fffafab3;
-    font-weight: 200;
+    color: #000000;
+    font-weight: 400;
 
 }
 
@@ -847,10 +848,29 @@ header {
     font-size: 1vw;
 }
 
-.classificacao{
-    width: 100%;
+.input_titulo_tarefa_visualizacao{
+    width: 80%;
+    height: 4.2vh;
+    margin-left: 6.8%;
+    background: #E7E7E7;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 0 0;
+    outline: 0;
+    color: #7E7D7D;
+    font-size: 1vw;
+    margin-top: 1.5vh;
     display: flex;
-    min-height: 30px;
+}
+
+.container_titulo_lixo_tarefa{
+    display: flex;
+}
+
+.classificacao{
+    width: 96%;
+    display: flex;
 }
 
 .importancia{
@@ -891,9 +911,30 @@ header {
 }
 
 .prioridade{
+    width: 36%;
+    height: 9vh;
+
+}
+
+.progresso{
     width: 33.3%;
     height: 9vh;
+    margin-left: 2.5vw;
 }
+
+.input_status{
+    width: 3vw;
+    cursor: pointer;
+    height: 2.2vh;
+    margin-top: 2.5vh;
+    background-color: var(--cor--roxo);
+    
+}
+.texto_concluido{
+    font-size: 1.3vw; 
+    color: var(--cor--preta);
+}
+
 
 .resultado_prioridade{
     margin-left: 3.5vw;
@@ -1154,6 +1195,20 @@ header {
     top: 50%;
     transform: translateY(-50%);
     
+}
+
+.icon_apagar_tarefa{
+    width: 1.5vw;
+    height: 3.5vh;
+    display: flex;
+    margin-left: 1.5vw;
+    margin-top: 1.8vh;
+    cursor: pointer;
+}
+
+.confirme_alert{
+    margin-bottom: 60vh;
+    background: rgba(77, 139, 56, 0.9);
 }
 
 .container_select_etiqueta{
