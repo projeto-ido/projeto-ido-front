@@ -125,11 +125,11 @@ main .main__container{
 
 /* CADASTRO */
 ::-webkit-scrollbar {
-    width: 0.2vw;
+    width: 0.8vw;
 }
 
 ::-webkit-scrollbar-track {
-    background: #363434;
+    background: var(--cor--preta);
     border-radius: 100vw;
     margin-block: .3vw;
 }
@@ -137,7 +137,7 @@ main .main__container{
 ::-webkit-scrollbar-thumb {
     background: white;
     border-radius: 100vw;
-    border: .3vw #FFF solid;
+    border: .2vw var(--cor--preta) solid;
 }
 
 ::-webkit-scrollbar-thumb:hover {

@@ -7,44 +7,11 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import style from '../../components/Home/HomeComponent';
 
+import acessibilidade from "../../scripts/acessibilidade";
+import apiGerenciadorEtiquetas from "../../api/apiService"
 
 function Home(params) {
-    if(sessionStorage.getItem("name") === "Normal") {
-        /* NORMAL */
-        document.body.style.setProperty('--cor--azul', '#5D84C2');
-        document.body.style.setProperty('--cor--verde', '#51BDAB');
-        document.body.style.setProperty('--cor--roxo', '#7463C7');
-        document.body.style.setProperty('--cor--amarela', '#FFCA6D');
-
-    } else if (sessionStorage.getItem("name") === "Protanopia") {
-        /* PROTANOPIA */
-        document.body.style.setProperty('--cor--azul', '#5D84C2');
-        document.body.style.setProperty('--cor--verde', '#DAD080');
-        document.body.style.setProperty('--cor--roxo', '#059ECC');
-        document.body.style.setProperty('--cor--amarela', '#FFE36D');
-
-    } else if(sessionStorage.getItem("name") === "Deuteranopia") {
-        /* DEUTERANOPIA */
-        document.body.style.setProperty('--cor--azul', '#5D84C2');
-        document.body.style.setProperty('--cor--verde', '#00C34D');
-        document.body.style.setProperty('--cor--roxo', '#1CA0C7');
-        document.body.style.setProperty('--cor--amarela', '#FFCA6D');
-
-    } else if (sessionStorage.getItem("name") === "Tritanopia") {
-        /* TRITANOPIA */
-        document.body.style.setProperty('--cor--azul', '#95F313');
-        document.body.style.setProperty('--cor--verde', '#238FF7');
-        document.body.style.setProperty('--cor--roxo', '#FFA58D');
-        document.body.style.setProperty('--cor--amarela', '#E44D4D');
-
-    } else {
-        /* NORMAL */
-        document.body.style.setProperty('--cor--azul', '#5D84C2');
-        document.body.style.setProperty('--cor--verde', '#51BDAB');
-        document.body.style.setProperty('--cor--roxo', '#7463C7');
-        document.body.style.setProperty('--cor--amarela', '#FFCA6D');
-        
-    }
+    acessibilidade();
 
     function notificarSucesso(){
         toast.success("Cores alteradas!", {
@@ -66,7 +33,17 @@ function Home(params) {
     const [openHome, setOpenHome] = useState(true);
     const [openAcessibilidade, setOpenAcessibilidade] = useState(false);
     const [pomodoroAtivo, setPomodoroAtivo] = useState(false);
+    const idUsuario = sessionStorage.getItem("idLogado")
 
+    function limparAcoes(){
+        apiGerenciadorEtiquetas.delete(`/usuarios/${idUsuario}/etiquetas/acoes`)
+        .then((res) => {
+            console.log("Ações limpas")
+        }
+        ).catch((erro) => {
+            console.log(erro)
+        })
+    }
 
     return (
         <>  
@@ -81,7 +58,7 @@ function Home(params) {
                     setOpenAcessibilidade={setOpenAcessibilidade}
                 />
                 {
-                    openGerenciadorEtiquetas ? <GerenciadorEtiquetas /> : null
+                    openGerenciadorEtiquetas ? <GerenciadorEtiquetas /> : limparAcoes()
                 }
                 {
                     openAcessibilidade ? <Acessibilidade 

@@ -1,57 +1,58 @@
 import React, { useState, useEffect } from 'react';
-import apiPerfil from '../../api/apiPerfil';
-import { Link } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
 import styles from "./Perfil.module.css";
+import apiService from '../../api/apiService';
+import fotoPerfil from '../../assets/images/ido-utilizador.png'
 
 function Sidebar() {
+    const navigate = useNavigate();
     const [listaInfoUser, setListaInfoUser] = useState([])
-
+    
     useEffect(() => {
-        apiPerfil.get().then(res => {
+        var idUsuario = sessionStorage.getItem("id");
+        apiService.get(`/usuarios/perfil/info-adicionais/${idUsuario}`).then(res => {
           setListaInfoUser(res.data);
         }).catch(erro => {
           console.log(erro);
         })
     }, [])
 
+    function sair() {
+        navigate("/home")
+    }
+
     return(
         <>
             {
                 listaInfoUser.map(infoAtual => (
-                    <React.Fragment key={infoAtual.id}>
+                    <React.Fragment>
                         <div className={styles.toolbar}>
                             <div className={styles.container}>
                                 <div>
                                     <div className={styles.foto_perfil}>
-                                        <img src={infoAtual.imagem} alt="Foto de perfil do usuário" />
-
-                                        <div>
+                                        {
+                                            fotoPerfil = sessionStorage.getItem("imagemPerfil") == null ? sessionStorage.getItem("imagemPerfil") : fotoPerfil
+                                        }
+                                        <img src={fotoPerfil} alt="Foto de perfil do usuário" />
+                                        
+                                        {/* <div>
                                             <div className={styles.nivel}>
                                                 <span id="nm-nivel">{infoAtual.nivel}</span>
                                             </div>
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </div>
-
-                                        <div className={styles.opcoes}>
-                                            <span id="nome_usuario">{infoAtual.titulo}</span>
-                                            <span id="usuario">@{infoAtual.texto}</span>
-                                            <button>Editar Perfil</button>
-                                            <button>
-                                                <Link to="/home" className={styles.sair}>
-                                                    Sair
-                                                </Link>
-                                            </button>
-                                        </div>
-
+                                    <div className={styles.opcoes}>
+                                        <span id="nome_usuario">{sessionStorage.getItem("nome")}</span>
+                                        <span id="usuario">@{sessionStorage.getItem("apelido")}</span>
+                                        <button onClick={sair}>Sair</button>
+                                    </div>
                                 <div className={styles.status}>
                                     <div className={styles.status_container}>
                                         <h1>Status Gerais</h1>
-                                        <span>Total de tarefas: {infoAtual.totalTarefa}</span>
-                                        <span>Tarefas pendentes: {infoAtual.tarefaPendente}</span>
-                                        <span>Tarefas concluídas: {infoAtual.tarefaConcluida}</span>
-                                        <span>Total de conquistas: {infoAtual.totalConquista}</span>
+                                        <span>Total de tarefas: {infoAtual.qtdTarefas}</span>
+                                        <span>Tarefas pendentes: {infoAtual.qtdTarefasPendentes}</span>
+                                        <span>Tarefas concluídas: {infoAtual.qtdTarefasConcluidas}</span>
                                     </div>
                                 </div>
                             </div>

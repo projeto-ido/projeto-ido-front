@@ -307,6 +307,15 @@
     background-color: var(--cor--azul);
 }
 
+.descricao {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: left;
+    width: 90%;
+    height: 100%;
+}
+
 .biggerCard{
     background-image: url("../../assets/images/card-matriz.png");
     background-size: cover;
