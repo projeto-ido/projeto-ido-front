@@ -8,20 +8,35 @@ import Beneficios from "../../components/SiteInstitucional/Beneficios";
 import Footer from "../../components/SiteInstitucional/Footer";
 import styles from "../../components/SiteInstitucional/SiteInstitucional.module.css";
 import acessibilidade from "../../scripts/acessibilidade";
+import axios from "axios";
+import fileDownload from "js-file-download";
 
 function SiteInstitucional(){
     acessibilidade();
 
+    const handleDownload = (url,filename) => {
+        // const url = "localhost:8080/usuarios/1/exportacao/grava/csv/teste"
+        axios.post(url, null)
+        .then(res => {
+            fileDownload(res.data, filename)
+        }).catch(erro => {
+            console.log(erro);
+        })
+    }
+
     return(
         <>
+
+
         <main className={styles.bodySiteInstitucional}>
-            <Navbar />
+        <button onClick={() => {handleDownload('/usuarios/1/exportacao/grava/csv/teste' ,'aaaaloooo')}}>Download</button>
+            {/* <Navbar />
             <Banner />
             <BannerIcons />
             <BannerRadio />
             <Metodologias />
             <Beneficios />
-            <Footer />
+            <Footer /> */}
         </main>
         </>
     );
