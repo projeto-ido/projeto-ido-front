@@ -398,7 +398,7 @@ body{
 }
 
 .div_up .item_rectangle_bio .overview_imagem img {
-    height: 100%;
+    width: 100%;
 }
 
 /* CONQUISTAS */
@@ -770,7 +770,7 @@ body{
 }
 
 .div_editor .imagem_perfil_editor .biografia_editor .biografia img {
-    height: 100%;
+    width: 100%;
 }
 
 .div_editor .imagem_perfil_editor .biografia_editor .div_image_icon_lapis {

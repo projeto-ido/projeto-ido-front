@@ -7,6 +7,7 @@ import Perfil from "./Perfil";
 import Matriz from "./Tarefas/ComboMatriz/Matriz"
 import Grupo from "./Tarefas/Grupo"
 import Lista from "./Tarefas/ComboLista/Lista"
+import style from "./Home.module.css"
 
 function HomeComponent({openModal, setOpenModal, openModalVerTarefa, setOpenModalVerTarefa, tipoTarefa, setTipoTarefa, openGerenciadorEtiquetas}){
     
@@ -25,7 +26,7 @@ function HomeComponent({openModal, setOpenModal, openModalVerTarefa, setOpenModa
     
     return(
         <>
-            <Perfil />
+            <div className={style.div_espacamento} />
             <FilterPesquisar openModal={openModal}  openModalVerTarefa={openModalVerTarefa} openGerenciadorEtiquetas={openGerenciadorEtiquetas}/>
             <AcoesAtividades 
             openModalVerTarefa={openModalVerTarefa} 
