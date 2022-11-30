@@ -65,6 +65,7 @@ function Home(params) {
     const [openGerenciadorEtiquetas, setOpenGerenciadorEtiquetas] = useState(false);
     const [openHome, setOpenHome] = useState(true);
     const [openAcessibilidade, setOpenAcessibilidade] = useState(false);
+    const [pomodoroAtivo, setPomodoroAtivo] = useState(false);
 
 
     return (
@@ -88,6 +89,9 @@ function Home(params) {
                         setOpenAcessibilidade={setOpenAcessibilidade} 
                         funcaoNotificar={notificarSucesso}/> : null
                 }
+                {
+                    pomodoroAtivo ? <div className={style.fundo_escuro}></div> : null
+                }
                 {(openModal || openModalVerTarefa) && <div className={style.fundo_escuro} onClick={() => setOpenModal(false)} ></div>}
                 <div className={style.funcional}>
                     <HomeComponent 
@@ -98,7 +102,8 @@ function Home(params) {
                         tipoTarefa={tipoTarefa}
                         setTipoTarefa={setTipoTarefa}
                         openGerenciadorEtiquetas={openGerenciadorEtiquetas}
-                    />
+                        setPomodoroAtivo={setPomodoroAtivo}
+                        />
                 </div>
             </main>
         </>

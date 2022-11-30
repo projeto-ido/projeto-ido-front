@@ -197,6 +197,13 @@ header {
     min-height: 20px;
 }
 
+.pesquisar_container img {
+    height: 4%;
+    width: 4%;
+    margin-left: 0.7%;
+    margin-top: -0.6%;
+}
+
 .elemento_pesquisar {
     background-color: #E7E7E7;
     width: 38vw;

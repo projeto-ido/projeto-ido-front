@@ -10,7 +10,7 @@ import Lista from "./Tarefas/ComboLista/Lista"
 import Spotify from "../../components/Spotify/Spotify";
 
 
-function HomeComponent({ openModal, setOpenModal, openModalVerTarefa, setOpenModalVerTarefa, tipoTarefa, setTipoTarefa, openGerenciadorEtiquetas }) {
+function HomeComponent({ openModal, setOpenModal, openModalVerTarefa, setOpenModalVerTarefa, tipoTarefa, setTipoTarefa, openGerenciadorEtiquetas, setPomodoroAtivo }) {
 
     function handleTarefa() {
         switch (tipoTarefa) {
@@ -29,7 +29,8 @@ function HomeComponent({ openModal, setOpenModal, openModalVerTarefa, setOpenMod
     return (
         <>
                 <Perfil />
-                <FilterPesquisar openModal={openModal} openModalVerTarefa={openModalVerTarefa} openGerenciadorEtiquetas={openGerenciadorEtiquetas} />
+                <FilterPesquisar openModal={openModal} openModalVerTarefa={openModalVerTarefa} openGerenciadorEtiquetas={openGerenciadorEtiquetas} setPomodoroAtivo={setPomodoroAtivo}/> 
+        
                 <AcoesAtividades
                     openModalVerTarefa={openModalVerTarefa}
                     setOpenModal={setOpenModal}
