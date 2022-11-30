@@ -1,5 +1,5 @@
 import React from "react";
-import style from "../assets/css/pomodoro.css"
+import style from "../Pomodoro/pomodoro.module.css"
 
 
 export default function Pomodoro({}){
