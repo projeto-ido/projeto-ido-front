@@ -45,6 +45,7 @@ function HomeComponent({ openModal, setOpenModal, openModalVerTarefa, setOpenMod
             openModalVerTarefa={openModalVerTarefa} 
             setOpenModalVerTarefa={setOpenModalVerTarefa}/>
             {handleTarefa()}
+            <Spotify/>
         </>
     );
 }
