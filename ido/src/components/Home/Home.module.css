@@ -266,6 +266,10 @@ header {
 
 }
 
+.filtro_etiquetas{
+    width: 100%;
+}
+
 .opcoes_visualizacao {
     margin-top: 4vh;
     margin-left: 3.4vw;
