@@ -9,14 +9,12 @@ export default function ContainerAgendar({ setOpenModalVerTarefa }) {
     const [sub1Storage, setSub1Storage] = useSessionStorageString("subTarefa1")
     const [sub2Storage, setSub2Storage] = useSessionStorageString("subTarefa2")
     const [sub3Storage, setSub3Storage] = useSessionStorageString("subTarefa3")
-    const [sub4Storage, setSub4Storage] = useSessionStorageString("subTarefa4")
 
     useEffect(() => {
         var idUsuario = sessionStorage.getItem("idLogado");
         setSub1Storage("");       
         setSub2Storage("");        
         setSub3Storage("");        
-        setSub4Storage(""); 
         
         apiTarefa.get(`/usuarios/${idUsuario}/tarefas`).then(res => {
             console.log("dados", res.data);

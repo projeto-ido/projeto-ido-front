@@ -5,7 +5,6 @@ import ContainerFazerAgora from "./ComboGrupo/ContainerFazerAgora";
 import ContainerAgendar from "./ComboGrupo/ContainerAgendar";
 import ContainerDelegar from "./ComboGrupo/ContainerDelegar";
 import ContainerNaoPriorizar from "./ComboGrupo/ContainerNaoPriorizar";
-import Spotify from "../../Spotify/Spotify";
 import style from '../Home.module.css';
 
 export default function Grupo({setOpenModalVerTarefa}) {
@@ -152,7 +151,7 @@ export default function Grupo({setOpenModalVerTarefa}) {
 
             </div>
             {handleContainerNaoPriorizar()}
-            <Spotify/>
+            {/* <Spotify/> */}
         </div>
     );
 }

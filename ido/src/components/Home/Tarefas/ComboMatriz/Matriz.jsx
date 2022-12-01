@@ -3,7 +3,6 @@ import Tarefa from "./TarefaMatriz";
 import style from "../../Home.module.css";
 import apiTarefa from "../../../../api/apiTarefa";
 import { useSessionStorageNumber, useSessionStorageBoolean, useSessionStorageString } from "react-use-window-sessionstorage";
-import Spotify from "../../../Spotify/Spotify";
 
 export default function TelaMatriz({ setOpenModalVerTarefa }) {
     const [listaTarefas, setListaTarefas] = useState([]);
@@ -23,7 +22,6 @@ export default function TelaMatriz({ setOpenModalVerTarefa }) {
     const [sub1Storage, setSub1Storage] = useSessionStorageString("subTarefa1")
     const [sub2Storage, setSub2Storage] = useSessionStorageString("subTarefa2")
     const [sub3Storage, setSub3Storage] = useSessionStorageString("subTarefa3")
-    const [sub4Storage, setSub4Storage] = useSessionStorageString("subTarefa4")
     const [atualizarFiltroEtiqueta, setAtualizarFiltroEtiqueta] = useSessionStorageBoolean("atualizarFiltroEtiqueta", false);
 
     useEffect(() => {
@@ -31,10 +29,10 @@ export default function TelaMatriz({ setOpenModalVerTarefa }) {
         setSub1Storage("");
         setSub2Storage("");
         setSub3Storage("");
-        setSub4Storage("");
 
         apiTarefa.get(`/usuarios/${idUsuario}/tarefas`).then(res => {
             setListaTarefas(res.data);
+            console.log(res.data)
             if (res.data === "") {
                 setListaTarefas([""])
             }
@@ -218,8 +216,6 @@ export default function TelaMatriz({ setOpenModalVerTarefa }) {
                     </div>
                 </div>
             </div>
-
-            <Spotify />
 
         </div>
     );

@@ -13,7 +13,9 @@ function GerenciamentoEtiqueta({
   setCorEtiqueta,
   setTextoBotao,
   funcaoDeletar,
-  setIdEtiquetaSelecionada
+  setIdEtiquetaSelecionada,
+  setTituloEtiquetaEditada,
+  setCorEtiquetaEditada
 }) {
 
   function setOpenModalAndTexto(){
@@ -22,6 +24,8 @@ function GerenciamentoEtiqueta({
     setCorEtiqueta(cor)
     setTextoBotao("Salvar")
     setIdEtiquetaSelecionada(id)
+    setTituloEtiquetaEditada(titulo)
+    setCorEtiquetaEditada(cor)
   }
   
   return (
@@ -30,7 +34,7 @@ function GerenciamentoEtiqueta({
         <Etiqueta titulo={titulo} cor={cor} classe={style.container_etiqueta}/>
         <div className={style.container_acoes}>
           <img className={style.acoes} src={iconEditar} alt="icone lapis" onClick={() => setOpenModalAndTexto()} />
-          <img src={iconLixeira} className={style.acoes} onClick={() => funcaoDeletar(id)} alt="icone lixeira" />
+          <img src={iconLixeira} className={style.acoes} onClick={() => funcaoDeletar(id, titulo, cor)} alt="icone lixeira" />
         </div>
       </div>
     </>

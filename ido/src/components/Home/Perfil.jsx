@@ -1,20 +1,31 @@
 import React from "react";
-import perfil from '../../assets/images/icon-perfil.png';
-import { Link } from "react-router-dom";
-
 import style from './Home.module.css';
-
+import fotoPerfil from '../../assets/images/ido-utilizador.png'
+import { useNavigate } from 'react-router-dom';
 
 function Perfil() {
     var nomeUsuario = sessionStorage.getItem("nomeLogado");
+    const navigate = useNavigate();
+
+    function mudarPerfil() {
+        navigate("/perfil")
+    }
+
+    {
+        fotoPerfil = sessionStorage.getItem("imagemPerfil") == null ? sessionStorage.getItem("imagemPerfil") : fotoPerfil
+    }
 
     return (
         <>
             <header>
                 <p className={style.nome_logado}>Bem vindo, {nomeUsuario}</p>
-                <Link to="/perfil">
+                <div onClick={mudarPerfil}>
+                    <img src={fotoPerfil} alt="Foto do Perfil" />
+                </div>
+
+                {/* <Link to="/perfil">
                     <img className={style.foto_perfil} src={perfil} alt="foto do perfil do usuário" />
-                </Link>
+                </Link> */}
             </header>
         </>
     );
