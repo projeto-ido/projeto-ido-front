@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import Tarefa from "./TarefaMatriz";
 import style from "../../Home.module.css";
 import apiTarefa from "../../../../api/apiTarefa";
-import { useSessionStorageNumber } from "react-use-window-sessionstorage";
-import { useSessionStorageString } from "react-use-window-sessionstorage";
+import { useSessionStorageNumber, useSessionStorageBoolean, useSessionStorageString } from "react-use-window-sessionstorage";
 import Spotify from "../../../Spotify/Spotify";
 
 export default function TelaMatriz({ setOpenModalVerTarefa }) {
@@ -25,15 +24,15 @@ export default function TelaMatriz({ setOpenModalVerTarefa }) {
     const [sub2Storage, setSub2Storage] = useSessionStorageString("subTarefa2")
     const [sub3Storage, setSub3Storage] = useSessionStorageString("subTarefa3")
     const [sub4Storage, setSub4Storage] = useSessionStorageString("subTarefa4")
-
+    const [atualizarFiltroEtiqueta, setAtualizarFiltroEtiqueta] = useSessionStorageBoolean("atualizarFiltroEtiqueta", false);
 
     useEffect(() => {
         var idUsuario = sessionStorage.getItem("idLogado");
-            setSub1Storage("");       
-            setSub2Storage("");        
-            setSub3Storage("");        
-            setSub4Storage("");        
-        
+        setSub1Storage("");
+        setSub2Storage("");
+        setSub3Storage("");
+        setSub4Storage("");
+
         apiTarefa.get(`/usuarios/${idUsuario}/tarefas`).then(res => {
             setListaTarefas(res.data);
             if (res.data === "") {
@@ -47,6 +46,9 @@ export default function TelaMatriz({ setOpenModalVerTarefa }) {
 
     }, [])
 
+    function isEtiqueta1() {
+
+    }
 
     return (
         <div id="tarefas-geral-matriz" className={style.tarefas_geral_matriz}>
@@ -58,7 +60,16 @@ export default function TelaMatriz({ setOpenModalVerTarefa }) {
                     <h4 className={style.titulo_prioridade}>Fazer agora</h4>
                     <div className={style.containerTarefasMatriz}>
                         {
-                            listaTarefas.filter(tarefa => tarefa.importancia == true && tarefa.urgencia == true).map(tarefaAtual => (
+                            listaTarefas.filter(tarefa => tarefa.importancia == true && tarefa.urgencia == true
+                                //filtro por etiqueta
+                                && ((JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == "") ? true :
+                                (((tarefa.etiquetasTarefa[0] !== undefined && tarefa.etiquetasTarefa[1] !== undefined) ?
+                                    (JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == tarefa.etiquetasTarefa[0].idEtiqueta
+                                        || JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == tarefa.etiquetasTarefa[1].idEtiqueta) : false)
+                                    || ((tarefa.etiquetasTarefa[0] !== undefined && tarefa.etiquetasTarefa[1] == undefined) ?
+                                        JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == tarefa.etiquetasTarefa[0].idEtiqueta : false)
+                                ))
+                                ).map(tarefaAtual => (
 
                                 <React.Fragment key={tarefaAtual.idTarefa}>
                                     <Tarefa
@@ -88,7 +99,16 @@ export default function TelaMatriz({ setOpenModalVerTarefa }) {
                     <h4 className={style.titulo_prioridade}>Agendar</h4>
                     <div className={style.containerTarefasMatriz}>
                         {
-                            listaTarefas.filter(tarefa => tarefa.importancia == true && tarefa.urgencia == false).map(tarefaAtual => (
+                            listaTarefas.filter(tarefa => tarefa.importancia == true && tarefa.urgencia == false && tarefa.etiquetasTarefa //filtro por prioridade
+                                //filtro por etiqueta
+                                && ((JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == "") ? true :
+                                (((tarefa.etiquetasTarefa[0] !== undefined && tarefa.etiquetasTarefa[1] !== undefined) ?
+                                    (JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == tarefa.etiquetasTarefa[0].idEtiqueta
+                                        || JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == tarefa.etiquetasTarefa[1].idEtiqueta) : false)
+                                    || ((tarefa.etiquetasTarefa[0] !== undefined && tarefa.etiquetasTarefa[1] == undefined) ?
+                                        JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == tarefa.etiquetasTarefa[0].idEtiqueta : false)
+                                ))
+                            ).map(tarefaAtual => (
 
                                 <React.Fragment key={tarefaAtual.idTarefa}>
                                     <Tarefa
@@ -123,7 +143,16 @@ export default function TelaMatriz({ setOpenModalVerTarefa }) {
                     <h4 className={style.titulo_prioridade}>Delegar</h4>
                     <div className={style.containerTarefasMatriz}>
                         {
-                            listaTarefas.filter(tarefa => tarefa.importancia == false && tarefa.urgencia == true).map(tarefaAtual => (
+                            listaTarefas.filter(tarefa => tarefa.importancia == false && tarefa.urgencia == true
+                                //filtro por etiqueta
+                                && ((JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == "") ? true :
+                                (((tarefa.etiquetasTarefa[0] !== undefined && tarefa.etiquetasTarefa[1] !== undefined) ?
+                                    (JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == tarefa.etiquetasTarefa[0].idEtiqueta
+                                        || JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == tarefa.etiquetasTarefa[1].idEtiqueta) : false)
+                                    || ((tarefa.etiquetasTarefa[0] !== undefined && tarefa.etiquetasTarefa[1] == undefined) ?
+                                        JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == tarefa.etiquetasTarefa[0].idEtiqueta : false)
+                                ))
+                            ).map(tarefaAtual => (
 
                                 <React.Fragment key={tarefaAtual.idTarefa}>
                                     <Tarefa
@@ -154,7 +183,15 @@ export default function TelaMatriz({ setOpenModalVerTarefa }) {
                     <div className={style.containerTarefasMatriz}>
                         {
 
-                            listaTarefas.filter(tarefa => tarefa.importancia == false && tarefa.urgencia == false).map(tarefaAtual => (
+                            listaTarefas.filter(tarefa => tarefa.importancia == false && tarefa.urgencia == false
+                                //filtro por etiqueta
+                                && ((JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == "") ? true :
+                                (((tarefa.etiquetasTarefa[0] !== undefined && tarefa.etiquetasTarefa[1] !== undefined) ?
+                                    (JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == tarefa.etiquetasTarefa[0].idEtiqueta
+                                        || JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == tarefa.etiquetasTarefa[1].idEtiqueta) : false)
+                                    || ((tarefa.etiquetasTarefa[0] !== undefined && tarefa.etiquetasTarefa[1] == undefined) ?
+                                        JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == tarefa.etiquetasTarefa[0].idEtiqueta : false)
+                                ))).map(tarefaAtual => (
 
                                 <React.Fragment key={tarefaAtual.idTarefa}>
                                     <Tarefa
@@ -182,7 +219,7 @@ export default function TelaMatriz({ setOpenModalVerTarefa }) {
                 </div>
             </div>
 
-        <Spotify/>
+            <Spotify />
 
         </div>
     );

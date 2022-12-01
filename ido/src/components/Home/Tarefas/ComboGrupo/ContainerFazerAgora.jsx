@@ -38,7 +38,16 @@ export default function ContainerFazerAgora({ setOpenModalVerTarefa }) {
             <div id="grupoFazerAgora" className={style.grupo_fazer_agora}>
                 <div className={style.grupoTarefas}>
                 {
-                            listaTarefas.filter(tarefa => tarefa.importancia == true && tarefa.urgencia == true).map(tarefaAtual => (
+                            listaTarefas.filter(tarefa => tarefa.importancia == true && tarefa.urgencia == true
+                                //filtro por etiqueta
+                                && ((JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == "") ? true :
+                                (((tarefa.etiquetasTarefa[0] !== undefined && tarefa.etiquetasTarefa[1] !== undefined) ?
+                                    (JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == tarefa.etiquetasTarefa[0].idEtiqueta
+                                        || JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == tarefa.etiquetasTarefa[1].idEtiqueta) : false)
+                                    || ((tarefa.etiquetasTarefa[0] !== undefined && tarefa.etiquetasTarefa[1] == undefined) ?
+                                        JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == tarefa.etiquetasTarefa[0].idEtiqueta : false)
+                                ))
+                                ).map(tarefaAtual => (
 
                                 <React.Fragment key={tarefaAtual.idTarefa}>
                                     <TarefaGrupo
