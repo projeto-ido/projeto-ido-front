@@ -10,8 +10,7 @@ import Lista from "./Tarefas/ComboLista/Lista"
 import Spotify from "../../components/Spotify/Spotify";
 import style from "./Home.module.css"
 
-function HomeComponent({ openModal, setOpenModal, openModalVerTarefa, setOpenModalVerTarefa, tipoTarefa, setTipoTarefa, openGerenciadorEtiquetas, setPomodoroAtivo }) {
-
+function HomeComponent({openModal, setOpenModal, openModalVerTarefa, setOpenModalVerTarefa, tipoTarefa, setTipoTarefa, openGerenciadorEtiquetas, setPomodoroAtivo}){
 
     function handleTarefa() {
         switch (tipoTarefa) {
@@ -29,7 +28,14 @@ function HomeComponent({ openModal, setOpenModal, openModalVerTarefa, setOpenMod
     return(
         <>
             <div className={style.div_espacamento} />
-            <FilterPesquisar openModal={openModal}  openModalVerTarefa={openModalVerTarefa} openGerenciadorEtiquetas={openGerenciadorEtiquetas} setPomodoroAtivo={setPomodoroAtivo}/>
+            <FilterPesquisar 
+            openModal={openModal}  
+            openModalVerTarefa={openModalVerTarefa} 
+            openGerenciadorEtiquetas={openGerenciadorEtiquetas}
+            tipoTarefa={tipoTarefa}
+            setTipoTarefa={setTipoTarefa}
+            setPomodoroAtivo={setPomodoroAtivo}
+            />
             <AcoesAtividades 
             openModalVerTarefa={openModalVerTarefa} 
             setOpenModal={setOpenModal}

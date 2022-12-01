@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 import TarefaLista from "./TarefaLista";
 import style from "../../Home.module.css";
 import apiTarefa from "../../../../api/apiTarefa";
-import { useSessionStorageNumber, useSessionStorageString } from "react-use-window-sessionstorage";
-// import Spotify from "../../../Spotify/Spotify";
+import { useSessionStorageNumber, useSessionStorageString, useSessionStorageBoolean } from "react-use-window-sessionstorage";
 
 export default function Lista({ setOpenModalVerTarefa }) {
     const [listaTarefas, setListaTarefas] = useState([]);
@@ -23,14 +22,16 @@ export default function Lista({ setOpenModalVerTarefa }) {
     const [sub2Storage, setSub2Storage] = useSessionStorageString("subTarefa2")
     const [sub3Storage, setSub3Storage] = useSessionStorageString("subTarefa3")
     const [sub4Storage, setSub4Storage] = useSessionStorageString("subTarefa4")
-
+    const [atualizarFiltro, setAtualizarFiltro] = useSessionStorageBoolean("atualizarFiltro");
+    const [atualizarFiltroEtiqueta, setAtualizarFiltroEtiqueta] = useSessionStorageBoolean("atualizarFiltroEtiqueta", false);
+    
     useEffect(() => {
         var idUsuario = sessionStorage.getItem("idLogado");
-        setSub1Storage("");       
-        setSub2Storage("");        
-        setSub3Storage("");        
-        setSub4Storage("");  
-        
+        setSub1Storage("");
+        setSub2Storage("");
+        setSub3Storage("");
+        setSub4Storage("");
+
         apiTarefa.get(`/usuarios/${idUsuario}/tarefas`).then(res => {
             console.log("dados", res.data);
             console.log("status code", res.status);
@@ -46,6 +47,42 @@ export default function Lista({ setOpenModalVerTarefa }) {
 
     }, [])
 
+    function tarefasFiltradas() {
+        return (
+            listaTarefas.filter(tarefa => tarefa.titulo.includes(sessionStorage.getItem("palavraPesquisa"))
+            //filtro por etiqueta
+            && ((JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == "") ? true :
+            (((tarefa.etiquetasTarefa[0] !== undefined && tarefa.etiquetasTarefa[1] !== undefined) ?
+                (JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == tarefa.etiquetasTarefa[0].idEtiqueta
+                    || JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == tarefa.etiquetasTarefa[1].idEtiqueta) : false)
+                || ((tarefa.etiquetasTarefa[0] !== undefined && tarefa.etiquetasTarefa[1] == undefined) ?
+                    JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == tarefa.etiquetasTarefa[0].idEtiqueta : false)
+            ))
+            ).map(tarefaAtual => (
+
+                <React.Fragment key={tarefaAtual.idTarefa}>
+                    <TarefaLista
+                        setOpenModalVerTarefa={setOpenModalVerTarefa}
+                        titulo={tarefaAtual.titulo}
+                        descricao={tarefaAtual.descricao}
+                        status={tarefaAtual.status}
+                        dataInicio={tarefaAtual.dataInicio}
+                        dataFinal={tarefaAtual.dataFinal}
+                        dataCriacao={tarefaAtual.dataCriacao}
+                        urgencia={tarefaAtual.urgencia}
+                        importancia={tarefaAtual.importancia}
+                        subTarefas={tarefaAtual.subTarefas}
+                        fkUsuario={tarefaAtual.FkUsuario}
+                        etiquetasTarefa={tarefaAtual.etiquetasTarefa}
+                        idTarefa={tarefaAtual.idTarefa}
+                        key={tarefaAtual.idTarefa}
+                    />
+                </React.Fragment>
+            ))
+        );
+        console.log("aqui de novo")
+    }
+
     return (
         <div id="tarefas-geral-lista" className={style.tarefas_geral_lista}>
             <div className={style.container_tipo_tarefa_topo}>
@@ -55,38 +92,10 @@ export default function Lista({ setOpenModalVerTarefa }) {
             </div>
             <div id="grupoFazerAgoraLista" className={style.grupo_fazer_agora_lista}>
                 <div className={style.tarefas_listadas}>
-                    {
-                        listaTarefas.map(tarefaAtual => (
-
-                            <React.Fragment key={tarefaAtual.idTarefa}>
-                                <TarefaLista
-                                    setOpenModalVerTarefa={setOpenModalVerTarefa}
-                                    titulo={tarefaAtual.titulo}
-                                    descricao={tarefaAtual.descricao}
-                                    status={tarefaAtual.status}
-                                    dataInicio={tarefaAtual.dataInicio}
-                                    dataFinal={tarefaAtual.dataFinal}
-                                    dataCriacao={tarefaAtual.dataCriacao}
-                                    urgencia={tarefaAtual.urgencia}
-                                    importancia={tarefaAtual.importancia}
-                                    subTarefas={tarefaAtual.subTarefas}
-                                    fkUsuario={tarefaAtual.FkUsuario}
-                                    etiquetasTarefa={tarefaAtual.etiquetasTarefa}
-                                    idTarefa={tarefaAtual.idTarefa}
-                                    key={tarefaAtual.idTarefa}
-                                />
-                            </React.Fragment>
-
-
-                        ))
-                    }
+                    {tarefasFiltradas()}
                 </div>
 
             </div>
-
-
-
-        {/* <Spotify/> */}
         </div>
     );
 }

@@ -5,8 +5,11 @@ import { useSessionStorageNumber, useSessionStorageString, useSessionStorageBool
 import style from "../../components/Home/Home.module.css";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import EtiquetaSelect from "./Tarefas/Etiquetas/EtiquetaSelect"; 
+import EtiquetaSelect from "./Tarefas/Etiquetas/EtiquetaSelect";
 import EtiquetaSelect2 from "./Tarefas/Etiquetas/EtiquetaSelect2";
+
+import { confirmAlert } from 'react-confirm-alert'
+import 'react-confirm-alert/src/react-confirm-alert.css'
 
 export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTarefa }) {
     const [qtdSubtarefa, setQtdSubtarefa] = useState(1);
@@ -19,8 +22,9 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
     const [inputDataInicio, setInputDataInicio] = useSessionStorageString("dataInicioStorage", "");
     const [inputDataFinal, setInputDataFinal] = useSessionStorageString("dataFinalStorage", "");
     const [inputDescricao, setInputDescricao] = useSessionStorageString("descricaoStorage", "");
-    const [etiqueta1, setEtiqueta1] = useState("");
-    const [etiqueta2, setEtiqueta2] = useState("");
+    const [etiqueta1, setEtiqueta1] = useSessionStorageNumber("etiqueta1");
+    const [etiqueta2, setEtiqueta2] = useSessionStorageNumber("etiqueta2");
+    const [etiquetas, setEtiquetas] = useState([]);
     const [prioridade, setPrioridade] = useState("");
     const [idTarefa, setIdTarefa] = useSessionStorageNumber("idDaTarefa", 0);
     const [fkUsuarioStorage, setFkUsuarioStorage] = useSessionStorageString("setFkUsuarioStorage", "");
@@ -33,16 +37,16 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
     const [idSub2, setIdSub2] = useSessionStorageNumber("idSub2");
     const [idSub3, setIdSub3] = useSessionStorageNumber("idSub3");
     const [subtarefas, setSubtarefas] = useState([]);
-    const [sub1StorageRecebido, SetSub1StorageRecebido ] = useState("");
-    const [sub2StorageRecebido, SetSub2StorageRecebido ] = useState("");
-    const [sub3StorageRecebido, SetSub3StorageRecebido ] = useState("");
     const [inputSubtarefa, setInputSubtarefa] = useState("")
-
+    const [sub1StorageRecebido, SetSub1StorageRecebido] = useState("");
+    const [sub2StorageRecebido, SetSub2StorageRecebido] = useState("");
+    const [sub3StorageRecebido, SetSub3StorageRecebido] = useState("");
+    const [statusTarefa, setStatusTarefa] = useSessionStorageBoolean("statusTarefa")
     if (plotarSubTarefas) {
         plotarSubTarefasFunction();
         setPlotarSubTarefas(false);
     }
-    
+
     function plotarSubTarefasFunction() {
 
         if (sub1Storage !== "") {
@@ -67,7 +71,6 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
         } else if(sub1Storage){
             setQtdSubtarefa(2);
         }
-        
 
     }
 
@@ -91,39 +94,38 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
         setSubt3Storage("")
     }
 
-    function reload(){
+    function reload() {
         window.location.reload(false);
     }
 
     function atualizarTarefa() {
-        if(sub1Storage !== sub1StorageRecebido){
+        if (sub1Storage !== sub1StorageRecebido) {
             apagarSubtarefa(idSub1);
             criarSubtarefa(sub1Storage)
         }
-        if(sub2Storage !== sub2StorageRecebido){
+        if (sub2Storage !== sub2StorageRecebido) {
             apagarSubtarefa(idSub2);
             criarSubtarefa(sub2Storage)
         }
-        if(sub3Storage !== sub3StorageRecebido){
+        if (sub3Storage !== sub3StorageRecebido) {
             apagarSubtarefa(idSub3);
             criarSubtarefa(sub3Storage)
         }
 
-
         if (selectImportancia === '-1') {
             toastAlert(`Necessário informar a importância da atividade`);
 
-        } else if (selectImportancia === '1') {
+        } else if (selectImportancia === '1' || selectImportancia === true) {
             setSelectImportancia(true);
-        } else if ('0') {
+        } else {
             setSelectImportancia(false);
         }
 
         if (selectUrgencia === '-1') {
             toastAlert(`Necessário informar a urgência da atividade`);
-        } else if (selectImportancia === '1') {
+        } else if (selectUrgencia === '1' || selectUrgencia === true) {
             setSelectUrgencia(true);
-        } else if ('0') {
+        } else {
             setSelectUrgencia(false);
         }
 
@@ -150,6 +152,13 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
             })
         }
 
+        if (sessionStorage.getItem("etiqueta1") !== undefined && sessionStorage.getItem("etiqueta1") !== `""`) {
+            etiquetas.push({ "idEtiqueta": Number(sessionStorage.getItem("etiqueta1").replace(/["]/g, '')) })
+        }
+        if (sessionStorage.getItem("etiqueta2") !== undefined && sessionStorage.getItem("etiqueta2") !== `""`) {
+            etiquetas.push({ "idEtiqueta": Number(sessionStorage.getItem("etiqueta2").replace(/["]/g, '')) })
+        }
+
         const tarefaAtualizada = {
             idTarefa: idTarefa,
             titulo: inputTitulo,
@@ -158,28 +167,78 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
             dataFinal: inputDataFinal,
             urgencia: selectUrgencia,
             importancia: selectImportancia,
-            status: false
+            etiquetas: etiquetas,
+            status: statusTarefa
         }
 
-
-
-        api.put(`/usuarios/${idUsuarioStorage}/tarefas/${idTarefa}`, tarefaAtualizada).then(res => {
-            toastSucesso(`Tarefa atualizada!`)
-            setTimeout(reload, 2000);            
-        }).catch(erro => {
-            console.log("erro: " + erro);
-            toastErro(erro);
-        })
+        atualizarTarefaApi(tarefaAtualizada)
 
 
     }
 
-    function criarSubtarefa(nomeSub){
+    function deletarTarefa() {
+
+        confirmAlert({
+            message: `Gostaria de excluir essa tarefa?`,
+            buttons: [
+                {
+                    label: 'Cancelar',
+                },
+                {
+                    label: 'Deletar',
+
+                    onClick: () => {
+                        if (sub1Storage !== "") {
+                            apagarSubtarefa(idSub1)
+                        }
+                        if (sub2Storage !== "") {
+                            apagarSubtarefa(idSub2)
+                        }
+                        if (sub3Storage !== "") {
+                            apagarSubtarefa(idSub3)
+                        }
+
+
+                        setTimeout(apagarTarefaApi, 100);
+                    }
+                }],
+            overlayClassName: style.confirme_alert,
+
+
+        })
+
+
+
+
+
+    }
+
+    function apagarTarefaApi() {
+        api.delete(`/usuarios/${idUsuarioStorage}/tarefas/${idTarefa}`).then(res => {
+            toastSucesso("Tarefa deletada com sucesso.")
+            setTimeout(reload, 2000);
+        }).catch(erro => {
+            console.log("erro: " + erro);
+            toastErro(erro);
+        })
+    }
+
+    function atualizarTarefaApi(tarefaAtualizada) {
+        api.put(`/usuarios/${idUsuarioStorage}/tarefas/${idTarefa}`, tarefaAtualizada).then(res => {
+            toastSucesso(`Tarefa atualizada!`)
+            setTimeout(reload, 2000);
+        }).catch(erro => {
+            console.log("erro: " + erro);
+            toastErro(erro);
+        })
+    }
+
+    function criarSubtarefa(nomeSub) {
         const novaSub = {
-            
-                "titulo": `${nomeSub}`,
-                "status": false
-            
+
+            "titulo": `${nomeSub}`,
+            "status": false
+
         }
 
         api.post(`/usuarios/${idUsuarioStorage}/tarefas/${idTarefa}/sub-tarefas`, novaSub).then(res => {
@@ -189,20 +248,20 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
         })
     }
 
-    function toastSucesso(texto){
+    function toastSucesso(texto) {
         toast.success(texto, {
-          position: "top-right",
-          autoClose: 1000,
-          hideProgressBar: false,
-          closeOnClick: false,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
+            position: "top-right",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
         });
-      }
+    }
 
-      function toastAlert(texto) {
+    function toastAlert(texto) {
         toast.info(texto, {
             position: "top-right",
             autoClose: 3000,
@@ -214,22 +273,21 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
             theme: "light",
         });
     }
-    
-      function toastErro(texto){
+
+    function toastErro(texto) {
         toast.error(texto, {
-          position: "top-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: false,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
+            position: "top-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
         });
-      }
+    }
 
     function buscarAlturaModal() {
-        console.log('qtddd ' + qtdSubtarefa)
         switch (qtdSubtarefa) {
             case 1:
                 return style.modal_1_subtarefas;
@@ -364,6 +422,7 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
         return null;
     }
 
+
     return (
         <div className={`${style.modal_criar_tarefa} ${buscarAlturaModal()}`}>
             <div className={style.topo_modal_tarefa}>
@@ -377,8 +436,19 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
                 VISUALIZAÇÃO DE TAREFA
             </div>
             <h3 className={style.titulo_tarefa_modal}>Titulo</h3>
-            <input maxLength="40" value={inputTitulo} onChange={(e) => setInputTitulo(e.target.value)} className={style.input_titulo_tarefa} type="text" />
+            <div className={style.container_titulo_lixo_tarefa}>
+                <input maxLength="40" value={inputTitulo} onChange={(e) => setInputTitulo(e.target.value)} className={style.input_titulo_tarefa_visualizacao} type="text" />
+                <img onClick={deletarTarefa} className={style.icon_apagar_tarefa} src={iconLixeira} alt="" />
+            </div>
             <div className={style.classificacao}>
+
+                <div className={style.progresso}>
+                    <h3 className={style.titulo_importancia}>Progresso</h3>
+                    <input checked={Boolean(statusTarefa)} onClick={(e) => setStatusTarefa(e.target.checked)} className={style.input_status} type="checkbox" />
+                    <span className={style.texto_concluido}>Concluído</span>
+
+                </div>
+
                 <div className={style.importancia}>
                     <h3 className={style.titulo_importancia}>Importante </h3>
 
@@ -408,6 +478,9 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
 
 
                 </div>
+
+
+
                 <div className={style.prioridade}>
                     <h3 className={style.titulo_importancia}>Prioridade</h3>
                     <div className={style.resultado_prioridade}>
@@ -416,6 +489,8 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
                         </div>
                     </div>
                 </div>
+
+
 
             </div>
             <div className={style.datas_modal}>
@@ -495,10 +570,10 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
 
                     <div className={style.continer_combo_etiquetas}>
                         <div id="" className={style.container_select_etiqueta}>
-                            <EtiquetaSelect/>
+                            <EtiquetaSelect />
                         </div>
                         <div id="" className={style.container_select_etiqueta}>
-                            <EtiquetaSelect2/>
+                            <EtiquetaSelect2 />
                         </div>
                     </div>
 
@@ -509,7 +584,7 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
                 <div onClick={atualizarTarefa}
                     className={style.botao_salvar_tarefa}>
                     <div className={style.texto_salvar_tarefa}>
-                        Salvar Tarefa
+                        Atualizar Tarefa
                     </div>
                 </div>
             </div>

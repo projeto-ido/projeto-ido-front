@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import iconfiltro from '../../assets/images/icon-filtro.png';
 import iconSoma from '../../assets/images/icon-soma.png';
 import style from './Home.module.css';
+import { useSessionStorageNumber } from "react-use-window-sessionstorage";
+import Etiquetas from '../Home/Tarefas/Etiquetas/EtiquetasFiltro';
 
-export default function AcoesAtividades({ openModal, setOpenModal, tipoTarefa, setTipoTarefa, openModalVerTarefa, openGerenciadorEtiquetas}) {
+export default function AcoesAtividades({ openModal, setOpenModal, tipoTarefa, setTipoTarefa, openModalVerTarefa, openGerenciadorEtiquetas }) {
+    const [etiqueta1, setEtiqueta1] = useSessionStorageNumber("etiqueta1");
+    const [etiqueta2, setEtiqueta2] = useSessionStorageNumber("etiqueta2");
+    const [etiquetaFiltro, setEtiquetaFiltro] = useSessionStorageNumber("etiquetaFiltro");
+
+    // useEffect(() => {
+    //     setEtiquetaFiltro("")   
+    // }, [])
 
     function handleChecked(tipo) {
 
@@ -21,32 +30,33 @@ export default function AcoesAtividades({ openModal, setOpenModal, tipoTarefa, s
 
     }
 
+    function limparEtiquetas() {
+        setEtiqueta1("")
+        setEtiqueta2("")
+    }
+
     return (
         <div className={style.acoes_atividades}>
-            <div 
-                id="containerOptionsFiltros" className={style.container_options_filtros}>
-                <img id="iconFiltro" className={style.icon_filtro} src={iconfiltro}
+            <div className={style.container_options_filtros}>
+                <img className={style.icon_filtro} src={iconfiltro}
                     alt="imagem de filtro de pesquisa" />
-                <select id="selectFiltros" className={style.select_filtros}>
-                    <option style={{ color: "#E7E7E7" }} value="">Filtros</option>
-                    <option value="">Prioridade</option>
-                    <option value="">Etiqueta</option>
-                    <option value="">Data</option>
-                </select>
+                <div className={style.filtro_etiquetas}>
+                    <Etiquetas />
+                </div>
             </div>
 
-            <div id="opcoesVisualizacao" className={style.opcoes_visualizacao}>
+            <div className={style.opcoes_visualizacao}>
                 <div>
 
                     <button onClick={() => setTipoTarefa("matriz")}
-                        id="matriz" className={`${style.matriz} ${handleChecked("matriz")} ${style.menu_tarefa_default}`}>
+                        className={`${style.matriz} ${handleChecked("matriz")} ${style.menu_tarefa_default}`}>
                         Matriz
                     </button>
-                    <button id="grupo" onClick={() => setTipoTarefa("grupo")}
+                    <button onClick={() => setTipoTarefa("grupo")}
                         className={`${style.grupo} ${handleChecked("grupo")} ${style.menu_tarefa_default}`}>
                         Grupo
                     </button>
-                    <button id="lista" onClick={() => setTipoTarefa("lista")}
+                    <button onClick={() => setTipoTarefa("lista")}
                         className={`${style.lista} ${handleChecked("lista")} ${style.menu_tarefa_default}`}>
                         Lista
                     </button>
@@ -54,12 +64,12 @@ export default function AcoesAtividades({ openModal, setOpenModal, tipoTarefa, s
                 </div>
             </div>
 
-            <div onClick={() => setOpenModal(true)} id="botaoAdicionarTarefa" className={style.botao_adicionar_tarefa}>
-                <div className={style.icon_soma}>
-                    <img id="iconSoma" src={iconSoma} alt="" />
+            <div onClick={() => setOpenModal(true)} className={style.botao_adicionar_tarefa}>
+                <div className={style.icon_soma} onClick={limparEtiquetas}>
+                    <img src={iconSoma} alt="" />
                 </div>
                 <div style={{ display: "table" }}>
-                    <div id="textoCriacaoAtividade" className={style.texto_criacao_atividade}>Criar Atividade</div>
+                    <div onClick={limparEtiquetas} className={style.texto_criacao_atividade}>Criar Atividade</div>
                 </div>
             </div>
         </div>

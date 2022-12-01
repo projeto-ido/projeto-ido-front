@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import style from "../../../../components/Home/Home.module.css";
 import api from "../../../../api/api.jsx";
-import { useSessionStorageNumber } from "react-use-window-sessionstorage";
+import { useSessionStorageNumber, useSessionStorageBoolean } from "react-use-window-sessionstorage";
 
-export default function EtiquetaSelect(){
+export default function EtiquetasFiltro(){
     const [listaEtiquetas, setListaEtiquetas] = useState([]);
     const [qtdEtiquetas, setQtdEtiquetas] = useState(0);
-    const [etiqueta1, setEtiqueta1] = useSessionStorageNumber("etiqueta1");
+    const [etiquetaFiltro, setEtiquetaFiltro] = useSessionStorageNumber("etiquetaFiltro");
+    const [atualizarFiltroEtiqueta, setAtualizarFiltroEtiqueta] = useSessionStorageBoolean("atualizarFiltroEtiqueta", false);
 
     useEffect(() => {
         var idUsuario = sessionStorage.getItem("idLogado");
@@ -18,11 +19,10 @@ export default function EtiquetaSelect(){
             if (res.data === "") {
                 setListaEtiquetas([""])
             }
-            if(JSON.parse(sessionStorage.getItem("etiqueta1")).idEtiqueta !== undefined){
-                setEtiqueta1(JSON.parse(sessionStorage.getItem("etiqueta1")).idEtiqueta)
-            }
-            
-            
+
+            // if(JSON.parse(sessionStorage.getItem("etiqueta2")).idEtiqueta !== undefined){
+            //     //setEtiqueta2(JSON.parse(sessionStorage.getItem("etiqueta2")).idEtiqueta)
+            // }
         }).catch(erro => {
             console.log(erro)
 
@@ -30,14 +30,19 @@ export default function EtiquetaSelect(){
 
     }, [])
 
+    
+
     return (
-        <select value={etiqueta1} onChange={(e) =>
-            setEtiqueta1(e.target.value)} className={style.select_etiquetas}
+        <div onClick={() => setAtualizarFiltroEtiqueta(true)}
+        >
+        <select value={etiquetaFiltro} onChange={(e) =>
+            setEtiquetaFiltro(e.target.value)} className={style.select_etiquetas}
             name="" id="">
             <option value=""></option>
             {listaEtiquetas.map((item) => (
                 <option value={item.idEtiqueta}>{item.titulo}</option>
             ))}
         </select>
+        </div>
     )
 }

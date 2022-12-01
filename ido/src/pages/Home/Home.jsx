@@ -12,7 +12,7 @@ import apiGerenciadorEtiquetas from "../../api/apiService"
 function Home(params) {
     acessibilidade();
 
-    function notificarSucesso(){
+    function notificarSucesso() {
         toast.success("Cores alteradas!", {
             position: "top-right",
             autoClose: 3000,
@@ -22,7 +22,7 @@ function Home(params) {
             draggable: true,
             progress: undefined,
             theme: "light",
-          });
+        });
     }
 
     const [openModal, setOpenModal] = useState(false);
@@ -45,13 +45,13 @@ function Home(params) {
     }
 
     return (
-        <>  
+        <>
             <main className={style.bodyHome}>
                 <ToastContainer />
-                <MenuLateral 
+                <MenuLateral
                     openHome={openHome}
                     setOpenHome={setOpenHome}
-                    openGerenciadorEtiquetas={openGerenciadorEtiquetas} 
+                    openGerenciadorEtiquetas={openGerenciadorEtiquetas}
                     setOpenGerenciadorEtiquetas={setOpenGerenciadorEtiquetas}
                     openAcessibilidade={openAcessibilidade}
                     setOpenAcessibilidade={setOpenAcessibilidade}
@@ -60,17 +60,20 @@ function Home(params) {
                     openGerenciadorEtiquetas ? <GerenciadorEtiquetas /> : limparAcoes()
                 }
                 {
-                    openAcessibilidade ? <Acessibilidade 
-                        setOpenHome={setOpenHome} 
-                        setOpenAcessibilidade={setOpenAcessibilidade} 
-                        funcaoNotificar={notificarSucesso}/> : null
+                    openAcessibilidade ? <Acessibilidade
+                        setOpenHome={setOpenHome}
+                        setOpenAcessibilidade={setOpenAcessibilidade}
+                        funcaoNotificar={notificarSucesso} /> : null
                 }
                 {
                     pomodoroAtivo ? <div className={style.fundo_escuro}></div> : null
                 }
-                {(openModal || openModalVerTarefa) && <div className={style.fundo_escuro} onClick={() => setOpenModal(false)} ></div>}
+                {(openModal || openModalVerTarefa) &&
+                    <div onClick={() => setOpenModalVerTarefa(false)}>
+                        <div className={style.fundo_escuro} onClick={() => setOpenModal(false)} ></div>
+                    </div>}
                 <div className={style.funcional}>
-                    <HomeComponent 
+                    <HomeComponent
                         openModal={openModal}
                         setOpenModal={setOpenModal}
                         openModalVerTarefa={openModalVerTarefa}
