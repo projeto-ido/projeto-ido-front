@@ -4,7 +4,7 @@ import style from "../../Home.module.css";
 import apiTarefa from "../../../../api/apiTarefa";
 import { useSessionStorageNumber } from "react-use-window-sessionstorage";
 import { useSessionStorageString } from "react-use-window-sessionstorage";
-import Spotify from "../../../Spotify/Spotify";
+// import Spotify from "../../../Spotify/Spotify";
 
 export default function TelaMatriz({ setOpenModalVerTarefa }) {
     const [listaTarefas, setListaTarefas] = useState([]);
@@ -184,7 +184,7 @@ export default function TelaMatriz({ setOpenModalVerTarefa }) {
                 </div>
             </div>
 
-        <Spotify/>
+        {/* <Spotify/> */}
 
         </div>
     );

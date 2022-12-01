@@ -1,9 +1,9 @@
 import React from "react";
-import style from './Home.module.css';
+import style from '../../components/Home/Home.module.css';
 
 export default function Spotify({ }) {
     return (
-        <div className="containerSpotify">
+        <div className={style.containerSpotify}>
             <div className="conteudoSpotify">
                 <div className={style.container_spotify}>
                     <iframe className={style.spotify_card}

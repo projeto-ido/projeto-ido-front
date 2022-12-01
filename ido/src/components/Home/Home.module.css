@@ -229,6 +229,14 @@ header img {
     height: 5%;
 }
 
+.pesquisar_container .pomodoro {
+    height: 4%;
+    width: 4%;
+    margin-left: 0.7%;
+    margin-top: -0.6%;
+    cursor: pointer;
+}
+
 .elemento_pesquisar {
     background-color: #E7E7E7;
     width: 38vw;
@@ -1406,3 +1414,16 @@ header img {
 
 
 }
+
+/*spotify*/
+.container_spotify{
+    display: flex;
+    justify-content: center;
+}
+
+.spotify_card{
+    width: 60vw;
+    border-radius:12px;
+    margin-top: 10vh;
+    padding-left: 12%;
+} 

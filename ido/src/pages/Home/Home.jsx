@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import MenuLateral from "../../components/Home/MenuLateral";
-import style from '../../components/Home/Home.module.css';
 import HomeComponent from "../../components/Home/HomeComponent";
 import GerenciadorEtiquetas from "../../components/Home/GerenciadorEtiquetas/GerenciadorEtiquetas";
 import Acessibilidade from "../../components/Home/Acessibilidade/Acessibilidade";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import style from '../../components/Home/Home.module.css';
 import acessibilidade from "../../scripts/acessibilidade";
 import apiGerenciadorEtiquetas from "../../api/apiService"
 
@@ -31,6 +31,7 @@ function Home(params) {
     const [openGerenciadorEtiquetas, setOpenGerenciadorEtiquetas] = useState(false);
     const [openHome, setOpenHome] = useState(true);
     const [openAcessibilidade, setOpenAcessibilidade] = useState(false);
+    const [pomodoroAtivo, setPomodoroAtivo] = useState(false);
     const idUsuario = sessionStorage.getItem("idLogado")
 
     function limparAcoes(){
@@ -64,6 +65,9 @@ function Home(params) {
                         setOpenAcessibilidade={setOpenAcessibilidade} 
                         funcaoNotificar={notificarSucesso}/> : null
                 }
+                {
+                    pomodoroAtivo ? <div className={style.fundo_escuro}></div> : null
+                }
                 {(openModal || openModalVerTarefa) && <div className={style.fundo_escuro} onClick={() => setOpenModal(false)} ></div>}
                 <div className={style.funcional}>
                     <HomeComponent 
@@ -74,9 +78,9 @@ function Home(params) {
                         tipoTarefa={tipoTarefa}
                         setTipoTarefa={setTipoTarefa}
                         openGerenciadorEtiquetas={openGerenciadorEtiquetas}
-                    />
+                        setPomodoroAtivo={setPomodoroAtivo}
+                        />
                 </div>
-
             </main>
         </>
     );
