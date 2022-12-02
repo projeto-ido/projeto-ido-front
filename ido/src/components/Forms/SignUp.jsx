@@ -69,6 +69,7 @@ export const SignUp = () => {
       apelido: inputs.apelido.value,
       nascimento: inputs.nascimento.value,
       email: inputs.email.value,
+      telefone: inputs.telefone.value,
       senha: inputs.senha.value
     }
 
@@ -164,7 +165,7 @@ export const SignUp = () => {
 
               <div className={style.input}>
                 <input
-                  name='nascimento'
+                  name='telefone'
                   placeholder="11950334249"
                   type="cell"
                   required />

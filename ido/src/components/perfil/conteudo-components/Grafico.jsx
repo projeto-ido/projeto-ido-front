@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import apiEtiqueta from '../../../api/apiEtiqueta';
 import ItemSquareEtiqueta from './grafico-components/ItemSquareEtiqueta';
 import ItemRectangleTimeline from './grafico-components/ItemRectangleTimeline';
 import ItemSquareSemana from './grafico-components/ItemSquareSemana';
 import styles from "../Perfil.module.css";
+import apiService from '../../../api/apiService';
 
 function Grafico() {
     const [listaEtiqueta, setListaEtiqueta] = useState([]);
 
     useEffect(() => {
-        apiEtiqueta.get().then(res => {
+        var idUsuario = sessionStorage.getItem("id");
+        apiService.get(`/usuarios/perfil/grafico-etiqueta/${idUsuario}`).then(res => {
           setListaEtiqueta(res.data);
         }).catch(erro => {
           console.log(erro);
@@ -24,7 +25,7 @@ function Grafico() {
     )))
 
     qtdEtiqueta.push(listaEtiqueta.map(etiquetaAtual => (
-        etiquetaAtual.quantidade
+        etiquetaAtual.qtdEtiquetaPresente
     )))
     
     return(

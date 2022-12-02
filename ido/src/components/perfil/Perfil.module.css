@@ -164,12 +164,11 @@ body{
     z-index: 1;
     display: flex;
     justify-content: flex-end;
+    overflow: hidden;
 }
 
 .main_container .toolbar .container .foto_perfil img {
     height: 100%;
-    width: 100%;
-    border-radius: 50%;
 }
 
 .main_container .toolbar .container .foto_perfil div {
@@ -393,6 +392,9 @@ body{
     border-radius: 1.5vw;
     background-color: var(--cor--preta);
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .div_up .item_rectangle_bio .overview_imagem img {
@@ -639,9 +641,15 @@ body{
     align-items: center;
 }
 
+.div_editor .nome_user_editor input {
+    padding-left: 1vw;
+    color: var(--cor--preta);
+    font-size: 2.1vh;
+}
+
 .div_editor .nome_user_editor div {
     height: 100%;
-    width: 50%;
+    width: 80%;
     display: flex;
     align-items: center;
 }
@@ -658,11 +666,24 @@ body{
 
 .div_editor .nome_user_editor h1 {
     padding-left: 1vw;
+    padding-right: 1vw;
 }
 
 .div_editor .nome_user_editor span {
     font-size: 2vh;
     padding-left: 1vw;
+}
+
+.div_editor .nome_user_editor textarea {
+    height: 50%;
+    width: 100%;
+    padding-left: 1vh;
+    resize: none;
+    border-radius: 0.5vw;
+    padding-left: 1vh;
+    padding-top: 1vh;
+    font-family: 'Roboto', sans-serif;
+    border-style: none;
 }
 
 .div_editor .biografia_editor {
@@ -689,6 +710,18 @@ body{
 
 .div_editor .biografia_editor span {
     font-size: 2vh;
+}
+
+.div_editor .biografia_editor textarea {
+    height: 80%;
+    width: 100%;
+    resize: none;
+    border-radius: 0.5vw;
+    padding-left: 1vh;
+    padding-top: 1vh;
+    font-family: 'Roboto', sans-serif;
+    border-style: none;
+    font-size: 1.7vh;
 }
 
 .div_editor .biografia_editor .div_biografia_icon_lapis {
@@ -731,6 +764,9 @@ body{
     background-color: var(--cor--preta);
     border-radius: 2vh;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .div_editor .imagem_perfil_editor .biografia_editor .biografia img {
@@ -818,20 +854,11 @@ body{
     background-color: var(--cor--amarela);
 }
 
-
-
-
-
-
-
-
 .modal{
 
     height: 30vh;
     background-color:#7463C7;
 }
-
-
 
 .fundo_escuro {
     position: fixed;

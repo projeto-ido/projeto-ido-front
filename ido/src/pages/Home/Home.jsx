@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import MenuLateral from "../../components/Home/MenuLateral";
-import style from '../../components/Home/Home.module.css';
 import HomeComponent from "../../components/Home/HomeComponent";
 import GerenciadorEtiquetas from "../../components/Home/GerenciadorEtiquetas/GerenciadorEtiquetas";
 import Acessibilidade from "../../components/Home/Acessibilidade/Acessibilidade";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import style from '../../components/Home/Home.module.css';
 import acessibilidade from "../../scripts/acessibilidade";
 import apiGerenciadorEtiquetas from "../../api/apiService"
 
 function Home(params) {
     acessibilidade();
 
-    function notificarSucesso(){
+    function notificarSucesso() {
         toast.success("Cores alteradas!", {
             position: "top-right",
             autoClose: 3000,
@@ -22,7 +22,7 @@ function Home(params) {
             draggable: true,
             progress: undefined,
             theme: "light",
-          });
+        });
     }
 
     const [openModal, setOpenModal] = useState(false);
@@ -31,6 +31,7 @@ function Home(params) {
     const [openGerenciadorEtiquetas, setOpenGerenciadorEtiquetas] = useState(false);
     const [openHome, setOpenHome] = useState(true);
     const [openAcessibilidade, setOpenAcessibilidade] = useState(false);
+    const [pomodoroAtivo, setPomodoroAtivo] = useState(false);
     const idUsuario = sessionStorage.getItem("idLogado")
 
     function limparAcoes(){
@@ -44,13 +45,13 @@ function Home(params) {
     }
 
     return (
-        <>  
+        <>
             <main className={style.bodyHome}>
                 <ToastContainer />
-                <MenuLateral 
+                <MenuLateral
                     openHome={openHome}
                     setOpenHome={setOpenHome}
-                    openGerenciadorEtiquetas={openGerenciadorEtiquetas} 
+                    openGerenciadorEtiquetas={openGerenciadorEtiquetas}
                     setOpenGerenciadorEtiquetas={setOpenGerenciadorEtiquetas}
                     openAcessibilidade={openAcessibilidade}
                     setOpenAcessibilidade={setOpenAcessibilidade}
@@ -59,14 +60,20 @@ function Home(params) {
                     openGerenciadorEtiquetas ? <GerenciadorEtiquetas /> : limparAcoes()
                 }
                 {
-                    openAcessibilidade ? <Acessibilidade 
-                        setOpenHome={setOpenHome} 
-                        setOpenAcessibilidade={setOpenAcessibilidade} 
-                        funcaoNotificar={notificarSucesso}/> : null
+                    openAcessibilidade ? <Acessibilidade
+                        setOpenHome={setOpenHome}
+                        setOpenAcessibilidade={setOpenAcessibilidade}
+                        funcaoNotificar={notificarSucesso} /> : null
                 }
-                {(openModal || openModalVerTarefa) && <div className={style.fundo_escuro} onClick={() => setOpenModal(false)} ></div>}
+                {
+                    pomodoroAtivo ? <div className={style.fundo_escuro}></div> : null
+                }
+                {(openModal || openModalVerTarefa) &&
+                    <div onClick={() => setOpenModalVerTarefa(false)}>
+                        <div className={style.fundo_escuro} onClick={() => setOpenModal(false)} ></div>
+                    </div>}
                 <div className={style.funcional}>
-                    <HomeComponent 
+                    <HomeComponent
                         openModal={openModal}
                         setOpenModal={setOpenModal}
                         openModalVerTarefa={openModalVerTarefa}
@@ -74,9 +81,9 @@ function Home(params) {
                         tipoTarefa={tipoTarefa}
                         setTipoTarefa={setTipoTarefa}
                         openGerenciadorEtiquetas={openGerenciadorEtiquetas}
-                    />
+                        setPomodoroAtivo={setPomodoroAtivo}
+                        />
                 </div>
-
             </main>
         </>
     );
