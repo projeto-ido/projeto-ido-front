@@ -115,7 +115,8 @@ export default function Tarefa(props) {
                 setEtiqueta2("")
             }
             
-            console.log("statusss " + statusTarefa)
+            console.log("etiqueta 1: " + JSON.parse(sessionStorage.getItem("etiquetaFiltro")) + " / " + 
+                ( props.etiquetasTarefa ) )
 
             setPlotarSubTarefas(true);
         }

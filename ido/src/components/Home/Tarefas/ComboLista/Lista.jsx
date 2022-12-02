@@ -3,7 +3,6 @@ import TarefaLista from "./TarefaLista";
 import style from "../../Home.module.css";
 import apiTarefa from "../../../../api/apiTarefa";
 import { useSessionStorageNumber, useSessionStorageString, useSessionStorageBoolean } from "react-use-window-sessionstorage";
-import Spotify from "../../../Spotify/Spotify";
 
 export default function Lista({ setOpenModalVerTarefa }) {
     const [listaTarefas, setListaTarefas] = useState([]);
@@ -24,7 +23,8 @@ export default function Lista({ setOpenModalVerTarefa }) {
     const [sub3Storage, setSub3Storage] = useSessionStorageString("subTarefa3")
     const [sub4Storage, setSub4Storage] = useSessionStorageString("subTarefa4")
     const [atualizarFiltro, setAtualizarFiltro] = useSessionStorageBoolean("atualizarFiltro");
-
+    const [atualizarFiltroEtiqueta, setAtualizarFiltroEtiqueta] = useSessionStorageBoolean("atualizarFiltroEtiqueta", false);
+    
     useEffect(() => {
         var idUsuario = sessionStorage.getItem("idLogado");
         setSub1Storage("");
@@ -49,7 +49,16 @@ export default function Lista({ setOpenModalVerTarefa }) {
 
     function tarefasFiltradas() {
         return (
-            listaTarefas.filter(tarefa => tarefa.titulo.includes(sessionStorage.getItem("palavraPesquisa"))).map(tarefaAtual => (
+            listaTarefas.filter(tarefa => tarefa.titulo.includes(sessionStorage.getItem("palavraPesquisa"))
+            //filtro por etiqueta
+            && ((JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == "") ? true :
+            (((tarefa.etiquetasTarefa[0] !== undefined && tarefa.etiquetasTarefa[1] !== undefined) ?
+                (JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == tarefa.etiquetasTarefa[0].idEtiqueta
+                    || JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == tarefa.etiquetasTarefa[1].idEtiqueta) : false)
+                || ((tarefa.etiquetasTarefa[0] !== undefined && tarefa.etiquetasTarefa[1] == undefined) ?
+                    JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == tarefa.etiquetasTarefa[0].idEtiqueta : false)
+            ))
+            ).map(tarefaAtual => (
 
                 <React.Fragment key={tarefaAtual.idTarefa}>
                     <TarefaLista
@@ -87,7 +96,6 @@ export default function Lista({ setOpenModalVerTarefa }) {
                 </div>
 
             </div>
-            <Spotify />
         </div>
     );
 }

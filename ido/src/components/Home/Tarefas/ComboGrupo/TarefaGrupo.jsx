@@ -44,9 +44,6 @@ export default function TarefaGrupo(props) {
 
     const [sub3Storage, setSub3Storage] = useSessionStorageString("subTarefa3")
     const [sub3, setSub3] = useState("")
-    
-    const [sub4Storage, setSub4Storage] = useSessionStorageString("subTarefa4")
-    const [sub4, setSub4] = useState("")
 
     const [idSub1, setIdSub1] = useSessionStorageNumber("idSub1");
     const [idSub2, setIdSub2] = useSessionStorageNumber("idSub2");
@@ -102,13 +99,6 @@ export default function TarefaGrupo(props) {
             } else {
                 setSub3Storage("")
                 setIdSub3("")
-            }
-            if(props.subTarefas[3] !== undefined){
-                setSub4Storage(props.subTarefas[3].titulo);
-                setIdSub4(props.subTarefas[3].idSubTarefa)         
-            } else {
-                setSub4Storage("")
-                setIdSub4("")
             }
             if(props.etiquetasTarefa[0] !== undefined){
                 setEtiqueta1(props.etiquetasTarefa[0])
