@@ -6,7 +6,7 @@ import Perfil from "./Perfil";
 import { useSessionStorageString, useSessionStorageBoolean } from "react-use-window-sessionstorage";
 
 export default function FilterPesquisar({openModal, openModalVerTarefa, openGerenciadorEtiquetas, tipoTarefa, setTipoTarefa, setPomodoroAtivo}){
-    const [palavraPesquisa, setParalavraPesquisa] = useSessionStorageString("palavraPesquisa")
+    const [palavraPesquisa, setParalavraPesquisa] = useSessionStorageString("palavraPesquisa", "")
     const [atualizarFiltro, setAtualizarFiltro] = useSessionStorageBoolean("atualizarFiltro", false);
 
     return(
