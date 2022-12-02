@@ -398,7 +398,7 @@ body{
 }
 
 .div_up .item_rectangle_bio .overview_imagem img {
-    width: 100%;
+    height: 100%;
 }
 
 /* CONQUISTAS */
@@ -639,12 +639,7 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.div_editor .nome_user_editor input {
-    padding-left: 1vw;
-    color: var(--cor--preta);
-    font-size: 2.1vh;
+    font-size: 1.1vh;
 }
 
 .div_editor .nome_user_editor div {
@@ -684,6 +679,7 @@ body{
     padding-top: 1vh;
     font-family: 'Roboto', sans-serif;
     border-style: none;
+    font-size: 1.6vh;
 }
 
 .div_editor .biografia_editor {
@@ -722,6 +718,7 @@ body{
     font-family: 'Roboto', sans-serif;
     border-style: none;
     font-size: 1.7vh;
+    
 }
 
 .div_editor .biografia_editor .div_biografia_icon_lapis {
@@ -770,7 +767,7 @@ body{
 }
 
 .div_editor .imagem_perfil_editor .biografia_editor .biografia img {
-    width: 100%;
+    height: 100%;
 }
 
 .div_editor .imagem_perfil_editor .biografia_editor .div_image_icon_lapis {
@@ -804,8 +801,8 @@ body{
 }
 
 .editor_segunda_coluna .div_image_perfil {
-    height: 35vh;
-    width: 35vh;
+    height: 17.5vh;
+    width: 17.5vh;
     border-radius: 50%;
     overflow: hidden;
     background-color: var(--cor--preta);
@@ -836,7 +833,6 @@ body{
     padding: 0;
 }
 
-
 .editor_segunda_coluna button {
     width: 65%;
     height: 6%;
@@ -854,8 +850,25 @@ body{
     background-color: var(--cor--amarela);
 }
 
-.modal{
+.segunda_coluna_editor {
+    height: 60%;
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
 
+.numero_user_editor {
+    height: 50%;
+    width: 100%;
+}
+
+.numero_user_editor .nome_user_editor {
+    height: 31%;
+}
+
+.modal{
     height: 30vh;
     background-color:#7463C7;
 }
