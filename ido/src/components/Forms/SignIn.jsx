@@ -25,6 +25,7 @@ export const SignIn = () => {
         sessionStorage.setItem("imagemPerfil", data.imagemPerfil);
         sessionStorage.setItem("nascimento", data.nascimento);
         sessionStorage.setItem("nivel", data.nivel);
+        sessionStorage.setItem("telefone", data.telefone);
 
         setTimeout(mudarParaHome,3000)
     }
