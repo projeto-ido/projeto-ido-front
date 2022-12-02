@@ -8,9 +8,35 @@ import 'react-toastify/dist/ReactToastify.css';
 import style from '../../components/Home/Home.module.css';
 import acessibilidade from "../../scripts/acessibilidade";
 import apiGerenciadorEtiquetas from "../../api/apiService"
+import axios from '../../api/api'
 
 function Home(params) {
     acessibilidade();
+
+    const download = (data) => {
+        const date = new Date
+        const bom = new Uint8Array([0xEF,0xBB,0xBF])
+        const blob = new Blob([bom, "TAREFAS;" + "DESCRIÇÃO;" + "DATA DE INICIO;" + "DATA FINAL;" + "STATUS;" + "SUBTAREFAS - STATUS;" + "ETIQUETA 1;" + "ETIQUETA 2;" + "\n" + data]);
+        const url = window.URL.createObjectURL(blob);
+
+        const a = document.createElement('a');
+
+        a.setAttribute('href', url);
+        a.setAttribute('download', `relatorio_tarefas_${date.toLocaleDateString()}.csv`);
+        document.body.appendChild(a);
+        a.click();
+    }
+
+    const handleDownload = () => {
+        axios.post("/usuarios/1/exportacao/grava/csv/teste", null)
+        .then(res => {
+            console.log(res);
+            download(res.data)
+
+        }).catch(erro => {
+            console.log(erro);
+        })
+    }
 
     function notificarSucesso() {
         toast.success("Cores alteradas!", {
@@ -47,6 +73,7 @@ function Home(params) {
     return (
         <>
             <main className={style.bodyHome}>
+                {/* <button onClick={handleDownload}>AAAAAAA</button> */}
                 <ToastContainer />
                 <MenuLateral
                     openHome={openHome}

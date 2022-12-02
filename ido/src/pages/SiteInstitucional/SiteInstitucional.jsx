@@ -14,29 +14,16 @@ import fileDownload from "js-file-download";
 function SiteInstitucional(){
     acessibilidade();
 
-    const handleDownload = (url,filename) => {
-        // const url = "localhost:8080/usuarios/1/exportacao/grava/csv/teste"
-        axios.post(url, null)
-        .then(res => {
-            fileDownload(res.data, filename)
-        }).catch(erro => {
-            console.log(erro);
-        })
-    }
-
     return(
         <>
-
-
         <main className={styles.bodySiteInstitucional}>
-        <button onClick={() => {handleDownload('/usuarios/1/exportacao/grava/csv/teste' ,'aaaaloooo')}}>Download</button>
-            {/* <Navbar />
+            <Navbar />
             <Banner />
             <BannerIcons />
             <BannerRadio />
             <Metodologias />
             <Beneficios />
-            <Footer /> */}
+            <Footer />
         </main>
         </>
     );
