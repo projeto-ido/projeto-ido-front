@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import style from '../../components/Home/Home.module.css';
 import acessibilidade from "../../scripts/acessibilidade";
 import apiGerenciadorEtiquetas from "../../api/apiService"
+import axios from '../../api/api'
 
 function Home(params) {
     acessibilidade();

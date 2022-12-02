@@ -8,6 +8,8 @@ import Beneficios from "../../components/SiteInstitucional/Beneficios";
 import Footer from "../../components/SiteInstitucional/Footer";
 import styles from "../../components/SiteInstitucional/SiteInstitucional.module.css";
 import acessibilidade from "../../scripts/acessibilidade";
+import axios from "axios";
+import fileDownload from "js-file-download";
 
 function SiteInstitucional(){
     acessibilidade();

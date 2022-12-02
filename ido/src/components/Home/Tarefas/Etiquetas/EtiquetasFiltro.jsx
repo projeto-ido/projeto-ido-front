@@ -6,7 +6,7 @@ import { useSessionStorageNumber, useSessionStorageBoolean } from "react-use-win
 export default function EtiquetasFiltro(){
     const [listaEtiquetas, setListaEtiquetas] = useState([]);
     const [qtdEtiquetas, setQtdEtiquetas] = useState(0);
-    const [etiquetaFiltro, setEtiquetaFiltro] = useSessionStorageNumber("etiquetaFiltro");
+    const [etiquetaFiltro, setEtiquetaFiltro] = useSessionStorageNumber("etiquetaFiltro", "");
     const [atualizarFiltroEtiqueta, setAtualizarFiltroEtiqueta] = useSessionStorageBoolean("atualizarFiltroEtiqueta", false);
 
     useEffect(() => {
