@@ -33,17 +33,13 @@ export default function FilterPesquisar({openModal, openModalVerTarefa, openGere
     }
 
     const getArquivo = (extensao) => {
-        axios.post(`/usuarios/1/exportacao/grava/${extensao}/teste`, null)
+        axios.post(`/usuarios/1/exportacao/grava/${extensao}/relatorio_${extensao}`, null)
         .then(res => {
             console.log(extensao);
             downloadCsv(res.data, extensao)
         }).catch(erro => {
             console.log(erro);
         })
-    }
-
-    const downloadTxt = (data) => {
-
     }
 
     return(

@@ -269,7 +269,7 @@ function ItemRectangleEditor(props) {
                                             name='senha'
                                             disabled={!senhaEditavel}
                                             type="text"
-                                            minLength="5"
+                                            minLength="8"
                                             maxLength="45"
                                             defaultValue={sessionStorage.getItem("nomeLogado")}
                                             required
