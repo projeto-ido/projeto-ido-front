@@ -706,9 +706,10 @@ body{
 }
 
 .div_editor_senha {
-    height: 35vh;
+    height: 42vh;
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     font-size: 1.2vh;
@@ -716,7 +717,25 @@ body{
 
 .div_editor_senha div {
     width: 84.5%;
-    height: 80%;
+    height: 100%;
+}
+
+.div_editor_senha button {
+    width: 25%;
+    height: 20%;
+    font-size: 1vw;
+    border: none;
+    background-color: var(--cor--azul);
+    border-radius: 1em;
+    color: white;
+    transition-duration: 0.3s;
+    margin-top: 4vh;
+}
+
+.div_editor_senha button:hover {
+    cursor: pointer;
+    transition-duration: 0.3s;
+    background-color: var(--cor--amarela);
 }
 
 .editor_primeira_coluna {

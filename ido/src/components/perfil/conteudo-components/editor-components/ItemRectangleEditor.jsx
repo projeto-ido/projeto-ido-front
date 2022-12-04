@@ -19,8 +19,7 @@ function ItemRectangleEditor(props) {
     const [telefoneEditavel, setTelefoneEditavel] = useState(false);
     const inputFilePerfil = document.querySelector("#arquivoPerfil");
     const inputFileBio = document.querySelector("#arquivoBio");
-    var blob;
-
+    
     // FOTO PERFIL
     if (inputFilePerfil != null) {
         inputFilePerfil.addEventListener("change", function (e) {
@@ -53,8 +52,6 @@ function ItemRectangleEditor(props) {
 
                     const img = document.getElementById("imgBio");
                     img.src = imagemBase64.result;
-                    blob = imagemBase64.result;
-                    console.log(blob)
                 });
                 reader.readAsDataURL(file);
             }
@@ -82,28 +79,36 @@ function ItemRectangleEditor(props) {
         event.preventDefault();
 
         const names = event.target;
-
-        console.log(names.nome.value.trim() === "");
         
         if (names.nome.value.trim() === "") 
-            return info("Não pode espaços em branco")
+            return info("Não pode conter espaços em branco")
         else if (names.email.value.trim() === "") 
-            return info("Não pode espaços em branco")
+            return info("Não pode conter espaços em branco")
         else if (names.biografia.value.trim() === "") 
-            return info("Não pode espaços em branco")
+            return info("Não pode conter espaços em branco")
         else if (names.username.value.trim() === "") 
-            return info("Não pode espaços em branco")
-        else if (names.senha.value.trim() === "") 
-            return info("Não pode espaços em branco")
+            return info("Não pode conter espaços em branco")
         else if (names.telefone.value.trim() === "") 
-            return info("Não pode espaços em branco")
+            return info("Não pode conter espaços em branco")
         
         sucesso("Atualização feita com sucesso")
-        console.log(event);
     }
 
     function salvarNovaSenha(event) {
+        event.preventDefault();
 
+        const senhas = event.target;
+        
+        if (senhas.senhaAtual.value.trim() === "") 
+            return info("Não pode conter espaços em branco")
+        else if (senhas.novaSenha.value.trim() === "") 
+            return info("Não pode conter espaços em branco")
+        else if (senhas.repetirNovaSenha.value.trim() === "")
+            return info("Não pode conter espaços em branco")
+        else if (senhas.novaSenha.value.trim() != senhas.repetirNovaSenha.value.trim()) 
+            return info("A nova senha tem que ser idênticas nos dois campos")
+        
+        sucesso("Senha atualizada com sucesso")
     }
 
     function sucesso(texto) {
@@ -307,7 +312,7 @@ function ItemRectangleEditor(props) {
                                         <h1 type="text">Senha atual:</h1>
                                         <textarea
                                             type="text"
-                                            name='nome'
+                                            name='senhaAtual'
                                             minLength="8"
                                             maxLength="45"
                                             disabled={!senhaEditavel}
@@ -325,7 +330,7 @@ function ItemRectangleEditor(props) {
                                     <div>
                                         <h1 type="text">Nova senha:</h1> 
                                         <textarea
-                                            name='email'
+                                            name='novaSenha'
                                             disabled={!novaSenhaEditavel}
                                             type="text"
                                             minLength="8"
@@ -344,7 +349,7 @@ function ItemRectangleEditor(props) {
                                     <div>
                                         <h1 type="text">Repita a senha:</h1> 
                                         <textarea
-                                            name='email'
+                                            name='repetirNovaSenha'
                                             disabled={!novaSenhaEditavel}
                                             type="text"
                                             minLength="8"
@@ -357,6 +362,8 @@ function ItemRectangleEditor(props) {
                                 </div>
                             </div>
                         </div>
+
+                        <button type='submit'>Salvar senha</button>
                     </div>
                 </form>
             </div>
