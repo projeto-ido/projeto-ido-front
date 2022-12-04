@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+:root {
+    --cor--azul: #5D84C2;
+    --cor--verde: #51BDAB;
+    --cor--roxo: #7463C7;
+    --cor--amarela: #FFCA6D;
+    --cor--preta: #1F1E1E;
+}
+
+.bodyNotFound {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 62.5%;
+}
+
+.banner{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.bannerText{
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.bannerText h1{
+    color: var(--cor--roxo);
+    font-weight: 600;
+    font-size: 4.0em;
+}
+
+.bannerText h2{
+    color: var(--cor--preta);
+    font-size: 3.0em;
+    font-weight: 300;
+    margin-bottom: 8vh;
+}
+
+.btnInicial{
+    width: 18vw;
+    height: 7vh;
+    font-size: 2.4em;
+    font-weight: 600;
+    color: var(--cor--preta);
+    border: 0;
+    background-color: var(--cor--amarela);
+    border-radius: 2vw;
+    transition-duration: 0.3s;
+    cursor: pointer;
+}
+
+.btnInicial:hover{
+    background-color: #fdc056;
+}
