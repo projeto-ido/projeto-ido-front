@@ -14,6 +14,7 @@ function ItemRectangleEditor(props) {
     const [emailEditavel, setEmailEditavel] = useState(false);
     const [biografiaEditavel, setBiografiaEditavel] = useState(true);
     const [usernameEditavel, setUsernameEditavel] = useState(false);
+    const [novaSenhaEditavel, setNovaSenhaEditavel] = useState(false);
     const [senhaEditavel, setSenhaEditavel] = useState(false);
     const [telefoneEditavel, setTelefoneEditavel] = useState(false);
     const [fotoPerfilEditavel, setFotoPerfilEditavel] = useState(false);
@@ -212,12 +213,14 @@ function ItemRectangleEditor(props) {
                                     </div>
                                 </div>
                                 <div className={styles.div_image_icon_lapis}>
-                                    <label htmlFor="arquivoBio">
+                                    <label className={styles.div_image_icons} htmlFor="arquivoBio">
                                         <img className={styles.acoes} src={iconUpload} alt="icone upload" />
                                     </label>
                                     <input type="file" accept="image/jpeg, image/png" name="arquivoBio" id="arquivoBio" />
                                     
-                                    <img className={styles.acoes} src={iconDeletar} alt="icone lixeira" />
+                                    <div className={styles.div_image_icons}>
+                                        <img className={styles.acoes} src={iconDeletar} alt="icone lixeira" />
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -261,40 +264,74 @@ function ItemRectangleEditor(props) {
                                 </div>
                             </div>
 
-                            <div className={styles.numero_user_editor}>
-                                <div className={styles.nome_user_editor}>
-                                    <div>
-                                        <h1 type="text">Senha:</h1> 
+                            <div className={styles.div_trocar_senha}>
+                                <div className={styles.div_trocar_senha_geral}>
+                                    <div className={styles.div_input_senha}>
+                                        <h1 type="text">Senha atual:</h1> 
                                         <textarea
                                             name='senha'
                                             disabled={!senhaEditavel}
-                                            type="text"
-                                            minLength="5"
-                                            maxLength="45"
-                                            defaultValue={sessionStorage.getItem("nomeLogado")}
+                                            type="password"
+                                            minLength="10"
+                                            maxLength="11"
+                                            placeholder="Digite aqui"
+                                            defaultValue=""
                                             required
                                         />
+                                        
+                                        <img onClick={() => setSenhaEditavel(!senhaEditavel)} 
+                                            className={styles.acoes} src={iconEditar} alt="icone lapis" />
                                     </div>
-                                    <div className={styles.div_editor_icon_lapis}>
-                                        <img onClick={() => setSenhaEditavel(!senhaEditavel)} className={styles.acoes} src={iconEditar} alt="icone lapis" />
+
+                                    <div className={styles.div_input_senha}>
+                                        <h1 type="text">Nova senha:</h1> 
+                                        <textarea
+                                            name='novaSenha'
+                                            disabled={!novaSenhaEditavel}
+                                            type="text"
+                                            minLength="10"
+                                            maxLength="11"
+                                            placeholder="Digite aqui"
+                                            defaultValue=""
+                                            required
+                                        />
+
+                                        <img onClick={() => setNovaSenhaEditavel(!novaSenhaEditavel)} 
+                                            className={styles.acoes} src={iconEditar} alt="icone lapis" />
+                                    </div>
+
+                                    <div className={styles.div_input_senha}>
+                                        <h1 type="text">Repita a senha:</h1> 
+                                        <textarea
+                                            name='repitaNovaSenha'
+                                            disabled={!novaSenhaEditavel}
+                                            type="text"
+                                            minLength="10"
+                                            maxLength="11"
+                                            placeholder="Digite aqui"
+                                            defaultValue=""
+                                            required
+                                        />
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div className={styles.div_image_perfil}>
-                            <img id="imgPerfil" alt="Imagem do Perfil" src={fotoPerfil} />
-                        </div>
-
-                        <div className={styles.btn_segunda_coluna}>
-                            <div>
-                                <label htmlFor="arquivoPerfil">
-                                    <img className={styles.acoes} src={iconUpload} alt="icone upload" />
-                                </label>
-                                <input type="file" accept="image/jpeg, image/png" name="arquivoPerfil" id="arquivoPerfil" />
+                        <div className={styles.div_troca_img_perfil}>
+                            <div className={styles.div_image_perfil}>
+                                <img id="imgPerfil" alt="Imagem do Perfil" src={fotoPerfil} />
                             </div>
-                            <div>
-                                <img className={styles.acoes} src={iconDeletar} alt="icone lixeira" />
+
+                            <div className={styles.btn_segunda_coluna}>
+                                <div>
+                                    <label htmlFor="arquivoPerfil">
+                                        <img className={styles.acoes} src={iconUpload} alt="icone upload" />
+                                    </label>
+                                    <input type="file" accept="image/jpeg, image/png" name="arquivoPerfil" id="arquivoPerfil" />
+                                </div>
+                                <div>
+                                    <img className={styles.acoes} src={iconDeletar} alt="icone lixeira" />
+                                </div>
                             </div>
                         </div>
 
