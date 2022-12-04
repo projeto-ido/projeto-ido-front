@@ -94,7 +94,7 @@ export const SignUp = () => {
       <ToastContainer />
 
       <div className={style.titulo}>
-        <h1>Bem Vindo de Volta!</h1>
+        <h1>Seja Bem Vindo!</h1>
       </div>
 
       <form onSubmit={verificarSenha}>
