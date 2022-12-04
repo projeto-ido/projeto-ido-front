@@ -54,8 +54,8 @@ export default function FilterPesquisar({openModal, openModalVerTarefa, openGere
                 <img id="iconLupa"  className={style.icon_lupa} src={iconLupa} alt="barra de pesquisa"/>
             </div>
             <img className={style.pomodoro} onClick={() => setPomodoroAtivo(true)} src={pomodoro}/>
-            <button onClick={() => getArquivo('csv')}> Exportar CSV</button>
-            <button onClick={() => getArquivo('txt')}> Exportar TXT</button>
+            <button className={style.btn_exportar} onClick={() => getArquivo('csv')}> Exportar CSV</button>
+            <button className={style.btn_exportar} onClick={() => getArquivo('txt')}> Exportar TXT</button>
             <Perfil />
         </div>
     );

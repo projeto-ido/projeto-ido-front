@@ -7,6 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import EtiquetaSelect from "./Tarefas/Etiquetas/EtiquetaSelect"; 
 import EtiquetaSelect2 from "./Tarefas/Etiquetas/EtiquetaSelect2";
+import close from "../../assets/images/close.png"
 
 export default function ModalCriarTarefa({ openModal, setOpenModal }) {
     const [qtdSubtarefa, setQtdsubtarefa] = useState(1);
@@ -67,7 +68,6 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
                 "status": false
             })
         }
-
         if (inputSubtarefa3 !== "") {
             subtarefas.push({
                 "titulo": inputSubtarefa3,
@@ -79,7 +79,6 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
             etiquetas.push({"idEtiqueta": Number(sessionStorage.getItem("etiqueta1").replace(/["]/g, ''))})
             
         }
-
         if(sessionStorage.getItem("etiqueta2") != undefined){
             etiquetas.push({"idEtiqueta": Number(sessionStorage.getItem("etiqueta2").replace(/["]/g, ''))})
         }
@@ -95,8 +94,6 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
             etiquetas: etiquetas,
             status: false
         }
-
-        console.log(tarefaAtualizada);
 
         api.post(`/usuarios/${idUsuarioStorage}/tarefas`, tarefaAtualizada).then(res => {
             toastSucesso(`tarefa cadastrada`);
@@ -119,8 +116,6 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
             console.log("erro: " + erro + " certifique-se de estar logado. ");
             toastErro(erro);
         })
-
-
     }
 
     function buscarAlturaModal() {
@@ -154,11 +149,11 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
     };
 
     function subtarefa1() {
-
         if (subTarefa1) {
             return (
-                <div className={style.container_criacao_subtarefa2}>
-                    <input value={inputSubtarefa1} onChange={(e) => setInputSubtarefa1(e.target.value)} maxLength="20" className={style.input_subtarefa} type="text" />
+                <div className={style.container_criacao_subtarefa}>
+                    <input value={inputSubtarefa1} onChange={(e) => setInputSubtarefa1(e.target.value)} maxLength="20" 
+                        className={style.input_subtarefa} type="text" />
                     <div className={style.botao_apagar_subtarefa}>
                         <div onClick={() => {
                             setQtdsubtarefa(qtdSubtarefa - 1)
@@ -172,15 +167,14 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
                 </div>
             );
         }
-
     }
 
     function subtarefa2() {
         if (subTarefa2) {
             return (
-
-                <div className={style.container_criacao_subtarefa3}>
-                    <input value={inputSubtarefa2} onChange={(e) => setInputSubtarefa2(e.target.value)} maxLength="20" className={style.input_subtarefa} type="text" />
+                <div className={style.container_criacao_subtarefa}>
+                    <input value={inputSubtarefa2} onChange={(e) => setInputSubtarefa2(e.target.value)} maxLength="20" 
+                        className={style.input_subtarefa} type="text" />
                     <div className={style.botao_apagar_subtarefa}>
                         <div onClick={() => {
                             setQtdsubtarefa(qtdSubtarefa - 1)
@@ -192,21 +186,16 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
                         </div>
                     </div>
                 </div>
-
             );
         }
-
-
-
     }
 
     function subtarefa3() {
-
         if (subTarefa3) {
             return (
-
-                <div className={style.container_criacao_subtarefa4}>
-                    <input value={inputSubtarefa3} onChange={(e) => setInputSubtarefa3(e.target.value)} maxLength="20" className={style.input_subtarefa} type="text" />
+                <div className={style.container_criacao_subtarefa}>
+                    <input value={inputSubtarefa3} onChange={(e) => setInputSubtarefa3(e.target.value)} maxLength="20" 
+                        className={style.input_subtarefa} type="text" />
                     <div className={style.botao_apagar_subtarefa}>
                         <div onClick={() => {
                             setQtdsubtarefa(qtdSubtarefa - 1)
@@ -218,14 +207,11 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
                         </div>
                     </div>
                 </div>
-
             );
         }
-
     }
 
     function handleSubtarefa() {
-
         return (
             <>
                 {subtarefa1()}
@@ -233,8 +219,6 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
                 {subtarefa3()}
             </>
         );
-
-
     }
 
     function toastSucesso(texto) {
@@ -290,7 +274,6 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
                 return "Delegar";
             }
         }
-
     }
 
     if (!openModal) {
@@ -298,154 +281,143 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
     }
 
     return (
-        <div className={`${style.modal_criar_tarefa} ${buscarAlturaModal()}`}
-        >
+        <div className={`${style.modal_criar_tarefa} ${buscarAlturaModal()}`}>
             <div className={style.topo_modal_tarefa}>
                 <div onClick={() => setOpenModal(false)} className={style.botao_sair_tarefa}>
-                    <div>X</div>
+                    <img src={close} alt="" />
                 </div>
             </div>
-            <div className={style.titulo_modal_tarefa}>
-                CRIAÇÃO DE TAREFA
-            </div>
-            <h3 className={style.titulo_tarefa_modal}>Titulo da tarefa</h3>
-            <input maxLength="40" value={inputTitulo} onChange={(e) => setInputTitulo(e.target.value)} className={style.input_titulo_tarefa} type="text" />
+
+            <div className={style.titulo_modal_tarefa}>CRIAÇÃO DE TAREFA</div>
+
+            {/* TITULO, IMPORTANCIA, URGENCIA E PRIORIDADE */}
             <div className={style.classificacao}>
-                <div className={style.importancia}>
-                    <h3 className={style.titulo_importancia}>Importante </h3>
-
-
-
-                    <select value={selectImportancia} className={style.select_importancia} name="select-Importancia"
-                        onChange={
-                            ((e) => setSelectImportancia(e.target.value))
-                        } onSelect={handlePrioridade}
-                    >
-                        <option value={0}></option>
-                        <option value={true}>Sim</option>
-                        <option value={false}>Não</option>
-                    </select>
-
+                <div className={style.div_titulo}>
+                    <b>Titulo da Tarefa</b>
+                    <input maxLength="40" value={inputTitulo} onChange={(e) => setInputTitulo(e.target.value)} 
+                    className={style.input_titulo_tarefa} type="text" />
                 </div>
-                <div className={style.urgencia}>
-                    <h3 className={style.titulo_importancia}>Urgente</h3>
 
-                    <select className={style.select_importancia} value={selectUrgencia} name="selectUrgencia"
-                        onChange={(e) => setSelectUrgencia(e.target.value)} onSelect={handlePrioridade}
-                    >
-                        <option value={0}></option>
-                        <option value={true}>Sim</option>
-                        <option value={false}>Não</option>
-                    </select>
+                <div className={style.div_classificacao}>
+                    <div className={style.importancia_urgencia_prioridade}>
+                        <h3 className={style.titulo_importancia}>Importante</h3>
+                        <select value={selectImportancia} className={style.select_importancia} name="select-Importancia"
+                            onChange={((e) => setSelectImportancia(e.target.value))} onSelect={handlePrioridade}>
+                            <option value={0}>Selecione</option>
+                            <option value={true}>Sim</option>
+                            <option value={false}>Não</option>
+                        </select>
+                    </div>
 
+                    <div className={style.importancia_urgencia_prioridade}>
+                        <h3 className={style.titulo_importancia}>Urgente</h3>
+                        <select className={style.select_importancia} value={selectUrgencia} name="selectUrgencia"
+                            onChange={(e) => setSelectUrgencia(e.target.value)} onSelect={handlePrioridade}>
+                            <option value={0}>Selecione</option>
+                            <option value={true}>Sim</option>
+                            <option value={false}>Não</option>
+                        </select>
+                    </div>
 
-                </div>
-                <div className={style.prioridade}>
-                    <h3 className={style.titulo_importancia}>Prioridade</h3>
-                    <div className={style.resultado_prioridade}>
-                        <div className={style.texto_prioridade}>
-                            {handlePrioridade()}
+                    <div className={style.importancia_urgencia_prioridade}>
+                        <h3 className={style.titulo_importancia}>Prioridade</h3>
+                        <div className={style.resultado_prioridade}>
+                            <div className={style.texto_prioridade}>
+                                {handlePrioridade()}
+                            </div>
                         </div>
                     </div>
                 </div>
-
             </div>
-            <div className={style.datas_modal}>
-                <div className={style.data_inicio}>
-                    <h3 className={style.titulo_importancia}>Data de Início</h3>
-                    <input type="datetime-local" value={inputDataInicio} onChange={(e) => setInputDataInicio(e.target.value)} className={style.input_data_inicio} />
+
+            <div className={style.data_desc}>
+                <div className={style.datas_modal}>
+                    <div className={style.data}>
+                        <h3 className={style.titulo_importancia}>Data de Início</h3>
+                        <input type="datetime-local" value={inputDataInicio} onChange={(e) => 
+                            setInputDataInicio(e.target.value)} className={style.input_data} />
+                    </div>
+                    <div className={style.data}>
+                        <h3 className={style.titulo_importancia}>Data Final</h3>
+                        <input type="datetime-local" value={inputDataFinal} onChange={(e) => 
+                            setInputDataFinal(e.target.value)} className={style.input_data} />
+                    </div>
                 </div>
-                <div className={style.data_final}>
-                    <h3 className={style.titulo_importancia}>Data Final</h3>
-                    <input type="datetime-local" value={inputDataFinal} onChange={(e) => setInputDataFinal(e.target.value)} className={style.input_data_final} />
+
+                <div className={style.container_descricao}>
+                    <h3 className={style.titulo_importancia}>Descrição</h3>
+                    <textarea maxLength="200" spellCheck="false" value={inputDescricao} onChange={(e) => 
+                        setInputDescricao(e.target.value)} className={style.input_descricao} 
+                        type="text" />
                 </div>
             </div>
-            <div className={style.container_descricao}>
-                <h3 className={style.titulo_importancia}>Descrição</h3>
-                <textarea maxLength="200" spellCheck="false" value={inputDescricao} onChange={(e) => setInputDescricao(e.target.value)} className={style.input_descricao} type="text"></textarea>
-            </div>
 
-            <div className={style.complemento_tarefa_modal}>
-                <div className={style.subtarefa_tarefa_modal}>
-                    <h3 className={style.titulo_subtarefa}>Subtarefa</h3>
-                    <div className={style.container_criacao_subtarefa}>
-                        <input maxLength="20" value={inputSubtarefa} onChange={(e) => setInputSubtarefa(e.target.value)} id="primeiraSubtarefa" className={style.input_subtarefa} type="text" />
-                        <div className={style.botao_criar_subtarefa}>
-                            <div className={style.texto_acao_subtarefa}>
-                                <div onClick={() => {
+            <div className={style.subtarefa_btn_salvar}>
+                <div className={style.complemento_tarefa_modal}>
+                    <div className={style.subtarefa_tarefa_modal}>
+                        <h3 className={style.titulo_subtarefa}>Subtarefa</h3>
+                        <div className={style.container_criacao_subtarefa}>
+                            <input maxLength="20" value={inputSubtarefa} onChange={(e) => 
+                                setInputSubtarefa(e.target.value)} id="primeiraSubtarefa" 
+                                className={style.input_subtarefa} type="text" />
 
-                                    if (qtdSubtarefa === 4) {
-                                        toastErro(`Quantidade de subtarefas excedida, se necessário cadastre uma nova tarefa.`)
-                                        setInputSubtarefa("")
-                                    } else {
-                                        {
-                                            if (inputSubtarefa.trim() !== "") {
-                                                if (subTarefa1 === false) {
-                                                    setSubtarefa1(true);
-                                                    setInputSubtarefa1(inputSubtarefa)
-                                                    setInputSubtarefa("")
-                                                } else if (subTarefa2 === false) {
-                                                    setSubtarefa2(true);
-                                                    setInputSubtarefa2(inputSubtarefa)
-                                                    setInputSubtarefa("")
-                                                } else if (subTarefa3 === false) {
-                                                    setSubtarefa3(true);
-                                                    setInputSubtarefa3(inputSubtarefa)
-                                                    setInputSubtarefa("")
+                            <div className={style.botao_criar_subtarefa}>
+                                <div className={style.texto_acao_subtarefa}>
+                                    <div onClick={() => {
+                                        if (qtdSubtarefa === 4) {
+                                            toastErro(`Quantidade de subtarefas excedida, se necessário cadastre uma nova tarefa.`)
+                                            setInputSubtarefa("")
+                                        } else {
+                                            {
+                                                if (inputSubtarefa.trim() !== "") {
+                                                    if (subTarefa1 === false) {
+                                                        setSubtarefa1(true);
+                                                        setInputSubtarefa1(inputSubtarefa)
+                                                        setInputSubtarefa("")
+                                                    } else if (subTarefa2 === false) {
+                                                        setSubtarefa2(true);
+                                                        setInputSubtarefa2(inputSubtarefa)
+                                                        setInputSubtarefa("")
+                                                    } else if (subTarefa3 === false) {
+                                                        setSubtarefa3(true);
+                                                        setInputSubtarefa3(inputSubtarefa)
+                                                        setInputSubtarefa("")
+                                                    }
+
+                                                    setQtdsubtarefa(qtdSubtarefa + 1)
+                                                } else {
+                                                    toastAlert("Titulo da sub tarefa não pode ser vazio")
                                                 }
-
-                                                setQtdsubtarefa(qtdSubtarefa + 1)
-                                            } else {
-                                                toastAlert("Titulo da sub tarefa não pode ser vazio")
                                             }
-
                                         }
-                                    }
-                                }}
-                                >
-                                    +
+                                    }}>+</div>
                                 </div>
                             </div>
-
                         </div>
-                    </div>
-                    {handleSubtarefa()}
-
-
-
-
-                </div>
-                <div className={style.subtarefa_tarefa_modal}>
-                    <div className={style.container_titulo_etiquetas}>
-                        <div id="" className={style.container_select_etiqueta}>
-                            <h3 className={style.titulo_etiqueta_modal}>Etiqueta</h3>
-                        </div>
-                        <div id="" className={style.container_select_etiqueta}>
-                            <h3 className={style.titulo_etiqueta_modal2}>Etiqueta</h3>
-                        </div>
+                        {handleSubtarefa()}
                     </div>
 
-                    <div className={style.continer_combo_etiquetas}>
-                        <div id="" className={style.container_select_etiqueta}>
-                            <EtiquetaSelect/>
-                        </div>
-                        <div id="" className={style.container_select_etiqueta}>
-                            <EtiquetaSelect2/>
-                        </div>
-                    </div>
+                    <div className={style.subtarefa_tarefa_modal}>
+                        <div className={style.continer_combo_etiquetas}>
+                            <div className={style.container_select_etiqueta}>
+                                <h3 className={style.titulo_etiqueta_modal}>Etiqueta</h3>
+                                <EtiquetaSelect/>
+                            </div>
 
-                </div>
-            </div>
+                            <div className={style.container_select_etiqueta}>
+                                <h3 className={style.titulo_etiqueta_modal}>Etiqueta</h3>
+                                <EtiquetaSelect2/>
+                            </div>
+                        </div>
 
-            <div className={`${style.footer_modal} ${buscarAlturaFooter()}`}>
-                <div onClick={criar}
-                    className={style.botao_salvar_tarefa}>
-                    <div className={style.texto_salvar_tarefa}>
-                        Salvar Tarefa
+                        <div className={style.div_btn}>
+                            <div onClick={criar} className={style.botao_salvar_tarefa}>
+                                <span>Salvar Tarefa</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
         </div>
     );
 }

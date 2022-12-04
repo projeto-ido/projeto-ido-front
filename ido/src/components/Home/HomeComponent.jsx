@@ -3,7 +3,6 @@ import AcoesAtividades from "./AcoesAtividades";
 import FilterPesquisar from "./FilterPesquisar";
 import ModalCriarTarefa from "./ModalCriarTarefa";
 import ModalVerTarefa from "./ModalVerTarefa";
-import Perfil from "./Perfil";
 import Matriz from "./Tarefas/ComboMatriz/Matriz"
 import Grupo from "./Tarefas/Grupo"
 import Lista from "./Tarefas/ComboLista/Lista"
@@ -29,27 +28,29 @@ function HomeComponent({openModal, setOpenModal, openModalVerTarefa, setOpenModa
         <>
             <div className={style.div_espacamento} />
             <FilterPesquisar 
-            openModal={openModal}  
-            openModalVerTarefa={openModalVerTarefa} 
-            openGerenciadorEtiquetas={openGerenciadorEtiquetas}
-            tipoTarefa={tipoTarefa}
-            setTipoTarefa={setTipoTarefa}
-            setPomodoroAtivo={setPomodoroAtivo}
+                openModal={openModal}  
+                openModalVerTarefa={openModalVerTarefa} 
+                openGerenciadorEtiquetas={openGerenciadorEtiquetas}
+                tipoTarefa={tipoTarefa}
+                setTipoTarefa={setTipoTarefa}
+                setPomodoroAtivo={setPomodoroAtivo}
             />
             <AcoesAtividades 
-            openModalVerTarefa={openModalVerTarefa} 
-            setOpenModal={setOpenModal}
-            openModal={openModal} 
-            tipoTarefa={tipoTarefa} 
-            setTipoTarefa={setTipoTarefa}
-            openGerenciadorEtiquetas={openGerenciadorEtiquetas}
+                openModalVerTarefa={openModalVerTarefa} 
+                setOpenModal={setOpenModal}
+                openModal={openModal} 
+                tipoTarefa={tipoTarefa} 
+                setTipoTarefa={setTipoTarefa}
+                openGerenciadorEtiquetas={openGerenciadorEtiquetas}
             />
             <ModalCriarTarefa 
-            openModal={openModal} 
-            setOpenModal={setOpenModal} />
+                openModal={openModal} 
+                setOpenModal={setOpenModal} 
+            />
             <ModalVerTarefa 
-            openModalVerTarefa={openModalVerTarefa} 
-            setOpenModalVerTarefa={setOpenModalVerTarefa}/>
+                openModalVerTarefa={openModalVerTarefa} 
+                setOpenModalVerTarefa={setOpenModalVerTarefa}
+            />
             {handleTarefa()}
             <Spotify/>
         </>

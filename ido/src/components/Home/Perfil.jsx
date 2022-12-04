@@ -22,10 +22,6 @@ function Perfil() {
                 <div onClick={mudarPerfil}>
                     <img src={fotoPerfil} alt="Foto do Perfil" />
                 </div>
-
-                {/* <Link to="/perfil">
-                    <img className={style.foto_perfil} src={perfil} alt="foto do perfil do usuário" />
-                </Link> */}
             </header>
         </>
     );

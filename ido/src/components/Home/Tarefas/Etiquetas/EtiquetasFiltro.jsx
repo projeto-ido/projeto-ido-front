@@ -11,7 +11,6 @@ export default function EtiquetasFiltro(){
 
     useEffect(() => {
         var idUsuario = sessionStorage.getItem("idLogado");
-
         api.get(`/usuarios/${idUsuario}/etiquetas`).then(res => {
             console.log("dados ", res.data.length);
             setListaEtiquetas(res.data);
@@ -19,30 +18,20 @@ export default function EtiquetasFiltro(){
             if (res.data === "") {
                 setListaEtiquetas([""])
             }
-
-            // if(JSON.parse(sessionStorage.getItem("etiqueta2")).idEtiqueta !== undefined){
-            //     //setEtiqueta2(JSON.parse(sessionStorage.getItem("etiqueta2")).idEtiqueta)
-            // }
         }).catch(erro => {
             console.log(erro)
-
         })
-
     }, [])
 
-    
-
     return (
-        <div onClick={() => setAtualizarFiltroEtiqueta(true)}
-        >
-        <select value={etiquetaFiltro} onChange={(e) =>
-            setEtiquetaFiltro(e.target.value)} className={style.select_etiquetas}
-            name="" id="">
-            <option value=""></option>
-            {listaEtiquetas.map((item) => (
-                <option value={item.idEtiqueta}>{item.titulo}</option>
-            ))}
-        </select>
+        <div onClick={() => setAtualizarFiltroEtiqueta(true)}>
+            <select value={etiquetaFiltro} onChange={(e) => setEtiquetaFiltro(e.target.value)} 
+                className={style.select_etiquetas} name="" id="">
+                <option value="">Selecione</option>
+                {listaEtiquetas.map((item) => (
+                    <option value={item.idEtiqueta}>{item.titulo}</option>
+                ))}
+            </select>
         </div>
     )
 }

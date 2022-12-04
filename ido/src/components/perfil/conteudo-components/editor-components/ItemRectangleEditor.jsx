@@ -10,13 +10,54 @@ import fotoPerfil from '../../../../assets/images/ido-utilizador.png'
 import fotoBio from '../../../../assets/images/ido-bem-vindo.jpg'
 
 function ItemRectangleEditor(props) {
-
     const [nomeEditavel, setNomeEditavel] = useState(false);
     const [emailEditavel, setEmailEditavel] = useState(false);
     const [biografiaEditavel, setBiografiaEditavel] = useState(true);
     const [usernameEditavel, setUsernameEditavel] = useState(false);
     const [senhaEditavel, setSenhaEditavel] = useState(false);
     const [telefoneEditavel, setTelefoneEditavel] = useState(false);
+    const [fotoPerfilEditavel, setFotoPerfilEditavel] = useState(false);
+    const [fotoBioEditavel, setFotoBioEditavel] = useState(false);
+    const inputFilePerfil = document.querySelector("#arquivoPerfil");
+    const inputFileBio = document.querySelector("#arquivoBio");
+
+    // FOTO PERFIL
+    if (inputFilePerfil != null) {
+        inputFilePerfil.addEventListener("change", function (e) {
+            const inputTarget = e.target;
+            const file = inputTarget.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+                reader.addEventListener("load", function (e) {
+                    const imagemBase64 = e.target;
+
+                    const img = document.getElementById("imgPerfil");
+                    img.src = imagemBase64.result;
+                });
+                reader.readAsDataURL(file);
+            }
+        });
+    }
+
+    // FOTO BIOGRAFIA
+    if (inputFileBio != null) {
+        inputFileBio.addEventListener("change", function (e) {
+            const inputTarget = e.target;
+            const file = inputTarget.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+                reader.addEventListener("load", function (e) {
+                    const imagemBase64 = e.target;
+
+                    const img = document.getElementById("imgBio");
+                    img.src = imagemBase64.result;
+                });
+                reader.readAsDataURL(file);
+            }
+        });
+    }
 
     {
         fotoPerfil = sessionStorage.getItem("imagemPerfil") == null ? sessionStorage.getItem("imagemPerfil") : fotoPerfil
@@ -167,11 +208,15 @@ function ItemRectangleEditor(props) {
                                 <h1>Capa:</h1>
                                 <div className={styles.biografia}>
                                     <div>
-                                        <img alt="Imagem Biografia" src={fotoBio} />
+                                        <img id="imgBio" alt="Imagem Biografia" src={fotoBio} />
                                     </div>
                                 </div>
                                 <div className={styles.div_image_icon_lapis}>
-                                    <img className={styles.acoes} src={iconUpload} alt="icone lapis" />
+                                    <label htmlFor="arquivoBio">
+                                        <img className={styles.acoes} src={iconUpload} alt="icone upload" />
+                                    </label>
+                                    <input type="file" accept="image/jpeg, image/png" name="arquivoBio" id="arquivoBio" />
+                                    
                                     <img className={styles.acoes} src={iconDeletar} alt="icone lixeira" />
                                 </div>
                             </div>
@@ -238,12 +283,15 @@ function ItemRectangleEditor(props) {
                         </div>
 
                         <div className={styles.div_image_perfil}>
-                            <img alt="Imagem do Perfil" src={fotoPerfil} />
+                            <img id="imgPerfil" alt="Imagem do Perfil" src={fotoPerfil} />
                         </div>
 
                         <div className={styles.btn_segunda_coluna}>
                             <div>
-                                <img className={styles.acoes} src={iconUpload} alt="icone upload" />
+                                <label htmlFor="arquivoPerfil">
+                                    <img className={styles.acoes} src={iconUpload} alt="icone upload" />
+                                </label>
+                                <input type="file" accept="image/jpeg, image/png" name="arquivoPerfil" id="arquivoPerfil" />
                             </div>
                             <div>
                                 <img className={styles.acoes} src={iconDeletar} alt="icone lixeira" />

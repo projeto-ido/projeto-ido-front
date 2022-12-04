@@ -20,7 +20,6 @@ export default function Grupo({setOpenModalVerTarefa}) {
         } else {
             return <AiFillCaretLeft size="3vh" />
         }
-
     }
 
     function handleIconAgendar(){
@@ -32,7 +31,6 @@ export default function Grupo({setOpenModalVerTarefa}) {
     }
 
     function handleIconDelegar(){
-
         if (openDelegar) {
             return <AiOutlineCaretDown size="3vh" />
         } else {
@@ -41,7 +39,6 @@ export default function Grupo({setOpenModalVerTarefa}) {
     }
 
     function handleIconNaoPriorizar(){
-
         if (openNaoPriorizar) {
             return <AiOutlineCaretDown size="3vh" />
         } else {
@@ -105,53 +102,40 @@ export default function Grupo({setOpenModalVerTarefa}) {
         }
     }
 
-
     return (
         <div id="tarefas-geral-grupo" className={style.tarefas_geral_grupo}>
-
             <div onClick={booleanFazerAgora} 
             className={style.container_tipo_tarefa_topo}>
                 <div className={style.container_tipo_tarefa_espaco}>
                     <span className={style.titulo_prioridade_grupo}>Fazer Agora</span>
                     <span id="iconFechadoFazerAgora" className={style.icon_fechado_fazer_agora}>{handleIconFazer()} </span>
-
                 </div>
-
             </div>
             {handleContainerFazer()}
 
-            <div onClick={booleanAgendar} 
-            className={style.container_tipo_tarefa}>
+            <div onClick={booleanAgendar} className={style.container_tipo_tarefa}>
                 <div className={style.container_tipo_tarefa_espaco}>
                     <span className={style.titulo_prioridade_grupo}>Agendar</span>
                     <span id="iconFechadoFazerAgora" className={style.icon_fechado_fazer_agora}>{handleIconAgendar()} </span>
-
                 </div>
             </div>
             {handleContainerAgendar()}
 
-            <div onClick={booleanDelegar} 
-            className={style.container_tipo_tarefa}>
+            <div onClick={booleanDelegar} className={style.container_tipo_tarefa}>
                 <div className={style.container_tipo_tarefa_espaco}>
                     <span className={style.titulo_prioridade_grupo}>Delegar</span>
                     <span id="iconFechadoFazerAgora" className={style.icon_fechado_fazer_agora}>{handleIconDelegar()} </span>
-
                 </div>
-
             </div>
             {handleContainerDelegar()}
 
-            <div onClick={booleanNaoPriorizar} 
-            className={style.container_tipo_tarefa}>
+            <div onClick={booleanNaoPriorizar} className={style.container_tipo_tarefa}>
                 <div className={style.container_tipo_tarefa_espaco}>
                     <span className={style.titulo_prioridade_grupo}>Não priorizar</span>
                     <span id="iconFechadoFazerAgora" className={style.icon_fechado_fazer_agora}>{handleIconNaoPriorizar()} </span>
-
                 </div>
-
             </div>
             {handleContainerNaoPriorizar()}
-            {/* <Spotify/> */}
         </div>
     );
 }

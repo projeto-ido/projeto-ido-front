@@ -806,6 +806,9 @@ body{
     border-radius: 50%;
     overflow: hidden;
     background-color: var(--cor--preta);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .editor_segunda_coluna .div_image_perfil img {
@@ -831,6 +834,18 @@ body{
 .btn_segunda_coluna img {
     height: 100%;
     padding: 0;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.btn_segunda_coluna div label {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .editor_segunda_coluna button {
