@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import ApexChart from 'react-apexcharts';
-import apiDiaTarefa from '../../../../api/apiDiaTarefa'
 import styles from "../../Perfil.module.css";
 import apiService from '../../../../api/apiService';
 
