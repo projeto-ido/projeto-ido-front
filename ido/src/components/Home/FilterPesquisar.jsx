@@ -9,6 +9,7 @@ import axios from "../../api/api";
 export default function FilterPesquisar({openModal, openModalVerTarefa, openGerenciadorEtiquetas, tipoTarefa, setTipoTarefa, setPomodoroAtivo}){
     const [palavraPesquisa, setParalavraPesquisa] = useSessionStorageString("palavraPesquisa", "")
     const [atualizarFiltro, setAtualizarFiltro] = useSessionStorageBoolean("atualizarFiltro", false);
+    const idUsuario = sessionStorage.getItem("id")
 
     const downloadCsv = (data, extensao) => {
 
@@ -33,7 +34,7 @@ export default function FilterPesquisar({openModal, openModalVerTarefa, openGere
     }
 
     const getArquivo = (extensao) => {
-        axios.post(`/usuarios/1/exportacao/grava/${extensao}/relatorio_${extensao}`, null)
+        axios.post(`/usuarios/${idUsuario}/exportacao/grava/${extensao}/relatorio_${extensao}`, null)
         .then(res => {
             console.log(extensao);
             downloadCsv(res.data, extensao)
