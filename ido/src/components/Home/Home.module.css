@@ -196,6 +196,7 @@ header div {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    overflow: hidden;
 }
 
 header img {

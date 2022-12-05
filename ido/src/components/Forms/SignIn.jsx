@@ -21,7 +21,7 @@ export const SignIn = () => {
         sessionStorage.setItem("apelido", data.apelido);
         sessionStorage.setItem("email", data.email);
         sessionStorage.setItem("biografia", data.biografia);
-        sessionStorage.setItem("imagemBiografica", data.imagemBiografica);
+        sessionStorage.setItem("imagemBiografia", data.imagemBiografia);
         sessionStorage.setItem("imagemPerfil", data.imagemPerfil);
         sessionStorage.setItem("nascimento", data.nascimento);
         sessionStorage.setItem("nivel", data.nivel);

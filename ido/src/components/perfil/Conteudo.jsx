@@ -6,7 +6,7 @@ import Header from './Header';
 import Editor from './conteudo-components/Editor';
 import styles from "./Perfil.module.css"
 
-function Conteudo() {
+function Conteudo({setUsuarioAtualizado}) {
     const [estado, setEstado] = useState({atual: <Overview />});
     const [select, setSelect] = useState({
         overview: <div className={styles.selection} />,
@@ -31,7 +31,7 @@ function Conteudo() {
     // }
 
     const editor = (e) => {
-        setEstado({atual: <Editor />})
+        setEstado({atual: <Editor setUsuarioAtualizado={setUsuarioAtualizado} />})
         setSelect({overview: '', conquista: '', grafico: '', editor: <div className={styles.selection} />})
     }
 

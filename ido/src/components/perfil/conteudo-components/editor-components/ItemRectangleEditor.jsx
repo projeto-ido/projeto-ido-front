@@ -8,8 +8,9 @@ import { ToastContainer, toast } from 'react-toastify';
 import { useEffect } from 'react';
 import fotoPerfil from '../../../../assets/images/ido-utilizador.png'
 import fotoBio from '../../../../assets/images/ido-bem-vindo.jpg'
+import axios from '../../../../api/apiService';
 
-function ItemRectangleEditor(props) {
+function ItemRectangleEditor({setUsuarioAtualizado}) {
     const [nomeEditavel, setNomeEditavel] = useState(false);
     const [emailEditavel, setEmailEditavel] = useState(false);
     const [biografiaEditavel, setBiografiaEditavel] = useState(true);
@@ -23,18 +24,18 @@ function ItemRectangleEditor(props) {
     // FOTO PERFIL
     if (inputFilePerfil != null) {
         inputFilePerfil.addEventListener("change", function (e) {
-            const inputTarget = e.target;
-            const file = inputTarget.files[0];
+            const inputTargetPerfil = e.target;
+            const filePerfil = inputTargetPerfil.files[0];
 
-            if (file) {
+            if (filePerfil) {
                 const reader = new FileReader();
                 reader.addEventListener("load", function (e) {
-                    const imagemBase64 = e.target;
+                    const imagemBase64Perfil = e.target;
 
-                    const img = document.getElementById("imgPerfil");
-                    img.src = imagemBase64.result;
+                    const imgPerfil = document.getElementById("imgPerfil");
+                    imgPerfil.src = imagemBase64Perfil.result;
                 });
-                reader.readAsDataURL(file);
+                reader.readAsDataURL(filePerfil);
             }
         });
     }
@@ -42,28 +43,28 @@ function ItemRectangleEditor(props) {
     // FOTO BIOGRAFIA
     if (inputFileBio != null) {
         inputFileBio.addEventListener("change", function (e) {
-            const inputTarget = e.target;
-            const file = inputTarget.files[0];
+            const inputTargetBio = e.target;
+            const fileBio = inputTargetBio.files[0];
 
-            if (file) {
+            if (fileBio) {
                 const reader = new FileReader();
                 reader.addEventListener("load", function (e) {
-                    const imagemBase64 = e.target;
+                    const imagemBase64Bio = e.target;
 
-                    const img = document.getElementById("imgBio");
-                    img.src = imagemBase64.result;
+                    const imgBio = document.getElementById("imgBio");
+                    imgBio.src = imagemBase64Bio.result;
                 });
-                reader.readAsDataURL(file);
+                reader.readAsDataURL(fileBio);
             }
         });
     }
 
     {
-        fotoPerfil = sessionStorage.getItem("imagemPerfil") == null ? sessionStorage.getItem("imagemPerfil") : fotoPerfil
+        fotoPerfil = sessionStorage.getItem("imagemPerfil") == 'null' ? fotoPerfil : "data:image/jpeg;base64," + sessionStorage.getItem("imagemPerfil")
     }
 
     {
-        fotoBio = sessionStorage.getItem("imagemBiografica") == undefined ? sessionStorage.getItem("imagemBiografica") : fotoBio
+        fotoBio = sessionStorage.getItem("imagemBiografia") == 'null' ? fotoBio : "data:image/jpeg;base64," + sessionStorage.getItem("imagemBiografia")
     }
 
     function bioEditavel() {
@@ -72,10 +73,11 @@ function ItemRectangleEditor(props) {
         setBiografiaEditavel(!biografiaEditavel)
 
         !biografiaEditavel ? textarea.setAttribute("disabled", false)
-         : textarea.removeAttribute("disabled");
+            : textarea.removeAttribute("disabled");
     }
 
     function salvarAlteracao(event) {
+        var idUsuario = sessionStorage.getItem("id")
         event.preventDefault();
 
         const names = event.target;
@@ -90,11 +92,29 @@ function ItemRectangleEditor(props) {
             return info("Não pode conter espaços em branco")
         else if (names.telefone.value.trim() === "") 
             return info("Não pode conter espaços em branco")
-        
-        sucesso("Atualização feita com sucesso")
+
+        const dataInfo = {
+            nome : names.nome.value.trim(),
+            apelido: names.username.value.trim(),
+            email : names.email.value.trim(),
+            telefone : names.telefone.value.trim(),
+            biografia : names.biografia.value.trim(),
+            imagemPerfil : document.getElementById("imgPerfil").src.substring(document.getElementById("imgPerfil").src.indexOf(",") + 1),
+            imagemBiografia : document.getElementById("imgBio").src.substring(document.getElementById("imgBio").src.indexOf(",") + 1)
+        }
+        axios.put(`/usuarios/${idUsuario}`, dataInfo).then((res) => {
+            if(res.status === 200) {
+                setUsuarioAtualizado(true)
+                sucesso("Informações atualizadas com sucesso")
+            }
+
+        }).catch((erros) => {
+            erro("Informações não foram atualizadas")
+        })
     }
 
     function salvarNovaSenha(event) {
+        var idUsuario = sessionStorage.getItem("id")
         event.preventDefault();
 
         const senhas = event.target;
@@ -108,7 +128,22 @@ function ItemRectangleEditor(props) {
         else if (senhas.novaSenha.value.trim() != senhas.repetirNovaSenha.value.trim()) 
             return info("A nova senha tem que ser idênticas nos dois campos")
         
-        sucesso("Senha atualizada com sucesso")
+        const dataSenha = {
+            senhaAnterior : senhas.senhaAtual.value.trim(),
+            senhaNova: senhas.novaSenha.value.trim()
+        }
+        axios.patch(`/usuarios/${idUsuario}/perfil/atualizar-senha`, dataSenha).then((res) => {
+            if(res.status === 200) {
+                sucesso("Senha atualizada com sucesso")
+                senhas.senhaAtual.value='';
+                senhas.repetirNovaSenha.value='';
+                senhas.novaSenha.value='';
+                setNovaSenhaEditavel(false);
+                setSenhaEditavel(false);
+            }
+        }).catch((erros) => {
+            erro("Senha não foi atualizada")
+        })
     }
 
     function sucesso(texto) {
@@ -122,9 +157,9 @@ function ItemRectangleEditor(props) {
           progress: undefined,
           theme: "light",
         })
-      }
+    }
 
-      function info(texto) {
+    function info(texto) {
         toast.info(texto, {
             position: "top-right",
             autoClose: 1600,
@@ -135,9 +170,9 @@ function ItemRectangleEditor(props) {
             progress: undefined,
             theme: "light",
         })
-      }
+    }
     
-      function erro(texto) {
+    function erro(texto) {
         toast.error(texto, {
           position: "top-right",
           autoClose: 3000,
@@ -148,7 +183,7 @@ function ItemRectangleEditor(props) {
           progress: undefined,
           theme: "light",
         })
-      }
+    }
 
     return(
         <>
@@ -227,7 +262,7 @@ function ItemRectangleEditor(props) {
                                         <label className={styles.div_image_icons} htmlFor="arquivoBio">
                                             <img className={styles.acoes} src={iconUpload} alt="icone upload" />
                                         </label>
-                                        <input type="file" accept="image/jpeg, image/png" name="arquivoBio" id="arquivoBio" />
+                                        <input type="file" accept="image/jpeg" name="arquivoBio" id="arquivoBio" />
                                         
                                         <div className={styles.div_image_icons}>
                                             <img className={styles.acoes} src={iconDeletar} alt="icone lixeira" />
@@ -286,7 +321,7 @@ function ItemRectangleEditor(props) {
                                                 <label htmlFor="arquivoPerfil">
                                                     <img className={styles.acoes} src={iconUpload} alt="icone upload" />
                                                 </label>
-                                                <input type="file" accept="image/jpeg, image/png" name="arquivoPerfil" id="arquivoPerfil" />
+                                                <input type="file" accept="image/jpeg" name="arquivoPerfil" id="arquivoPerfil" />
                                             </div>
                                             <div>
                                                 <img className={styles.acoes} src={iconDeletar} alt="icone lixeira" />

@@ -4,7 +4,7 @@ import fotoBio from '../../../../assets/images/ido-bem-vindo.jpg'
 
 function ItemRectangleBio(props) {
     {
-        fotoBio = sessionStorage.getItem("imagemBiografica") == undefined ? sessionStorage.getItem("imagemBiografica") : fotoBio
+        fotoBio = sessionStorage.getItem("imagemBiografia") === 'null' ? fotoBio : "data:image/jpeg;base64," + sessionStorage.getItem("imagemBiografia")
     }
 
     return(

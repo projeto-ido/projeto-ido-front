@@ -19,7 +19,7 @@ function Sidebar() {
                         <div>
                             <div className={styles.foto_perfil}>
                                 {
-                                    fotoPerfil = sessionStorage.getItem("imagemPerfil") == null ? sessionStorage.getItem("imagemPerfil") : fotoPerfil
+                                    fotoPerfil = sessionStorage.getItem("imagemPerfil") === 'null' ? fotoPerfil : "data:image/jpeg;base64," + sessionStorage.getItem("imagemPerfil")
                                 }
                                 <img src={fotoPerfil} alt="Foto de perfil do usuário" />
                                 
