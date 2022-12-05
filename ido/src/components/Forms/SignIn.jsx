@@ -4,13 +4,37 @@ import { useSessionStorageString } from "react-use-window-sessionstorage";
 import logo from '../../assets/images/logo-white.png'
 import style from './Forms.module.css'
 import api from "../../api/api.jsx"
-
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export const SignIn = () => {
     const navigate = useNavigate();
     const [idUsuarioStorage, setIdUsuarioStorage] = useSessionStorageString("idLogado",  "");
-    const [nomeUsuarioStorage, setNomeUsuarioStorage] = useSessionStorageString("nomeLogado",  "");    const logar = (event) => {
+    const [nomeUsuarioStorage, setNomeUsuarioStorage] = useSessionStorageString("nomeLogado",  "");    
+    
+    function adicionarNaSessioStorage(data){
+        
+        console.log("Usuario logado " + idUsuarioStorage);
+        console.log("Nome logado " + nomeUsuarioStorage);
+        sessionStorage.setItem("id", data.idUsuario);
+        sessionStorage.setItem("nome", data.nome);
+        sessionStorage.setItem("apelido", data.apelido);
+        sessionStorage.setItem("email", data.email);
+        sessionStorage.setItem("biografia", data.biografia);
+        sessionStorage.setItem("imagemBiografia", data.imagemBiografia);
+        sessionStorage.setItem("imagemPerfil", data.imagemPerfil);
+        sessionStorage.setItem("nascimento", data.nascimento);
+        sessionStorage.setItem("nivel", data.nivel);
+        sessionStorage.setItem("telefone", data.telefone);
+
+        setTimeout(mudarParaHome,3000)
+    }
+
+    function mudarParaHome(){
+        navigate("/home")
+    }
+    
+    const logar = (event) => {
         event.preventDefault();
         
         const data = {
@@ -23,27 +47,32 @@ export const SignIn = () => {
                 if(resposta.status === 200){                    
                     setIdUsuarioStorage(resposta.data.idUsuario);
                     setNomeUsuarioStorage(resposta.data.apelido);
-                    if(idUsuarioStorage !== "" && nomeUsuarioStorage !== ""){
-                        console.log("Usuario logado " + idUsuarioStorage);
-                        console.log("Nome logado " + nomeUsuarioStorage);
-                        const data = resposta.data;
-
-                    sessionStorage.setItem("id", data.idUsuario);
-                    sessionStorage.setItem("nome", data.nome);
-                    sessionStorage.setItem("apelido", data.apelido);
-                    sessionStorage.setItem("email", data.email);
-                    sessionStorage.setItem("biografia", data.biografia);
-                    sessionStorage.setItem("imagemBiografica", data.imagemBiografica);
-                    sessionStorage.setItem("imagemPerfil", data.imagemPerfil);
-                    sessionStorage.setItem("nascimento", data.nascimento);
-                    sessionStorage.setItem("nivel", data.nivel);
-
-                    navigate("/home");
-                    }
-                    
+                    toast.info('Carregando...', {
+                        position: "top-center",
+                        autoClose: 1600,
+                        hideProgressBar: false,
+                        closeOnClick: false,
+                        pauseOnHover: false,
+                        draggable: false,
+                        progress: undefined,
+                        theme: "light",
+                    });
+                    setTimeout(adicionarNaSessioStorage(resposta.data), 3000);
                 }
             }).catch(erro => {
                 console.log(erro);
+                if(erro.response.status === 401){
+                    toast.error("Email e / ou senha inválida", {
+                        position: "top-center",
+                        autoClose: 1600,
+                        hideProgressBar: false,
+                        closeOnClick: false,
+                        pauseOnHover: false,
+                        draggable: false,
+                        progress: undefined,
+                        theme: "light",
+                    });
+                }
             })
 
     }
@@ -51,8 +80,9 @@ export const SignIn = () => {
 
     return (
         <>
+            <ToastContainer />
             <div className={style.titulo}>
-                <h1>Seja Bem Vindo!</h1>
+                <h1>Bem Vindo de Volta!</h1>
             </div>
 
             <form onSubmit={logar}>

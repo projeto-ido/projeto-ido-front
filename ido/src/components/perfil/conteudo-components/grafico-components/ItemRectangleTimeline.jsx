@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import ApexChart from 'react-apexcharts';
-import apiTimeline from '../../../../api/apiTimeline';
+import apiService from '../../../../api/apiService';
 
 function ItemRectangleTimeline() {
     const [listaTarefa, setListaTarefa] = useState([]);
 
     useEffect(() => {
-        apiTimeline.get().then(res => {
+        var idUsuario = sessionStorage.getItem("id");
+        apiService.get(`/usuarios/perfil/time-line/${idUsuario}`).then(res => {
             setListaTarefa(res.data);
+            console.log(listaTarefa)
         }).catch(erro => {
             console.log(erro);
         })
@@ -27,7 +29,7 @@ function ItemRectangleTimeline() {
     
     listaTarefa.map(tarefaAtual => (
         vetorTarefas.push(
-            new Tarefa(tarefaAtual.prioridade, tarefaAtual.dataIni, tarefaAtual.dataFim)
+            new Tarefa(tarefaAtual.prioridade, tarefaAtual.dataInicio, tarefaAtual.dataFinal)
         )
     ))
 

@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import ApexChart from 'react-apexcharts';
-import apiDiaTarefa from '../../../../api/apiDiaTarefa'
 import styles from "../../Perfil.module.css";
+import apiService from '../../../../api/apiService';
 
 function ItemSquareSemana(props) {
     const [listaDiaTarefa, setListaDiaTarefa] = useState([]);
 
     useEffect(() => {
-        apiDiaTarefa.get().then(res => {
+        var idUsuario = sessionStorage.getItem("id");
+        apiService.get(`/usuarios/perfil/semanal/${idUsuario}`).then(res => {
             setListaDiaTarefa(res.data);
         }).catch(erro => {
             console.log(erro);
@@ -21,26 +22,19 @@ function ItemSquareSemana(props) {
 
     const dias = [];
     const qtdConcluido = [];
-    const qtdNaoConcluido = [];
     
     dias.push(listaDiaTarefa.map(diaTarefaAtual => (
-        diaTarefaAtual.data
+        diaTarefaAtual.diaSemana
     )))
 
     qtdConcluido.push(listaDiaTarefa.map(diaTarefaAtual => (
-        diaTarefaAtual.qtdConcluido
-    )))
-
-    qtdNaoConcluido.push(listaDiaTarefa.map(diaTarefaAtual => (
-        diaTarefaAtual.qtdNaoConcluido
+        diaTarefaAtual.qtdTarefasConcluidas
     )))
 
     var linhaConcluido = new TaskObject("Tarefas concluídas", qtdConcluido)
-    var linhaNaoConcluido = new TaskObject("Tarefas não concluídas", qtdNaoConcluido)
 
     const series = [
         linhaConcluido,
-        linhaNaoConcluido
     ]
 
     const options = {

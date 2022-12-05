@@ -91,6 +91,17 @@ body{
     flex-direction: column;
 }
 
+.conquista_breve {
+    height: 100%;
+    width: 100%;
+    background-color: red;
+}
+
+.em_breve {
+    opacity: 10%;
+    cursor: default;
+}
+
 .main_container .box_header .btn_box .container div .text {
     width: 100%;
     height: 70%;
@@ -105,6 +116,10 @@ body{
     display: flex;
     justify-content: flex-end;
     align-items: center;
+}
+
+.div_selection b {
+    color: var(--cor--amarela);
 }
 
 .main_container .box_header .btn_box .container div .div_selection .selection {
@@ -162,12 +177,11 @@ body{
     z-index: 1;
     display: flex;
     justify-content: flex-end;
+    overflow: hidden;
 }
 
 .main_container .toolbar .container .foto_perfil img {
     height: 100%;
-    width: 100%;
-    border-radius: 50%;
 }
 
 .main_container .toolbar .container .foto_perfil div {
@@ -197,21 +211,12 @@ body{
 .main_container .toolbar .container .opcoes {
     width: 65%;
     height: 20%;
-    font-size: 1vw;
+    font-size: 1.3vw;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: flex-start;
     color: white;
-}
-
-.main_container .toolbar .container .opcoes #nome_usuario {
-    font-weight: 900;
-    font-size: 1.5vw;
-}
-
-.main_container .toolbar .container .opcoes #usuario {
-    font-size: 1vw;
 }
 
 .main_container .toolbar .container .opcoes button {
@@ -222,12 +227,26 @@ body{
     background-color: var(--cor--azul);
     border-radius: 1em;
     color: white;
+    transition-duration: 0.3s;
+}
+
+.main_container .toolbar .container .opcoes div {
+    width: 100%;
+    height: 22%;
+    font-size: 1vw;
+    border: none;
+    background-color: var(--cor--azul);
+    border-radius: 1em;
+    color: white;
+    opacity: 50%;
+    display: none;
 }
 
 .main_container .toolbar .container .opcoes .sair { 
     text-decoration: none;
     color: #FFF;
 }
+
 .main_container .toolbar .container .opcoes button:hover {
     cursor: pointer;
     transition-duration: 0.3s;
@@ -272,6 +291,8 @@ body{
     background-image: url("../../assets/images/fundo-perfil-opaco.png");
     background-repeat: no-repeat;
     background-size: cover;
+    background-color: var(--background--conteudo);
+    opacity: var(--opacidade--conteudo);
 }
 
 .main_container .conteudo .container {
@@ -290,6 +311,18 @@ body{
     justify-content: space-between;
 }
 
+.div_overview {
+    height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+}
+
+.div_overview .titulo_graficos {
+    margin: 4vh 4vh 0 0;
+    color: var(--cor--roxo);
+    font-size: 2vh;
+}
+
 /* ESTRUTURA = OVERVIEW _ CONQUISTAS */
 .main_container .conteudo .container .box_container .div_up {
     width: 100%;
@@ -297,6 +330,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 1vh;
 }
 
 .main_container .conteudo .container .box_container .div_down {
@@ -305,6 +339,23 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 4vh;
+}
+
+.main_container .conteudo .container .box_container .div_down .div_botao button {
+    width: 25%;
+    height: 15%;
+    font-size: 1vw;
+    border: none;
+    background-color: var(--cor--azul);
+    border-radius: 2em;
+    color: white;
+}
+
+.main_container .conteudo .container .box_container .div_down .div_botao button:hover {
+    cursor: pointer;
+    transition-duration: 0.3s;
+    background-color: var(--cor--amarela);
 }
 
 /* ESTRUTURA GRAFICOS */
@@ -319,6 +370,7 @@ body{
 .main_container .conteudo .container .box_container .div_down_grafico {
     width: 100%;
     height: 40%;
+    margin-top: 4vh;
 }
 
 /* OVERVIEW */
@@ -368,10 +420,13 @@ body{
     border-radius: 1.5vw;
     background-color: var(--cor--preta);
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .div_up .item_rectangle_bio .overview_imagem img {
-    width: 100%;
+    height: 100%;
 }
 
 /* CONQUISTAS */
@@ -456,6 +511,70 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/* ITEM SQUARE OVERVIEW */
+.item_square_overview {
+    height: 100%;
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #E7E7E7;
+    border-top: 0.5vw var(--cor--roxo) solid;
+    border-bottom-right-radius: 1vw;
+    border-bottom-left-radius: 1vw;
+    overflow: hidden;
+    background-image: url("../../assets/images/pie-chart.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 65%;
+    opacity: 70%;
+}
+
+.item_square_overview div {
+    height: 10%;
+    width: 35%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+.item_square_overview img {
+    height: 100%;
+}
+
+.item_square_overview_conquista {
+    height: 100%;
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #E7E7E7;
+    border-top: 0.5vw var(--cor--roxo) solid;
+    border-bottom-right-radius: 1vw;
+    border-bottom-left-radius: 1vw;
+    overflow: hidden;
+    background-image: url("../../assets/images/atarefado.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 65%;
+    opacity: 70%;
+}
+
+.item_square_overview_conquista div {
+    height: 10%;
+    width: 35%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    color: white;
+}
+
+.item_square_overview_conquista img {
+    height: 100%;
 }
 
 /* ITEM CONQUISTA */
@@ -574,4 +693,469 @@ body{
     justify-content: center;
     align-items: flex-start;
     word-wrap: break-word;
+}
+
+/* EDITOR */
+.div_editor {
+    height: 74vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 1.2vh;
+}
+
+.div_editor_senha {
+    height: 42vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-size: 1.2vh;
+}
+
+.div_editor_senha div {
+    width: 84.5%;
+    height: 100%;
+}
+
+.div_editor_senha button {
+    width: 25%;
+    height: 20%;
+    font-size: 1vw;
+    border: none;
+    background-color: var(--cor--azul);
+    border-radius: 1em;
+    color: white;
+    transition-duration: 0.3s;
+    margin-top: 4vh;
+}
+
+.div_editor_senha button:hover {
+    cursor: pointer;
+    transition-duration: 0.3s;
+    background-color: var(--cor--amarela);
+}
+
+.editor_primeira_coluna {
+    height: 100%;
+    width: 60%;
+}
+
+.textos_editor {
+    height: 60%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.textos_editor_senha {
+    height: 60%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.nome_user_editor {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    align-items: center;
+    background-color: #E7E7E7;
+    border-top: 0.5vw var(--cor--roxo) solid;
+    border-bottom-right-radius: 0.5vw;
+    border-bottom-left-radius: 0.5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1vh;
+}
+
+.nome_user_editor div {
+    height: 100%;
+    width: 80%;
+    display: flex;
+    align-items: center;
+}
+
+.nome_user_editor .div_editor_icon_lapis {
+    width: 20%;
+    display: flex;
+    justify-content: right;
+}
+
+.nome_user_editor .div_editor_icon_lapis img {
+    height: 40%;
+}
+
+.nome_user_editor h1 {
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
+
+.nome_user_editor span {
+    font-size: 2vh;
+    padding-left: 1vw;
+}
+
+.nome_user_editor textarea {
+    height: 50%;
+    width: 100%;
+    padding-left: 1vh;
+    resize: none;
+    border-radius: 0.5vw;
+    padding-left: 1vh;
+    padding-top: 1vh;
+    font-family: 'Roboto', sans-serif;
+    border-style: none;
+    font-size: 2.2vh;
+}
+
+.nome_user_editor_senha {
+    width: 60%;
+    height: 15%;
+    display: flex;
+    align-items: center;
+    background-color: #E7E7E7;
+    border-top: 0.5vw var(--cor--roxo) solid;
+    border-bottom-right-radius: 0.5vw;
+    border-bottom-left-radius: 0.5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1vh;
+    margin-top: 3.5vh;
+}
+
+.nome_user_editor_senha div {
+    height: 100%;
+    width: 80%;
+    display: flex;
+    align-items: center;
+}
+
+.nome_user_editor_senha .div_editor_icon_lapis {
+    width: 20%;
+    display: flex;
+    justify-content: right;
+}
+
+.nome_user_editor_senha .div_editor_icon_lapis img {
+    height: 40%;
+}
+
+.nome_user_editor_senha h1 {
+    padding-left: 1vw;
+    padding-right: 1vw;
+    width: 50%;
+}
+
+.nome_user_editor_senha span {
+    font-size: 2vh;
+    padding-left: 1vw;
+}
+
+.nome_user_editor_senha textarea {
+    height: 50%;
+    width: 100%;
+    padding-left: 1vh;
+    resize: none;
+    border-radius: 0.5vw;
+    padding-left: 1vh;
+    padding-top: 1vh;
+    font-family: 'Roboto', sans-serif;
+    border-style: none;
+    font-size: 2.2vh;
+}
+
+.biografia_editor {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: flex-start;
+    overflow: hidden;
+    box-sizing: border-box;
+    white-space: normal;
+    background-color: #E7E7E7;
+    border-top: 0.5vw var(--cor--roxo) solid;
+    border-bottom-right-radius: 0.5vw;
+    border-bottom-left-radius: 0.5vw;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+}
+
+.biografia_editor h1 {
+    padding-left: 1vw;
+    padding-right: 1vw;
+}
+
+.biografia_editor span {
+    font-size: 2vh;
+}
+
+.biografia_editor textarea {
+    height: 80%;
+    width: 100%;
+    resize: none;
+    border-radius: 0.5vw;
+    padding-left: 1vh;
+    padding-top: 1vh;
+    font-family: 'Roboto', sans-serif;
+    border-style: none;
+    font-size: 1.7vh;
+    text-align: justify;
+}
+
+.div_editor .biografia_editor .div_biografia_icon_lapis {
+    height: 30%;
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.div_editor .biografia_editor .div_biografia_icon_lapis img {
+    height: 43%;
+}
+
+.biografia {
+    height: 100%;
+    width: 80%;
+    display: flex;
+    align-items: center;
+}
+
+.div_editor .imagem_perfil_editor {
+    height: 40%;
+    width: 100%;
+}
+
+.div_editor .imagem_perfil_editor .biografia_editor {
+    height: 100%;
+}
+
+.div_editor .imagem_perfil_editor .biografia_editor .biografia {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.div_editor .imagem_perfil_editor .biografia_editor .biografia div {
+    height: 80%;
+    width: 95%;
+    background-color: var(--cor--preta);
+    border-radius: 2vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.div_editor .imagem_perfil_editor .biografia_editor .biografia img {
+    height: 100%;
+}
+
+.div_editor .imagem_perfil_editor .biografia_editor .div_image_icon_lapis {
+    height: 85%;
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-evenly;
+}
+
+.div_image_icons {
+    height: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.div_editor .imagem_perfil_editor .biografia_editor .div_image_icon_lapis img {
+    height: 47%;
+    padding-bottom: 2vh;
+    padding-top: 2vh;
+}
+
+.acoes {
+    cursor: pointer;
+    padding-right: 1vw;
+}
+
+.div_editor .editor_segunda_coluna {
+    height: 100%;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
+}
+
+.editor_segunda_coluna .div_image_perfil {
+    height: 17.5vh;
+    width: 17.5vh;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: var(--cor--preta);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.editor_segunda_coluna .div_image_perfil img {
+    height: 100%;
+}
+
+.btn_segunda_coluna {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.btn_segunda_coluna div {
+    width: 50%;
+    height: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn_segunda_coluna img {
+    height: 100%;
+    padding: 0;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.btn_segunda_coluna div label {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.editor_segunda_coluna button {
+    width: 65%;
+    height: 6%;
+    font-size: 1vw;
+    border: none;
+    background-color: var(--cor--azul);
+    border-radius: 1em;
+    color: white;
+    transition-duration: 0.3s;
+}
+
+.editor_segunda_coluna button:hover {
+    cursor: pointer;
+    transition-duration: 0.3s;
+    background-color: var(--cor--amarela);
+}
+
+.segunda_coluna_editor {
+    height: 60%;
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.div_troca_img_perfil {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.div_trocar_senha {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.div_trocar_senha .div_trocar_senha_geral {
+    width: 100%;
+    height: 96%;
+    align-items: center;
+    background-color: #E7E7E7;
+    border-top: 0.5vw var(--cor--roxo) solid;
+    border-bottom-right-radius: 0.5vw;
+    border-bottom-left-radius: 0.5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1.1vh;
+    overflow: hidden;
+}
+
+.div_input_senha {
+    width: 100%;
+    height: 32%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-bottom: 0.4vh var(--cor--roxo) solid;
+}
+
+.div_trocar_senha h1 {
+    padding-left: 1vw;
+    padding-right: 1vw;
+    width: 25%;
+}
+
+.div_trocar_senha textarea {
+    height: 50%;
+    width: 42%;
+    margin-right: 2.5vh;
+    resize: none;
+    border-radius: 0.5vw;
+    padding-left: 1vh;
+    padding-top: 1vh;
+    font-family: 'Roboto', sans-serif;
+    border-style: none;
+    font-size: 2.2vh;
+    color: black;
+}
+
+.div_trocar_senha img {
+    height: 43%;
+}
+
+.numero_user_editor .nome_user_editor {
+    height: 95%;
+}
+
+.modal{
+    height: 30vh;
+    background-color:#7463C7;
+}
+
+.fundo_escuro {
+    position: fixed;
+    width: 100vw;
+    height: 100%;
+    left: 0%;
+    top: 0px;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.84);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

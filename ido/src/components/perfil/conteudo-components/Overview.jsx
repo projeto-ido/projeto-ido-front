@@ -1,41 +1,60 @@
 import React, { useState, useEffect } from 'react';
-import ItemSquare from './ItemSquare';
+import ItemSquareProgresso from './ItemSquareProgresso';
+import ItemSquareConquista from './ItemSquareConquista';
 import ItemRectangleBio from './overview-components/ItemRectangleBio';
-import apiPerfil from '../../../api/apiPerfil';
+import ItemRectangleTimeline from './grafico-components/ItemRectangleTimeline';
 import styles from "../Perfil.module.css";
+import ItemSquareSemana from './grafico-components/ItemSquareSemana';
+import ItemSquareEtiqueta from './grafico-components/ItemSquareEtiqueta';
+import apiService from '../../../api/apiService';
 
 function Overview(props) {
-    const [listaInfoUser, setListaInfoUser] = useState([]);
+    const [listaEtiqueta, setListaEtiqueta] = useState([]);
 
     useEffect(() => {
-        apiPerfil.get().then(res => {
-          setListaInfoUser(res.data);
+        var idUsuario = sessionStorage.getItem("id");
+        apiService.get(`/usuarios/perfil/grafico-etiqueta/${idUsuario}`).then(res => {
+          setListaEtiqueta(res.data);
         }).catch(erro => {
           console.log(erro);
         })
     }, [])
+    
+    var nomeEtiqueta = [];
+    var qtdEtiqueta = [];
+    
+    nomeEtiqueta.push(listaEtiqueta.map(etiquetaAtual => (
+        etiquetaAtual.titulo
+    )))
+
+    qtdEtiqueta.push(listaEtiqueta.map(etiquetaAtual => (
+        etiquetaAtual.qtdEtiquetaPresente
+    )))
 
     return(
         <>
-            <div className={styles.div_up}>
-
-                {
-                    listaInfoUser.map(infoAtual => (
-                        <React.Fragment key={infoAtual.id}>
-                            <ItemRectangleBio 
-                                titulo={infoAtual.titulo}
-                                texto={infoAtual.texto}
-                                imagem={infoAtual.imagem}
-                            />
-                        </React.Fragment>
-                    ))
-                }
+            <div className={styles.div_overview}>
+                <div className={styles.div_up}>
+                    <ItemRectangleBio/>
+                </div>
                 
-            </div>
-            
-            <div className={styles.div_down}>
-                <ItemSquare />
-                <ItemSquare />
+                <h1 className={styles.titulo_graficos}>DASHBOARD DE DESEMPENHO</h1>
+
+                <div className={styles.div_down}>
+                    <ItemSquareSemana />
+                    <ItemSquareEtiqueta 
+                        etiquetas={nomeEtiqueta[0]}
+                        quantidade={qtdEtiqueta[0]}
+                    />
+                </div>
+
+                <div className={styles.div_down_grafico}>
+                    <div className={styles.item_rectangle}>
+                        <div className={styles.grafico_timeline}>
+                            <ItemRectangleTimeline />
+                        </div>
+                    </div>
+                </div>
             </div>
         </>
     )

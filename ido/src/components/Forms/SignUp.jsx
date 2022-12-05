@@ -69,6 +69,7 @@ export const SignUp = () => {
       apelido: inputs.apelido.value,
       nascimento: inputs.nascimento.value,
       email: inputs.email.value,
+      telefone: inputs.telefone.value,
       senha: inputs.senha.value
     }
 
@@ -93,7 +94,7 @@ export const SignUp = () => {
       <ToastContainer />
 
       <div className={style.titulo}>
-        <h1>Bem Vindo de Volta!</h1>
+        <h1>Seja Bem Vindo!</h1>
       </div>
 
       <form onSubmit={verificarSenha}>
@@ -113,6 +114,7 @@ export const SignUp = () => {
                   placeholder="Nome..."
                   type="text"
                   minLength="3"
+                  maxLength="30"
                   required />
               </div>
             </div>
@@ -163,7 +165,7 @@ export const SignUp = () => {
 
               <div className={style.input}>
                 <input
-                  name='nascimento'
+                  name='telefone'
                   placeholder="11950334249"
                   minLength="10"
                   maxLength="11"

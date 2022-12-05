@@ -9,14 +9,12 @@ export default function ContainerFazerAgora({ setOpenModalVerTarefa }) {
     const [sub1Storage, setSub1Storage] = useSessionStorageString("subTarefa1")
     const [sub2Storage, setSub2Storage] = useSessionStorageString("subTarefa2")
     const [sub3Storage, setSub3Storage] = useSessionStorageString("subTarefa3")
-    const [sub4Storage, setSub4Storage] = useSessionStorageString("subTarefa4")
 
     useEffect(() => {
         var idUsuario = sessionStorage.getItem("idLogado");
         setSub1Storage("");       
         setSub2Storage("");        
-        setSub3Storage("");        
-        setSub4Storage("");  
+        setSub3Storage("");
 
         apiTarefa.get(`/usuarios/${idUsuario}/tarefas`).then(res => {
             console.log("dados", res.data);
@@ -38,7 +36,16 @@ export default function ContainerFazerAgora({ setOpenModalVerTarefa }) {
             <div id="grupoFazerAgora" className={style.grupo_fazer_agora}>
                 <div className={style.grupoTarefas}>
                 {
-                            listaTarefas.filter(tarefa => tarefa.importancia == true && tarefa.urgencia == true).map(tarefaAtual => (
+                            listaTarefas.filter(tarefa => tarefa.importancia == true && tarefa.urgencia == true
+                                //filtro por etiqueta
+                                && ((JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == "") ? true :
+                                (((tarefa.etiquetasTarefa[0] !== undefined && tarefa.etiquetasTarefa[1] !== undefined) ?
+                                    (JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == tarefa.etiquetasTarefa[0].idEtiqueta
+                                        || JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == tarefa.etiquetasTarefa[1].idEtiqueta) : false)
+                                    || ((tarefa.etiquetasTarefa[0] !== undefined && tarefa.etiquetasTarefa[1] == undefined) ?
+                                        JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == tarefa.etiquetasTarefa[0].idEtiqueta : false)
+                                ))
+                                ).map(tarefaAtual => (
 
                                 <React.Fragment key={tarefaAtual.idTarefa}>
                                     <TarefaGrupo
