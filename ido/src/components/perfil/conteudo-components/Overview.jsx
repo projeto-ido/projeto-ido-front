@@ -14,7 +14,12 @@ function Overview(props) {
     useEffect(() => {
         var idUsuario = sessionStorage.getItem("id");
         apiService.get(`/usuarios/perfil/grafico-etiqueta/${idUsuario}`).then(res => {
-          setListaEtiqueta(res.data);
+            if (res.status === 200) {
+                setListaEtiqueta(res.data);
+                sucessoConsulta();
+            } else if (res.status === 204) {
+                setListaEtiqueta([]);
+            }
         }).catch(erro => {
           console.log(erro);
         })
@@ -22,14 +27,18 @@ function Overview(props) {
     
     var nomeEtiqueta = [];
     var qtdEtiqueta = [];
-    
-    nomeEtiqueta.push(listaEtiqueta.map(etiquetaAtual => (
-        etiquetaAtual.titulo
-    )))
 
-    qtdEtiqueta.push(listaEtiqueta.map(etiquetaAtual => (
-        etiquetaAtual.qtdEtiquetaPresente
-    )))
+    const sucessoConsulta = () => {
+
+        nomeEtiqueta.push(listaEtiqueta.map(etiquetaAtual => (
+            etiquetaAtual.titulo
+            )))
+            
+        qtdEtiqueta.push(listaEtiqueta.map(etiquetaAtual => (
+            etiquetaAtual.qtdEtiquetaPresente
+        )))
+    }
+
 
     return(
         <>
