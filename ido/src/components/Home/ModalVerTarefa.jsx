@@ -76,7 +76,9 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
 
     function apagarSubtarefa(idSub) {
         if (idSub != "") {
-            api.delete(`/usuarios/${idUsuarioStorage}/tarefas/${idTarefa}/sub-tarefas/${idSub}`).then(res => {
+            api.delete(`/usuarios/${idUsuarioStorage}/tarefas/${idTarefa}/sub-tarefas/${idSub}`)
+            .then(res => {
+                reload()
             }).catch(erro => {
             })
         }
@@ -147,7 +149,7 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
         if (sub3Storage !== "") {
             subtarefas.push({
                 "idSubTarefa": idSub3,
-                "titulo": sub2Storage,
+                "titulo": sub3Storage,
                 "status": false
             })
         }
@@ -167,10 +169,12 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
             dataFinal: inputDataFinal,
             urgencia: selectUrgencia,
             importancia: selectImportancia,
+            subTarefas: subtarefas,
             etiquetas: etiquetas,
             status: statusTarefa
         }
         atualizarTarefaApi(tarefaAtualizada)
+        setSubtarefas([])
     }
 
     function deletarTarefa() {
@@ -194,7 +198,7 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
                             apagarSubtarefa(idSub3)
                         }
 
-                        setTimeout(apagarTarefaApi, 100);
+                        apagarTarefaApi()
                     }
                 }],
             overlayClassName: style.confirme_alert,
@@ -204,7 +208,7 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
     function apagarTarefaApi() {
         api.delete(`/usuarios/${idUsuarioStorage}/tarefas/${idTarefa}`).then(res => {
             toastSucesso("Tarefa deletada com sucesso.")
-            setTimeout(reload, 2000);
+            setTimeout(reload, 4000);
         }).catch(erro => {
             console.log("erro: " + erro);
             toastErro(erro);

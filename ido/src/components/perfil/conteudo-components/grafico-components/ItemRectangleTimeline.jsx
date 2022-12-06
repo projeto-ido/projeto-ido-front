@@ -8,8 +8,11 @@ function ItemRectangleTimeline() {
     useEffect(() => {
         var idUsuario = sessionStorage.getItem("id");
         apiService.get(`/usuarios/perfil/time-line/${idUsuario}`).then(res => {
-            setListaTarefa(res.data);
-            console.log(listaTarefa)
+            if (res.status === 200) {
+                setListaTarefa(res.data);
+            } else if (res.status === 204) {
+                setListaTarefa([]);
+            }
         }).catch(erro => {
             console.log(erro);
         })
@@ -26,12 +29,14 @@ function ItemRectangleTimeline() {
     }
 
     const vetorTarefas = []
-    
-    listaTarefa.map(tarefaAtual => (
-        vetorTarefas.push(
-            new Tarefa(tarefaAtual.prioridade, tarefaAtual.dataInicio, tarefaAtual.dataFinal)
-        )
-    ))
+
+    if (listaTarefa.length !== 0) {
+        listaTarefa.map(tarefaAtual => (
+            vetorTarefas.push(
+                new Tarefa(tarefaAtual.prioridade, tarefaAtual.dataInicio, tarefaAtual.dataFinal)
+            )
+        ))
+    }
 
     const options = {
         series: [{

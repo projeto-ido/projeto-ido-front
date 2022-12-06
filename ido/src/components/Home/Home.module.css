@@ -952,7 +952,8 @@ header img {
 }
 
 .classificacao .div_titulo div img {
-    height: 100%;
+    height: 4vh;
+    width: 2vw;
     cursor: pointer;
 }
 
@@ -1155,7 +1156,7 @@ header img {
     font-size: 2.5vh;
     border-radius: 2vh;
     text-align: center;
-    height: 55%;
+    height: 4vh;
     cursor: pointer;
     color: white;
     display: flex;
