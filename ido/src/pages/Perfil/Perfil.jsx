@@ -8,14 +8,11 @@ import apiService from '../../api/apiService';
 
 function Perfil() {
     acessibilidade();
-
-    const [listaInfoUser, setListaInfoUser] = useState([])
     const [usuarioAtualizado, setUsuarioAtualizado] = useState(false)
     
     useEffect(() => {
         var idUsuario = sessionStorage.getItem("id");
         apiService.get(`/usuarios/${idUsuario}`).then(res => {
-            setListaInfoUser(res.data);
             sessionStorage.setItem("nome", res.data.nome);
             sessionStorage.setItem("apelido", res.data.apelido);
             sessionStorage.setItem("email", res.data.email);
@@ -36,7 +33,9 @@ function Perfil() {
                 <div className={styles.main_container}>
                     <Header />
                     <Sidebar />
-                    <Conteudo setUsuarioAtualizado={setUsuarioAtualizado} />
+                    <Conteudo 
+                        setUsuarioAtualizado={setUsuarioAtualizado} 
+                    />
                 </div>
             </main>
         </>

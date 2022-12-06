@@ -790,7 +790,7 @@ body{
 }
 
 .nome_user_editor .div_editor_icon_lapis img {
-    height: 40%;
+    height: 45%;
 }
 
 .nome_user_editor h1 {
@@ -846,7 +846,7 @@ body{
 }
 
 .nome_user_editor_senha .div_editor_icon_lapis img {
-    height: 40%;
+    height: 3.1vh;
 }
 
 .nome_user_editor_senha h1 {
@@ -921,7 +921,7 @@ body{
 }
 
 .div_editor .biografia_editor .div_biografia_icon_lapis img {
-    height: 43%;
+    height: 47%;
 }
 
 .biografia {
@@ -1135,7 +1135,7 @@ input[type="file"] {
 }
 
 .div_trocar_senha img {
-    height: 43%;
+    height: 3.5vh;
 }
 
 .numero_user_editor .nome_user_editor {

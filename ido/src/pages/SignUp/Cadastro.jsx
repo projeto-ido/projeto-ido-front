@@ -6,8 +6,6 @@ import style from '../../components/Forms/Forms.module.css';
 import acessibilidade from "../../scripts/acessibilidade";
 
 export const Cadastro = () => {
-    acessibilidade();
-
     return (
     <>
         <main>
