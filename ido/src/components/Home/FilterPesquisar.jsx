@@ -3,32 +3,23 @@ import iconLupa from '../../assets/images/icon-lupa.png';
 import style from './Home.module.css';
 import pomodoro from "../../assets/images/tecnica-pomodoro.png"
 import Perfil from "./Perfil";
-<<<<<<< HEAD
 import { useSessionStorageString, useSessionStorageBoolean } from "react-use-window-sessionstorage";
-=======
->>>>>>> 4cf8ba46043d5a1cae029f65e459dc7885323da1
 
-export default function FilterPesquisar({openModal, openModalVerTarefa, openGerenciadorEtiquetas, tipoTarefa, setTipoTarefa, setPomodoroAtivo}){
+export default function FilterPesquisar({ openModal, openModalVerTarefa, openGerenciadorEtiquetas, tipoTarefa, setTipoTarefa, setPomodoroAtivo }) {
     const [palavraPesquisa, setParalavraPesquisa] = useSessionStorageString("palavraPesquisa", "")
     const [atualizarFiltro, setAtualizarFiltro] = useSessionStorageBoolean("atualizarFiltro", false);
 
-    return(
+    return (
         <div className={style.pesquisar_container}
-        onChange={() => setAtualizarFiltro(true)}>
+            onChange={() => setAtualizarFiltro(true)}>
             <div className={style.teste}>
-            <div id="elementoPesquisar" className={style.elemento_pesquisar} onChange={() => setTipoTarefa("lista")}>
-                <input onChange={(e) => setParalavraPesquisa(e.target.value)} id="inputPesquisar" className={style.input_pesquisar} type="text" placeholder="Pesquisar"/>
-                <img id="iconLupa"  className={style.icon_lupa} src={iconLupa} alt="barra de pesquisa"/>
+                <div id="elementoPesquisar" className={style.elemento_pesquisar} onChange={() => setTipoTarefa("lista")}>
+                    <input onChange={(e) => setParalavraPesquisa(e.target.value)} id="inputPesquisar" className={style.input_pesquisar} type="text" placeholder="Pesquisar" />
+                    <img id="iconLupa" className={style.icon_lupa} src={iconLupa} alt="barra de pesquisa" />
+                </div>
+                <img className={style.pomodoro} onClick={() => setPomodoroAtivo(true)} src={pomodoro} />
             </div>
-<<<<<<< HEAD
-        <img className={style.pomodoro} onClick={() => setPomodoroAtivo(true)} src={pomodoro}/>
-            </div>
-            <Perfil />
-        </div> 
-=======
-            <img onClick={() => setPomodoroAtivo(true)} src={pomodoro}/>
             <Perfil />
         </div>
->>>>>>> 4cf8ba46043d5a1cae029f65e459dc7885323da1
     );
 }

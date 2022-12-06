@@ -5,17 +5,10 @@ import GerenciadorEtiquetas from "../../components/Home/GerenciadorEtiquetas/Ger
 import Acessibilidade from "../../components/Home/Acessibilidade/Acessibilidade";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-<<<<<<< HEAD
 import style from '../../components/Home/Home.module.css';
 import acessibilidade from "../../scripts/acessibilidade";
 import apiGerenciadorEtiquetas from "../../api/apiService"
 import Cronometro from "../../components/Pomodoro/Cronometro";
-=======
-import style from '../../components/Home/HomeComponent';
-
-import acessibilidade from "../../scripts/acessibilidade";
-import apiGerenciadorEtiquetas from "../../api/apiService"
->>>>>>> 4cf8ba46043d5a1cae029f65e459dc7885323da1
 
 function Home(params) {
     acessibilidade();
@@ -40,12 +33,7 @@ function Home(params) {
     const [openHome, setOpenHome] = useState(true);
     const [openAcessibilidade, setOpenAcessibilidade] = useState(false);
     const [pomodoroAtivo, setPomodoroAtivo] = useState(false);
-<<<<<<< HEAD
-    const idUsuario = sessionStorage.getItem("idLogado")
-
-=======
     
->>>>>>> 4cf8ba46043d5a1cae029f65e459dc7885323da1
     function limparAcoes(){
         const idUsuario = sessionStorage.getItem("idLogado")
         apiGerenciadorEtiquetas.delete(`/usuarios/${idUsuario}/etiquetas/acoes`)
