@@ -216,9 +216,10 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
     }
 
     function atualizarTarefaApi(tarefaAtualizada) {
+        setOpenModalVerTarefa(false)
         api.put(`/usuarios/${idUsuarioStorage}/tarefas/${idTarefa}`, tarefaAtualizada).then(res => {
             toastSucesso(`Tarefa atualizada!`)
-            setTimeout(reload, 2000);
+            setTimeout(reload, 3000);
         }).catch(erro => {
             console.log("erro: " + erro);
             toastErro(erro);
