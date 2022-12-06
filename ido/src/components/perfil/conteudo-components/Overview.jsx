@@ -10,13 +10,14 @@ import apiService from '../../../api/apiService';
 
 function Overview(props) {
     const [listaEtiqueta, setListaEtiqueta] = useState([]);
+    var nomeEtiqueta = [];
+    var qtdEtiqueta = [];
 
     useEffect(() => {
         var idUsuario = sessionStorage.getItem("id");
         apiService.get(`/usuarios/perfil/grafico-etiqueta/${idUsuario}`).then(res => {
             if (res.status === 200) {
                 setListaEtiqueta(res.data);
-                sucessoConsulta();
             } else if (res.status === 204) {
                 setListaEtiqueta([]);
             }
@@ -25,19 +26,15 @@ function Overview(props) {
         })
     }, [])
     
-    var nomeEtiqueta = [];
-    var qtdEtiqueta = [];
 
-    const sucessoConsulta = () => {
-
-        nomeEtiqueta.push(listaEtiqueta.map(etiquetaAtual => (
-            etiquetaAtual.titulo
-            )))
+    nomeEtiqueta.push(listaEtiqueta.map(etiquetaAtual => (
+        etiquetaAtual.titulo
+    )))
             
-        qtdEtiqueta.push(listaEtiqueta.map(etiquetaAtual => (
-            etiquetaAtual.qtdEtiquetaPresente
-        )))
-    }
+    qtdEtiqueta.push(listaEtiqueta.map(etiquetaAtual => (
+        etiquetaAtual.qtdEtiquetaPresente
+    )))
+
 
 
     return(

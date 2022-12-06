@@ -47,9 +47,11 @@ export default function Lista({ setOpenModalVerTarefa }) {
 
     }, [])
 
+    const isBlackFiltro = sessionStorage.getItem("palavraPesquisa") !== "";
+
     function tarefasFiltradas() {
         return (
-            listaTarefas.filter(tarefa => tarefa.titulo.includes(sessionStorage.getItem("palavraPesquisa"))
+            isBlackFiltro ? listaTarefas.filter(tarefa => tarefa.titulo.includes(sessionStorage.getItem("palavraPesquisa"))
             //filtro por etiqueta
             && ((JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == "") ? true :
             (((tarefa.etiquetasTarefa[0] !== undefined && tarefa.etiquetasTarefa[1] !== undefined) ?
@@ -78,9 +80,29 @@ export default function Lista({ setOpenModalVerTarefa }) {
                         key={tarefaAtual.idTarefa}
                     />
                 </React.Fragment>
+            )) : listaTarefas.map(tarefaAtual => (
+
+                <React.Fragment key={tarefaAtual.idTarefa}>
+                    <TarefaLista
+                        setOpenModalVerTarefa={setOpenModalVerTarefa}
+                        titulo={tarefaAtual.titulo}
+                        descricao={tarefaAtual.descricao}
+                        status={tarefaAtual.status}
+                        dataInicio={tarefaAtual.dataInicio}
+                        dataFinal={tarefaAtual.dataFinal}
+                        dataCriacao={tarefaAtual.dataCriacao}
+                        urgencia={tarefaAtual.urgencia}
+                        importancia={tarefaAtual.importancia}
+                        subTarefas={tarefaAtual.subTarefas}
+                        fkUsuario={tarefaAtual.FkUsuario}
+                        etiquetasTarefa={tarefaAtual.etiquetasTarefa}
+                        idTarefa={tarefaAtual.idTarefa}
+                        key={tarefaAtual.idTarefa}
+                    />
+                </React.Fragment>
             ))
         );
-        console.log("aqui de novo")
+
     }
 
     return (

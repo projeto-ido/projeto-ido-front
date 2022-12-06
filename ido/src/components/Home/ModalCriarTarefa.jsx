@@ -96,7 +96,7 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
         }
 
         api.post(`/usuarios/${idUsuarioStorage}/tarefas`, tarefaAtualizada).then(res => {
-            toastSucesso(`tarefa cadastrada`);
+            toastSucesso(`Tarefa cadastrada!`);
             setInputDataFinal("");
             setInputDataInicio("");
             setInputTitulo("");
