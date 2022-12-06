@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import style from '../../components/Home/Home.module.css';
 import acessibilidade from "../../scripts/acessibilidade";
 import apiGerenciadorEtiquetas from "../../api/apiService"
+import Cronometro from "../../components/Pomodoro/Cronometro";
 
 function Home(params) {
     acessibilidade();
@@ -66,7 +67,9 @@ function Home(params) {
                         funcaoNotificar={notificarSucesso} /> : null
                 }
                 {
-                    pomodoroAtivo ? <div className={style.fundo_escuro}></div> : null
+                    pomodoroAtivo ? <div className={style.fundo_escuro} onClick={() => setPomodoroAtivo(false)} >
+                        <Cronometro></Cronometro>
+                    </div> : null
                 }
                 {(openModal || openModalVerTarefa) &&
                     <div onClick={() => setOpenModalVerTarefa(false)}>

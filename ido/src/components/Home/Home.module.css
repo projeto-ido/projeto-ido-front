@@ -230,11 +230,15 @@ header img {
 }
 
 .pesquisar_container .pomodoro {
-    height: 4%;
-    width: 4%;
-    margin-left: 0.7%;
-    margin-top: -0.6%;
+    height: 7%;
+    width: 7%;
     cursor: pointer;
+    margin-left: 2%;
+}
+
+.pesquisar_container .teste{
+    display: flex;
+
 }
 
 .elemento_pesquisar {

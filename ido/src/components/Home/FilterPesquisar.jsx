@@ -10,14 +10,16 @@ export default function FilterPesquisar({openModal, openModalVerTarefa, openGere
     const [atualizarFiltro, setAtualizarFiltro] = useSessionStorageBoolean("atualizarFiltro", false);
 
     return(
-        <div className={style.pesquisar_container} 
+        <div className={style.pesquisar_container}
         onChange={() => setAtualizarFiltro(true)}>
+            <div className={style.teste}>
             <div id="elementoPesquisar" className={style.elemento_pesquisar} onChange={() => setTipoTarefa("lista")}>
                 <input onChange={(e) => setParalavraPesquisa(e.target.value)} id="inputPesquisar" className={style.input_pesquisar} type="text" placeholder="Pesquisar"/>
                 <img id="iconLupa"  className={style.icon_lupa} src={iconLupa} alt="barra de pesquisa"/>
             </div>
         <img className={style.pomodoro} onClick={() => setPomodoroAtivo(true)} src={pomodoro}/>
+            </div>
             <Perfil />
-        </div>
+        </div> 
     );
 }
