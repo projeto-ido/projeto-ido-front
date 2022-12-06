@@ -70,6 +70,7 @@
 }
 
 .acoes {
+    height: 3.5vh;
     cursor: pointer;
 }
 

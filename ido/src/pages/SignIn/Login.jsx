@@ -6,8 +6,6 @@ import acessibilidade from "../../scripts/acessibilidade";
 import style from '../../components/Forms/Forms.module.css'
 
 export const Login = () => {
-    acessibilidade();
-
     return (
         <>
             <main>

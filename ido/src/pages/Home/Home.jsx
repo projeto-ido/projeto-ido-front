@@ -7,8 +7,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import style from '../../components/Home/Home.module.css';
 import acessibilidade from "../../scripts/acessibilidade";
-import apiGerenciadorEtiquetas from "../../api/apiService"
-import axios from '../../api/api'
+import apiGerenciadorEtiquetas from "../../api/apiService";
 
 function Home(params) {
     acessibilidade();
@@ -83,12 +82,11 @@ function Home(params) {
                         setTipoTarefa={setTipoTarefa}
                         openGerenciadorEtiquetas={openGerenciadorEtiquetas}
                         setPomodoroAtivo={setPomodoroAtivo}
-                        />
+                    />
                 </div>
             </main>
         </>
     );
-
 }
 
 export default Home;
