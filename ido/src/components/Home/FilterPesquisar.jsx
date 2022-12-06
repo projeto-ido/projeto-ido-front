@@ -10,6 +10,7 @@ export default function FilterPesquisar({openModal, openModalVerTarefa, openGere
     const [palavraPesquisa, setParalavraPesquisa] = useSessionStorageString("palavraPesquisa", "")
     const [atualizarFiltro, setAtualizarFiltro] = useSessionStorageBoolean("atualizarFiltro", false);
     const idUsuario = sessionStorage.getItem("id")
+    const nomeUsuario = sessionStorage.getItem("nome")
 
     const downloadCsv = (data, extensao) => {
 
@@ -34,7 +35,7 @@ export default function FilterPesquisar({openModal, openModalVerTarefa, openGere
     }
 
     const getArquivo = (extensao) => {
-        axios.post(`/usuarios/${idUsuario}/exportacao/grava/${extensao}/relatorio_${extensao}`, null)
+        axios.post(`/usuarios/${idUsuario}/exportacao/grava/${extensao}/relatorio_${nomeUsuario}`, null)
         .then(res => {
             console.log(extensao);
             downloadCsv(res.data, extensao)
