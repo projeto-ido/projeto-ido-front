@@ -13,7 +13,6 @@ export default function FilterPesquisar({openModal, openModalVerTarefa, openGere
     const nomeUsuario = sessionStorage.getItem("nome")
 
     const downloadCsv = (data, extensao) => {
-
         const date = new Date;
         const bom = new Uint8Array([0xEF,0xBB,0xBF]);
 
@@ -45,8 +44,7 @@ export default function FilterPesquisar({openModal, openModalVerTarefa, openGere
     }
 
     return(
-        <div className={style.pesquisar_container} 
-        onChange={() => setAtualizarFiltro(true)}>
+        <div className={style.pesquisar_container} onChange={() => setAtualizarFiltro(true)}>
             <div id="elementoPesquisar" className={style.elemento_pesquisar} onChange={() => setTipoTarefa("lista")}>
                 <input onChange={(e) => setParalavraPesquisa(e.target.value)} id="inputPesquisar" className={style.input_pesquisar} type="text" placeholder="Pesquisar"/>
                 <img id="iconLupa"  className={style.icon_lupa} src={iconLupa} alt="barra de pesquisa"/>
@@ -54,7 +52,9 @@ export default function FilterPesquisar({openModal, openModalVerTarefa, openGere
             <img className={style.pomodoro} onClick={() => setPomodoroAtivo(true)} src={pomodoro}/>
             <button className={style.btn_exportar} onClick={() => getArquivo('csv')}>Exportar CSV</button>
             <button className={style.btn_exportar} onClick={() => getArquivo('txt')}>Exportar TXT</button>
-            <button className={style.btn_exportar} >Importar TXT</button>
+            
+            <label className={style.btn_exportar} htmlFor="inputTXT">Importar TXT</label>
+            <input className={style.btn_exportar} id="inputTXT" type="file" accept="text/plain" />
             <Perfil />
         </div>
     );
