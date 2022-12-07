@@ -5,6 +5,7 @@ import pomodoro from "../../assets/images/tecnica-pomodoro.png"
 import Perfil from "./Perfil";
 import { useSessionStorageString, useSessionStorageBoolean } from "react-use-window-sessionstorage";
 import axios from "../../api/api";
+import { ToastContainer, toast } from 'react-toastify';
 
 export default function FilterPesquisar({openModal, openModalVerTarefa, openGerenciadorEtiquetas, tipoTarefa, setTipoTarefa, setPomodoroAtivo}){
     const [palavraPesquisa, setParalavraPesquisa] = useSessionStorageString("palavraPesquisa", "")
@@ -33,6 +34,23 @@ export default function FilterPesquisar({openModal, openModalVerTarefa, openGere
         a.click();
     }
 
+    const importar = (files) => {
+        const formData = new FormData();
+        formData.append("file", files[0]);
+        console.log(files);
+
+        axios.post(`/usuarios/${idUsuario}/exportacao/le/txt`, formData).then(res => {
+            sucesso("Sucesso. Carregando...")
+
+            setTimeout(() => {
+                window.location.reload();
+            }, 4000);
+
+        }).catch(error => {
+            erro("Houve um erro na importação de arquivos")
+        });
+    }
+
     const getArquivo = (extensao) => {
         axios.post(`/usuarios/${idUsuario}/exportacao/grava/${extensao}/relatorio_${nomeUsuario}`, null)
         .then(res => {
@@ -43,8 +61,35 @@ export default function FilterPesquisar({openModal, openModalVerTarefa, openGere
         })
     }
 
+    function sucesso(texto) {
+        toast.success(texto, {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        })
+      }
+
+      function erro(texto) {
+        toast.error(texto, {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        })
+      }
+
     return(
         <div className={style.pesquisar_container} onChange={() => setAtualizarFiltro(true)}>
+            <ToastContainer/>
             <div id="elementoPesquisar" className={style.elemento_pesquisar} onChange={() => setTipoTarefa("lista")}>
                 <input onChange={(e) => setParalavraPesquisa(e.target.value)} id="inputPesquisar" className={style.input_pesquisar} type="text" placeholder="Pesquisar"/>
                 <img id="iconLupa"  className={style.icon_lupa} src={iconLupa} alt="barra de pesquisa"/>
@@ -54,7 +99,7 @@ export default function FilterPesquisar({openModal, openModalVerTarefa, openGere
             <button className={style.btn_exportar} onClick={() => getArquivo('txt')}>Exportar TXT</button>
             
             <label className={style.btn_exportar} htmlFor="inputTXT">Importar TXT</label>
-            <input className={style.btn_exportar} id="inputTXT" type="file" accept="text/plain" />
+            <input className={style.btn_exportar} id="inputTXT" onChange={(e) => importar(e.target.files)} type="file" accept="text/plain" />
             <Perfil />
         </div>
     );
