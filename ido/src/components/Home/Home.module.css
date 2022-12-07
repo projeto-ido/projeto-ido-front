@@ -9,7 +9,7 @@
     font-style: normal;
     font-size: 1vw;
     line-height: 7vh;
-    background-color: #FFFAFA;
+    background-color: white;
     display: flex;
     min-height: 400px;
 }
@@ -70,8 +70,7 @@
 .sessao_lateral_destaque {
     width: 100%;
     height: 100%;
-    background-color: #FFFAFA;
-    /* border-bottom: .2vh solid #000000; */
+    background-color: white;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -598,7 +597,7 @@ header img {
 
 .grupo_fazer_agora {
     width: 100%;
-    background-color: #FFFAFA;
+    background-color: white;
     height: 36vh;
     border-radius: 0px 0px 25px 25px;
     min-height: 100px;
@@ -610,7 +609,7 @@ header img {
 
 .grupo_agendar {
     width: 100%;
-    background-color: #FFFAFA;
+    background-color: white;
     height: 36vh;
     border-radius: 0px 0px 25px 25px;
     min-height: 100px;
@@ -627,7 +626,7 @@ header img {
 
 .grupo_delegar {
     width: 100%;
-    background-color: #FFFAFA;
+    background-color: white;
     height: 36vh;
     border-radius: 0px 0px 25px 25px;
     min-height: 100px;
@@ -639,7 +638,7 @@ header img {
 
 .grupo_nao_priorizar {
     width: 100%;
-    background-color: #FFFAFA;
+    background-color: white;
     height: 36vh;
     border-radius: 0px 0px 25px 25px;
     min-height: 100px;
@@ -749,13 +748,13 @@ header img {
 
 .grupo_fazer_agora_lista {
     width: 100%;
-    background-color: #FFFAFA;
+    background-color: white;
     border-radius: 0px 0px 25px 25px;
     min-height: 100px;
     border-bottom: .3vh solid #E7E7E7;
     border-left: .3vh solid #E7E7E7;
     border-right: .3vh solid #E7E7E7;
-    height: 55vh;
+    height: 70vh;
     overflow: hidden;
 }
 
