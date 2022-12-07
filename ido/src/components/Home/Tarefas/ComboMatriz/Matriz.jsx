@@ -54,7 +54,7 @@ export default function TelaMatriz({ setOpenModalVerTarefa }) {
 
             <div className={style.tarefas_superior}>
 
-                <div className={style.faca_agora}>
+                <div className={style.tarefas_div}>
                     <h4 className={style.titulo_prioridade}>Fazer agora</h4>
                     <div className={style.containerTarefasMatriz}>
                         {
@@ -93,7 +93,7 @@ export default function TelaMatriz({ setOpenModalVerTarefa }) {
                         }
                     </div>
                 </div>
-                <div className={style.agendar}>
+                <div className={style.tarefas_div}>
                     <h4 className={style.titulo_prioridade}>Agendar</h4>
                     <div className={style.containerTarefasMatriz}>
                         {
@@ -126,18 +126,14 @@ export default function TelaMatriz({ setOpenModalVerTarefa }) {
                                         key={tarefaAtual.idTarefa}
                                     />
                                 </React.Fragment>
-
-
                             ))
                         }
                     </div>
                 </div>
-
             </div>
 
             <div className={style.tarefas_inferior}>
-
-                <div className={style.delegar}>
+                <div className={style.tarefas_div}>
                     <h4 className={style.titulo_prioridade}>Delegar</h4>
                     <div className={style.containerTarefasMatriz}>
                         {
@@ -147,11 +143,10 @@ export default function TelaMatriz({ setOpenModalVerTarefa }) {
                                 (((tarefa.etiquetasTarefa[0] !== undefined && tarefa.etiquetasTarefa[1] !== undefined) ?
                                     (JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == tarefa.etiquetasTarefa[0].idEtiqueta
                                         || JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == tarefa.etiquetasTarefa[1].idEtiqueta) : false)
-                                    || ((tarefa.etiquetasTarefa[0] !== undefined && tarefa.etiquetasTarefa[1] == undefined) ?
+                                        || ((tarefa.etiquetasTarefa[0] !== undefined && tarefa.etiquetasTarefa[1] == undefined) ?
                                         JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == tarefa.etiquetasTarefa[0].idEtiqueta : false)
                                 ))
                             ).map(tarefaAtual => (
-
                                 <React.Fragment key={tarefaAtual.idTarefa}>
                                     <Tarefa
                                         setOpenModalVerTarefa={setOpenModalVerTarefa}
@@ -176,7 +171,7 @@ export default function TelaMatriz({ setOpenModalVerTarefa }) {
                         }
                     </div>
                 </div>
-                <div className={style.nao_priorizar}>
+                <div className={style.tarefas_div}>
                     <h4 className={style.titulo_prioridade}>Não Priorizar</h4>
                     <div className={style.containerTarefasMatriz}>
                         {

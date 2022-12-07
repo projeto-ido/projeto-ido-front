@@ -141,7 +141,7 @@ export default function TarefaLista(props) {
             <div onClick={plotarTarefa}>
                 <div onClick={() => props.setOpenModalVerTarefa(true)} className={style.tarefa_combo_lista}>
                     <span className={style.tarefa}>{titulo}</span>
-                    <div className={style.container_etiquetas}>
+                    <div className={style.container_etiquetas_lista}>
                         {etiquetas.map((item) => (
                             <div className={style.etiqueta_lista} style={{ backgroundColor: item.cor }} >{item.titulo}</div>
                         ))}

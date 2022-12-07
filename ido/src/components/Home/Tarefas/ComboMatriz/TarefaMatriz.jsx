@@ -53,16 +53,15 @@ export default function Tarefa(props) {
 
     const [statusTarefa, setStatusTarefa] = useSessionStorageBoolean("statusTarefa")
 
+    
     useEffect(() => {
         if(forPlotar){
             plotarEtiquetaVisaoGeral()
         }           
     }, [])
-
-
+    
     function plotarTarefa() {
         if (id !== undefined) {
-            console.log(importancia)
             setIdTarefa(id);
             setTituloStorage(titulo);
             setDescricaoStorage(descricao);
@@ -74,7 +73,7 @@ export default function Tarefa(props) {
             setSubTarefasStorage(subTarefas);
             setFkUsuarioStorage(fkUsuario);
             setStatusTarefa(props.status);
-
+            
             if(props.subTarefas[0] !== undefined){
                 setSub1Storage(props.subTarefas[0].titulo); 
                 setIdSub1(props.subTarefas[0].idSubTarefa)     
@@ -120,35 +119,36 @@ export default function Tarefa(props) {
 
             setPlotarSubTarefas(true);
         }
-
-       
-
     }
     
-   function plotarEtiquetaVisaoGeral(){
-    if(props.etiquetasTarefa[0] !== undefined){
-        etiquetas.push(props.etiquetasTarefa[0])
-    } 
-    if(props.etiquetasTarefa[1] !== undefined){
-        etiquetas.push(props.etiquetasTarefa[1])
-    } 
-    forPlotar = false;
-   }
+
+    function plotarEtiquetaVisaoGeral(){
+        if(props.etiquetasTarefa[0] !== undefined){
+            etiquetas.push(props.etiquetasTarefa[0])
+        } 
+        if(props.etiquetasTarefa[1] !== undefined){
+            etiquetas.push(props.etiquetasTarefa[1])
+        } 
+        forPlotar = false;
+    }    
+
+    // const statusLine = statusTarefa ? {textDecoration: "line-through"} : {textDecoration: "none"};
+    // style={statusLine}
 
     return (
-        <>  <div onClick={plotarTarefa}>
-            <div onClick={(() => props.setOpenModalVerTarefa(true))}
-                className={style.tarefa_combo}>
-                <span className={style.tarefa}>{titulo}</span>
-                <div className={style.container_etiquetas_matriz}>
-                    {etiquetas.map((item) => (
-                        <div className={style.etiqueta} style={{ backgroundColor: item.cor }} >{item.titulo}</div>
-                    ))}
-                    
+        <>  
+            <div onClick={plotarTarefa}>
+                <div onClick={(() => props.setOpenModalVerTarefa(true))}
+                    className={style.tarefa_combo}>
+
+                    <span className={style.tarefa}>{titulo}</span>
+                    <div className={style.container_etiquetas_matriz}>
+                        {etiquetas.map((item) => (
+                            <div className={style.etiqueta} style={{ backgroundColor: item.cor }} >{item.titulo}</div>
+                        ))}
+                    </div>
                 </div>
             </div>
-        </div>
-
         </>
     );
 }

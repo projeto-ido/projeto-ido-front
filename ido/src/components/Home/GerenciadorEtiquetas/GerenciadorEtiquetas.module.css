@@ -180,6 +180,7 @@
     outline: none;
     border: none;
     scroll-behavior: smooth;
+    font-size: 2.5vh;
 }
 
 .container_modal_etiqueta_botao {
