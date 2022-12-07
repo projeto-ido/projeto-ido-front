@@ -10,6 +10,7 @@ function ItemSquareSemana(props) {
         var idUsuario = sessionStorage.getItem("id");
         apiService.get(`/usuarios/perfil/semanal/${idUsuario}`).then(res => {
             setListaDiaTarefa(res.data);
+            console.log(res.data)
         }).catch(erro => {
             console.log(erro);
         })
@@ -24,11 +25,11 @@ function ItemSquareSemana(props) {
     const qtdConcluido = [];
     
     dias.push(listaDiaTarefa.map(diaTarefaAtual => (
-        diaTarefaAtual.diaSemana
+        diaTarefaAtual.diaDaSemana
     )))
 
     qtdConcluido.push(listaDiaTarefa.map(diaTarefaAtual => (
-        diaTarefaAtual.qtdTarefasConcluidas
+        diaTarefaAtual.qtdConcluidas
     )))
 
     var linhaConcluido = new TaskObject("Tarefas concluídas", qtdConcluido)

@@ -43,6 +43,7 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
     const [sub2StorageRecebido, SetSub2StorageRecebido] = useState("");
     const [sub3StorageRecebido, SetSub3StorageRecebido] = useState("");
     const [statusTarefa, setStatusTarefa] = useSessionStorageBoolean("statusTarefa")
+
     if (plotarSubTarefas) {
         plotarSubTarefasFunction();
         setPlotarSubTarefas(false);
@@ -161,12 +162,16 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
             etiquetas.push({ "idEtiqueta": Number(sessionStorage.getItem("etiqueta2").replace(/["]/g, '')) })
         }
 
+        var datetime = new Date().toISOString();
+        const concluido = statusTarefa ? datetime : ""
+
         const tarefaAtualizada = {
             idTarefa: idTarefa,
             titulo: inputTitulo,
             descricao: inputDescricao,
             dataInicio: inputDataInicio,
             dataFinal: inputDataFinal,
+            dataConclusao: concluido,
             urgencia: selectUrgencia,
             importancia: selectImportancia,
             subTarefas: subtarefas,
