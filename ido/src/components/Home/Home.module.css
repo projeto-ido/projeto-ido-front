@@ -256,7 +256,7 @@ header img {
     outline: 0;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
-    cursor: pointer;
+    cursor: text;
     font-size: 1.2vw;
     color: rgb(27, 26, 26);
 }
@@ -473,24 +473,31 @@ header img {
     width: 38%;
 }
 
-.faca_agora {
-    width: 38.87vw;
-    background-color: #E7E7E7;
-    height: 40vh;
-    border-top: 1vh solid var(--cor--roxo);
-    border-radius: 0px 0px 25px 25px;
-    min-height: 150px;
-
+.container_etiquetas_grupo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 19%;
 }
 
-.agendar {
+.container_etiquetas_lista {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 19%;
+    height: 100%;
+}
+
+.tarefas_div {
     width: 38.87vw;
-    background-color: #E7E7E7;
+    background-color: white;
     height: 40vh;
-    border-top: 1vh solid var(--cor--roxo);
     border-radius: 0px 0px 25px 25px;
     min-height: 150px;
-
+    border-bottom: 0.3vh solid #E7E7E7;
+    border-left: 0.3vh solid #E7E7E7;
+    border-right: 0.3vh solid #E7E7E7;
+    overflow: hidden;
 }
 
 .tarefas_inferior {
@@ -499,31 +506,10 @@ header img {
     margin-top: 5vh;
 }
 
-.delegar {
-    width: 38.87vw;
-    background-color: #E7E7E7;
-    height: 40vh;
-    border-top: 1vh solid var(--cor--roxo);
-    border-radius: 0px 0px 25px 25px;
-    min-height: 150px;
-
-}
-
-.nao_priorizar {
-    width: 38.87vw;
-    background-color: #E7E7E7;
-    height: 40vh;
-    border-top: 1vh solid var(--cor--roxo);
-    border-radius: 0px 0px 25px 25px;
-    min-height: 150px;
-
-}
-
 .containerTarefasMatriz{
     overflow-y: auto;
     max-height: 30vh;
     min-height: 120px;
-    margin-right: 5px;
 }
 
 .titulo_prioridade {
@@ -531,16 +517,27 @@ header img {
     color: var(--cor--roxo);
     padding-left: 2vw;
     margin: 0 0 0;
-
+    border-top: 1vh solid var(--cor--roxo);
+    background-color: #E7E7E7;
 }
-
-
 
 .tarefa_combo {
     display: flex;
     justify-content: flex-start;
     line-height: normal;
     cursor: pointer;
+    height: 6vh;
+    border-bottom: 0.3vh solid #E7E7E7;
+}
+
+.tarefa_combo_grupo {
+    display: flex;
+    justify-content: flex-start;
+    line-height: normal;
+    cursor: pointer;
+    height: 6vh;
+    width: 100%;
+    border-bottom: 0.3vh solid #E7E7E7;
 }
 
 .tarefa {
@@ -552,6 +549,34 @@ header img {
 .etiqueta {
     width: 49%;
     height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: normal;
+    background-color: var(--cor--roxo);
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+    font-size: 2.5vh;
+}
+
+.etiqueta_grupo {
+    width: 49%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: normal;
+    background-color: var(--cor--roxo);
+    border-radius: 5px;
+    text-align: center;
+    color: white;
+    font-size: 2.5vh;
+}
+
+.etiqueta_lista {
+    width: 49%;
+    height: 80%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -592,14 +617,12 @@ header img {
     border-bottom: .3vh solid #E7E7E7;
     border-left: .3vh solid #E7E7E7;
     border-right: .3vh solid #E7E7E7;
-    
-
 }
 
 .grupoTarefas{
-    overflow-y: auto;
-    margin-right: 5px;
-    height: 90%;
+    overflow: hidden;
+    overflow-y: scroll;
+    height: 100%;
 }
 
 .grupo_delegar {
@@ -672,7 +695,9 @@ header img {
 
 .icon_fechado_fazer_agora {
     color: #7E7D7D;
-    padding-top: 1vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .icon_aberto_fazer_agora {
@@ -747,7 +772,7 @@ header img {
 .tarefa_combo_lista {
     display: flex;
     width: 100%;
-    height: 50%;
+    height: 6vh;
     justify-content: flex-start;
     align-items: center;
     cursor: pointer;
@@ -760,18 +785,6 @@ header img {
     align-items: center;
     width: 25%;
     height: 100%;
-}
-
-.etiqueta_lista {
-    width: 48%;
-    height: 30%;
-    border-radius: 5px;
-    text-align: center;
-    color: white;
-    font-size: 2.5vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 /*Modal criação de tarefa*/
@@ -893,7 +906,7 @@ header img {
     background: #E7E7E7;
     border-radius: 5px;
     border: none;
-    cursor: pointer;
+    cursor: text;
     box-shadow: 0 0 0 0;
     outline: 0;
     color: #7E7D7D;
@@ -906,7 +919,7 @@ header img {
     background: #E7E7E7;
     border-radius: 5px;
     border: none;
-    cursor: pointer;
+    cursor: text;
     box-shadow: 0 0 0 0;
     outline: 0;
     color: #7E7D7D;
@@ -1140,7 +1153,7 @@ header img {
     background: #E7E7E7;
     border-radius: 1vh;
     border: none;
-    cursor: pointer;
+    cursor: text;
     color: #7E7D7D;
     font-size: 1vw;
     resize: none;
@@ -1177,7 +1190,7 @@ header img {
     background: #E7E7E7;
     border-radius: 5px;
     border: none;
-    cursor: pointer;
+    cursor: text;
     box-shadow: 0 0 0 0;
     outline: 0;
     color: #7E7D7D;
@@ -1328,15 +1341,6 @@ header img {
     .tarefas_superior {
         display: block;
         margin-left: 10%;
-    }
-
-    .faca_agora {
-        width: 60vw;
-        height: 35vh;
-        max-height: 160px;
-        margin-top: 5vh;
-        font-size: 2vw;
-
     }
 
     .agendar {

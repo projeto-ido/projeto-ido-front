@@ -130,11 +130,11 @@ export default function TarefaGrupo(props) {
         <>
 
             <div onClick={plotarTarefa}>
-                <div onClick={() => props.setOpenModalVerTarefa(true)} className={style.tarefa_combo}>
+                <div onClick={() => props.setOpenModalVerTarefa(true)} className={style.tarefa_combo_grupo}>
                     <span className={style.tarefa}>{titulo}</span>
-                    <div className={style.container_etiquetas_matriz}>
+                    <div className={style.container_etiquetas_grupo}>
                     {etiquetas.map((item) => (
-                        <div className={style.etiqueta} style={{ backgroundColor: item.cor }} >{item.titulo}</div>
+                        <div className={style.etiqueta_grupo} style={{ backgroundColor: item.cor }} >{item.titulo}</div>
                     ))}
 
                     </div>
