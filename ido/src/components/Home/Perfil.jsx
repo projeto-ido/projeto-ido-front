@@ -4,7 +4,7 @@ import fotoPerfil from '../../assets/images/ido-utilizador.png'
 import { useNavigate } from 'react-router-dom';
 
 function Perfil() {
-    var nomeUsuario = sessionStorage.getItem("nomeLogado");
+    var nomeUsuario = sessionStorage.getItem("apelido");
     const navigate = useNavigate();
 
     function mudarPerfil() {

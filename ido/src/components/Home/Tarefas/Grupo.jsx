@@ -136,6 +136,7 @@ export default function Grupo({setOpenModalVerTarefa, tarefasAtualizadas, setTar
                 </div>
             </div>
             {handleContainerNaoPriorizar()}
+            <div className={style.div_espacamento_baixo}></div>
         </div>
     );
 }

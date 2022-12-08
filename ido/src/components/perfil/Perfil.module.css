@@ -76,9 +76,9 @@ body{
 
 .main_container .box_header .btn_box .container {
     height: 100%;
-    width: 90%;
+    width: 80%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
 }
 
@@ -978,7 +978,7 @@ body{
 }
 
 .div_editor .imagem_perfil_editor .biografia_editor .div_image_icon_lapis img {
-    height: 47%;
+    height: 60%;
     padding-bottom: 2vh;
     padding-top: 2vh;
 }

@@ -117,8 +117,8 @@ export default function Lista({ setOpenModalVerTarefa, tarefasAtualizadas, setTa
                 <div className={style.tarefas_listadas}>
                     {tarefasFiltradas()}
                 </div>
-
             </div>
+            <div className={style.div_espacamento_baixo}></div>
         </div>
     );
 }
