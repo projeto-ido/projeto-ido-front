@@ -143,7 +143,7 @@ export default function TarefaLista(props) {
                     <span className={style.tarefa}>{titulo}</span>
                     <div className={style.container_etiquetas_lista}>
                         {etiquetas.map((item) => (
-                            <div className={style.etiqueta_lista} style={{ backgroundColor: item.cor }} >{item.titulo}</div>
+                            <div className={style.etiqueta} style={{ backgroundColor: item.cor }} >{item.titulo}</div>
                         ))}
                     </div>
 

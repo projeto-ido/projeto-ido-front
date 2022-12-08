@@ -204,8 +204,6 @@ export default function TelaMatriz({ setOpenModalVerTarefa }) {
                                         key={tarefaAtual.idTarefa}
                                     />
                                 </React.Fragment>
-
-
                             ))
                         }
                     </div>

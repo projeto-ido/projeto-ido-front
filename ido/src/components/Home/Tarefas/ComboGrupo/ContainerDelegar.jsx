@@ -32,7 +32,7 @@ export default function ContainerAgendar({ setOpenModalVerTarefa }) {
     }, [])
 
     return (
-        <div id="grupoDelegar" className={style.grupo_delegar}>
+        <div id="grupoDelegar" className={style.div_grupo}>
             <div className={style.grupoTarefas}>
             {
                            listaTarefas.filter(tarefa => tarefa.importancia == false && tarefa.urgencia == true
