@@ -31,7 +31,7 @@ main .main__container{
 input[type="date"]{
     background: url("../../assets/images/calendario-datepicker.png") no-repeat;
     background-size: 2rem;
-    background-position: 102%;
+    background-position: 100%;
     border: none;
     outline: none;
 }
