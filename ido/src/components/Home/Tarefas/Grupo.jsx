@@ -7,7 +7,7 @@ import ContainerDelegar from "./ComboGrupo/ContainerDelegar";
 import ContainerNaoPriorizar from "./ComboGrupo/ContainerNaoPriorizar";
 import style from '../Home.module.css';
 
-export default function Grupo({setOpenModalVerTarefa}) {
+export default function Grupo({setOpenModalVerTarefa, tarefasAtualizadas, setTarefasAtualizadas}) {
     const [openFazer, setOpenFazer] = useState(true);
     const [openAgendar, setOpenAgendar] = useState(false);
     const [openDelegar, setOpenDelegar] = useState(false);
@@ -48,25 +48,25 @@ export default function Grupo({setOpenModalVerTarefa}) {
 
     function handleContainerFazer() {
         if (openFazer) {
-            return <ContainerFazerAgora setOpenModalVerTarefa={setOpenModalVerTarefa}/>
+            return <ContainerFazerAgora setOpenModalVerTarefa={setOpenModalVerTarefa} tarefasAtualizadas={tarefasAtualizadas} setTarefasAtualizadas={setTarefasAtualizadas}/>
         }
     }
 
     function handleContainerAgendar(){
         if (openAgendar) {
-            return <ContainerAgendar setOpenModalVerTarefa={setOpenModalVerTarefa}/>
+            return <ContainerAgendar setOpenModalVerTarefa={setOpenModalVerTarefa} tarefasAtualizadas={tarefasAtualizadas} setTarefasAtualizadas={setTarefasAtualizadas}/>
         }
     }
 
     function handleContainerDelegar(){
         if (openDelegar) {
-            return <ContainerDelegar setOpenModalVerTarefa={setOpenModalVerTarefa}/>
+            return <ContainerDelegar setOpenModalVerTarefa={setOpenModalVerTarefa} tarefasAtualizadas={tarefasAtualizadas} setTarefasAtualizadas={setTarefasAtualizadas}/>
         }
     }
 
     function handleContainerNaoPriorizar(){
         if (openNaoPriorizar) {
-            return <ContainerNaoPriorizar setOpenModalVerTarefa={setOpenModalVerTarefa}/>
+            return <ContainerNaoPriorizar setOpenModalVerTarefa={setOpenModalVerTarefa} tarefasAtualizadas={tarefasAtualizadas} setTarefasAtualizadas={setTarefasAtualizadas}/>
         } 
     }
 

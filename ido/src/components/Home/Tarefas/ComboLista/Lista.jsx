@@ -4,7 +4,7 @@ import style from "../../Home.module.css";
 import apiTarefa from "../../../../api/apiTarefa";
 import { useSessionStorageNumber, useSessionStorageString, useSessionStorageBoolean } from "react-use-window-sessionstorage";
 
-export default function Lista({ setOpenModalVerTarefa }) {
+export default function Lista({ setOpenModalVerTarefa, tarefasAtualizadas, setTarefasAtualizadas }) {
     const [listaTarefas, setListaTarefas] = useState([]);
     const [idTarefa, setIdTarefa] = useSessionStorageNumber("idDaTarefa", 0);
     const [titulo, setTitulo] = useState("");
@@ -30,22 +30,23 @@ export default function Lista({ setOpenModalVerTarefa }) {
         setSub1Storage("");
         setSub2Storage("");
         setSub3Storage("");
-        setSub4Storage("");
+        setListaTarefas([])
 
         apiTarefa.get(`/usuarios/${idUsuario}/tarefas`).then(res => {
-            console.log("dados", res.data);
-            console.log("status code", res.status);
-            setListaTarefas(res.data);
+            if(res.status === 200){
+                setListaTarefas(res.data);
+                setTarefasAtualizadas(true)
+            }
+            console.log(res.data)
             if (res.data === "") {
                 setListaTarefas([""])
             }
-
         }).catch(erro => {
             console.log(erro)
 
         })
 
-    }, [])
+    }, [tarefasAtualizadas])
 
     const isBlackFiltro = sessionStorage.getItem("palavraPesquisa") !== "";
 

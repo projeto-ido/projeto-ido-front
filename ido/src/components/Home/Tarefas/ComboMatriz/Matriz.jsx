@@ -4,7 +4,7 @@ import style from "../../Home.module.css";
 import apiTarefa from "../../../../api/apiTarefa";
 import { useSessionStorageNumber, useSessionStorageBoolean, useSessionStorageString } from "react-use-window-sessionstorage";
 
-export default function TelaMatriz({ setOpenModalVerTarefa }) {
+export default function TelaMatriz({ setOpenModalVerTarefa, tarefasAtualizadas, setTarefasAtualizadas }) {
     const [listaTarefas, setListaTarefas] = useState([]);
     const [idTarefa, setIdTarefa] = useSessionStorageNumber("idDaTarefa", 0);
     const [titulo, setTitulo] = useState("");
@@ -29,24 +29,23 @@ export default function TelaMatriz({ setOpenModalVerTarefa }) {
         setSub1Storage("");
         setSub2Storage("");
         setSub3Storage("");
+        setListaTarefas([])
 
         apiTarefa.get(`/usuarios/${idUsuario}/tarefas`).then(res => {
-            setListaTarefas(res.data);
+            if(res.status === 200){
+                setListaTarefas(res.data);
+                setTarefasAtualizadas(true)
+            }
             console.log(res.data)
             if (res.data === "") {
                 setListaTarefas([""])
             }
-
         }).catch(erro => {
             console.log(erro)
 
         })
 
-    }, [])
-
-    function isEtiqueta1() {
-
-    }
+    }, [tarefasAtualizadas])
 
     return (
         <div id="tarefas-geral-matriz" className={style.tarefas_geral_matriz}>

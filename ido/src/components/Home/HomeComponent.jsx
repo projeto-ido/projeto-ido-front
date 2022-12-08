@@ -7,17 +7,20 @@ import Matriz from "./Tarefas/ComboMatriz/Matriz"
 import Grupo from "./Tarefas/Grupo"
 import Lista from "./Tarefas/ComboLista/Lista"
 import style from "./Home.module.css"
+import { useState } from "react";
 
 function HomeComponent({openModal, setOpenModal, openModalVerTarefa, setOpenModalVerTarefa, tipoTarefa, setTipoTarefa, openGerenciadorEtiquetas, setPomodoroAtivo}){
+
+    const [tarefasAtualizadas, setTarefasAtualizadas] = useState(true)
 
     function handleTarefa() {
         switch (tipoTarefa) {
             case "matriz":
-                return <Matriz setOpenModalVerTarefa={setOpenModalVerTarefa} />
+                return <Matriz setOpenModalVerTarefa={setOpenModalVerTarefa} tarefasAtualizadas={tarefasAtualizadas} setTarefasAtualizadas={setTarefasAtualizadas}/>
             case "grupo":
-                return <Grupo setOpenModalVerTarefa={setOpenModalVerTarefa} />
+                return <Grupo setOpenModalVerTarefa={setOpenModalVerTarefa} tarefasAtualizadas={tarefasAtualizadas} setTarefasAtualizadas={setTarefasAtualizadas}/>
             case "lista":
-                return <Lista setOpenModalVerTarefa={setOpenModalVerTarefa} />
+                return <Lista setOpenModalVerTarefa={setOpenModalVerTarefa} tarefasAtualizadas={tarefasAtualizadas} setTarefasAtualizadas={setTarefasAtualizadas}/>
             default:
                 return null;
         }
@@ -45,10 +48,12 @@ function HomeComponent({openModal, setOpenModal, openModalVerTarefa, setOpenModa
             <ModalCriarTarefa 
                 openModal={openModal} 
                 setOpenModal={setOpenModal} 
+                setTarefasAtualizadas={setTarefasAtualizadas}
             />
             <ModalVerTarefa 
                 openModalVerTarefa={openModalVerTarefa} 
                 setOpenModalVerTarefa={setOpenModalVerTarefa}
+                setTarefasAtualizadas={setTarefasAtualizadas}
             />
             {handleTarefa()}
         </>
