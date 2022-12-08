@@ -182,7 +182,7 @@ header {
     display: flex;
     align-items: center;
     float: right;
-    padding-right: 3vw;
+    padding-right: 2vw;
     line-height: normal;
 }
 
@@ -215,7 +215,7 @@ header img {
 .pesquisar_container {
     width: 85%;
     display: flex;
-    margin-left: 13.7%;
+    margin-left: 12.9%;
     justify-content: space-between;
     align-items: center;
 }
@@ -225,11 +225,15 @@ header img {
     height: 5%;
 }
 
+.div_espacamento_baixo {
+    width: 100%;
+    height: 10%;
+}
+
 .pesquisar_container .pomodoro {
     height: 4%;
     width: 4%;
     cursor: pointer;
-    margin-left: 2%;
 }
 
 .pesquisar_container .teste{
@@ -469,23 +473,25 @@ header img {
 
 .container_etiquetas_matriz {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
-    width: 38%;
+    width: 30%;
+    height: 100%;
 }
 
 .container_etiquetas_grupo {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
-    width: 19%;
+    width: 15%;
+    height: 100%;
 }
 
 .container_etiquetas_lista {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
-    width: 19%;
+    width: 15%;
     height: 100%;
 }
 
@@ -525,6 +531,7 @@ header img {
 .tarefa_combo {
     display: flex;
     justify-content: flex-start;
+    align-items: center;
     line-height: normal;
     cursor: pointer;
     height: 6vh;
@@ -534,7 +541,7 @@ header img {
 .tarefa_combo_grupo {
     display: flex;
     justify-content: flex-start;
-    line-height: normal;
+    align-items: center;
     cursor: pointer;
     height: 6vh;
     width: 100%;
@@ -542,13 +549,12 @@ header img {
 }
 
 .tarefa {
-    padding-top: 2vh;
     width: 50%;
     padding-left: 2vw;
 }
 
 .etiqueta {
-    width: 38%;
+    width: 47%;
     height: 53%;
     display: flex;
     justify-content: center;
@@ -571,7 +577,7 @@ header img {
 
 .grupoTarefas{
     overflow: hidden;
-    overflow-y: scroll;
+    overflow-y: auto;
     height: 100%;
 }
 
@@ -1364,27 +1370,16 @@ header img {
         align-items: flex-end;
         position: absolute;
     }
-    .spotify_card{
-        width: 25%;
-        border-radius:12px
-    }
 
     .tarefa{
         font-size: 2vw;
     }
-
-
-}
-
-/*spotify*/
-.container_spotify{
-    display: flex;
-    justify-content: center;
 }
 
 .spotify_card{
-    width: 60vw;
-    border-radius:12px;
-    margin-top: 10vh;
-    padding-left: 12%;
-} 
+    width: 100%;
+    border-radius: 1vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

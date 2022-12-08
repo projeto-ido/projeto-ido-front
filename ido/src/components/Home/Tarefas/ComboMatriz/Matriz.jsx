@@ -209,7 +209,7 @@ export default function TelaMatriz({ setOpenModalVerTarefa }) {
                     </div>
                 </div>
             </div>
-
+            <div className={style.div_espacamento_baixo}></div>
         </div>
     );
 }

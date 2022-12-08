@@ -18,7 +18,7 @@ function Perfil() {
     return (
         <>
             <header>
-                <p className={style.nome_logado}>Bem vindo, {nomeUsuario}</p>
+                <p className={style.nome_logado}>Bem-vindo, {nomeUsuario}</p>
                 <div onClick={mudarPerfil}>
                     <img src={fotoPerfil} alt="Foto do Perfil" />
                 </div>

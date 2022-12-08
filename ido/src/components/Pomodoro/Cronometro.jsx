@@ -2,6 +2,7 @@ import React from "react";
 import style from "../Pomodoro/pomodoro.module.css"
 import { useEffect } from "react";
 import { useState } from "react";
+import Spotify from "../Spotify/Spotify";
 
 function Cronometro() {
 
@@ -26,14 +27,18 @@ function Cronometro() {
     return (
         <div className={style.corpo}>
             <div className={style.relogio}>
-                <div>
-                    <span>{minutes.toString().padStart(2, "0")}</span>
-                    <span className={style.tempo}>Minutos</span>
+                <div className={style.div_relogio}>
+                    <div>
+                        <span>{minutes.toString().padStart(2, "0")}</span>
+                    </div>
+                    <span>:</span>
+                    <div>
+                        <span>{seconds.toString().padStart(2, "0")}</span>
+                    </div>
                 </div>
 
-                <div>
-                    <span>{seconds.toString().padStart(2, "0")}</span>
-                    <span className={style.tempo}>Segundos</span>
+                <div className={style.div_pomodoro}>
+                    <Spotify />
                 </div>
             </div>
         </div>

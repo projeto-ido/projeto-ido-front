@@ -6,15 +6,9 @@ import ModalVerTarefa from "./ModalVerTarefa";
 import Matriz from "./Tarefas/ComboMatriz/Matriz"
 import Grupo from "./Tarefas/Grupo"
 import Lista from "./Tarefas/ComboLista/Lista"
-import Spotify from "../../components/Spotify/Spotify";
 import style from "./Home.module.css"
 
-<<<<<<< HEAD
 function HomeComponent({openModal, setOpenModal, openModalVerTarefa, setOpenModalVerTarefa, tipoTarefa, setTipoTarefa, openGerenciadorEtiquetas, setPomodoroAtivo}){
-=======
-
-function HomeComponent({ openModal, setOpenModal, openModalVerTarefa, setOpenModalVerTarefa, tipoTarefa, setTipoTarefa, openGerenciadorEtiquetas, setPomodoroAtivo }) {
->>>>>>> 4cf8ba46043d5a1cae029f65e459dc7885323da1
 
     function handleTarefa() {
         switch (tipoTarefa) {
@@ -28,12 +22,6 @@ function HomeComponent({ openModal, setOpenModal, openModalVerTarefa, setOpenMod
                 return null;
         }
     }
-<<<<<<< HEAD
-=======
-
-
-    
->>>>>>> 4cf8ba46043d5a1cae029f65e459dc7885323da1
     
     return(
         <>
@@ -63,10 +51,6 @@ function HomeComponent({ openModal, setOpenModal, openModalVerTarefa, setOpenMod
                 setOpenModalVerTarefa={setOpenModalVerTarefa}
             />
             {handleTarefa()}
-<<<<<<< HEAD
-            <Spotify/>
-=======
->>>>>>> 4cf8ba46043d5a1cae029f65e459dc7885323da1
         </>
     );
 }
