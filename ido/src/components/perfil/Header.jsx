@@ -28,12 +28,12 @@ function Header(props) {
                             <div className={styles.div_selection}>{props.selectEt}</div>
                         </div>
                         
-                        <div className={styles.em_breve}>
+                        {/* <div className={styles.em_breve}>
                             <div className={styles.text}>
                                 <span onClick={props.conquistas}>Conquistas</span>
                             </div>
                             <div className={styles.div_selection}>{props.selectCt}</div>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

@@ -264,9 +264,9 @@ function ItemRectangleEditor({setUsuarioAtualizado}) {
                                         </label>
                                         <input type="file" accept="image/jpeg" name="arquivoBio" id="arquivoBio" />
                                         
-                                        <div className={styles.div_image_icons}>
+                                        {/* <div className={styles.div_image_icons}>
                                             <img className={styles.acoes} src={iconDeletar} alt="icone lixeira" />
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </div>
                             </div>
@@ -323,9 +323,9 @@ function ItemRectangleEditor({setUsuarioAtualizado}) {
                                                 </label>
                                                 <input type="file" accept="image/jpeg" name="arquivoPerfil" id="arquivoPerfil" />
                                             </div>
-                                            <div>
+                                            {/* <div>
                                                 <img className={styles.acoes} src={iconDeletar} alt="icone lixeira" />
-                                            </div>
+                                            </div> */}
                                         </div>
                                     </div>
                                 </div>
