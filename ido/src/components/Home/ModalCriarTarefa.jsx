@@ -9,7 +9,7 @@ import EtiquetaSelect from "./Tarefas/Etiquetas/EtiquetaSelect";
 import EtiquetaSelect2 from "./Tarefas/Etiquetas/EtiquetaSelect2";
 import close from "../../assets/images/close.png"
 
-export default function ModalCriarTarefa({ openModal, setOpenModal }) {
+export default function ModalCriarTarefa({ openModal, setOpenModal, setTarefasAtualizadas }) {
     const [qtdSubtarefa, setQtdsubtarefa] = useState(1);
     const alturaModal = buscarAlturaModal();
     const alturaFooterModal = buscarAlturaFooter();
@@ -33,10 +33,6 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
     const [inputSubtarefa, setInputSubtarefa] = useState("")
     const [etiqueta1, setEtiqueta1] = useSessionStorageNumber("etiqueta1");
     const [etiqueta2, setEtiqueta2] = useSessionStorageNumber("etiqueta2");
-
-    function reload(){
-        window.location.reload(false);
-    }
 
     function criar() {
         if (selectImportancia === '-1') {
@@ -108,10 +104,10 @@ export default function ModalCriarTarefa({ openModal, setOpenModal }) {
             setInputSubtarefa3("");
             setPrioridade("");
             setOpenModal(false);
-            setTimeout(reload, 2000);
             setEtiquetas([]);
             setEtiqueta1("");
             setEtiqueta2("");
+            setTarefasAtualizadas(false)
         }).catch(erro => {
             console.log("erro: " + erro + " certifique-se de estar logado. ");
             toastErro(erro);

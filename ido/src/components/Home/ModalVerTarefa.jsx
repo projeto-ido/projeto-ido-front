@@ -12,7 +12,7 @@ import close from "../../assets/images/close.png"
 import { confirmAlert } from 'react-confirm-alert'
 import 'react-confirm-alert/src/react-confirm-alert.css'
 
-export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTarefa }) {
+export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTarefa, setTarefasAtualizadas }) {
     const [qtdSubtarefa, setQtdSubtarefa] = useState(1);
     const [subTarefa1, setSubtarefa1] = useState(false);
     const [subTarefa2, setSubtarefa2] = useState(false);
@@ -79,7 +79,8 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
         if (idSub != "") {
             api.delete(`/usuarios/${idUsuarioStorage}/tarefas/${idTarefa}/sub-tarefas/${idSub}`)
             .then(res => {
-                reload()
+                fecharModal()
+                setTarefasAtualizadas(false)
             }).catch(erro => {
             })
         }
@@ -92,14 +93,13 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
         setSubtarefa1(false);
         setSubtarefa2(false);
         setSubtarefa3(false);
+        setInputSubtarefa("")
         setSubt1Storage("")
         setSubt2Storage("")
         setSubt3Storage("")
+        setEtiqueta1("")
+        setEtiqueta2("")
         setOpenModalVerTarefa(false)
-    }
-
-    function reload() {
-        window.location.reload(false);
     }
 
     function atualizarTarefa() {
@@ -180,6 +180,7 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
         }
         atualizarTarefaApi(tarefaAtualizada)
         setSubtarefas([])
+        setEtiquetas([])
     }
 
     function deletarTarefa() {
@@ -213,7 +214,8 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
     function apagarTarefaApi() {
         api.delete(`/usuarios/${idUsuarioStorage}/tarefas/${idTarefa}`).then(res => {
             toastSucesso("Tarefa deletada com sucesso.")
-            setTimeout(reload, 4000);
+            setTarefasAtualizadas(false)
+            fecharModal()
         }).catch(erro => {
             console.log("erro: " + erro);
             toastErro(erro);
@@ -221,10 +223,10 @@ export default function ModalVerTarefa({ openModalVerTarefa, setOpenModalVerTare
     }
 
     function atualizarTarefaApi(tarefaAtualizada) {
-        setOpenModalVerTarefa(false)
+        fecharModal()
         api.put(`/usuarios/${idUsuarioStorage}/tarefas/${idTarefa}`, tarefaAtualizada).then(res => {
             toastSucesso(`Tarefa atualizada!`)
-            setTimeout(reload, 3000);
+            setTarefasAtualizadas(false)
         }).catch(erro => {
             console.log("erro: " + erro);
             toastErro(erro);
