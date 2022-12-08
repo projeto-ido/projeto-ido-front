@@ -229,6 +229,12 @@ header img {
     height: 4%;
     width: 4%;
     cursor: pointer;
+    margin-left: 2%;
+}
+
+.pesquisar_container .teste{
+    display: flex;
+
 }
 
 .elemento_pesquisar {

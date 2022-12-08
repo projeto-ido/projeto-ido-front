@@ -7,7 +7,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import style from '../../components/Home/Home.module.css';
 import acessibilidade from "../../scripts/acessibilidade";
-import apiGerenciadorEtiquetas from "../../api/apiService";
+import apiGerenciadorEtiquetas from "../../api/apiService"
+import Cronometro from "../../components/Pomodoro/Cronometro";
 
 function Home(params) {
     acessibilidade();
@@ -32,9 +33,9 @@ function Home(params) {
     const [openHome, setOpenHome] = useState(true);
     const [openAcessibilidade, setOpenAcessibilidade] = useState(false);
     const [pomodoroAtivo, setPomodoroAtivo] = useState(false);
-    const idUsuario = sessionStorage.getItem("idLogado")
-
+    
     function limparAcoes(){
+        const idUsuario = sessionStorage.getItem("idLogado")
         apiGerenciadorEtiquetas.delete(`/usuarios/${idUsuario}/etiquetas/acoes`)
         .then((res) => {
             console.log("Ações limpas")
@@ -66,7 +67,9 @@ function Home(params) {
                         funcaoNotificar={notificarSucesso} /> : null
                 }
                 {
-                    pomodoroAtivo ? <div className={style.fundo_escuro}></div> : null
+                    pomodoroAtivo ? <div className={style.fundo_escuro} onClick={() => setPomodoroAtivo(false)} >
+                        <Cronometro></Cronometro>
+                    </div> : null
                 }
                 {(openModal || openModalVerTarefa) &&
                     <div onClick={() => setOpenModalVerTarefa(false)}>

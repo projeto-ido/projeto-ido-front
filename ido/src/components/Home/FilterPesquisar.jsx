@@ -7,7 +7,7 @@ import { useSessionStorageString, useSessionStorageBoolean } from "react-use-win
 import axios from "../../api/api";
 import { ToastContainer, toast } from 'react-toastify';
 
-export default function FilterPesquisar({openModal, openModalVerTarefa, openGerenciadorEtiquetas, tipoTarefa, setTipoTarefa, setPomodoroAtivo}){
+export default function FilterPesquisar({ openModal, openModalVerTarefa, openGerenciadorEtiquetas, tipoTarefa, setTipoTarefa, setPomodoroAtivo }) {
     const [palavraPesquisa, setParalavraPesquisa] = useSessionStorageString("palavraPesquisa", "")
     const [atualizarFiltro, setAtualizarFiltro] = useSessionStorageBoolean("atualizarFiltro", false);
     const idUsuario = sessionStorage.getItem("id")
