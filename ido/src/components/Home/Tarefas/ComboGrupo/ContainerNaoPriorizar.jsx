@@ -69,6 +69,7 @@ export default function ContainerNaoPriorizar({ setOpenModalVerTarefa,  tarefasA
                     ))
                 }
             </div>
+            <div className={style.div_espacamento_baixo}></div>
         </div>
     );
 }
