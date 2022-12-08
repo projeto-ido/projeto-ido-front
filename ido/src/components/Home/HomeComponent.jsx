@@ -9,9 +9,7 @@ import Lista from "./Tarefas/ComboLista/Lista"
 import style from "./Home.module.css"
 import { useState } from "react";
 
-function HomeComponent({openModal, setOpenModal, openModalVerTarefa, setOpenModalVerTarefa, tipoTarefa, setTipoTarefa, openGerenciadorEtiquetas, setPomodoroAtivo}){
-
-    const [tarefasAtualizadas, setTarefasAtualizadas] = useState(true)
+function HomeComponent({openModal, setOpenModal, openModalVerTarefa, setOpenModalVerTarefa, tipoTarefa, setTipoTarefa, openGerenciadorEtiquetas, setPomodoroAtivo, tarefasAtualizadas, setTarefasAtualizadas}){
 
     function handleTarefa() {
         switch (tipoTarefa) {

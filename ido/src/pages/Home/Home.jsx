@@ -14,6 +14,8 @@ import Cronometro from "../../components/Pomodoro/Cronometro";
 function Home(params) {
     acessibilidade();
 
+    const [tarefasAtualizadas, setTarefasAtualizadas] = useState(true)
+
     function notificarSucesso() {
         toast.success("Cores alteradas!", {
             position: "top-right",
@@ -59,7 +61,7 @@ function Home(params) {
                     setOpenAcessibilidade={setOpenAcessibilidade}
                 />
                 {
-                    openGerenciadorEtiquetas ? <GerenciadorEtiquetas /> : limparAcoes()
+                    openGerenciadorEtiquetas ? <GerenciadorEtiquetas setTarefasAtualizadas={setTarefasAtualizadas} /> : limparAcoes()
                 }
                 {
                     openAcessibilidade ? <Acessibilidade
@@ -86,6 +88,8 @@ function Home(params) {
                         setTipoTarefa={setTipoTarefa}
                         openGerenciadorEtiquetas={openGerenciadorEtiquetas}
                         setPomodoroAtivo={setPomodoroAtivo}
+                        tarefasAtualizadas={tarefasAtualizadas}
+                        setTarefasAtualizadas={setTarefasAtualizadas}
                     />
                 </div>
             </main>
