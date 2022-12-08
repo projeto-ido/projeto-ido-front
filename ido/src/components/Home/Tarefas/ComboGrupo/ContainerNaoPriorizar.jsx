@@ -34,43 +34,40 @@ export default function ContainerNaoPriorizar({ setOpenModalVerTarefa,  tarefasA
     }, [tarefasAtualizadas])
 
     return (
-        <div id="grupoNaoPriorizar" className={style.grupo_nao_priorizar}>
+        <div id="grupoNaoPriorizar" className={style.div_grupo}>
             <div className={style.grupoTarefas}>
-            {   
-                            
-                            listaTarefas.filter(tarefa => tarefa.importancia == false && tarefa.urgencia == false
-                                //filtro por etiqueta
-                                && ((JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == "") ? true :
-                                (((tarefa.etiquetasTarefa[0] !== undefined && tarefa.etiquetasTarefa[1] !== undefined) ?
-                                    (JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == tarefa.etiquetasTarefa[0].idEtiqueta
-                                        || JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == tarefa.etiquetasTarefa[1].idEtiqueta) : false)
-                                    || ((tarefa.etiquetasTarefa[0] !== undefined && tarefa.etiquetasTarefa[1] == undefined) ?
-                                        JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == tarefa.etiquetasTarefa[0].idEtiqueta : false)
-                                ))
-                                ).map(tarefaAtual => (
+                {  
+                    listaTarefas.filter(tarefa => tarefa.importancia == false && tarefa.urgencia == false
+                        //filtro por etiqueta
+                        && ((JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == "") ? true :
+                        (((tarefa.etiquetasTarefa[0] !== undefined && tarefa.etiquetasTarefa[1] !== undefined) ?
+                            (JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == tarefa.etiquetasTarefa[0].idEtiqueta
+                                || JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == tarefa.etiquetasTarefa[1].idEtiqueta) : false)
+                            || ((tarefa.etiquetasTarefa[0] !== undefined && tarefa.etiquetasTarefa[1] == undefined) ?
+                                JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == tarefa.etiquetasTarefa[0].idEtiqueta : false)
+                        ))
+                        ).map(tarefaAtual => (
 
-                                <React.Fragment key={tarefaAtual.idTarefa}>
-                                    <TarefaGrupo
-                                        setOpenModalVerTarefa={setOpenModalVerTarefa}
-                                        titulo={tarefaAtual.titulo}
-                                        descricao={tarefaAtual.descricao}
-                                        status={tarefaAtual.status}
-                                        dataInicio={tarefaAtual.dataInicio}
-                                        dataFinal={tarefaAtual.dataFinal}
-                                        dataCriacao={tarefaAtual.dataCriacao}
-                                        urgencia={tarefaAtual.urgencia}
-                                        importancia={tarefaAtual.importancia}
-                                        subTarefas={tarefaAtual.subTarefas}
-                                        fkUsuario={tarefaAtual.FkUsuario}
-                                        etiquetasTarefa={tarefaAtual.etiquetasTarefa}
-                                        idTarefa={tarefaAtual.idTarefa}
-                                        key={tarefaAtual.idTarefa}
-                                    />
-                                </React.Fragment>
-
-
-                            ))
-                        }
+                        <React.Fragment key={tarefaAtual.idTarefa}>
+                            <TarefaGrupo
+                                setOpenModalVerTarefa={setOpenModalVerTarefa}
+                                titulo={tarefaAtual.titulo}
+                                descricao={tarefaAtual.descricao}
+                                status={tarefaAtual.status}
+                                dataInicio={tarefaAtual.dataInicio}
+                                dataFinal={tarefaAtual.dataFinal}
+                                dataCriacao={tarefaAtual.dataCriacao}
+                                urgencia={tarefaAtual.urgencia}
+                                importancia={tarefaAtual.importancia}
+                                subTarefas={tarefaAtual.subTarefas}
+                                fkUsuario={tarefaAtual.FkUsuario}
+                                etiquetasTarefa={tarefaAtual.etiquetasTarefa}
+                                idTarefa={tarefaAtual.idTarefa}
+                                key={tarefaAtual.idTarefa}
+                            />
+                        </React.Fragment>
+                    ))
+                }
             </div>
         </div>
     );

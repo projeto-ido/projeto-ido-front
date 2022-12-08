@@ -134,7 +134,7 @@ export default function TarefaGrupo(props) {
                     <span className={style.tarefa}>{titulo}</span>
                     <div className={style.container_etiquetas_grupo}>
                     {etiquetas.map((item) => (
-                        <div className={style.etiqueta_grupo} style={{ backgroundColor: item.cor }} >{item.titulo}</div>
+                        <div className={style.etiqueta} style={{ backgroundColor: item.cor }} >{item.titulo}</div>
                     ))}
 
                     </div>

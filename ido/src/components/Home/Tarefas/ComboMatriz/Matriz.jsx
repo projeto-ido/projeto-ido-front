@@ -203,8 +203,6 @@ export default function TelaMatriz({ setOpenModalVerTarefa, tarefasAtualizadas, 
                                         key={tarefaAtual.idTarefa}
                                     />
                                 </React.Fragment>
-
-
                             ))
                         }
                     </div>

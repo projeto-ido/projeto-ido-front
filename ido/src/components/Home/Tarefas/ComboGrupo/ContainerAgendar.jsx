@@ -34,7 +34,7 @@ export default function ContainerAgendar({ setOpenModalVerTarefa, tarefasAtualiz
     }, [tarefasAtualizadas])
 
     return (
-        <div className={style.grupo_agendar}>
+        <div className={style.div_grupo}>
             <div className={style.grupoTarefas}>
                 {
                     listaTarefas.filter(tarefa => tarefa.importancia == true && tarefa.urgencia == false
@@ -66,8 +66,6 @@ export default function ContainerAgendar({ setOpenModalVerTarefa, tarefasAtualiz
                                 key={tarefaAtual.idTarefa}
                             />
                         </React.Fragment>
-
-
                     ))
                 }
             </div>
