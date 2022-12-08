@@ -127,13 +127,15 @@ export default function TarefaLista(props) {
     }
 
     function plotarEtiquetaVisaoGeral() {
-        if (props.etiquetasTarefa[0] !== undefined) {
-            etiquetas.push(props.etiquetasTarefa[0])
+        if(props.etiquetasTarefa !== undefined){
+            if(props.etiquetasTarefa[0] !== undefined){
+                etiquetas.push(props.etiquetasTarefa[0])
+            } 
+            if(props.etiquetasTarefa[1] !== undefined){
+                etiquetas.push(props.etiquetasTarefa[1])
+            } 
+            forPlotar = false;
         }
-        if (props.etiquetasTarefa[1] !== undefined) {
-            etiquetas.push(props.etiquetasTarefa[1])
-        }
-        forPlotar = false;
     }
 
     return (
