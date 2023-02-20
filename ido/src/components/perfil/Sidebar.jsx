@@ -33,7 +33,7 @@ function Sidebar() {
                             <div className={styles.opcoes}>
                                 <span id="nome_usuario">{sessionStorage.getItem("nome")}</span>
                                 <span id="usuario">@{sessionStorage.getItem("apelido")}</span>
-                                <button onClick={sair}>Sair</button>
+                                <button onClick={sair}>Voltar</button>
                             </div>
                         <div className={styles.status}>
                             <StatusGerais />
