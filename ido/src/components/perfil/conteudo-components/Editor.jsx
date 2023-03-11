@@ -3,7 +3,7 @@ import apiPerfil from '../../../api/apiPerfil';
 import styles from "../Perfil.module.css";
 import ItemRectangleEditor from './editor-components/ItemRectangleEditor';
 
-function Editor() {
+function Editor({setUsuarioAtualizado}) {
     const [listaInfoUser, setListaInfoUser] = useState([]);
 
     useEffect(() => {
@@ -13,11 +13,6 @@ function Editor() {
           console.log(erro);
         })
     }, [])
-
-    function sairEditor() {
-        document.body.style.setProperty('--background--conteudo', '');
-        document.body.style.setProperty('--opacidade--conteudo', '100%');
-    }
 
     return(
         <>
@@ -29,6 +24,7 @@ function Editor() {
                             usuario={infoAtual.usuario}
                             texto={infoAtual.texto}
                             imagem={infoAtual.imagem}
+                            setUsuarioAtualizado={setUsuarioAtualizado}
                         />
                     </React.Fragment>
                 ))

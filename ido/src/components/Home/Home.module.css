@@ -9,7 +9,7 @@
     font-style: normal;
     font-size: 1vw;
     line-height: 7vh;
-    background-color: #FFFAFA;
+    background-color: white;
     display: flex;
     min-height: 400px;
 }
@@ -70,8 +70,7 @@
 .sessao_lateral_destaque {
     width: 100%;
     height: 100%;
-    background-color: #FFFAFA;
-    /* border-bottom: .2vh solid #000000; */
+    background-color: white;
     cursor: pointer;
     display: flex;
     justify-content: center;
@@ -183,7 +182,7 @@ header {
     display: flex;
     align-items: center;
     float: right;
-    padding-right: 3vw;
+    padding-right: 2vw;
     line-height: normal;
 }
 
@@ -196,6 +195,7 @@ header div {
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    overflow: hidden;
 }
 
 header img {
@@ -213,15 +213,11 @@ header img {
 }
 
 .pesquisar_container {
-    /* width: 89vw; */
     width: 85%;
     display: flex;
-    margin-left: 13.7%;
+    margin-left: 12.9%;
     justify-content: space-between;
     align-items: center;
-    /* justify-content: center; */
-    /* margin-left: 9.5vw; */
-    /* min-height: 20px; */
 }
 
 .div_espacamento {
@@ -229,24 +225,31 @@ header img {
     height: 5%;
 }
 
+.div_espacamento_baixo {
+    width: 100%;
+    height: 10%;
+}
+
 .pesquisar_container .pomodoro {
     height: 4%;
     width: 4%;
-    margin-left: 0.7%;
-    margin-top: -0.6%;
     cursor: pointer;
+}
+
+.pesquisar_container .teste{
+    display: flex;
+
 }
 
 .elemento_pesquisar {
     background-color: #E7E7E7;
-    width: 38vw;
+    width: 30vw;
     height: 6.5vh;
     border-radius: 10px;
     display: flex;
     justify-content: center;
     cursor: pointer;
     min-height: 20px;
-
 }
 
 .input_pesquisar {
@@ -258,10 +261,9 @@ header img {
     outline: 0;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
-    cursor: pointer;
+    cursor: text;
     font-size: 1.2vw;
     color: rgb(27, 26, 26);
-
 }
 
 .icon_lupa {
@@ -272,6 +274,27 @@ header img {
     top: 50%;
     transform: translateY(-50%);
 
+}
+
+.btn_exportar {
+    outline: none;
+    width: 10%;
+    height: 5vh;
+    border-radius: 1vh;
+    border-style: none;
+    background-color: var(--cor--verde);
+    color: white;
+    font-size: 2vh;
+    cursor: pointer;
+    transition-duration: 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn_exportar:hover {
+    background-color: var(--cor--amarela);
+    cursor: pointer;
 }
 
 .acoes_atividades {
@@ -450,29 +473,38 @@ header img {
 
 .container_etiquetas_matriz {
     display: flex;
-    width: 40%;
-
+    justify-content: space-between;
+    align-items: center;
+    width: 30%;
+    height: 100%;
 }
 
-
-.faca_agora {
-    width: 38.87vw;
-    background-color: #E7E7E7;
-    height: 40vh;
-    border-top: 1vh solid var(--cor--roxo);
-    border-radius: 0px 0px 25px 25px;
-    min-height: 150px;
-
+.container_etiquetas_grupo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 15%;
+    height: 100%;
 }
 
-.agendar {
+.container_etiquetas_lista {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 15%;
+    height: 100%;
+}
+
+.tarefas_div {
     width: 38.87vw;
-    background-color: #E7E7E7;
+    background-color: white;
     height: 40vh;
-    border-top: 1vh solid var(--cor--roxo);
     border-radius: 0px 0px 25px 25px;
     min-height: 150px;
-
+    border-bottom: 0.3vh solid #E7E7E7;
+    border-left: 0.3vh solid #E7E7E7;
+    border-right: 0.3vh solid #E7E7E7;
+    overflow: hidden;
 }
 
 .tarefas_inferior {
@@ -481,31 +513,10 @@ header img {
     margin-top: 5vh;
 }
 
-.delegar {
-    width: 38.87vw;
-    background-color: #E7E7E7;
-    height: 40vh;
-    border-top: 1vh solid var(--cor--roxo);
-    border-radius: 0px 0px 25px 25px;
-    min-height: 150px;
-
-}
-
-.nao_priorizar {
-    width: 38.87vw;
-    background-color: #E7E7E7;
-    height: 40vh;
-    border-top: 1vh solid var(--cor--roxo);
-    border-radius: 0px 0px 25px 25px;
-    min-height: 150px;
-
-}
-
 .containerTarefasMatriz{
     overflow-y: auto;
     max-height: 30vh;
     min-height: 120px;
-    margin-right: 5px;
 }
 
 .titulo_prioridade {
@@ -513,37 +524,47 @@ header img {
     color: var(--cor--roxo);
     padding-left: 2vw;
     margin: 0 0 0;
-
+    border-top: 1vh solid var(--cor--roxo);
+    background-color: #E7E7E7;
 }
-
-
 
 .tarefa_combo {
     display: flex;
     justify-content: flex-start;
+    align-items: center;
     line-height: normal;
     cursor: pointer;
+    height: 6vh;
+    border-bottom: 0.3vh solid #E7E7E7;
+}
+
+.tarefa_combo_grupo {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+    height: 6vh;
+    width: 100%;
+    border-bottom: 0.3vh solid #E7E7E7;
 }
 
 .tarefa {
-    padding-top: 2vh;
     width: 50%;
     padding-left: 2vw;
-
 }
 
 .etiqueta {
-    width: 7vw;
-    height: min-content;
+    width: 47%;
+    height: 53%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     line-height: normal;
     background-color: var(--cor--roxo);
     border-radius: 5px;
     text-align: center;
-    margin-top: 2vh;
-    color: #000000;
-    font-weight: 400;
-    margin-left: 3px;
-
+    color: white;
+    font-size: 1.8vh;
 }
 
 /*Inicio visualização por grupo*/
@@ -554,60 +575,23 @@ header img {
     margin-left: 14%;
 }
 
-.grupo_fazer_agora {
-    width: 100%;
-    background-color: #FFFAFA;
-    height: 36vh;
-    border-radius: 0px 0px 25px 25px;
-    min-height: 100px;
-    border-bottom: .3vh solid #E7E7E7;
-    border-left: .3vh solid #E7E7E7;
-    border-right: .3vh solid #E7E7E7;
-
-}
-
-.grupo_agendar {
-    width: 100%;
-    background-color: #FFFAFA;
-    height: 36vh;
-    border-radius: 0px 0px 25px 25px;
-    min-height: 100px;
-    border-bottom: .3vh solid #E7E7E7;
-    border-left: .3vh solid #E7E7E7;
-    border-right: .3vh solid #E7E7E7;
-    
-
-}
-
 .grupoTarefas{
+    overflow: hidden;
     overflow-y: auto;
-    margin-right: 5px;
-    height: 90%;
+    height: 100%;
 }
 
-.grupo_delegar {
+.div_grupo {
     width: 100%;
-    background-color: #FFFAFA;
+    background-color: white;
     height: 36vh;
     border-radius: 0px 0px 25px 25px;
     min-height: 100px;
     border-bottom: .3vh solid #E7E7E7;
     border-left: .3vh solid #E7E7E7;
     border-right: .3vh solid #E7E7E7;
-
+    overflow: hidden;
 }
-
-.grupo_nao_priorizar {
-    width: 100%;
-    background-color: #FFFAFA;
-    height: 36vh;
-    border-radius: 0px 0px 25px 25px;
-    min-height: 100px;
-    border-bottom: .3vh solid #E7E7E7;
-    border-left: .3vh solid #E7E7E7;
-    border-right: .3vh solid #E7E7E7;
-}
-
 
 .container_tipo_tarefa {
     background-color: #E7E7E7;
@@ -655,7 +639,9 @@ header img {
 
 .icon_fechado_fazer_agora {
     color: #7E7D7D;
-    padding-top: 1vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .icon_aberto_fazer_agora {
@@ -707,18 +693,19 @@ header img {
 
 .grupo_fazer_agora_lista {
     width: 100%;
-    background-color: #FFFAFA;
+    background-color: white;
     border-radius: 0px 0px 25px 25px;
     min-height: 100px;
     border-bottom: .3vh solid #E7E7E7;
     border-left: .3vh solid #E7E7E7;
     border-right: .3vh solid #E7E7E7;
-    height: 55vh;
-    
+    height: 70vh;
+    overflow: hidden;
 }
 
 .tarefas_listadas{
-    height: 90%; 
+    height: 100%;
+    width: 100%;
     overflow-y: auto;
     margin-right: 5px;
 }
@@ -729,50 +716,38 @@ header img {
 
 .tarefa_combo_lista {
     display: flex;
-    justify-content: space-around;
-    line-height: normal;
+    width: 100%;
+    height: 6vh;
+    justify-content: flex-start;
+    align-items: center;
     cursor: pointer;
     border-bottom: .3vh solid #E7E7E7;
 }
 
 .container_etiquetas {
     display: flex;
-    width: 100%;
-    min-width: 300px;
-}
-
-.etiqueta_lista {
-    margin-bottom: 1.5vh;
-    width: 100px;
-    height: min-content;
-    line-height: normal;
-    background-color: var(--cor--roxo);
-    border-radius: 5px;
-    text-align: center;
-    margin-left: 8vw;
-    margin-top: 2vh;
-    color: #000000;
-    font-weight: 400;
-
+    justify-content: space-between;
+    align-items: center;
+    width: 25%;
+    height: 100%;
 }
 
 /*Modal criação de tarefa*/
-
 .modal_criar_tarefa {
     top: 8vh;
-    right: 0;
-    bottom: 0;
     left: 30vw;
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 50vw;
-    height: 72vh;
+    height: 100vh;
     position: fixed;
     background: #FFFFFF;
     border-top: 8px solid var(--cor--roxo);
-    border-radius: 0px 0px 25px 25px;
-    min-height: 200px;
+    border-radius: 0 0 2vh 2vh;
     z-index: 1;
+    line-height: 0;
 }
 
 .fundo_escuro {
@@ -786,25 +761,23 @@ header img {
 }
 
 .modal_1_subtarefas {
-    height: 76vh;
-
+    top: 12vh;
+    height: 75vh;
 }
 
 .modal_2_subtarefas {
-    height: 82vh;
-
+    top: 9vh;
+    height: 80vh;
 }
 
 .modal_3_subtarefas {
-    top: 3vh;
-    height: 88vh;
-
+    top: 7vh;
+    height: 85vh;
 }
 
 .modal_4_subtarefas {
-    top: 3vh;
-    height: 94vh;
-
+    top: 2vh;
+    height: 95vh;
 }
 
 .footer_modal_1_subtarefas {
@@ -816,7 +789,7 @@ header img {
 }
 
 .footer_modal_3_subtarefas {
-    height: 20vh;
+    height: 25vh;
 }
 
 .footer_modal_4_subtarefas {
@@ -827,15 +800,20 @@ header img {
     opacity: 0;
 }
 
-
+.subtarefa_btn_salvar {
+    width: 100%;
+    height: 27%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
 
 .titulo_modal_tarefa {
     width: 100%;
-    height: 5vh;
-    align-items: center;
+    height: 4%;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    align-items: center;
     justify-content: center;
     color: var(--cor--roxo);
     font-weight: 700;
@@ -843,29 +821,25 @@ header img {
 }
 
 .topo_modal_tarefa {
-    padding-left: 47vw;
-    width: 100%;
-    line-height: normal;
-    min-height: 10px;
+    width: 86%;
+    height: 4%;
 }
 
-.botao_sair_tarefa {
-    margin-top: 4px;
-    width: 2vw;
-    font-size: 2.5vh;
-    background: #D3D3D3;
-    border-radius: 5px;
-    cursor: pointer;
-    text-align: center;
+.topo_modal_tarefa .botao_sair_tarefa {
+    height: 100%;
+    width: 100%;
+    border-radius: 0.5vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
 
+.topo_modal_tarefa .botao_sair_tarefa img {
+    height: 100%;
+    cursor: pointer;
 }
 
 .titulo_tarefa_modal{
-    padding-top: 0;
-    margin-top: 0;
-    padding-left: 3.3vw;
-    padding-bottom: 0;
-    margin-bottom: 0;
     color: var(--cor--preta);
     height: 3.5vh;
     font-size: 2vh;
@@ -873,12 +847,11 @@ header img {
 
 .input_titulo_tarefa{
     width: 86%;
-    height: 4.2vh;
-    margin-left: 6.8%;
+    height: 50%;
     background: #E7E7E7;
     border-radius: 5px;
     border: none;
-    cursor: pointer;
+    cursor: text;
     box-shadow: 0 0 0 0;
     outline: 0;
     color: #7E7D7D;
@@ -886,33 +859,79 @@ header img {
 }
 
 .input_titulo_tarefa_visualizacao{
-    width: 80%;
-    height: 4.2vh;
-    margin-left: 6.8%;
+    width: 90%;
+    height: 85%;
     background: #E7E7E7;
     border-radius: 5px;
     border: none;
-    cursor: pointer;
+    cursor: text;
     box-shadow: 0 0 0 0;
     outline: 0;
     color: #7E7D7D;
     font-size: 1vw;
-    margin-top: 1.5vh;
-    display: flex;
 }
 
 .container_titulo_lixo_tarefa{
+    height: 100%;
+    width: 20%;
+    background-color: red;
     display: flex;
 }
 
 .classificacao{
-    width: 96%;
+    width: 100%;
+    height: 27%;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
 }
 
-.importancia{
-    width: 33.3%;
-    height: 9vh;
+.classificacao .div_titulo {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.classificacao .div_titulo b {
+    margin: 0;
+    height: 50%;
+    width: 86%;
+    display: flex;
+    align-items: center;
+}
+
+.classificacao .div_titulo div {
+    width: 86%;
+    height: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.classificacao .div_titulo div img {
+    height: 4vh;
+    width: 2vw;
+    cursor: pointer;
+}
+
+.classificacao .div_classificacao{
+    display: flex;
+    height: 70%;
+    width: 86%;
+    justify-content: space-between;
+}
+
+.importancia_urgencia_prioridade{
+    width: 32%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
 }
 
 .select_perfil {
@@ -924,65 +943,35 @@ header img {
 }
 
 .select_importancia{
-    margin-left: 3.5vw;
     border: none;
     background-color: #E7E7E7;
-    width: 60%;
-    height: 4.3vh;
-    box-shadow: 0 0 0 0;
-    outline: 0;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
+    width: 100%;
+    height: 40%;
+    border-radius: 0.5vh;
     color: #7E7D7D;
     cursor: pointer;
     font-size: 1vw;
-    padding-left: 5%;
-    
-}
-
-.urgencia{
-    width: 33.3%;
-    height: 9vh;
-}
-
-.prioridade{
-    width: 36%;
-    height: 9vh;
-
-}
-
-.progresso{
-    width: 33.3%;
-    height: 9vh;
-    margin-left: 2.5vw;
 }
 
 .input_status{
-    width: 3vw;
+    height: 45%;
+    width: 20%;
     cursor: pointer;
-    height: 2.2vh;
-    margin-top: 2.5vh;
     background-color: var(--cor--roxo);
-    
 }
+
 .texto_concluido{
     font-size: 1.3vw; 
     color: var(--cor--preta);
 }
 
-
 .resultado_prioridade{
-    margin-left: 3.5vw;
     border: none;
     background-color: #e7e7e7;
-    width: 60%;
-    margin-top: 1.4vh;
-    border-radius: 5px;
+    width: 100%;
+    height: 40%;
+    border-radius: 0.5vh;
     text-align: center;
-    height: 4.5vh;    
-    
 }
 
 .texto_prioridade{
@@ -995,94 +984,95 @@ header img {
 }
 
 .titulo_importancia{
-    padding-top: 0;
-    padding-left: 3.4vw;
-    padding-bottom: 0;
-    margin-bottom: 0;
     color: var(--cor--preta);
-    height: 3.5vh;
+    margin: 0;
     font-size: 2vh;
+    height: 50%;
+    width: 100%;
+    line-height: 3;
 }
 
 .titulo_subtarefa{
-    padding-top: 0;
-    padding-left: 3.4vw;
-    padding-bottom: 0;
-    margin-top: .8vh;
-    margin-bottom: 0;
     color: var(--cor--preta);
-    height: 3.5vh;
+    margin: 0;
     font-size: 2vh;
+    line-height: 3.5;
 }
 
 .datas_modal{
-    width: 100%;
+    width: 86%;
+    height: 50%;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.data_inicio{
-    width: 50%;
-    height: 9vh;
-    font-size: .8vw;
+.data_desc {
+    width: 100%;
+    height: 35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.data_final{
-    width: 50%;
-    height: 9vh;
-    font-size: .8vw;
+.data {
+    width: 49%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
+.data_visuz {
+    width: 29%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
-.input_data_inicio{
-    width: 72%;
-    height: 4.3vh;
-    margin-left: 14%;
-    padding-left: 5%;
+.progresso {
+    width: 100%;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.input_data{
+    width: 100%;
+    height: 42%;
     background: #E7E7E7;
-    border-radius: 5px;
+    border-radius: 0.5vh;
     border: none;
     cursor: pointer;
-    box-shadow: 0 0 0 0;
-    outline: 0;
-    font-size: 1.1vw;
-    color: #7E7D7D;
-   
-}
-
-.input_data_final{
-    width: 72%;
-    height: 4.3vh;
-    margin-left: 10%;
-    padding-left: 5%;
-    background: #E7E7E7;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-    box-shadow: 0 0 0 0;
-    outline: 0;
     font-size: 1.1vw;
     color: #7E7D7D;
 }
 
 .complemento_tarefa_modal{
-    width: 100%;
+    width: 86%;
+    height: 100%;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.subtarefa_tarefa_modal{
-    width: 50%;
-    height: 9.5vh;
+.subtarefa_tarefa_modal {
+    width: 49%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
-
-
 
 .select_etiquetas{
     border: none;
     background-color: #E7E7E7;
-    width: 90%;
+    width: 100%;
     height: 4.5vh;
-    box-shadow: 0 0 0 0;
-    outline: 0;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
@@ -1094,62 +1084,58 @@ header img {
 }
 
 .container_descricao{
-    width: 100%;
-    height: 13vh;
+    width: 86%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .input_descricao{
-    margin-top: 1.3vh;
-    width: 86%;
-    height: 7vh;
-    margin-left: 6.6%;
+    width: 100%;
+    height: 100%;
     background: #E7E7E7;
-    border-radius: 5px;
+    border-radius: 1vh;
     border: none;
-    cursor: pointer;
-    box-shadow: 0 0 0 0;
-    outline: 0;
+    cursor: text;
     color: #7E7D7D;
     font-size: 1vw;
-    
+    resize: none;
 }
 
 .footer_modal{
-    width: 100%;
-    align-items: center;
+    width: 86%;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    align-items: center;
     justify-content: center;
-    cursor: pointer;
-    
 }
 
 .botao_salvar_tarefa{
-    width: 30%;
+    width: 100%;
     background-color: var(--cor--amarela);
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 2vh;
-    border-radius: 20px;
+    font-size: 2.5vh;
+    border-radius: 2vh;
     text-align: center;
     height: 4vh;
+    cursor: pointer;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.texto_salvar_tarefa{
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+
+.botao_salvar_tarefa span {
+    margin: 0;
 }
 
 .input_subtarefa{
-    width: 75%;
-    height: 4.3vh;
-    margin-left: 13.5%;
+    width: 100%;
+    height: 100%;
     background: #E7E7E7;
     border-radius: 5px;
     border: none;
-    cursor: pointer;
+    cursor: text;
     box-shadow: 0 0 0 0;
     outline: 0;
     color: #7E7D7D;
@@ -1158,25 +1144,11 @@ header img {
 
 .container_criacao_subtarefa{
     width: 100%;
+    height: 22%;
     display: flex;
-    margin-top: 1vh;
-}
-
-.container_criacao_subtarefa2{
-    width: 100%;
-    display: flex;
-    margin-top: 1vh;
-}
-
-.container_criacao_subtarefa3{
-    width: 100%;
-    display: flex;
-    margin-top: 1vh;
-}
-.container_criacao_subtarefa4{
-    width: 100%;
-    display: flex;
-    margin-top: 1vh;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.6vh;
 }
 
 .botao_criar_subtarefa{
@@ -1189,7 +1161,6 @@ header img {
     border-radius: 5px;
     cursor: pointer;
     text-align: center;
-    
 }
 
 .tarefa{
@@ -1208,12 +1179,11 @@ header img {
 }
 
 .texto_acao_subtarefa{
+    height: 100%;
+    width: 100%;
     display: flex;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
+    align-items: center;
     justify-content: center;
-    
 }
 
 .texto_acao_subtarefa_lixo{
@@ -1234,44 +1204,23 @@ header img {
     
 }
 
-.icon_apagar_tarefa{
-    width: 1.5vw;
-    height: 3.5vh;
-    display: flex;
-    margin-left: 1.5vw;
-    margin-top: 1.8vh;
-    cursor: pointer;
-}
-
 .confirme_alert{
     margin-bottom: 60vh;
     background: rgba(77, 139, 56, 0.9);
 }
 
 .container_select_etiqueta{
-    width: 100%;
+    width: 48%;
+    height: 100%;
     display: flex;
-    margin-top: 1vh;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 .titulo_etiqueta_modal{
-    padding-top: 0;
-    margin-top: 0;
-    padding-left: 2.6vw;
-    padding-bottom: 0;
-    margin-bottom: 0;
-    color: var(--cor--preta);
-    height: 3.5vh;
-    font-size: 2vh;
-    
-}
-
-.titulo_etiqueta_modal2{
-    padding-top: 0;
-    margin-top: 0;
-    padding-left: 0vw;
-    padding-bottom: 0;
-    margin-bottom: 0;
+    display: flex;
+    align-items: center;
     color: var(--cor--preta);
     height: 3.5vh;
     font-size: 2vh;
@@ -1279,8 +1228,18 @@ header img {
 
 .continer_combo_etiquetas{
     display: flex;
-    margin-left: 2.6vw;
-    width: 80%;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+}
+
+.div_btn {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .container_titulo_etiquetas{
@@ -1329,15 +1288,6 @@ header img {
         margin-left: 10%;
     }
 
-    .faca_agora {
-        width: 60vw;
-        height: 35vh;
-        max-height: 160px;
-        margin-top: 5vh;
-        font-size: 2vw;
-
-    }
-
     .agendar {
         width: 60vw;
         height: 35vh;
@@ -1377,51 +1327,9 @@ header img {
         padding-top: 12%;
     }
 
-    /* .icon_home {
-        padding-left: 1.2vw;
-        width: 3vw;
-        height: 4vh;
-        padding-top: 4vh;
-    }
-
-    .icon_grafico {
-        padding-left: 1.8vw;
-        width: 3vw;
-        height: 4vh;
-        padding-top: 4vh;
-    }
-
-    .icon_etiqueta {
-        padding-left: 2.5vw;
-        width: 3vw;
-        height: 4vh;
-        padding-top: 2.5vh;
-
-    } */
-
     .icon_lupa {
         height: 4vh;
     }
-
-    /* .icon_conheca {
-        padding-left: 2vw;
-        width: 4vw;
-        height: 4vh;
-        padding-top: 2.5vh;
-    }
-
-    .icon_config {
-        padding-left: 1.5vw;
-        width: 4vw;
-        height: 4vh;
-        padding-top: 2.5vh;
-    }
-
-    .icon_sair {
-        width: 3.5vw;
-        height: 3.5vh;
-        padding-top: 2.5vh;
-    } */
 
     .select_importancia{
         font-size: 1.5vw;
@@ -1462,27 +1370,16 @@ header img {
         align-items: flex-end;
         position: absolute;
     }
-    .spotify_card{
-        width: 25%;
-        border-radius:12px
-    }
 
     .tarefa{
         font-size: 2vw;
     }
-
-
-}
-
-/*spotify*/
-.container_spotify{
-    display: flex;
-    justify-content: center;
 }
 
 .spotify_card{
-    width: 60vw;
-    border-radius:12px;
-    margin-top: 10vh;
-    padding-left: 12%;
-} 
+    width: 100%;
+    border-radius: 1vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

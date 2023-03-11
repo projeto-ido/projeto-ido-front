@@ -3,23 +3,22 @@ import AcoesAtividades from "./AcoesAtividades";
 import FilterPesquisar from "./FilterPesquisar";
 import ModalCriarTarefa from "./ModalCriarTarefa";
 import ModalVerTarefa from "./ModalVerTarefa";
-import Perfil from "./Perfil";
 import Matriz from "./Tarefas/ComboMatriz/Matriz"
 import Grupo from "./Tarefas/Grupo"
 import Lista from "./Tarefas/ComboLista/Lista"
-import Spotify from "../../components/Spotify/Spotify";
 import style from "./Home.module.css"
+import { useState } from "react";
 
-function HomeComponent({openModal, setOpenModal, openModalVerTarefa, setOpenModalVerTarefa, tipoTarefa, setTipoTarefa, openGerenciadorEtiquetas, setPomodoroAtivo}){
+function HomeComponent({openModal, setOpenModal, openModalVerTarefa, setOpenModalVerTarefa, tipoTarefa, setTipoTarefa, openGerenciadorEtiquetas, setPomodoroAtivo, tarefasAtualizadas, setTarefasAtualizadas}){
 
     function handleTarefa() {
         switch (tipoTarefa) {
             case "matriz":
-                return <Matriz setOpenModalVerTarefa={setOpenModalVerTarefa} />
+                return <Matriz setOpenModalVerTarefa={setOpenModalVerTarefa} tarefasAtualizadas={tarefasAtualizadas} setTarefasAtualizadas={setTarefasAtualizadas}/>
             case "grupo":
-                return <Grupo setOpenModalVerTarefa={setOpenModalVerTarefa} />
+                return <Grupo setOpenModalVerTarefa={setOpenModalVerTarefa} tarefasAtualizadas={tarefasAtualizadas} setTarefasAtualizadas={setTarefasAtualizadas}/>
             case "lista":
-                return <Lista setOpenModalVerTarefa={setOpenModalVerTarefa} />
+                return <Lista setOpenModalVerTarefa={setOpenModalVerTarefa} tarefasAtualizadas={tarefasAtualizadas} setTarefasAtualizadas={setTarefasAtualizadas}/>
             default:
                 return null;
         }
@@ -29,29 +28,32 @@ function HomeComponent({openModal, setOpenModal, openModalVerTarefa, setOpenModa
         <>
             <div className={style.div_espacamento} />
             <FilterPesquisar 
-            openModal={openModal}  
-            openModalVerTarefa={openModalVerTarefa} 
-            openGerenciadorEtiquetas={openGerenciadorEtiquetas}
-            tipoTarefa={tipoTarefa}
-            setTipoTarefa={setTipoTarefa}
-            setPomodoroAtivo={setPomodoroAtivo}
+                openModal={openModal}  
+                openModalVerTarefa={openModalVerTarefa} 
+                openGerenciadorEtiquetas={openGerenciadorEtiquetas}
+                tipoTarefa={tipoTarefa}
+                setTipoTarefa={setTipoTarefa}
+                setPomodoroAtivo={setPomodoroAtivo}
             />
             <AcoesAtividades 
-            openModalVerTarefa={openModalVerTarefa} 
-            setOpenModal={setOpenModal}
-            openModal={openModal} 
-            tipoTarefa={tipoTarefa} 
-            setTipoTarefa={setTipoTarefa}
-            openGerenciadorEtiquetas={openGerenciadorEtiquetas}
+                openModalVerTarefa={openModalVerTarefa} 
+                setOpenModal={setOpenModal}
+                openModal={openModal} 
+                tipoTarefa={tipoTarefa} 
+                setTipoTarefa={setTipoTarefa}
+                openGerenciadorEtiquetas={openGerenciadorEtiquetas}
             />
             <ModalCriarTarefa 
-            openModal={openModal} 
-            setOpenModal={setOpenModal} />
+                openModal={openModal} 
+                setOpenModal={setOpenModal} 
+                setTarefasAtualizadas={setTarefasAtualizadas}
+            />
             <ModalVerTarefa 
-            openModalVerTarefa={openModalVerTarefa} 
-            setOpenModalVerTarefa={setOpenModalVerTarefa}/>
+                openModalVerTarefa={openModalVerTarefa} 
+                setOpenModalVerTarefa={setOpenModalVerTarefa}
+                setTarefasAtualizadas={setTarefasAtualizadas}
+            />
             {handleTarefa()}
-            <Spotify/>
         </>
     );
 }

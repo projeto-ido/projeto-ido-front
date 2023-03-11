@@ -4,7 +4,7 @@ import style from "../../Home.module.css";
 import apiTarefa from "../../../../api/apiTarefa";
 import { useSessionStorageNumber, useSessionStorageBoolean, useSessionStorageString } from "react-use-window-sessionstorage";
 
-export default function TelaMatriz({ setOpenModalVerTarefa }) {
+export default function TelaMatriz({ setOpenModalVerTarefa, tarefasAtualizadas, setTarefasAtualizadas }) {
     const [listaTarefas, setListaTarefas] = useState([]);
     const [idTarefa, setIdTarefa] = useSessionStorageNumber("idDaTarefa", 0);
     const [titulo, setTitulo] = useState("");
@@ -29,24 +29,23 @@ export default function TelaMatriz({ setOpenModalVerTarefa }) {
         setSub1Storage("");
         setSub2Storage("");
         setSub3Storage("");
+        setListaTarefas([])
 
         apiTarefa.get(`/usuarios/${idUsuario}/tarefas`).then(res => {
-            setListaTarefas(res.data);
+            if(res.status === 200){
+                setListaTarefas(res.data);
+                setTarefasAtualizadas(true)
+            }
             console.log(res.data)
             if (res.data === "") {
                 setListaTarefas([""])
             }
-
         }).catch(erro => {
             console.log(erro)
 
         })
 
-    }, [])
-
-    function isEtiqueta1() {
-
-    }
+    }, [tarefasAtualizadas])
 
     return (
         <div id="tarefas-geral-matriz" className={style.tarefas_geral_matriz}>
@@ -54,7 +53,7 @@ export default function TelaMatriz({ setOpenModalVerTarefa }) {
 
             <div className={style.tarefas_superior}>
 
-                <div className={style.faca_agora}>
+                <div className={style.tarefas_div}>
                     <h4 className={style.titulo_prioridade}>Fazer agora</h4>
                     <div className={style.containerTarefasMatriz}>
                         {
@@ -93,7 +92,7 @@ export default function TelaMatriz({ setOpenModalVerTarefa }) {
                         }
                     </div>
                 </div>
-                <div className={style.agendar}>
+                <div className={style.tarefas_div}>
                     <h4 className={style.titulo_prioridade}>Agendar</h4>
                     <div className={style.containerTarefasMatriz}>
                         {
@@ -126,18 +125,14 @@ export default function TelaMatriz({ setOpenModalVerTarefa }) {
                                         key={tarefaAtual.idTarefa}
                                     />
                                 </React.Fragment>
-
-
                             ))
                         }
                     </div>
                 </div>
-
             </div>
 
             <div className={style.tarefas_inferior}>
-
-                <div className={style.delegar}>
+                <div className={style.tarefas_div}>
                     <h4 className={style.titulo_prioridade}>Delegar</h4>
                     <div className={style.containerTarefasMatriz}>
                         {
@@ -147,11 +142,10 @@ export default function TelaMatriz({ setOpenModalVerTarefa }) {
                                 (((tarefa.etiquetasTarefa[0] !== undefined && tarefa.etiquetasTarefa[1] !== undefined) ?
                                     (JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == tarefa.etiquetasTarefa[0].idEtiqueta
                                         || JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == tarefa.etiquetasTarefa[1].idEtiqueta) : false)
-                                    || ((tarefa.etiquetasTarefa[0] !== undefined && tarefa.etiquetasTarefa[1] == undefined) ?
+                                        || ((tarefa.etiquetasTarefa[0] !== undefined && tarefa.etiquetasTarefa[1] == undefined) ?
                                         JSON.parse(sessionStorage.getItem("etiquetaFiltro")) == tarefa.etiquetasTarefa[0].idEtiqueta : false)
                                 ))
                             ).map(tarefaAtual => (
-
                                 <React.Fragment key={tarefaAtual.idTarefa}>
                                     <Tarefa
                                         setOpenModalVerTarefa={setOpenModalVerTarefa}
@@ -176,7 +170,7 @@ export default function TelaMatriz({ setOpenModalVerTarefa }) {
                         }
                     </div>
                 </div>
-                <div className={style.nao_priorizar}>
+                <div className={style.tarefas_div}>
                     <h4 className={style.titulo_prioridade}>Não Priorizar</h4>
                     <div className={style.containerTarefasMatriz}>
                         {
@@ -209,14 +203,12 @@ export default function TelaMatriz({ setOpenModalVerTarefa }) {
                                         key={tarefaAtual.idTarefa}
                                     />
                                 </React.Fragment>
-
-
                             ))
                         }
                     </div>
                 </div>
             </div>
-
+            <div className={style.div_espacamento_baixo}></div>
         </div>
     );
 }

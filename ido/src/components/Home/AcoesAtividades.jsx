@@ -10,12 +10,7 @@ export default function AcoesAtividades({ openModal, setOpenModal, tipoTarefa, s
     const [etiqueta2, setEtiqueta2] = useSessionStorageNumber("etiqueta2");
     const [etiquetaFiltro, setEtiquetaFiltro] = useSessionStorageNumber("etiquetaFiltro");
 
-    // useEffect(() => {
-    //     setEtiquetaFiltro("")   
-    // }, [])
-
     function handleChecked(tipo) {
-
         if (tipoTarefa === "matriz" && tipo === "matriz") {
             return style.menu_tarefa_check
         }
@@ -26,8 +21,6 @@ export default function AcoesAtividades({ openModal, setOpenModal, tipoTarefa, s
             return style.menu_tarefa_check
         }
         return style.menu_tarefa_off
-
-
     }
 
     function limparEtiquetas() {
@@ -47,7 +40,6 @@ export default function AcoesAtividades({ openModal, setOpenModal, tipoTarefa, s
 
             <div className={style.opcoes_visualizacao}>
                 <div>
-
                     <button onClick={() => setTipoTarefa("matriz")}
                         className={`${style.matriz} ${handleChecked("matriz")} ${style.menu_tarefa_default}`}>
                         Matriz
@@ -60,7 +52,6 @@ export default function AcoesAtividades({ openModal, setOpenModal, tipoTarefa, s
                         className={`${style.lista} ${handleChecked("lista")} ${style.menu_tarefa_default}`}>
                         Lista
                     </button>
-
                 </div>
             </div>
 

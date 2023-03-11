@@ -18,8 +18,6 @@ body{
     --cor--roxo: #7463C7;
     --cor--amarela: #FFCA6D;
     --cor--preta: #1F1E1E;
-    --background--conteudo: "";
-    --opacidade--conteudo: "100%"
 }
 
 /* HEADER */
@@ -78,9 +76,9 @@ body{
 
 .main_container .box_header .btn_box .container {
     height: 100%;
-    width: 90%;
+    width: 80%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
 }
 
@@ -91,6 +89,17 @@ body{
     justify-content: center;
     align-items: flex-end;
     flex-direction: column;
+}
+
+.conquista_breve {
+    height: 100%;
+    width: 100%;
+    background-color: red;
+}
+
+.em_breve {
+    opacity: 10%;
+    cursor: default;
 }
 
 .main_container .box_header .btn_box .container div .text {
@@ -107,6 +116,10 @@ body{
     display: flex;
     justify-content: flex-end;
     align-items: center;
+}
+
+.div_selection b {
+    color: var(--cor--amarela);
 }
 
 .main_container .box_header .btn_box .container div .div_selection .selection {
@@ -298,6 +311,18 @@ body{
     justify-content: space-between;
 }
 
+.div_overview {
+    height: 100%;
+    width: 100%;
+    overflow-y: scroll;
+}
+
+.div_overview .titulo_graficos {
+    margin: 4vh 4vh 0 0;
+    color: var(--cor--roxo);
+    font-size: 2vh;
+}
+
 /* ESTRUTURA = OVERVIEW _ CONQUISTAS */
 .main_container .conteudo .container .box_container .div_up {
     width: 100%;
@@ -305,6 +330,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 1vh;
 }
 
 .main_container .conteudo .container .box_container .div_down {
@@ -313,6 +339,7 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 4vh;
 }
 
 .main_container .conteudo .container .box_container .div_down .div_botao button {
@@ -343,6 +370,7 @@ body{
 .main_container .conteudo .container .box_container .div_down_grafico {
     width: 100%;
     height: 40%;
+    margin-top: 4vh;
 }
 
 /* OVERVIEW */
@@ -398,7 +426,7 @@ body{
 }
 
 .div_up .item_rectangle_bio .overview_imagem img {
-    width: 100%;
+    height: 100%;
 }
 
 /* CONQUISTAS */
@@ -483,6 +511,70 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/* ITEM SQUARE OVERVIEW */
+.item_square_overview {
+    height: 100%;
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #E7E7E7;
+    border-top: 0.5vw var(--cor--roxo) solid;
+    border-bottom-right-radius: 1vw;
+    border-bottom-left-radius: 1vw;
+    overflow: hidden;
+    background-image: url("../../assets/images/pie-chart.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 65%;
+    opacity: 70%;
+}
+
+.item_square_overview div {
+    height: 10%;
+    width: 35%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+.item_square_overview img {
+    height: 100%;
+}
+
+.item_square_overview_conquista {
+    height: 100%;
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #E7E7E7;
+    border-top: 0.5vw var(--cor--roxo) solid;
+    border-bottom-right-radius: 1vw;
+    border-bottom-left-radius: 1vw;
+    overflow: hidden;
+    background-image: url("../../assets/images/atarefado.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 65%;
+    opacity: 70%;
+}
+
+.item_square_overview_conquista div {
+    height: 10%;
+    width: 35%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    color: white;
+}
+
+.item_square_overview_conquista img {
+    height: 100%;
 }
 
 /* ITEM CONQUISTA */
@@ -613,12 +705,45 @@ body{
     font-size: 1.2vh;
 }
 
-.div_editor .editor_primeira_coluna {
+.div_editor_senha {
+    height: 42vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-size: 1.2vh;
+}
+
+.div_editor_senha div {
+    width: 84.5%;
+    height: 100%;
+}
+
+.div_editor_senha button {
+    width: 25%;
+    height: 20%;
+    font-size: 1vw;
+    border: none;
+    background-color: var(--cor--azul);
+    border-radius: 1em;
+    color: white;
+    transition-duration: 0.3s;
+    margin-top: 4vh;
+}
+
+.div_editor_senha button:hover {
+    cursor: pointer;
+    transition-duration: 0.3s;
+    background-color: var(--cor--amarela);
+}
+
+.editor_primeira_coluna {
     height: 100%;
     width: 60%;
 }
 
-.div_editor .textos_editor {
+.textos_editor {
     height: 60%;
     width: 100%;
     display: flex;
@@ -627,7 +752,16 @@ body{
     align-items: center;
 }
 
-.div_editor .nome_user_editor {
+.textos_editor_senha {
+    height: 60%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.nome_user_editor {
     width: 100%;
     height: 15%;
     display: flex;
@@ -639,42 +773,37 @@ body{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-size: 1.1vh;
 }
 
-.div_editor .nome_user_editor input {
-    padding-left: 1vw;
-    color: var(--cor--preta);
-    font-size: 2.1vh;
-}
-
-.div_editor .nome_user_editor div {
+.nome_user_editor div {
     height: 100%;
     width: 80%;
     display: flex;
     align-items: center;
 }
 
-.div_editor .nome_user_editor .div_editor_icon_lapis {
+.nome_user_editor .div_editor_icon_lapis {
     width: 20%;
     display: flex;
     justify-content: right;
 }
 
-.div_editor .nome_user_editor .div_editor_icon_lapis img {
-    height: 40%;
+.nome_user_editor .div_editor_icon_lapis img {
+    height: 45%;
 }
 
-.div_editor .nome_user_editor h1 {
+.nome_user_editor h1 {
     padding-left: 1vw;
     padding-right: 1vw;
 }
 
-.div_editor .nome_user_editor span {
+.nome_user_editor span {
     font-size: 2vh;
     padding-left: 1vw;
 }
 
-.div_editor .nome_user_editor textarea {
+.nome_user_editor textarea {
     height: 50%;
     width: 100%;
     padding-left: 1vh;
@@ -684,9 +813,67 @@ body{
     padding-top: 1vh;
     font-family: 'Roboto', sans-serif;
     border-style: none;
+    font-size: 2.2vh;
 }
 
-.div_editor .biografia_editor {
+.nome_user_editor_senha {
+    width: 60%;
+    height: 15%;
+    display: flex;
+    align-items: center;
+    background-color: #E7E7E7;
+    border-top: 0.5vw var(--cor--roxo) solid;
+    border-bottom-right-radius: 0.5vw;
+    border-bottom-left-radius: 0.5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1vh;
+    margin-top: 3.5vh;
+}
+
+.nome_user_editor_senha div {
+    height: 100%;
+    width: 80%;
+    display: flex;
+    align-items: center;
+}
+
+.nome_user_editor_senha .div_editor_icon_lapis {
+    width: 20%;
+    display: flex;
+    justify-content: right;
+}
+
+.nome_user_editor_senha .div_editor_icon_lapis img {
+    height: 3.1vh;
+}
+
+.nome_user_editor_senha h1 {
+    padding-left: 1vw;
+    padding-right: 1vw;
+    width: 50%;
+}
+
+.nome_user_editor_senha span {
+    font-size: 2vh;
+    padding-left: 1vw;
+}
+
+.nome_user_editor_senha textarea {
+    height: 50%;
+    width: 100%;
+    padding-left: 1vh;
+    resize: none;
+    border-radius: 0.5vw;
+    padding-left: 1vh;
+    padding-top: 1vh;
+    font-family: 'Roboto', sans-serif;
+    border-style: none;
+    font-size: 2.2vh;
+}
+
+.biografia_editor {
     width: 100%;
     height: 50%;
     display: flex;
@@ -703,16 +890,16 @@ body{
     text-align: left;
 }
 
-.div_editor .biografia_editor h1 {
+.biografia_editor h1 {
     padding-left: 1vw;
     padding-right: 1vw;
 }
 
-.div_editor .biografia_editor span {
+.biografia_editor span {
     font-size: 2vh;
 }
 
-.div_editor .biografia_editor textarea {
+.biografia_editor textarea {
     height: 80%;
     width: 100%;
     resize: none;
@@ -722,6 +909,7 @@ body{
     font-family: 'Roboto', sans-serif;
     border-style: none;
     font-size: 1.7vh;
+    text-align: justify;
 }
 
 .div_editor .biografia_editor .div_biografia_icon_lapis {
@@ -733,7 +921,7 @@ body{
 }
 
 .div_editor .biografia_editor .div_biografia_icon_lapis img {
-    height: 43%;
+    height: 47%;
 }
 
 .biografia {
@@ -770,20 +958,27 @@ body{
 }
 
 .div_editor .imagem_perfil_editor .biografia_editor .biografia img {
-    width: 100%;
+    height: 100%;
 }
 
 .div_editor .imagem_perfil_editor .biografia_editor .div_image_icon_lapis {
-    height: 100%;
+    height: 85%;
     width: 20%;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    justify-content: center;
+    justify-content: space-evenly;
+}
+
+.div_image_icons {
+    height: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 .div_editor .imagem_perfil_editor .biografia_editor .div_image_icon_lapis img {
-    width: 23%;
+    height: 60%;
     padding-bottom: 2vh;
     padding-top: 2vh;
 }
@@ -804,11 +999,14 @@ body{
 }
 
 .editor_segunda_coluna .div_image_perfil {
-    height: 35vh;
-    width: 35vh;
+    height: 17.5vh;
+    width: 17.5vh;
     border-radius: 50%;
     overflow: hidden;
     background-color: var(--cor--preta);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .editor_segunda_coluna .div_image_perfil img {
@@ -816,10 +1014,11 @@ body{
 }
 
 .btn_segunda_coluna {
-    width: 50%;
-    height: 10%;
+    width: 30%;
+    height: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-evenly;
     align-items: center;
 }
 
@@ -836,6 +1035,17 @@ body{
     padding: 0;
 }
 
+input[type="file"] {
+    display: none;
+}
+
+.btn_segunda_coluna div label {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .editor_segunda_coluna button {
     width: 65%;
@@ -854,8 +1064,85 @@ body{
     background-color: var(--cor--amarela);
 }
 
-.modal{
+.segunda_coluna_editor {
+    height: 60%;
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
 
+.div_troca_img_perfil {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.div_trocar_senha {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.div_trocar_senha .div_trocar_senha_geral {
+    width: 100%;
+    height: 96%;
+    align-items: center;
+    background-color: #E7E7E7;
+    border-top: 0.5vw var(--cor--roxo) solid;
+    border-bottom-right-radius: 0.5vw;
+    border-bottom-left-radius: 0.5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 1.1vh;
+    overflow: hidden;
+}
+
+.div_input_senha {
+    width: 100%;
+    height: 32%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-bottom: 0.4vh var(--cor--roxo) solid;
+}
+
+.div_trocar_senha h1 {
+    padding-left: 1vw;
+    padding-right: 1vw;
+    width: 25%;
+}
+
+.div_trocar_senha textarea {
+    height: 50%;
+    width: 42%;
+    margin-right: 2.5vh;
+    resize: none;
+    border-radius: 0.5vw;
+    padding-left: 1vh;
+    padding-top: 1vh;
+    font-family: 'Roboto', sans-serif;
+    border-style: none;
+    font-size: 2.2vh;
+    color: black;
+}
+
+.div_trocar_senha img {
+    height: 3.5vh;
+}
+
+.numero_user_editor .nome_user_editor {
+    height: 95%;
+}
+
+.modal{
     height: 30vh;
     background-color:#7463C7;
 }

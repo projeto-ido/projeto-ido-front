@@ -4,7 +4,7 @@ import fotoPerfil from '../../assets/images/ido-utilizador.png'
 import { useNavigate } from 'react-router-dom';
 
 function Perfil() {
-    var nomeUsuario = sessionStorage.getItem("nomeLogado");
+    var nomeUsuario = sessionStorage.getItem("apelido");
     const navigate = useNavigate();
 
     function mudarPerfil() {
@@ -12,20 +12,16 @@ function Perfil() {
     }
 
     {
-        fotoPerfil = sessionStorage.getItem("imagemPerfil") == null ? sessionStorage.getItem("imagemPerfil") : fotoPerfil
+        fotoPerfil = sessionStorage.getItem("imagemPerfil") === 'null' ? fotoPerfil : "data:image/jpeg;base64," + sessionStorage.getItem("imagemPerfil")
     }
 
     return (
         <>
             <header>
-                <p className={style.nome_logado}>Bem vindo, {nomeUsuario}</p>
+                <p className={style.nome_logado}>Bem-vindo, {nomeUsuario}</p>
                 <div onClick={mudarPerfil}>
                     <img src={fotoPerfil} alt="Foto do Perfil" />
                 </div>
-
-                {/* <Link to="/perfil">
-                    <img className={style.foto_perfil} src={perfil} alt="foto do perfil do usuário" />
-                </Link> */}
             </header>
         </>
     );

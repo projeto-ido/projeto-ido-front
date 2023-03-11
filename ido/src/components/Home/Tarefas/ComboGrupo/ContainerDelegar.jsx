@@ -4,7 +4,7 @@ import apiTarefa from "../../../../api/apiTarefa";
 import TarefaGrupo from "./TarefaGrupo";
 import { useSessionStorageString } from "react-use-window-sessionstorage";
 
-export default function ContainerAgendar({ setOpenModalVerTarefa }) {
+export default function ContainerAgendar({ setOpenModalVerTarefa, tarefasAtualizadas, setTarefasAtualizadas }) {
     const [listaTarefas, setListaTarefas] = useState([]);
     const [sub1Storage, setSub1Storage] = useSessionStorageString("subTarefa1")
     const [sub2Storage, setSub2Storage] = useSessionStorageString("subTarefa2")
@@ -12,27 +12,29 @@ export default function ContainerAgendar({ setOpenModalVerTarefa }) {
 
     useEffect(() => {
         var idUsuario = sessionStorage.getItem("idLogado");
-        setSub1Storage("");       
-        setSub2Storage("");        
-        setSub3Storage("");        
-        
+        setSub1Storage("");
+        setSub2Storage("");
+        setSub3Storage("");
+        setListaTarefas([])
+
         apiTarefa.get(`/usuarios/${idUsuario}/tarefas`).then(res => {
-            console.log("dados", res.data);
-            console.log("status code", res.status);
-            setListaTarefas(res.data);
+            if(res.status === 200){
+                setListaTarefas(res.data);
+                setTarefasAtualizadas(true)
+            }
+            console.log(res.data)
             if (res.data === "") {
                 setListaTarefas([""])
             }
-
         }).catch(erro => {
             console.log(erro)
 
         })
 
-    }, [])
+    }, [tarefasAtualizadas])
 
     return (
-        <div id="grupoDelegar" className={style.grupo_delegar}>
+        <div id="grupoDelegar" className={style.div_grupo}>
             <div className={style.grupoTarefas}>
             {
                            listaTarefas.filter(tarefa => tarefa.importancia == false && tarefa.urgencia == true

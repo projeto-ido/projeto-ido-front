@@ -47,7 +47,12 @@
 .container_acoes_icons {
     display: flex;
     justify-content: space-between;
-    width: 5vw;
+    align-items: center;
+    width: 6vw;
+}
+
+.container_acoes_icons img {
+    height: 5vh;
 }
 
 .container_acoes h2 {
@@ -70,6 +75,7 @@
 }
 
 .acoes {
+    height: 3.5vh;
     cursor: pointer;
 }
 
@@ -84,7 +90,7 @@
     border-radius: 20px;
     width: 35vw;
     height: 65vh;
-    overflow-y: scroll;
+    overflow-y: auto;
     background-color: #E7E7E7;
 }
 
@@ -179,6 +185,7 @@
     outline: none;
     border: none;
     scroll-behavior: smooth;
+    font-size: 2.5vh;
 }
 
 .container_modal_etiqueta_botao {

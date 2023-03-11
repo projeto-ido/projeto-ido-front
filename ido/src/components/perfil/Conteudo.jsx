@@ -6,12 +6,12 @@ import Header from './Header';
 import Editor from './conteudo-components/Editor';
 import styles from "./Perfil.module.css"
 
-function Conteudo() {
+function Conteudo({setUsuarioAtualizado}) {
     const [estado, setEstado] = useState({atual: <Overview />});
     const [select, setSelect] = useState({
         overview: <div className={styles.selection} />,
-        conquista: '',
-        grafico: '',
+        // conquista: '',
+        // grafico: '',
         editor: ''
     });
 
@@ -20,18 +20,18 @@ function Conteudo() {
         setSelect({overview: <div className={styles.selection} />, conquista: '', grafico: '', editor: '' })
     }
     
-    const conquista = (e) => {
-        setEstado({atual: <Conquista />})
-        setSelect({overview: '', conquista: <div className={styles.selection} />, grafico: '', editor: '' })
-    }
+    // const conquista = (e) => {
+    //     setEstado({atual: <Conquista />})
+    //     setSelect({overview: '', conquista: <div className={styles.selection} />, grafico: '', editor: '' })
+    // }
 
-    const grafico = (e) => {
-        setEstado({atual: <Grafico />})
-        setSelect({overview: '', conquista: '', grafico: <div className={styles.selection} />, editor: '' })
-    }
+    // const grafico = (e) => {
+    //     setEstado({atual: <Grafico />})
+    //     setSelect({overview: '', conquista: '', grafico: <div className={styles.selection} />, editor: '' })
+    // }
 
     const editor = (e) => {
-        setEstado({atual: <Editor />})
+        setEstado({atual: <Editor setUsuarioAtualizado={setUsuarioAtualizado} />})
         setSelect({overview: '', conquista: '', grafico: '', editor: <div className={styles.selection} />})
     }
 
@@ -39,12 +39,12 @@ function Conteudo() {
         <>
             <Header 
                 overviews={(e) => overview(e)}
-                conquistas={(e) => conquista(e)}
-                graficos={(e) => grafico(e)}
+                // conquistas={(e) => conquista(e)}
+                // graficos={(e) => grafico(e)}
                 editores={(e) => editor(e)}
                 selectOv={select.overview}
-                selectCt={select.conquista}
-                selectGf={select.grafico}
+                // selectCt={select.conquista}
+                // selectGf={select.grafico}
                 selectEt={select.editor}
             />
 

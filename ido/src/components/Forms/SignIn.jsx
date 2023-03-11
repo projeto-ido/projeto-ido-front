@@ -13,7 +13,6 @@ export const SignIn = () => {
     const [nomeUsuarioStorage, setNomeUsuarioStorage] = useSessionStorageString("nomeLogado",  "");    
     
     function adicionarNaSessioStorage(data){
-        
         console.log("Usuario logado " + idUsuarioStorage);
         console.log("Nome logado " + nomeUsuarioStorage);
         sessionStorage.setItem("id", data.idUsuario);
@@ -21,11 +20,12 @@ export const SignIn = () => {
         sessionStorage.setItem("apelido", data.apelido);
         sessionStorage.setItem("email", data.email);
         sessionStorage.setItem("biografia", data.biografia);
-        sessionStorage.setItem("imagemBiografica", data.imagemBiografica);
+        sessionStorage.setItem("imagemBiografia", data.imagemBiografia);
         sessionStorage.setItem("imagemPerfil", data.imagemPerfil);
         sessionStorage.setItem("nascimento", data.nascimento);
         sessionStorage.setItem("nivel", data.nivel);
-
+        sessionStorage.setItem("telefone", data.telefone);
+        sessionStorage.setItem("name", "Normal");
         setTimeout(mudarParaHome,3000)
     }
 
@@ -41,97 +41,87 @@ export const SignIn = () => {
             senha: event.target.senha.value
         }
 
-        api.post("/usuarios/login", data)
-            .then(resposta => {
-                if(resposta.status === 200){                    
-                    setIdUsuarioStorage(resposta.data.idUsuario);
-                    setNomeUsuarioStorage(resposta.data.apelido);
-                    toast.info('Carregando...', {
-                        position: "top-center",
-                        autoClose: 1600,
-                        hideProgressBar: false,
-                        closeOnClick: false,
-                        pauseOnHover: false,
-                        draggable: false,
-                        progress: undefined,
-                        theme: "light",
-                    });
-                    setTimeout(adicionarNaSessioStorage(resposta.data), 3000);
-                }
-            }).catch(erro => {
-                console.log(erro);
-                if(erro.response.status === 401){
-                    toast.error("Email e / ou senha inválida", {
-                        position: "top-center",
-                        autoClose: 1600,
-                        hideProgressBar: false,
-                        closeOnClick: false,
-                        pauseOnHover: false,
-                        draggable: false,
-                        progress: undefined,
-                        theme: "light",
-                    });
-                }
-            })
-
+        api.post("/usuarios/login", data).then(resposta => {
+            if(resposta.status === 200){                    
+                setIdUsuarioStorage(resposta.data.idUsuario);
+                setNomeUsuarioStorage(resposta.data.apelido);
+                toast.info('Carregando...', {
+                    position: "top-center",
+                    autoClose: 1600,
+                    hideProgressBar: false,
+                    closeOnClick: false,
+                    pauseOnHover: false,
+                    draggable: false,
+                    progress: undefined,
+                    theme: "light",
+                });
+                setTimeout(adicionarNaSessioStorage(resposta.data), 3000);
+            }
+        }).catch(erro => {
+            console.log(erro);
+            if(erro.response.status === 401){
+                toast.error("Email e / ou senha inválida", {
+                    position: "top-center",
+                    autoClose: 1600,
+                    hideProgressBar: false,
+                    closeOnClick: false,
+                    pauseOnHover: false,
+                    draggable: false,
+                    progress: undefined,
+                    theme: "light",
+                });
+            }
+        })
     }
-
 
     return (
         <>
             <ToastContainer />
             <div className={style.titulo}>
-                <h1>Seja Bem Vindo!</h1>
+                <h1>Bem Vindo de Volta!</h1>
             </div>
 
             <form onSubmit={logar}>
-
                 <div className={style.campos}>
-
                     <div className={style.campos__container}>
                         <div className={style.campo__signin}>
                             <div className={style.form__container}>
-
                                 <div className={style.label}>
                                     <label for="">Email</label>
                                 </div>
-
                                 <div className={style.input}>
                                     <input
                                         pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                                         name='email'
                                         placeholder="Coloque seu email..."
                                         type="email"
-                                        required/>
+                                        required
+                                    />
                                 </div>
                             </div>
                         </div>
 
                         <div className={style.campo__signin}>
                             <div className={style.form__container}>
-
                                 <div className={style.label}>
                                     <label for="">Senha</label>
                                 </div>
-
                                 <div className={style.input}>
                                     <input
                                         name='senha'
                                         placeholder="Coloque seu senha..."
                                         type="password"
-                                        required/>
+                                        required
+                                    />
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
                 <div className={style.botao__login}>
                     <button type='submit'>Logar</button>
                 </div>
-
             </form>
-
             <div className={style.footer}>
                 <div className={style.img__icon}>
                     <img src={logo} alt="" />

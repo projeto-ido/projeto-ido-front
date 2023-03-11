@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from '../../assets/images/logo.png';
+
 import iconHome from '../../assets/images/icon-home.png';
+import iconHomeAzul from '../../assets/images/icon-home-destaque.png';
+import iconHomeTrita from "../../assets/images/icon-home-tritanopia.png";
+
 import iconEtiqueta from '../../assets/images/icon-etiqueta.png';
+import iconEtiquetaAzul from '../../assets/images/icon-etiqueta-destaque.png';
+import iconEtiquetaTrita from '../../assets/images/icon-etiqueta-tritanopia.png';
+
+import iconAcessibilidade from '../../assets/images/icon-acessibilidade.png';
+import iconAcessibilidadeAzul from '../../assets/images/icon-acessibilidade-destaque.png';
+import iconAcessibilidadeTrita from '../../assets/images/icon-acessibilidade-tritanopia.png';
+
 import iconSair from '../../assets/images/icon-sair.png';
-import iconHomeDestaque from '../../assets/images/icon-home-destaque.png';
-import iconEtiquetaDestaque from '../../assets/images/icon-etiqueta-destaque.png'
-import iconAcessibilidade from '../../assets/images/icon-acessibilidade.png'
-import iconAcessibilidadeDestaque from '../../assets/images/icon-acessibilidade-destaque.png'
 import { useNavigate } from "react-router-dom";
 import style from './Home.module.css';
 
@@ -22,18 +29,49 @@ function MenuLateral({
 
     function sair(){
         sessionStorage.clear()
+        document.body.style.setProperty('--cor--azul', '#5D84C2');
+        document.body.style.setProperty('--cor--verde', '#51BDAB');
+        document.body.style.setProperty('--cor--roxo', '#7463C7');
+        document.body.style.setProperty('--cor--amarela', '#FFCA6D');
         navigate("/")
     }
 
-    const iconeGerenciadorEtiqueta = openGerenciadorEtiquetas ? iconEtiquetaDestaque : iconEtiqueta
+    function trocarIconHome(sessao) {
+        if (sessao === "Tritanopia") {
+            return iconHomeTrita
+        } 
+        else {
+            return iconHomeAzul
+        }
+    }
+
+    function trocarIconEtiqueta(sessao) {
+        if (sessao === "Tritanopia") {
+            return iconEtiquetaTrita
+        } 
+        else {
+            return iconEtiquetaAzul
+        }
+    }
+
+    function trocarIconAcessibilidade(sessao) {
+        if (sessao === "Tritanopia") {
+            return iconAcessibilidadeTrita
+        } 
+        else {
+            return iconAcessibilidadeAzul
+        }
+    }
+
+    const iconeGerenciadorEtiqueta = openGerenciadorEtiquetas ? trocarIconEtiqueta(sessionStorage.getItem("name")) : iconEtiqueta
     const descricaoEtiqueta = openGerenciadorEtiquetas ? style.paragrafo_destaque : style.paragrafo
     const menuLateralEtiqueta = openGerenciadorEtiquetas ? style.sessao_lateral_destaque : style.sessao_lateral
     
-    const iconeHome = openHome ? iconHomeDestaque : iconHome
+    const iconeHome = openHome ? trocarIconHome(sessionStorage.getItem("name")) : iconHome
     const descricaoHome = openHome ? style.paragrafo_destaque : style.paragrafo
     const menuLateralHome = openHome ? style.sessao_lateral_destaque : style.sessao_lateral
 
-    const iconeAcessibilidade = openAcessibilidade ? iconAcessibilidadeDestaque : iconAcessibilidade
+    const iconeAcessibilidade = openAcessibilidade ? trocarIconAcessibilidade(sessionStorage.getItem("name")) : iconAcessibilidade
     const descricaoAcessibilidade = openAcessibilidade ? style.paragrafo_destaque : style.paragrafo
     const menuLateralAcessibilidade = openAcessibilidade ? style.sessao_lateral_destaque : style.sessao_lateral
 

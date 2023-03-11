@@ -8,7 +8,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import iconDesfazer from "../../../assets/images/icon-desfazer.png"
 
-function GerenciadorEtiquetas() {
+function GerenciadorEtiquetas({setTarefasAtualizadas}) {
   const [openModalEtiqueta, setOpenModalEtiqueta] = useState(false);
   const [textoInput, setTextoInput] = useState("");
   const [corEtiqueta, setCorEtiqueta] = useState("#51BDAB");
@@ -36,10 +36,12 @@ function GerenciadorEtiquetas() {
         if(res.status === 204){
           setListaEtiquetas([])
           setEtiquetasAtualizadas(true)
+          setTarefasAtualizadas(false)
         } else if(res.status === 200) {
           console.log(res.data)
           setListaEtiquetas(res.data);
           setEtiquetasAtualizadas(true)
+          setTarefasAtualizadas(false)
         }
     }).catch((erro) => {
       console.log(erro)
@@ -104,6 +106,7 @@ function GerenciadorEtiquetas() {
 
         toastSucesso(`Etiqueta deletada`)
         setClickDesabilitado(false)
+        setTarefasAtualizadas(false)
       })
       .catch((erro) => {
         console.log(erro);
@@ -147,7 +150,7 @@ function GerenciadorEtiquetas() {
           }
   
           salvarAcao(acoes)
-          
+          setTarefasAtualizadas(false)
         })
         .catch((erro) => {
           console.log(erro)
@@ -187,7 +190,7 @@ function GerenciadorEtiquetas() {
           }
   
           salvarAcao(acoes)
-
+          setTarefasAtualizadas(false)
         })
         .catch((erro) => {
           console.log(erro)
@@ -226,6 +229,7 @@ function GerenciadorEtiquetas() {
           setQtdAcoes(qtdAcoes - 1)
           verificarQtdAcoes()
           toastSucesso("Ação desfeita!")
+          setTarefasAtualizadas(false)
         }
     }).catch((erro) => {
       if(erro.response.status === 422){

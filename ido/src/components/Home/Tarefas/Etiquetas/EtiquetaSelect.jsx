@@ -10,7 +10,6 @@ export default function EtiquetaSelect(){
 
     useEffect(() => {
         var idUsuario = sessionStorage.getItem("idLogado");
-
         api.get(`/usuarios/${idUsuario}/etiquetas`).then(res => {
             console.log("dados ", res.data.length);
             setListaEtiquetas(res.data);
@@ -21,20 +20,15 @@ export default function EtiquetaSelect(){
             if(JSON.parse(sessionStorage.getItem("etiqueta1")).idEtiqueta !== undefined){
                 setEtiqueta1(JSON.parse(sessionStorage.getItem("etiqueta1")).idEtiqueta)
             }
-            
-            
         }).catch(erro => {
             console.log(erro)
-
         })
-
     }, [])
 
     return (
-        <select value={etiqueta1} onChange={(e) =>
-            setEtiqueta1(e.target.value)} className={style.select_etiquetas}
-            name="" id="">
-            <option value=""></option>
+        <select value={etiqueta1} onChange={(e) => setEtiqueta1(e.target.value)} 
+            className={style.select_etiquetas}>
+            <option value="">Selecione</option>
             {listaEtiquetas.map((item) => (
                 <option value={item.idEtiqueta}>{item.titulo}</option>
             ))}

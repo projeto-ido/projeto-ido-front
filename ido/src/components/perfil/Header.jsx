@@ -14,19 +14,12 @@ function Header(props) {
                             <div className={styles.div_selection}>{props.selectOv}</div>
                         </div>
 
-                        <div>
-                            <div className={styles.text}>
-                                <span onClick={props.conquistas}>Conquistas</span>
-                            </div>
-                            <div className={styles.div_selection}>{props.selectCt}</div>
-                        </div>
-
-                        <div>
+                        {/* <div>
                             <div className={styles.text}>
                                 <span onClick={props.graficos}>Gráficos</span>
                             </div>
                             <div className={styles.div_selection}>{props.selectGf}</div>
-                        </div>
+                        </div> */}
 
                         <div>
                             <div className={styles.text}>
@@ -34,6 +27,13 @@ function Header(props) {
                             </div>
                             <div className={styles.div_selection}>{props.selectEt}</div>
                         </div>
+                        
+                        {/* <div className={styles.em_breve}>
+                            <div className={styles.text}>
+                                <span onClick={props.conquistas}>Conquistas</span>
+                            </div>
+                            <div className={styles.div_selection}>{props.selectCt}</div>
+                        </div> */}
                     </div>
                 </div>
             </div>

@@ -27,7 +27,7 @@ export const SignUp = () => {
     console.log(inputs.nascimento.value);
 
     if (inputs.confirmarSenha.value !== inputs.senha.value) {
-      erro("Confirmação de senha invalida");
+      erro("Senhas estão diferentes");
     } else {
       cadastrar(inputs);
     }
@@ -61,9 +61,7 @@ export const SignUp = () => {
   }
 
   const cadastrar = (inputs) => {
-
     console.log(inputs);
-
     const data = {
       nome: inputs.nome.value,
       apelido: inputs.apelido.value,
@@ -72,7 +70,6 @@ export const SignUp = () => {
       telefone: inputs.telefone.value,
       senha: inputs.senha.value
     }
-
     api.post("/usuarios", data)
       .then(resposta => {
         if (resposta.status === 201) {
@@ -90,24 +87,17 @@ export const SignUp = () => {
 
   return (
     <>
-
       <ToastContainer />
-
       <div className={style.titulo}>
-        <h1>Bem Vindo de Volta!</h1>
+        <h1>Seja Bem Vindo!</h1>
       </div>
-
       <form onSubmit={verificarSenha}>
-
         <div className={style.campos__cadastro}>
-
           <div className={[style.campo__signup]}>
             <div className={style.form__container}>
-
               <div className={style.label}>
                 <label for="">Nome</label>
               </div>
-
               <div className={style.input}>
                 <input 
                   name='nome'
@@ -119,14 +109,11 @@ export const SignUp = () => {
               </div>
             </div>
           </div>
-
           <div className={[style.campo__signup]}>
             <div className={[style.form__container]}>
-
               <div className={style.label}>
                 <label for="">Username</label>
               </div>
-
               <div className={style.input}>
                 <input
                   name='apelido'
@@ -137,17 +124,14 @@ export const SignUp = () => {
               </div>
             </div>
           </div>
-
           <div className={[style.campo__signup]}>
             <div className={style.form__container}>
-
               <div className={style.label}>
                 <label for="">Email</label>
               </div>
-
               <div className={style.input}>
                 <input
-                  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                  pattern="[a-z0-9._]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                   name='email'
                   placeholder="Coloque seu email..."
                   type="email"
@@ -155,66 +139,57 @@ export const SignUp = () => {
               </div>
             </div>
           </div>
-
           <div className={[style.campo__signup]}>
             <div className={style.form__container}>
-
               <div className={style.label}>
                 <label for="">Telefone</label>
               </div>
-
               <div className={style.input}>
                 <input
                   name='telefone'
                   placeholder="11950334249"
+                  minLength="10"
+                  maxLength="11"
                   type="cell"
                   required />
               </div>
             </div>
           </div>
-
           <div className={[style.campo__signup]}>
             <div className={style.form__container}>
-
               <div className={style.label}>
                 <label for="">Data de Nascimento</label>
               </div>
-
               <div className={style.input}>
                 <input
                   name='nascimento'
                   placeholder="Coloque sua data de nas..."
                   type="date"
-                  max={dataMaxima}
+                  max="2022-11-24"
                   required />
               </div>
             </div>
           </div>
-
           <div className={style.campo__signup}>
             <div className={style.form__container}>
-
               <div className={style.label}>
                 <label for="">Senha</label>
               </div>
-
               <div className={style.input}>
                 <input
                   name="senha"
                   placeholder="Coloque seu senha..."
+                  minLength="8"
                   type="password"
                   required />
               </div>
             </div>
           </div>
-
           <div className={style.campo__signup}>
             <div className={style.form__container}>
-
               <div className={style.label}>
                 <label for="">Confirmar Senha</label>
               </div>
-
               <div className={style.input}>
                 <input
                   name='confirmarSenha'
@@ -225,21 +200,15 @@ export const SignUp = () => {
             </div>
           </div>
         </div>
-
         <div className={style.botao}>
             <button type='submit'>Cadastrar-se</button>
         </div>
-
       </form>
-
-
-
         <div className={style.footer}>
           <div className={style.img__icon}>
             <img src={logo} alt="" />
           </div>
       </div>
-
     </>
   );
 }

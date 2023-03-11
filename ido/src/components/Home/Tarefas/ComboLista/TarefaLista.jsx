@@ -127,13 +127,15 @@ export default function TarefaLista(props) {
     }
 
     function plotarEtiquetaVisaoGeral() {
-        if (props.etiquetasTarefa[0] !== undefined) {
-            etiquetas.push(props.etiquetasTarefa[0])
+        if(props.etiquetasTarefa !== undefined){
+            if(props.etiquetasTarefa[0] !== undefined){
+                etiquetas.push(props.etiquetasTarefa[0])
+            } 
+            if(props.etiquetasTarefa[1] !== undefined){
+                etiquetas.push(props.etiquetasTarefa[1])
+            } 
+            forPlotar = false;
         }
-        if (props.etiquetasTarefa[1] !== undefined) {
-            etiquetas.push(props.etiquetasTarefa[1])
-        }
-        forPlotar = false;
     }
 
     return (
@@ -141,9 +143,9 @@ export default function TarefaLista(props) {
             <div onClick={plotarTarefa}>
                 <div onClick={() => props.setOpenModalVerTarefa(true)} className={style.tarefa_combo_lista}>
                     <span className={style.tarefa}>{titulo}</span>
-                    <div className={style.container_etiquetas}>
+                    <div className={style.container_etiquetas_lista}>
                         {etiquetas.map((item) => (
-                            <div className={style.etiqueta_lista} style={{ backgroundColor: item.cor }} >{item.titulo}</div>
+                            <div className={style.etiqueta} style={{ backgroundColor: item.cor }} >{item.titulo}</div>
                         ))}
                     </div>
 

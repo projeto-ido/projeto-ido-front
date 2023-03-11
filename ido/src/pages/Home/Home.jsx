@@ -5,12 +5,16 @@ import GerenciadorEtiquetas from "../../components/Home/GerenciadorEtiquetas/Ger
 import Acessibilidade from "../../components/Home/Acessibilidade/Acessibilidade";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import "./Home.toast.css";
 import style from '../../components/Home/Home.module.css';
 import acessibilidade from "../../scripts/acessibilidade";
 import apiGerenciadorEtiquetas from "../../api/apiService"
+import Cronometro from "../../components/Pomodoro/Cronometro";
 
 function Home(params) {
     acessibilidade();
+
+    const [tarefasAtualizadas, setTarefasAtualizadas] = useState(true)
 
     function notificarSucesso() {
         toast.success("Cores alteradas!", {
@@ -32,9 +36,9 @@ function Home(params) {
     const [openHome, setOpenHome] = useState(true);
     const [openAcessibilidade, setOpenAcessibilidade] = useState(false);
     const [pomodoroAtivo, setPomodoroAtivo] = useState(false);
-    const idUsuario = sessionStorage.getItem("idLogado")
-
+    
     function limparAcoes(){
+        const idUsuario = sessionStorage.getItem("idLogado")
         apiGerenciadorEtiquetas.delete(`/usuarios/${idUsuario}/etiquetas/acoes`)
         .then((res) => {
             console.log("Ações limpas")
@@ -57,7 +61,7 @@ function Home(params) {
                     setOpenAcessibilidade={setOpenAcessibilidade}
                 />
                 {
-                    openGerenciadorEtiquetas ? <GerenciadorEtiquetas /> : limparAcoes()
+                    openGerenciadorEtiquetas ? <GerenciadorEtiquetas setTarefasAtualizadas={setTarefasAtualizadas} /> : limparAcoes()
                 }
                 {
                     openAcessibilidade ? <Acessibilidade
@@ -66,7 +70,9 @@ function Home(params) {
                         funcaoNotificar={notificarSucesso} /> : null
                 }
                 {
-                    pomodoroAtivo ? <div className={style.fundo_escuro}></div> : null
+                    pomodoroAtivo ? <div className={style.fundo_escuro} onClick={() => setPomodoroAtivo(false)} >
+                        <Cronometro></Cronometro>
+                    </div> : null
                 }
                 {(openModal || openModalVerTarefa) &&
                     <div onClick={() => setOpenModalVerTarefa(false)}>
@@ -82,12 +88,13 @@ function Home(params) {
                         setTipoTarefa={setTipoTarefa}
                         openGerenciadorEtiquetas={openGerenciadorEtiquetas}
                         setPomodoroAtivo={setPomodoroAtivo}
-                        />
+                        tarefasAtualizadas={tarefasAtualizadas}
+                        setTarefasAtualizadas={setTarefasAtualizadas}
+                    />
                 </div>
             </main>
         </>
     );
-
 }
 
 export default Home;
