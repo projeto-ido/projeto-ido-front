@@ -3,7 +3,7 @@ import { useSessionStorageString } from "react-use-window-sessionstorage";
 
 
 const apiTarefa = axios.create({
-  baseURL: "http://35.171.74.239:8080"
+  baseURL: "http://52.55.4.196:8080"
 })
 
 
